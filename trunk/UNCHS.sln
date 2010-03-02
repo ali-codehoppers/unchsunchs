@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Web Developer Express 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UNCHS", "UNCHS\", "{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		Debug.AspNetCompiler.VirtualPath = "/UNCHS"
+		Debug.AspNetCompiler.PhysicalPath = "D:\Projects\newProjects\Project\UNCHS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UNCHS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/UNCHS"
+		Release.AspNetCompiler.PhysicalPath = "D:\Projects\newProjects\Project\UNCHS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\UNCHS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3835"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|.NET.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

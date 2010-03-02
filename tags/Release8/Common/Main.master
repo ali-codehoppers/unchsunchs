@@ -1,0 +1,202 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Common/StyleSheets/layout.css" />
+		<title>UNCHS</title>
+
+		 <!--YUI -->
+		<!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
+		<link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/fonts/fonts-min.css" />
+	    <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/menu/assets/skins/sam/menu.css" />    
+		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/container/container_core.js"></script>
+		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/menu/menu.js"></script>
+        <!--YUI END-->
+	 
+		<style type="text/css">
+			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;background-color:#646874; width:100%;height:100%}		
+		</style>
+		<script type="text/javascript">
+
+			/*
+				 Initialize and render the MenuBar when its elements are ready 
+				 to be scripted.
+			*/
+
+			YAHOO.util.Event.onContentReady("productsandservices", function () {
+
+				/*
+					Instantiate a MenuBar:  The first argument passed to the constructor
+					is the id for the Menu element to be created, the second is an 
+					object literal of configuration properties.
+				*/
+
+				var oMenuBar = new YAHOO.widget.MenuBar("productsandservices", { 
+															autosubmenudisplay: true, 
+															hidedelay: 750, 
+															lazyload: true });
+
+				/*
+					 Call the "render" method with no arguments since the 
+					 markup for this MenuBar instance is already exists in 
+					 the page.
+				*/
+
+				oMenuBar.render();
+
+			});
+
+			YAHOO.util.Event.onContentReady("logoutMenu", function () {
+
+				/*
+					Instantiate a MenuBar:  The first argument passed to the constructor
+					is the id for the Menu element to be created, the second is an 
+					object literal of configuration properties.
+				*/
+
+				var oMenuBar = new YAHOO.widget.MenuBar("logoutMenu", { 
+															autosubmenudisplay: true, 
+															hidedelay: 750, 
+															lazyload: true });
+
+				/*
+					 Call the "render" method with no arguments since the 
+					 markup for this MenuBar instance is already exists in 
+					 the page.
+				*/
+
+				oMenuBar.render();
+
+			});
+
+
+		</script>
+		<asp:contentplaceholder id="HeadContentPlaceHolder" runat="server"></asp:contentplaceholder>
+	</head>
+	<body class="yui-skin-sam" id="yahoo-com" style="width:100%;height:100%;">
+	    <form id="form1" runat="server">
+		<div id="center">
+		   <div>
+		   <div id="productsandservices" class="yuimenubar yuimenubarnav" style="float:left;width:924px;">
+				<div class="bd">
+					<ul class="first-of-type">
+						<li class="yuimenubaritem first-of-type"><asp:HyperLink ID="HyperLink11" NavigateUrl="~/Home.aspx" runat="server" CssClass="yuimenuitemlabel">Home</asp:HyperLink>
+                        </li>
+						<li class="yuimenubaritem first-of-type"><a class="yuimenubaritemlabel" href="#">H&amp;S Folder</a>
+							<div id="orders" class="yuimenu">
+								<div class="bd">
+									<ul>
+										<li class="yuimenuitem"><asp:HyperLink ID="HyperLink1" NavigateUrl="~/Orders/AddOrder.aspx" runat="server" CssClass="yuimenuitemlabel">Add a New Folder</asp:HyperLink></li>
+										<li class="yuimenuitem"><asp:HyperLink ID="HyperLink2" NavigateUrl="~/Orders/SearchOrder.aspx" runat="server" CssClass="yuimenuitemlabel">Search a Folder</asp:HyperLink></li>
+									</ul>
+								</div>
+							</div>						
+                        </li>
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Maintenance</a>
+
+							<div id="maintenance" class="yuimenu">
+								<div class="bd">                                        
+									<ul>
+                                        <li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Departments</a>										
+											<div id="departments" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">
+														<li class="yuimenuitem"><asp:HyperLink ID="HyperLink4" NavigateUrl="~/Maintenance/AddDepartment.aspx" runat="server" CssClass="yuimenuitemlabel">Add a Department</asp:HyperLink></li>
+														<li class="yuimenuitem"><asp:HyperLink ID="HyperLink5" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentList.aspx">Deparment List</asp:HyperLink></li>
+													</ul>            
+												</div>
+											</div>										
+										</li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Safety Method Statement Default</a>										
+											<div id="Div1" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">													    
+    									                <li class="yuimenuitem"><asp:HyperLink ID="HyperLink6" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentPersonList.aspx">Default Department Person List</asp:HyperLink></li>
+    									                <li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">PPE</a>
+    									                    <div id="Div4" class="yuimenu">
+    									                        <div class="bd">
+    									                        <ul class="first-of-type">
+    									                            <li class="yuimenuitem"><asp:HyperLink ID="HyperLink14" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentPPECategoryList.aspx">Department PPE Category List</asp:HyperLink></li>
+    									                            <li class="yuimenuitem"><asp:HyperLink ID="HyperLink7" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentPPEList.aspx">Default Department PPE List</asp:HyperLink></li>
+    									                        </ul>
+    									                        </div>
+    									                    </div>
+    									                </li>
+    									                <li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Key Hazards</a>
+    									                    <div id="Div3" class="yuimenu">
+    									                        <div class="bd">
+    									                        <ul class="first-of-type">
+    									                            <li class="yuimenuitem"><asp:HyperLink ID="HyperLink13" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentHazardCategoryList.aspx">Department Key Hazard Category List</asp:HyperLink></li>
+    									                            <li class="yuimenuitem"><asp:HyperLink ID="HyperLink8" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentHazardList.aspx">Default Department Key Hazard List</asp:HyperLink></li>
+    									                        </ul>
+    									                        </div>
+    									                    </div>
+    									                </li>
+    									                <li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Tools</a>
+                                                            <div id="Div2" class="yuimenu">
+												            <div class="bd">
+												                <ul class="first-of-type">
+												                    <li class="yuimenuitem"><asp:HyperLink ID="HyperLink12" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentToolCategoryList.aspx">Department Tool Category List</asp:HyperLink></li>
+    									                            <li class="yuimenuitem"><asp:HyperLink ID="HyperLink9" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DepartmentToolList.aspx">Default Department Tool List</asp:HyperLink></li>
+    									                        </ul>
+    									                    </div>
+    									                    </div>
+    									                </li>
+    									            </ul>
+    									        </div>
+    									    </div> 
+    									</li>
+    									<li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Risk Assessments</a>										
+											<div id="Div5" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">
+														<li class="yuimenuitem"><asp:HyperLink ID="HyperLink15" NavigateUrl="~/Maintenance/DocumentCategoryList.aspx" runat="server" CssClass="yuimenuitemlabel">Risk Assessments Category List</asp:HyperLink></li>
+														<li class="yuimenuitem"><asp:HyperLink ID="HyperLink16" runat="server" CssClass="yuimenuitemlabel" NavigateUrl="~/Maintenance/DocumentList.aspx">Risk Assessments List</asp:HyperLink></li>
+													</ul>            
+												</div>
+											</div>										
+										</li>
+                                        <li class="yuimenuitem"><asp:HyperLink ID="HyperLink17" NavigateUrl="~/Maintenance/PeopleTypeList.aspx" runat="server" CssClass="yuimenuitemlabel">People Type List</asp:HyperLink></li>
+                                        <li class="yuimenuitem"><asp:HyperLink ID="HyperLink18" NavigateUrl="~/Maintenance/DocumentTypeList.aspx" runat="server" CssClass="yuimenuitemlabel">Document Type List</asp:HyperLink></li>
+									</ul>   
+								</div>
+							</div>            
+						</li>           
+						<li class="yuimenubaritem first-of-type"><asp:HyperLink ID="HyperLink3" NavigateUrl="~/Orders/AddOrder.aspx" runat="server" CssClass="yuimenuitemlabel">Add a New Folder</asp:HyperLink>
+                        </li>
+                        <li class="yuimenubaritem first-of-type"><asp:HyperLink ID="HyperLink10" NavigateUrl="~/Orders/SearchOrder.aspx" runat="server" CssClass="yuimenuitemlabel">Search a Folder</asp:HyperLink>
+                        </li>             
+					</ul>            
+					
+				</div>				
+			</div>
+		   <div id="logoutMenu" class="yuimenubar yuimenubarnav" style="float:left;width:71px;text-align:right;">
+                <div class="bd">
+					<ul class="first-of-type">
+						<li class="yuimenubaritem first-of-type" style="width:100%;"><asp:LinkButton ID="lbLogout" runat="server" OnClick="lbLogout_Click">Logout</asp:LinkButton></li>
+					</ul>
+                    
+				</div>
+		   </div>
+		   </div>
+			<div id="main">
+				<div id="content">
+				    <h1><asp:contentplaceholder id="HeadingPlaceHolder" runat="server"></asp:contentplaceholder></h1>
+				    <div class="error"><asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label></div>
+                    <div class="info"><asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>    
+				    
+				        <asp:contentplaceholder id="ContentPlaceHolder" runat="server"></asp:contentplaceholder>
+				    
+				</div>				
+				<div class="cleaner"> &nbsp;</div>               
+			</div>
+		
+		</div>
+		<div id="footer">ULTRA NOVA CODING LTD.</div>	
+	</form>
+	</body>
+</html>
