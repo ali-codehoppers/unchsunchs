@@ -2,14 +2,14 @@
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <!-- Dependency --> 
-    <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/yahoo/yahoo-min.js" ></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo/yahoo-min.js")%>" ></script>
 
 <!-- Event source file -->
-    <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/event/event-min.js" ></script>
-    <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/button/assets/skins/sam/button.css" />
-    <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/container/assets/skins/sam/container.css" />
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/event/event-min.js")%>"></script>
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>"/>
 
-    <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/container/container-min.js"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 
     <style type="text/css">
         .text_field span{width:200px;height:100%;display:inline-block;}    
