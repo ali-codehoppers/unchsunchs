@@ -7,24 +7,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Common/StyleSheets/layout.css" />
+		<link rel="stylesheet" type="text/css" href='<%=this.ResolveClientUrl("~/Common/StyleSheets/layout.css")%>' />
 		<title>Simplicity Health & Safety Live</title>
 
 		 <!--YUI -->
 		<!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
-		<link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/fonts/fonts-min.css" />
-	    <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/menu/assets/skins/sam/menu.css" />    
-        <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/button/assets/skins/sam/button.css" />
-        <link rel="stylesheet" type="text/css" href="<%=Request.ApplicationPath%>/Includes/yui/build/container/assets/skins/sam/container.css" />
+		<link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
+	    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/assets/skins/sam/menu.css")%>" />    
+        <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
+        <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
 	    
-		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/container/container_core.js"></script>
-		<script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/menu/menu.js"></script>
-        <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/yahoo/yahoo-min.js" ></script>
-        <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/event/event-min.js" ></script>
-        <script type="text/javascript" src="<%=Request.ApplicationPath%>/Includes/yui/build/container/container-min.js"></script>
+		<script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js")%>"></script>
+		<script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container_core.js")%>"></script>
+		<script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/menu.js")%>"></script>
+        <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo/yahoo-min.js")%>" ></script>
+        <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/event/event-min.js")%>" ></script>
+        <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 		
-		<script type="text/javascript" src="../Includes/unchs/nifty.js"></script> 
+		<script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/unchs/nifty.js")%>"></script> 
         <!--YUI END-->
 	 
 		<style type="text/css">
