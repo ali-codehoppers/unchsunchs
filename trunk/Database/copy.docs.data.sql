@@ -12,18 +12,17 @@ DECLARE @targetDeptId int;
 SET @sourceCoId = 1;
 SET @sourceDeptId = 1;
 SET @sourceDocTypeId = 1;
-SET @targetCoId = 1;
-SET @targetDeptId = 2;
+SET @targetCoId = 21;
+SET @targetDeptId = 23;
 
 
 
 --Document Types are wrt Co,Dept therefore first we need to copy them. to the target.
-INSERT INTO un_co_dept_doc_type (doc_data_type_desc,flg_delete,co_id,dept_id,sort_order,field_type,generator_class,[required],style,flg_landscape)
-SELECT doc_data_type_desc,flg_delete,@targetCoId,@targetDeptId,sort_order,field_type,generator_class,[required],style,flg_landscape
+/*INSERT INTO un_co_dept_doc_type (doc_data_type_desc,flg_delete,co_id,dept_id,sort_order,field_type,generator_class,[required],style,flg_landscape,num_of_sections,flg_checked,category)
+SELECT doc_data_type_desc,flg_delete,@targetCoId,@targetDeptId,sort_order,field_type,generator_class,[required],style,flg_landscape,num_of_sections,flg_checked,category
 FROM un_co_dept_doc_type
 WHERE co_id = @sourceCoId 
-AND dept_id = @sourceDeptId
-AND doc_ty
+AND dept_id = @sourceDeptId;*/
 
 
 --The documents can be categorized. We need to copy the categories from source to target also. 
@@ -35,12 +34,35 @@ AND dept_id = @sourceDeptId
 AND category_type = 'D';
 
 -- Inset the document sections, these are generic sections based on co and dept. 
-insert into un_co_dept_template_sections(flg_delete,co_id,dept_id,section_index,section_desc)
-select flg_delete,@targetCoId,@targetDeptId,section_index,section_desc
+insert into un_co_dept_template_sections(flg_delete,co_id,dept_id,section_index,section_desc,section_type,doc_type_id,repeat_columns)
+select un_co_dept_template_sections.flg_delete,@targetCoId,@targetDeptId,section_index,section_desc,section_type,docTypes.doc_data_type_id,repeat_columns
 from un_co_dept_template_sections
-where co_id = @sourceCoId
-and dept_id = @sourceDeptId;
+inner join un_co_dept_doc_type 
+on un_co_dept_doc_type.co_id = un_co_dept_template_sections.co_id
+and un_co_dept_doc_type.dept_id = un_co_dept_template_sections.dept_id
+and un_co_dept_doc_type.doc_data_type_id = un_co_dept_template_sections.doc_type_id
+inner join un_co_dept_doc_type docTypes on un_co_dept_doc_type.doc_data_type_desc = docTypes.doc_data_type_desc
+where un_co_dept_template_sections.co_id = @sourceCoId
+and un_co_dept_template_sections.dept_id = @sourceDeptId
+and un_co_dept_doc_type.co_id = @sourceCoId
+and un_co_dept_doc_type.dept_id = @sourceDeptId
+and docTypes.co_id = @targetCoId
+and docTypes.dept_id = @targetDeptId;
 
+--Insert the document section details
+insert into un_co_dept_template_section_details(section_id,co_id,dept_id,section_detail_index,section_detail_desc,flg_delete)
+select sections.section_id,@targetCoId,@targetDeptId,section_detail_index,section_detail_desc,un_co_dept_template_section_details.flg_delete
+  from un_co_dept_template_section_details
+ inner join un_co_dept_template_sections 
+ on  un_co_dept_template_section_details.co_id = un_co_dept_template_sections.co_id
+ and un_co_dept_template_section_details.dept_id = un_co_dept_template_sections.dept_id
+ and un_co_dept_template_section_details.section_id = un_co_dept_template_sections.section_id
+ inner join un_co_dept_template_sections as sections on sections.section_desc = un_co_dept_template_sections.section_desc
+ where un_co_dept_template_section_details.co_id = @sourceCoId
+   and un_co_dept_template_section_details.dept_id = @sourceDeptId
+   and sections.co_id = @targetCoId
+   and sections.dept_id = @targetDeptId;
+  
 --Insert the documents. For this we need to join the document type on the basis of name and category_id on the basis of name
 insert into un_co_dept_template_docs(co_id,dept_id,doc_type_id,doc_name,doc_desc,doc_code,flg_delete,doc_index,category_id)
 select @targetCoId,@targetDeptId,doc_type.doc_data_type_id,un_co_dept_template_docs.doc_name,un_co_dept_template_docs.doc_desc,un_co_dept_template_docs.doc_code,
@@ -81,15 +103,6 @@ and docs2.co_id = @targetCoId
 and docs2.dept_id = @targetDeptId
 and secs2.co_id = @targetCoId
 and secs2.dept_id = @targetDeptId;
-and items.item_name not in 
-(
-	select item_name
-	  from un_co_dept_template_items
-	 where co_id = @targetCoId
-	   and dept_id = @targetDeptId
-	   and section_id = @targetSectionId
-	   and doc_id = @docId
-) 
 
 END;
 

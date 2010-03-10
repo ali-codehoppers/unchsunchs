@@ -7,8 +7,8 @@ DECLARE @targetDeptId int;
 
 SET @sourceCoId = 1;
 SET @sourceDeptId = 1;
-SET @targetCoId = 10;
-SET @targetDeptId = 13;
+SET @targetCoId = 21;
+SET @targetDeptId = 23;
 
 INSERT INTO un_co_dept_categories(co_id,dept_id,category_name,category_type,flg_delete)
 select @targetCoId,@targetDeptId,category_name,category_type,flg_delete
