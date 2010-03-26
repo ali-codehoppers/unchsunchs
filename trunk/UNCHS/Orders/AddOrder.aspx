@@ -49,7 +49,7 @@
     <div class="text_field">
         <span >Estimated Duration of Work (days):</span><ew:NumericBox ID="tbEstWork" runat="server"></ew:NumericBox></div>
     <div class="ddl_field">
-        <span >Risk Taking:</span><asp:DropDownList ID="ddlRiskTaking" runat="server">
+        <span >Risk Rating:</span><asp:DropDownList ID="ddlRiskTaking" runat="server">
         <asp:ListItem Value="Low" Text="Low"></asp:ListItem>
         <asp:ListItem Value="Medium" Text="Medium"></asp:ListItem>
         <asp:ListItem Value="High" Text="High"></asp:ListItem>
@@ -57,7 +57,7 @@
     </div>
         
     <div class="text_field">
-        <span >Estimated number of Operatives on Site:</span><ew:NumericBox ID="tbEstNumOperatives" runat="server"></ew:NumericBox></div>
+        <span >Estimated number of Operatives on Site(at any one time):</span><ew:NumericBox ID="tbEstNumOperatives" runat="server"></ew:NumericBox></div>
         
     <div class="field">
         <span >Review Date:</span><asp:CheckBox ID="cbReview" runat="server"

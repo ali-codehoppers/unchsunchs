@@ -25,7 +25,7 @@
     
 </head>
 <body class="yui-skin-sam" style="background-image:url('Images/Background_design_light.jpg');">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton="btnLogin">
 
     <div id="confirmationDialog" style="display:none">
         <div class="hd">
@@ -55,7 +55,7 @@
 			    <div id="login_content" >				
                     <div class="field"><span>User Name:</span><asp:TextBox ID="tbUserName" runat="server" Width="150px"></asp:TextBox></div>
                     <div class="field"><span>Password:</span><asp:TextBox ID="tbPassword" runat="server" TextMode="Password" Width="150px"></asp:TextBox></div>
-                    <div class="button_bar"><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></div>                                        
+                    <div class="button_bar"><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"  /></div>                                        
                     <hr />
                     <asp:Label ID="lblError" runat="server" Text="Invalid User Name / Password" Visible="false" CssClass="error"></asp:Label>
                 </div>               
