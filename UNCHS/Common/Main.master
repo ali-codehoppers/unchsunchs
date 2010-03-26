@@ -60,8 +60,8 @@
                                 <td>
                                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo.gif" AlternateText="Logo"/></td>
                                 <td align="right">
-                                    <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#292F8D" Font-Size="18"></asp:Label>
-                                    <asp:Label ID="lblCompany" runat="server" Text="Label" ForeColor="#21A8E2" Font-Size="18"></asp:Label>                                                    
+                                    <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#292F8D" Font-Size="14"></asp:Label>
+                                    <asp:Label ID="lblCompany" runat="server" Text="Label" ForeColor="#21A8E2" Font-Size="14"></asp:Label>                                                    
                                 </td>
                             </tr>
                         </table>    
