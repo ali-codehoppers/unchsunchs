@@ -142,17 +142,6 @@
             </asp:TemplateField>
             
             
-            <asp:TemplateField HeaderText="Delete">
-                <ItemTemplate>
-                    <center>
-                    <asp:ImageButton ID="LinkButton3" runat="server" CausesValidation="False" ImageUrl="~/Images/delete.png"
-                        CommandName="Delete" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
-                    </asp:ImageButton>
-                    </center>
-                </ItemTemplate>
-                <HeaderStyle Width="45px" />
-            </asp:TemplateField>
-            
             <asp:TemplateField HeaderText="Cancel">
                 <ItemTemplate>
                     <center>

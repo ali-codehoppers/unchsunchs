@@ -29,7 +29,7 @@
                 onmouseout="this.src='../Images/Next.gif';"/>
         </div>
     </div>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>
+    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>
     <div class="field">
         <span class="heading">Sequence of Work:</span>
     </div>
