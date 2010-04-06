@@ -20,15 +20,19 @@
     
     <div style="text-align: right">
         <div class="button_bar">
+        <div class="button_left">
             <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
                 onmouseover="this.src='../Images/Back_rollover_selected.gif';"
                 onmouseout="this.src='../Images/Back.gif';"/>
-
+        </div>
+        <div class="button_right">
             <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
                 onmouseover="this.src='../Images/Next_rollover_selected.gif';"
                 onmouseout="this.src='../Images/Next.gif';"/>
         </div>
+        </div>
     </div>
+    <div class="button_bar">&nbsp;</div>
     <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>
     <div class="field">
         <span class="heading">Sequence of Work:</span>
