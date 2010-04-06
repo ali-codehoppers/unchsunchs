@@ -5,7 +5,7 @@
 
     <asp:TreeView ID="UserMenuTree" runat="server" 
         CollapseImageUrl="~/Images/Folder.gif" ExpandImageUrl="~/Images/Folder.gif" 
-        LineImagesFolder="~/TreeLineImages" ShowLines="True" ExpandDepth="FullyExpand">
+        LineImagesFolder="~/TreeLineImages" ShowLines="True" ExpandDepth="FullyExpand" RootNodeStyle-Font-Size="Medium" RootNodeStyle-Font-Bold="true" NodeStyle-Font-Bold="true">
         <Nodes>
             <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home">
             </asp:TreeNode>
