@@ -40,6 +40,10 @@
         </tr>
         </table>
     </div>
+    <div class="field">
+        <span style="width:100px;">Default:</span><asp:CheckBox ID="cbDefault" runat="server" />
+    </div>     
+    
         <div class="button_bar">
             <asp:Button ID="btnAdd" runat="server" Text="Add Hazard" OnClick="btnAdd_Click" ValidationGroup="Top" />
             <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Hazard"
@@ -54,8 +58,17 @@
                 OnClientClick="return saveReorderedList();" />
         </div>
         <div class="workArea">
-            <ul id="dragDropUL" class="draglist">
+            
                 <asp:Repeater ID="repeater" runat="server" DataSourceID="odsDepartmentHazard" OnItemCommand="repeater_ItemCommand">
+                    <HeaderTemplate>
+                        <div class="draglistHeader">
+                            <asp:Label ID="Label1" runat="server" style="margin-left:50px;">Category Name</asp:Label>
+                            <asp:Label ID="Label3" runat="server" style="margin-left:50px;">Default</asp:Label>
+                            <asp:Label ID="Label2" runat="server" style="margin-left:40px;">Hazard</asp:Label>
+                            
+                        </div>
+                        <ul id="dragDropUL" class="draglist">
+                    </HeaderTemplate>                   
                     <ItemTemplate>
                         <li class="ddLi" id="li_<%#DataBinder.Eval(Container.DataItem, "sequence")%>">
                             <!--<div class="liData">-->
@@ -68,13 +81,16 @@
                                 OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                             <!--</div>-->
                             <!--<div class="liData">-->
-                            <span style="display:inline-block;width:200px"><%#DataBinder.Eval(Container.DataItem, "category_name")%></span>
+                            <span style="display:inline-block;width:160px"><%#DataBinder.Eval(Container.DataItem, "category_name")%></span>
+                            <asp:CheckBox ID="cbDefault" runat="server" style="margin-right:50px;" Checked='<%#DataBinder.Eval(Container.DataItem, "flg_default")%>' Enabled="false"/>                            
                             <%#DataBinder.Eval(Container.DataItem, "name_desc")%>
                             <!--</div>-->
                         </li>
                     </ItemTemplate>
+                    <FooterTemplate></ul>
+                    </FooterTemplate>
                 </asp:Repeater>
-            </ul>
+            
         </div>
         <asp:ObjectDataSource ID="odsDepartment" runat="server" OldValuesParameterFormatString="original_{0}"
             SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter">
@@ -83,7 +99,9 @@
             </SelectParameters>
         </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="odsDepartmentHazard" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetDepartmentHazardByDeptId" TypeName="DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+            SelectMethod="GetDepartmentHazardByDeptId" 
+        TypeName="DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter" 
+        DeleteMethod="Delete">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlDepartment" Name="dept_id" PropertyName="SelectedValue"
                     Type="Int32" DefaultValue="0" />
@@ -93,21 +111,6 @@
                 <asp:Parameter Name="Original_sequence" Type="Int32" />
                 <asp:Parameter Name="user_id" Type="Int32" />
             </DeleteParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="dept_id" Type="Int32" />
-                <asp:Parameter Name="name_desc" Type="String" />
-                <asp:Parameter Name="index_seq" Type="Int32" />
-                <asp:Parameter Name="user_id" Type="Int32" />
-                <asp:Parameter Name="Original_sequence" Type="Int32" />
-                <asp:Parameter Name="category_id" Type="Int32" />
-            </UpdateParameters>
-            <InsertParameters>
-                <asp:Parameter Name="dept_id" Type="Int32" />
-                <asp:Parameter Name="co_id" Type="Int32" />
-                <asp:Parameter Name="name_desc" Type="String" />
-                <asp:Parameter Name="user_id" Type="Int32" />
-                <asp:Parameter Name="category_id" Type="Int32" />
-            </InsertParameters>
         </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsCategories" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetCategoriesByType" TypeName="CategoriesTableAdapters.CategoryTableAdapter">

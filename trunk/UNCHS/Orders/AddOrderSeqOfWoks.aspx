@@ -2,6 +2,7 @@
     CodeFile="AddOrderSeqOfWoks.aspx.cs" Inherits="Orders_AddOrderSeqOfWoks" Title="Untitled Page" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
+<%@ Register src="../Common/UserControls/SuggestionsSelectControl.ascx" tagname="SuggestionsSelectControl" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css" )%>"/>
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
@@ -11,7 +12,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Add/Edit H&amp;S Folder
+    Add/Edit H&amp;S Folder 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server"><uc2:TabControl ID="TabControl2" runat="server" Selected="Work" />
 </asp:Content>
@@ -32,8 +33,8 @@
         </div>
         </div>
     </div>
-    <div class="button_bar">&nbsp;</div>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>
+    <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Sequence of Work" SuggestionType="W" ImageName="Add_sequence_of_work"/>    
+    <div class="warning_text" >Data may go to continuation sheet if it exceeds the number of recods.</div>
     <div class="field">
         <span class="heading">Sequence of Work:</span>
     </div>
@@ -43,7 +44,9 @@
             ErrorMessage="*" ValidationGroup="Work"></asp:RequiredFieldValidator>
     </div>
     <div class="button_bar">
-            <asp:ImageButton ID="btnAddWork" runat="server" ImageUrl="~/Images/Add_sequence_of_work.gif" OnClick="btnAddWork_Click" onmouseover="this.src='../Images/Add_Sequence_of_work_rol_sel.gif';" onmouseout="this.src='../Images/Add_sequence_of_work.gif';" ValidationGroup="Work"/>
+        <asp:ImageButton ID="btnAddWork" runat="server" ImageUrl="~/Images/Add_sequence_of_work.gif" OnClick="btnAddWork_Click" onmouseover="this.src='../Images/Add_Sequence_of_work_rol_sel.gif';" onmouseout="this.src='../Images/Add_sequence_of_work.gif';" ValidationGroup="Work"/>
+        <!--<input type="image" src="../Images/Key_Hazards_list.gif" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Key_Hazards_list_roll_sel.gif';" onmouseout="this.src='../Images/Key_Hazards_list.gif';" />-->
+        <input type="button" value="Sequence of Works List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"  />
     </div>
     <div class="grid">
         <asp:GridView Width="75%" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"

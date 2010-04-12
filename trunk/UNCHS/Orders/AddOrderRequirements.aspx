@@ -3,6 +3,7 @@
     Title="Untitled Page" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
+<%@ Register src="../Common/UserControls/SuggestionsSelectControl.ascx" tagname="SuggestionsSelectControl" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css" )%>"/>
@@ -34,8 +35,8 @@
         </div>
         </div>
     </div>
-    <div class="button_bar">&nbsp;</div>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>    
+    <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Sequence of Work" SuggestionType="R" ImageName="Add_requirement"/>        
+    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>    
     <div class="field">
         <span class="heading">Client/Site Specific Requirements:</span>
     </div>
@@ -45,8 +46,8 @@
             ErrorMessage="*" ValidationGroup="Requirement"></asp:RequiredFieldValidator>
     </div>
     <div class="button_bar">
-	<asp:ImageButton ID="btnAddRequirement" runat="server" OnClick="btnAddRequirement_Click" ValidationGroup="Requirement" ImageUrl="~/Images/Add_requirement.gif" onmouseover="this.src='../Images/Add_Requirement_roll_Sel.gif';" onmouseout="this.src='../Images/Add_requirement.gif';"/>
-
+	    <asp:ImageButton ID="btnAddRequirement" runat="server" OnClick="btnAddRequirement_Click" ValidationGroup="Requirement" ImageUrl="~/Images/Add_requirement.gif" onmouseover="this.src='../Images/Add_Requirement_roll_Sel.gif';" onmouseout="this.src='../Images/Add_requirement.gif';"/>
+        <input type="button" value="Requirements List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"  />
     </div>
     <div class="grid">
         <asp:GridView ID="gvRequirement" runat="server" AllowPaging="True" AllowSorting="True"

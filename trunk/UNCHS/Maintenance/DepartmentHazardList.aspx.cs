@@ -45,7 +45,7 @@ public partial class Maintenance_DepartmentHazardList : DepartmentPage
         if (isValid(0))
         {
             DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter tableAdapter = new DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter();
-            tableAdapter.Insert(int.Parse(ddlDepartment.SelectedValue), loggedInUserCoId, tbName.Text, loggedInUserId, int.Parse(ddlCategory.SelectedValue));
+            tableAdapter.Insert(int.Parse(ddlDepartment.SelectedValue), loggedInUserCoId, tbName.Text, loggedInUserId, int.Parse(ddlCategory.SelectedValue),cbDefault.Checked);
             repeater.DataBind();
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
         }
@@ -63,7 +63,7 @@ public partial class Maintenance_DepartmentHazardList : DepartmentPage
                 if (dataRow != null)
                 {
                     DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter tableAdapter = new DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter();
-                    tableAdapter.Update(dataRow.dept_id, dataRow.name_desc, i + 1, loggedInUserId, dataRow.sequence, dataRow.category_id);
+                    tableAdapter.Update(dataRow.dept_id, dataRow.name_desc, i + 1, loggedInUserId, dataRow.sequence, dataRow.category_id,dataRow.flg_default);
                 }
             }
         }
@@ -83,7 +83,7 @@ public partial class Maintenance_DepartmentHazardList : DepartmentPage
             if (dataRow != null)
             {
                 DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter tableAdapter = new DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter();
-                tableAdapter.Update(int.Parse(ddlDepartment.SelectedValue), tbName.Text, dataRow.index_seq, loggedInUserId, dataRow.sequence, int.Parse(ddlCategory.SelectedValue));
+                tableAdapter.Update(int.Parse(ddlDepartment.SelectedValue), tbName.Text, dataRow.index_seq, loggedInUserId, dataRow.sequence, int.Parse(ddlCategory.SelectedValue),cbDefault.Checked);
                 repeater.DataBind();
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
             }
@@ -102,6 +102,7 @@ public partial class Maintenance_DepartmentHazardList : DepartmentPage
                 tbName.Text = dataRow.name_desc;
                 ddlDepartment.SelectedValue = dataRow.dept_id.ToString();
                 ddlCategory.SelectedValue = dataRow.category_id.ToString();
+                cbDefault.Checked = dataRow.flg_default;
                 btnAdd.Visible = false;
                 btnUpate.Visible = true;
                 hfDeptPersonId.Value = e.CommandArgument.ToString();

@@ -58,7 +58,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td>
-                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo.gif" AlternateText="Logo"/></td>
+                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo_small.gif" AlternateText="Logo"/></td>
                                 <td align="right">
                                     <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#292F8D" Font-Size="14"></asp:Label>
                                     <asp:Label ID="lblCompany" runat="server" Text="Label" ForeColor="#21A8E2" Font-Size="14"></asp:Label>                                                    
@@ -70,7 +70,13 @@
                     <div class="info"><asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>                        
                     <div><asp:contentplaceholder id="TabPlaceHolder" runat="server"></asp:contentplaceholder></div>
                 </div>
-                
+                <table>
+                    <tr>
+                    <td style="border-right:1px;border-right-color:Black;">&nbsp;</td>
+                    <td >&nbsp;</td>
+                    <td style="border-left:1px;border-left-color:Black;">&nbsp;</td>
+                    </tr>
+                </table>
                 <div id="leftnav">
 		           <uc1:UserMenu ID="UserMenu" runat="server" Visible="false"/>
 		           <uc2:AdminMenu ID="AdminMenu" runat="server" Visible="false"/>

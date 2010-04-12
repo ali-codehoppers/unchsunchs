@@ -1,4 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddCompany.aspx.cs" Inherits="Admin_AddCompany" Title="Untitled Page" %>
+<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
+<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">
         .text_field span{width:150px;height:100%;display:inline-block;}    
@@ -48,6 +50,11 @@ Add/Edit Company
      <div class="text_field"><span>First Aider Label:</span><asp:TextBox ID="tbFirstAider" runat="server"></asp:TextBox></div>
      <div class="text_field"><span>Supervisor Label:</span><asp:TextBox ID="tbSupervisor" runat="server"></asp:TextBox></div>
      <div class="field"><asp:CheckBox ID="cbMultiSups" runat="server" Text="Multiple Supervisors?"/></div>
+     <div class="field"><asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" 
+             AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/></div>
+     <div class="text_field"><span>Trial Start Date:</span><ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false"
+            DisplayMode="AutoPopup" ></ww:jQueryDatePicker></div>
+     <div class="text_field"><span>Trial Number of Days:</span><ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false"></ew:NumericBox></div>
      <div class="button_bar"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"/>
          <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" /></div>
 

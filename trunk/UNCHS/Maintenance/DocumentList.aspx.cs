@@ -39,7 +39,7 @@ public partial class Maintenance_DocumentList : DepartmentPage
     {
         DepartmentOrderDocTableAdapters.DocumentTableAdapter docTA = new DepartmentOrderDocTableAdapters.DocumentTableAdapter();
         docTA.Insert1(loggedInUserCoId, int.Parse(ddlDepartment.SelectedValue), int.Parse(ddlDocTypes.SelectedValue), tbName.Text, tbName.Text, tbCode.Text,
-            int.Parse(ddlCategories.SelectedValue), int.Parse(tbIndex.Text), fileUpload.FileBytes);
+            int.Parse(ddlCategories.SelectedValue), int.Parse(tbIndex.Text), fileUpload.FileBytes,cbDefault.Checked);
         gvDocs.DataBind();
     }
     protected void btnUpate_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ public partial class Maintenance_DocumentList : DepartmentPage
 
                 DepartmentOrderDocTableAdapters.DocumentTableAdapter docTA = new DepartmentOrderDocTableAdapters.DocumentTableAdapter();
                 docTA.Insert1(targetCoId, targetDeptId, targetDocumentType.doc_data_type_id, document.doc_name, document.doc_desc, document.doc_code,
-                    targetCategory.category_id, document.doc_index, fileContents);
+                    targetCategory.category_id, document.doc_index, fileContents,document.flg_default);
 
                 
             }

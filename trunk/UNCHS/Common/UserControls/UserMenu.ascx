@@ -35,7 +35,23 @@
                     <asp:TreeNode Text="Plants & Tools" Value="Plants & Tools" >
                         <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentToolCategoryList.aspx" Text="Plants & Tools Category List" Value="Plants & Tools Category List"></asp:TreeNode>
                         <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentToolList.aspx" Text="Default Plants & Tools List" Value="Default Plants & Tools List"></asp:TreeNode>    
-                    </asp:TreeNode>                    
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Works" Value="Works" >
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentWorkCategoryList.aspx" Text="Work Category List" Value="Work Category List"></asp:TreeNode>
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentWorkList.aspx" Text="Default Work List" Value="Default Work  List"></asp:TreeNode>    
+                    </asp:TreeNode>   
+                    <asp:TreeNode Text="Emergency" Value="Emergency" >
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentEmergencyCategoryList.aspx" Text="Emergency Category List" Value="Emergency Category List"></asp:TreeNode>
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentEmergencyList.aspx" Text="Default Emergency List" Value="Default Emergency  List"></asp:TreeNode>    
+                    </asp:TreeNode>           
+                    <asp:TreeNode Text="Requirements" Value="Requirements" >
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementCategoryList.aspx" Text="Requirement Category List" Value="Requirement Category List"></asp:TreeNode>
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx" Text="Default Requirement List" Value="Default Requirement  List"></asp:TreeNode>    
+                    </asp:TreeNode>           
+                    <asp:TreeNode Text="Aspects" Value="Aspects" >
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectCategoryList.aspx" Text="Requirement Aspect List" Value="Requirement Aspect List"></asp:TreeNode>
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectList.aspx" Text="Default Aspect List" Value="Default Aspect List"></asp:TreeNode>    
+                    </asp:TreeNode>                                                                                
                 </asp:TreeNode>
                 <asp:TreeNode Text="Document Templates" Value="Document Templates" 
                     >
