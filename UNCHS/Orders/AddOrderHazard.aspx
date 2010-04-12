@@ -36,7 +36,6 @@
                 onmouseout="this.src='../Images/Next.gif';"/>
         </div>        
     </div>
-    <div class="button_bar">&nbsp;</div>
     <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>    
     <div id="hazardDialog" style="display:none">
         <div class="hd">

@@ -58,7 +58,14 @@
                     <div class="button_bar"><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"  /></div>                                        
                     <hr />
                     <asp:Label ID="lblError" runat="server" Text="Invalid User Name / Password" Visible="false" CssClass="error"></asp:Label>
+                    <asp:Panel ID="pnlTrialError" runat="server" Visible="false">
+                        <asp:Label ID="Label1" runat="server" Text="Your trial period has expired." CssClass="error"></asp:Label><br /> 
+                        <asp:Label ID="Label2" runat="server" Text="Please click " CssClass="error"></asp:Label>       
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="http://simplicity4business-shop.co.uk">here</asp:HyperLink>
+                        <asp:Label ID="Label3" runat="server" Text="to purchase your license." CssClass="error"></asp:Label>       
+                    </asp:Panel>
                 </div>               
+                
             </div>
 	     <!-- This template ist Open Source as long as the footer links to the authors are included ! -->
 	    </div>

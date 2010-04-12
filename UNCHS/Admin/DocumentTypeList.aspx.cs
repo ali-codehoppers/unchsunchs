@@ -121,7 +121,7 @@ public partial class Maintenance_DocumentTypeList : AdminPage
                                         }
                                         
                                         docTA.Insert1(targetCoId, targetDeptId, targetDocType.doc_data_type_id, sourceDocument.doc_name, sourceDocument.doc_desc, sourceDocument.doc_code,
-                                            targetCategory.category_id, sourceDocument.doc_index, fileContents);
+                                            targetCategory.category_id, sourceDocument.doc_index, fileContents,sourceDocument.flg_default);
 
                                     }
                                 }

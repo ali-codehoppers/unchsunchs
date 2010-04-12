@@ -15,7 +15,7 @@
 
 </asp:Content>
 <asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="ContenPlaceHolder2" runat="server">
-    Default Plants & Tools List</asp:Content>
+    Default Plants &amp; Tools List</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div class="ddl_field">
         <span style="width:100px;">Department:</span><asp:DropDownList ID="ddlDepartment" runat="server" 
@@ -36,6 +36,10 @@
             ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" CssClass="error"
             ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator>
     </div>
+    <div class="field">
+        <span style="width:100px;">Default:</span><asp:CheckBox ID="cbDefault" runat="server" />
+    </div>     
+    
         <div class="button_bar">
             <asp:Button ID="btnAdd" runat="server" Text="Add Plant &amp; Tool" OnClick="btnAdd_Click" ValidationGroup="Top" />
             <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Tool"
@@ -50,8 +54,18 @@
                 OnClientClick="return saveReorderedList();" />
         </div>
         <div class="workArea">
+            
+                <asp:Repeater ID="repeater" runat="server" DataSourceID="odsDepartmentTool" 
+                    OnItemCommand="repeater_ItemCommand">
+                    <HeaderTemplate>
+                        <div class="draglistHeader">
+                            <asp:Label ID="Label1" runat="server" style="margin-left:50px;">Category Name</asp:Label>
+                            <asp:Label ID="Label3" runat="server" style="margin-left:50px;">Default</asp:Label>
+                            <asp:Label ID="Label2" runat="server" style="margin-left:40px;">Hazard</asp:Label>
+                            
+                        </div>
             <ul id="dragDropUL" class="draglist">
-                <asp:Repeater ID="repeater" runat="server" DataSourceID="odsDepartmentTool" OnItemCommand="repeater_ItemCommand">
+                    </HeaderTemplate>                   
                     <ItemTemplate>
                         <li class="ddLi" id="li_<%#DataBinder.Eval(Container.DataItem, "sequence")%>">
                             <!--<div class="liData">-->
@@ -64,11 +78,14 @@
                                 OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                             <!--</div>-->
                             <!--<div class="liData">-->
-                            <span style="display:inline-block;width:200px"><%#DataBinder.Eval(Container.DataItem, "category_name")%></span>
+                            <span style="display:inline-block;width:160px"><%#DataBinder.Eval(Container.DataItem, "category_name")%></span>
+                            <asp:CheckBox ID="cbDefault" runat="server" style="margin-right:50px;" Checked='<%#DataBinder.Eval(Container.DataItem, "flg_default")%>' Enabled="false"/>                            
                             <%#DataBinder.Eval(Container.DataItem, "name_desc")%>
                             <!--</div>-->
                         </li>
                     </ItemTemplate>
+                    <FooterTemplate></ul>
+                    </FooterTemplate>
                 </asp:Repeater>
             </ul>
         </div>

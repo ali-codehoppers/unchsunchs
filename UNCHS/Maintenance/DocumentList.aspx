@@ -44,7 +44,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-    Documents List 
+    Documents List  
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <div id="editDialog" style="display:none">
@@ -114,6 +114,10 @@
     <div class="text_field">
         <span >Document Index:</span><ew:NumericBox ID="tbIndex" runat="server" ></ew:NumericBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
             ErrorMessage="*" ControlToValidate="tbIndex" ValidationGroup="Add"></asp:RequiredFieldValidator>                
+    </div>
+    <div class="field">
+        <span >Default:</span>
+        <asp:CheckBox ID="cbDefault" runat="server" />
     </div>
     <div class="field">
         <asp:Label ID="lblContents" runat="server" Text="Contents:" Visible="false"></asp:Label><asp:FileUpload ID="fileUpload" runat="server" Visible="false" Width="405px"/>
@@ -204,6 +208,18 @@
                         <asp:Label ID="lblIndex" runat="server" Text='<%# Bind("doc_index") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Default" SortExpression="flg_default">
+                    <EditItemTemplate>
+                        <center>
+                        <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>'/>
+                        </center>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <center>
+                        <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>' Enabled="false"/>
+                        </center>
+                    </ItemTemplate>
+                </asp:TemplateField>                
                 <asp:TemplateField HeaderText="Rel. Doc. Codes" SortExpression="related_doc_codes">
                     <ItemTemplate>
                         <table border="0" cellpadding="0" cellspacing="0">
@@ -231,7 +247,10 @@
         <asp:ObjectDataSource ID="odsDocs" runat="server" 
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetDocsByTypeId" 
             TypeName="DepartmentOrderDocTableAdapters.DocumentTableAdapter" 
-            UpdateMethod="Update1">
+            UpdateMethod="Update1" DeleteMethod="Delete1">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_doc_id" Type="Int32" />
+            </DeleteParameters>
             <UpdateParameters>
                 <asp:Parameter Name="doc_name" Type="String" />
                 <asp:Parameter Name="doc_desc" Type="String" />

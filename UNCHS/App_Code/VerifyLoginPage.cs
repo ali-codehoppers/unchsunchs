@@ -20,49 +20,17 @@ public abstract class VerifyLoginPage : System.Web.UI.Page
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         SetErrorMessage("");
         SetInfoMessage("");
-        if (Session[WebConstants.Session.USER_ID] == null)
+        LoginProcessing processing = new LoginProcessing();
+        if (processing.Process(ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
         {
-            //Session[WebConstants.Session.USER_ID] = 1;
-            //Session[WebConstants.Session.USER_CO_ID] = 1;
-            //Page_Load_Extended(sender, e);
-            Response.Redirect("~/Login.aspx?" + WebConstants.Request.SESSION_EXPIRED + "=true");
-        }
-        else
-        {
-            loggedInUserId = (int)Session[WebConstants.Session.USER_ID];
-            if (Cache[loggedInUserId.ToString()] == null || Cache[loggedInUserId.ToString()].Equals(Request.UserHostAddress) == false)
-            {
-                Response.Redirect("~/Login.aspx?" + WebConstants.Request.INVALID_CACHE + "=true");
-            }
-            else
-            {
-                if (Session[WebConstants.Session.USER_CO_ID] != null)
-                {
-                    loggedInUserCoId = (int)Session[WebConstants.Session.USER_CO_ID];
-                }
-                else
-                {
-                    //Admin roles dont need a co. 
-                    loggedInUserCoId = 0;
-                }
-
-                if (Session[WebConstants.Session.USER_ROLE] == null)
-                {
-                    loggedInUserRole = WebConstants.Roles.User;
-                }
-                else
-                {
-                    loggedInUserRole = (string)Session[WebConstants.Session.USER_ROLE];
-                }
-                AfterLoginVerifiedProcessing(sender, e);
-            }
+            AfterLoginVerifiedProcessing(sender, e);
         }
     }
     protected void SetErrorMessage(string error)
     {
         SetMessage(error, "lblError");
     }
-    protected void SetInfoMessage(string info)
+    protected void SetInfoMessage(string info) 
     {
         SetMessage(info, "lblInfo");
     }

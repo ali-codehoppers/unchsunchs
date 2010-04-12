@@ -11,10 +11,40 @@ using System.Web.UI.HtmlControls;
 
 public partial class Orders_AddOrderSeqOfWoks : OrderDetailPage
 {
+
+    protected override void OnInit(EventArgs e)
+    {
+        base.OnInit(e);
+        this.suggestionsSelectControl.SuggestionAdded += new Common_UserControls_SuggestionsSelectControl.SuggestionAddedEventHandler(suggestionsSelectControl_SuggestionAdded);
+        this.suggestionsSelectControl.AdditionComplete += new EventHandler(suggestionsSelectControl_AditionComplete);
+    }
+    private void suggestionsSelectControl_SuggestionAdded(object sender, SuggestionAddedEventArgs e) 
+    {
+        DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter ta = new DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter();
+        ta.Insert(departmentId, loggedInUserCoId, int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]), e.SuggestionText, loggedInUserId);
+    }
+    private void suggestionsSelectControl_AditionComplete(object sender, EventArgs e)
+    {
+        BindPopup();
+        gvWork.DataBind();
+    }
+    private void BindPopup()
+    {
+        DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter ta = new DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter();
+        suggestionsSelectControl.DataSource = ta.GetAllWorks(int.Parse(hfDeptId.Value), loggedInUserCoId, int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]));
+        suggestionsSelectControl.DataBind();
+    }
     public override void Order_Detail_Handling(object sender, EventArgs e, int deptId)
     {
         hfDeptId.Value = deptId.ToString();
+        suggestionsSelectControl.DataTextField = "work_desc";
+        suggestionsSelectControl.DepartmentId = deptId;
+        if (IsPostBack == false)
+        {
+            BindPopup();
+        }
     }
+
     #region SEQ_OF_WORKS
     private bool isValidWork(string nameDesc)
     {

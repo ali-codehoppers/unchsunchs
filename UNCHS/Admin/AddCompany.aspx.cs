@@ -45,6 +45,21 @@ public partial class Admin_AddCompany : AdminPage
                     if (company.Isfire_warden_labelNull() == false) tbFireWarden.Text = company.fire_warden_label;
                     if (company.Isfirst_aider_labelNull() == false) tbFirstAider.Text = company.first_aider_label;
                     if (company.Issupervisor_labelNull() == false) tbSupervisor.Text = company.supervisor_label;
+                    if (company.Isflg_trialNull() == false)
+                    {
+                        cbTrial.Checked = company.flg_trial;
+                        EnableTrialFields(cbTrial.Checked);
+                        if (company.Istrial_start_dateNull() == false)
+                        {
+                            tbTrialStartDate.SelectedDate = company.trial_start_date;
+                        }
+                        
+                        if (company.Istrial_num_of_daysNull() == false)
+                        {
+                            tbTrialNumOfDays.Text = company.trial_num_of_days.ToString();
+                        }                        
+                    }
+                    
                     btnUpdate.Visible = true;
                     btnSave.Visible = false;
                 }
@@ -67,16 +82,43 @@ public partial class Admin_AddCompany : AdminPage
         {
             SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
         }
-        else
+        else if (Validate())
         {
-            coTA.Insert(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
-                txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
-                txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, loggedInUserId,
-                DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1);
+            if (cbTrial.Checked)
+            {
+                coTA.Insert(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
+                    txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
+                    txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, loggedInUserId,
+                    DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1, cbTrial.Checked,
+                    tbTrialStartDate.SelectedDate, int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate());
+            }
+            else
+            {
+                coTA.Insert(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
+                    txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
+                    txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, loggedInUserId,
+                    DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1, cbTrial.Checked, null, null, null);
+            }
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
         }
     }
-
+    private bool Validate()
+    {
+        if (cbTrial.Checked)
+        {
+            if (tbTrialStartDate.SelectedDate == null || tbTrialStartDate.SelectedDate == new DateTime(1900,1,1))
+            {
+                SetErrorMessage("Trial Start Date must be provided");
+                return false;
+            }
+            else if (tbTrialNumOfDays.Text.Length == 0)
+            {
+                SetErrorMessage("Trial Number of Days must be provided");
+                return false;
+            }
+        }
+        return true;
+    }
     private string getFullAddress()
     {
         StringBuilder addressFull = new StringBuilder();
@@ -97,13 +139,57 @@ public partial class Admin_AddCompany : AdminPage
         {
             SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
         }
-        else
+        else if(Validate())
         {
-            coTA.Update(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
-                txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
-                txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, cbAutoSave.Checked,
-                tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, coId);
+            if (cbTrial.Checked)
+            {
+                coTA.Update(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
+                    txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
+                    txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, cbAutoSave.Checked,
+                    tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, cbTrial.Checked, tbTrialStartDate.SelectedDate,
+                    int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate(), coId);
+            }
+            else
+            {
+                coTA.Update(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
+                    txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
+                    txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, cbAutoSave.Checked,
+                    tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, cbTrial.Checked, null,null,null,coId);
+
+            }
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+        }
+    }
+    private DateTime GetTrialEndDate()
+    {
+        DateTime currentDate = tbTrialStartDate.SelectedDate.Value;
+        int trialNumOfDays = int.Parse(tbTrialNumOfDays.Text);
+        int index = 0;
+        while (index < trialNumOfDays)
+        {
+            if (currentDate.DayOfWeek != DayOfWeek.Saturday && currentDate.DayOfWeek != DayOfWeek.Sunday)
+            {
+                index++;
+            }
+            if (index < trialNumOfDays)
+            {
+                currentDate = currentDate.AddDays(1);
+            }
+        }
+        return currentDate;
+    }
+    protected void cbTrial_CheckedChanged(object sender, EventArgs e)
+    {
+        EnableTrialFields(cbTrial.Checked);
+    }
+    private void EnableTrialFields(bool enable)
+    {
+        tbTrialNumOfDays.Enabled = enable;
+        tbTrialStartDate.Enabled = enable;
+
+        if (enable && tbTrialStartDate.SelectedDate == new DateTime(1900,1,1))
+        {
+            tbTrialStartDate.SelectedDate = DateTime.Now;
         }
     }
 }

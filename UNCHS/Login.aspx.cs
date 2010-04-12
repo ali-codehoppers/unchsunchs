@@ -24,6 +24,22 @@ public partial class Login : System.Web.UI.Page
             lblError.Text = WebConstants.Messages.Error.INVALID_CACHE;
         }
     }
+    private bool TrialExpired(int coId)
+    {
+        Company.un_co_detailsRow company = DatabaseUtility.GetCompany(coId);
+        if (company != null)
+        {
+            if (company.Istrial_end_dateNull())
+            {
+                return false;
+            }
+            else if (DateTime.Today < company.trial_end_date)
+            {
+                return false;
+            }
+        }
+        return true;
+    }    
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         //
@@ -32,22 +48,30 @@ public partial class Login : System.Web.UI.Page
         if (iEnumerator.MoveNext())
         {
             User.un_co_user_detailsRow dataRow = (User.un_co_user_detailsRow)iEnumerator.Current;
-            Session[WebConstants.Session.USER_ID] = dataRow.user_id;
-            Session[WebConstants.Session.USER_ROLE] = dataRow.role;
-            if (dataRow.Isco_idNull() == false)
+            if (TrialExpired(dataRow.co_id))
             {
-                Session[WebConstants.Session.USER_CO_ID] = dataRow.co_id;
-            }
-
-            if (Cache[dataRow.user_id.ToString()] != null && Cache[dataRow.user_id.ToString()].Equals(Request.UserHostAddress) == false)
-            {
-                lblIP.Text = Request.UserHostAddress;
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "ConfirmationDialog", "<script>YAHOO.util.Event.onDOMReady(showConfirmationDialog);</script>");
+                pnlTrialError.Visible = true;
             }
             else
             {
-                handleSuccessfulLogin(dataRow.user_id, dataRow.role);
-            }            
+
+                Session[WebConstants.Session.USER_ID] = dataRow.user_id;
+                Session[WebConstants.Session.USER_ROLE] = dataRow.role;
+                if (dataRow.Isco_idNull() == false)
+                {
+                    Session[WebConstants.Session.USER_CO_ID] = dataRow.co_id;
+                }
+
+                if (Cache[dataRow.user_id.ToString()] != null && Cache[dataRow.user_id.ToString()].Equals(Request.UserHostAddress) == false)
+                {
+                    lblIP.Text = Request.UserHostAddress;
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "ConfirmationDialog", "<script>YAHOO.util.Event.onDOMReady(showConfirmationDialog);</script>");
+                }
+                else
+                {
+                    handleSuccessfulLogin(dataRow.user_id, dataRow.role);
+                }
+            }
         }
         else
         {

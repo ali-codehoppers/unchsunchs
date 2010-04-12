@@ -37,8 +37,7 @@
         </div>
         </div>
     </div>
-    <div class="button_bar">&nbsp;</div>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>
+    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>
     <div id="toolDialog" style="display:none;">
         <div class="hd">
             Select Tools to Add:

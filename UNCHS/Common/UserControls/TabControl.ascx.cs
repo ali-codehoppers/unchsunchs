@@ -19,23 +19,22 @@ public partial class Common_TabControl : System.Web.UI.UserControl
     protected string LiList = "";
     protected void InitializeComponent()
     {
-        
-        menuItems.Add("Main", "/Orders/AddOrder.aspx");
-        menuItems.Add("People", "/Orders/AddOrderPeople.aspx");
-        menuItems.Add("Key Hazards", "/Orders/AddOrderHazard.aspx");
-        menuItems.Add("Work", "/Orders/AddOrderSeqOfWoks.aspx");
-        menuItems.Add("Plants & Tools", "/Orders/AddOrderTool.aspx");
-        menuItems.Add("PPE", "/Orders/AddOrderPPE.aspx");
-        menuItems.Add("Emergency", "/Orders/AddOrderEmergencyExits.aspx");
-        menuItems.Add("Requirements", "/Orders/AddOrderRequirements.aspx");
-        menuItems.Add("Aspects", "/Orders/AddOrderKeyAspects.aspx");
-        menuItems.Add("Risks", "/Orders/AddOrderRiskAssessments.aspx");
-        //menuItems.Add("COSHH", "/Orders/AddOrderCOSHH.aspx");
-        //menuItems.Add("Sig Hazards", "/Orders/AddOrderSigHazard.aspx");
-        //menuItems.Add("Assem Pts", "/Orders/AddOrderAssemPts.aspx");        
-        //menuItems.Add("Measures", "/Orders/AddOrderCtrlMeasures.aspx");
-        menuItems.Add("Docs", "/Orders/AddOrderDocuments.aspx");
-        menuItems.Add("Log", "/Orders/OrderLog.aspx");
+        menuItems.Add("Main", "AddOrder.aspx");
+        menuItems.Add("People", "AddOrderPeople.aspx");
+        menuItems.Add("Key Hazards", "AddOrderHazard.aspx");
+        menuItems.Add("Work", "AddOrderSeqOfWoks.aspx");
+        menuItems.Add("Plants & Tools", "AddOrderTool.aspx");
+        menuItems.Add("PPE", "AddOrderPPE.aspx");
+        menuItems.Add("Emergency", "AddOrderEmergencyExits.aspx");
+        menuItems.Add("Requirements", "AddOrderRequirements.aspx");
+        menuItems.Add("Aspects", "AddOrderKeyAspects.aspx");
+        menuItems.Add("Risks", "AddOrderRiskAssessments.aspx");
+        //menuItems.Add("COSHH", "AddOrderCOSHH.aspx");
+        //menuItems.Add("Sig Hazards", "AddOrderSigHazard.aspx");
+        //menuItems.Add("Assem Pts", "AddOrderAssemPts.aspx");        
+        //menuItems.Add("Measures", "AddOrderCtrlMeasures.aspx");
+        menuItems.Add("Docs", "AddOrderDocuments.aspx");
+        menuItems.Add("Log", "OrderLog.aspx");
 
         StringBuilder lis = new StringBuilder();
         foreach (KeyValuePair<string, string> kvPair in menuItems)
@@ -45,7 +44,7 @@ public partial class Common_TabControl : System.Web.UI.UserControl
             {
                 lis.Append("class='selected'");
             }
-            lis.Append("><a href='").Append(Request.ApplicationPath).Append(kvPair.Value);
+            lis.Append("><a href='").Append(kvPair.Value);
             if(Request[WebConstants.Request.DEPT_ORDER_ID] != null)
             {
                 lis.Append("?").Append(WebConstants.Request.DEPT_ORDER_ID).Append("=").Append(Request[WebConstants.Request.DEPT_ORDER_ID]);

@@ -1,7 +1,13 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddOrderEmergencyExits.aspx.cs" Inherits="Orders_AddOrderEmergencyExits" Title="Untitled Page" %>
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
+<%@ Register src="../Common/UserControls/SuggestionsSelectControl.ascx" tagname="SuggestionsSelectControl" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
+        <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css" )%>"/>
+
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
    Add/Edit H&amp;S Folder
@@ -26,8 +32,8 @@
         </div>
         </div>
     </div>
-    <div class="button_bar">&nbsp;</div>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>
+    <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Emergency Exits" SuggestionType="E" ImageName="Add_Emergency_Procedure"/>    
+    <div class="warning_text" style="display:none">Data may go to continuation sheet if it exceeds the number of recods.</div>
 <div class="field">
     <span class="heading">Emergency Procedures:</span>
 </div>
@@ -38,7 +44,7 @@
 </div>
 <div class="button_bar">
     <asp:ImageButton ID="btnAddExit" runat="server" OnClick="btnAddExit_Click" ValidationGroup="Exit" ImageUrl="~/Images/Add_Emergency_Procedure.gif" onmouseover="this.src='../Images/Add_Emergency_Procedure_roll_sel.gif';" onmouseout="this.src='../Images/Add_Emergency_Procedure.gif';"/>
-
+    <input type="button" value="Emergency Procedures List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" />
 </div>
 <div class="grid">
     <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting" OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table"  >
