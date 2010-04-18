@@ -366,12 +366,16 @@ div.home_middle
 	min-height:600px;
 	margin-left: 175px;
 	padding-left: 10px;
-	margin-right: 175px;
-	border-right: 1px solid #292F8D;
 	border-left: 1px solid #292F8D;
 }
 
 #content h2
 {
 	font-size:19px;font-weight:normal;margin-top:6px;color:#292F8D;
+}
+
+.transferArea
+{
+	float: left;
+	width: 50%;
 }
