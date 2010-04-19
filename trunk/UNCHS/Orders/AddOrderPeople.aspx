@@ -11,32 +11,31 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Add/Edit H&amp;S Folder
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
-    <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div class="button_bar">
-        <div class="button_left">
-            <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
+    <div style="text-align: right">
+        <div class="button_bar">
+            <div class="button_left">
+                Add/Edit H&amp;S Folder
+            </div>
         </div>
+
         <div class="button_right">
             <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
                 onmouseover="this.src='../Images/Next_rollover_selected.gif';"
                 onmouseout="this.src='../Images/Next.gif';"/>
         </div>
-    </div>  
-    <div class="button_bar">&nbsp;</div>
-    <div class="button_bar">
-        <asp:ImageButton ID="btnSaveAll" runat="server" OnClick="btnSaveAll_Click" ImageUrl="~/Images/Save_All.gif"
-            onmouseover="this.src='../Images/Save_All_roll_sel.gif';"
-            onmouseout="this.src='../Images/Save_All.gif';"/>
-    </div>    
-    
+        <div class="button_right">
+            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
+                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
+                onmouseout="this.src='../Images/Back.gif';"/>
+        </div>
+    </div>
+    <br />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+    <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">    
     <div class="grid">
         <asp:GridView ID="gvPeople" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="grid_table"
@@ -76,6 +75,15 @@
         </asp:GridView>
         &nbsp;
     </div>
+    <div class="button_bar">
+        <div class="button_right">
+        <asp:ImageButton ID="btnSaveAll" runat="server" OnClick="btnSaveAll_Click" ImageUrl="~/Images/Save_All.gif"
+            onmouseover="this.src='../Images/Save_All_roll_sel.gif';"
+            onmouseout="this.src='../Images/Save_All.gif';"/>
+            
+            </div>
+    </div>    
+
     <asp:HiddenField ID="hfDeptId" runat="server" />
 
 
