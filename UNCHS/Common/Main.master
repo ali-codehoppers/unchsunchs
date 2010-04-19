@@ -57,19 +57,6 @@
                     <div>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td colspan="2" align="right">
-                    <table border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td><asp:ImageButton ID="btnLogout" runat="server" ImageUrl="~/Images/Logout.gif" onclick="btnLogout_Click" /></td>
-                            <td>&nbsp;</td>
-                            <td>                    <a href="#help">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/Help.gif"/></a>
-                        </td>
-                        </tr>
-                    </table>                                
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>
                                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo_small.gif" AlternateText="Logo"/></td>
                                 <td align="right">
@@ -93,6 +80,18 @@
                 <div id="leftnav">
 		           <uc1:UserMenu ID="UserMenu" runat="server" Visible="false"/>
 		           <uc2:AdminMenu ID="AdminMenu" runat="server" Visible="false"/>
+                </div>
+                <div id="rightnav">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td><asp:ImageButton ID="btnLogout" runat="server" ImageUrl="~/Images/Logout.gif" onclick="btnLogout_Click" /></td>
+                            <td>&nbsp;</td>
+                            <td>                    <a href="#help">
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/Help.gif"/></a>
+</td>
+                        </tr>
+                    </table>
+
                 </div>
                 <div id="content">
                     <h2><asp:contentplaceholder id="HeadingPlaceHolder" runat="server"></asp:contentplaceholder></h2>
