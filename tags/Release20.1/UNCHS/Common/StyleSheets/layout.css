@@ -375,3 +375,21 @@ div.home_middle
 {
 	font-size:19px;font-weight:normal;margin-top:6px;color:#292F8D;
 }
+.transferArea
+{
+	float: left;
+	width: 50%;
+}
+.loginBox
+{
+	background-image: url('../../Images/Login_frame.gif' );
+	width: 646px;
+	height: 368px;
+	background-repeat: no-repeat;
+	padding-left:50px;
+	margin-left: 20px;
+	padding-top: 50px;
+	font-size: 10pt;
+	margin-top:100px;
+	text-align:left;
+}
