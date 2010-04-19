@@ -1,0 +1,125 @@
+<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
+    CodeFile="DepartmentHazardList.aspx.cs" Inherits="Maintenance_DepartmentHazardList"
+    Title="Untitled Page" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
+
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/animation/animation-min.js")%>"></script>
+
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/dragdrop/dragdrop-min.js")%>"></script>
+
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/DDStyle.css")%>">
+
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/unchs/DragDrop.js")%>"></script>
+
+</asp:Content>
+<asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="ContenPlaceHolder2" runat="server">
+    Default Key Hazard List</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+    <div class="ddl_field">
+        <span style="width:100px;">Department:</span><asp:DropDownList ID="ddlDepartment" runat="server"
+            DataSourceID="odsDepartment" DataTextField="co_name_short" DataValueField="dept_id" 
+            AutoPostBack="true">
+        </asp:DropDownList>
+    </div>
+    <div class="ddl_field">
+        <span style="width:100px;">Category:</span><asp:DropDownList ID="ddlCategory" runat="server"
+            DataSourceID="odsCategories" DataTextField="category_name" DataValueField="category_id" >
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+                runat="server" ErrorMessage="*" CssClass="error" ControlToValidate="ddlCategory" ValidationGroup="Top"></asp:RequiredFieldValidator>
+    </div>    
+    <div class="text_field">
+        <table cellpadding="0" cellspacing="0" border="0"><tr>
+        <td valign="middle">
+        <span style="width:100px;">Hazard:</span></td><td><asp:TextBox ID="tbName" runat="server" Rows="3"
+            TextMode="MultiLine"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                runat="server" ErrorMessage="*" CssClass="error" ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <div class="field">
+        <span style="width:100px;">Default:</span><asp:CheckBox ID="cbDefault" runat="server" />
+    </div>     
+    
+        <div class="button_bar">
+            <asp:Button ID="btnAdd" runat="server" Text="Add Hazard" OnClick="btnAdd_Click" ValidationGroup="Top" />
+            <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Hazard"
+                Visible="False" ValidationGroup="Top" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:HiddenField ID="hfDeptPersonId" runat="server" />
+        </div>
+        <hr />
+        <input type="hidden" name="idOrdering" id="idOrdering" />
+        <div class="button_bar">
+            <asp:Button ID="btnSave" runat="server" Text="Save Ordering" OnClick="btnSave_Click"
+                OnClientClick="return saveReorderedList();" />
+        </div>
+        <div class="workArea">
+            
+                <asp:Repeater ID="repeater" runat="server" DataSourceID="odsDepartmentHazard" OnItemCommand="repeater_ItemCommand">
+                    <HeaderTemplate>
+                        <div class="draglistHeader">
+                            <asp:Label ID="Label1" runat="server" style="margin-left:50px;">Category Name</asp:Label>
+                            <asp:Label ID="Label3" runat="server" style="margin-left:50px;">Default</asp:Label>
+                            <asp:Label ID="Label2" runat="server" style="margin-left:40px;">Hazard</asp:Label>
+                            
+                        </div>
+                        <ul id="dragDropUL" class="draglist">
+                    </HeaderTemplate>                   
+                    <ItemTemplate>
+                        <li class="ddLi" id="li_<%#DataBinder.Eval(Container.DataItem, "sequence")%>">
+                            <!--<div class="liData">-->
+                            <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Edit"
+                                CommandName="Edit" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "sequence")%>' />
+                            <!--</div>-->
+                            <!--<div class="liData">-->
+                            <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/delete.png" AlternateText="Delete"
+                                CommandName="Delete" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "sequence")%>'
+                                OnClientClick="return confirm('Are you sure you want to delete this record?');" />
+                            <!--</div>-->
+                            <!--<div class="liData">-->
+                            <span style="display:inline-block;width:160px"><%#DataBinder.Eval(Container.DataItem, "category_name")%></span>
+                            <asp:CheckBox ID="cbDefault" runat="server" style="margin-right:50px;" Checked='<%#DataBinder.Eval(Container.DataItem, "flg_default")%>' Enabled="false"/>                            
+                            <%#DataBinder.Eval(Container.DataItem, "name_desc")%>
+                            <!--</div>-->
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate></ul>
+                    </FooterTemplate>
+                </asp:Repeater>
+            
+        </div>
+        <asp:ObjectDataSource ID="odsDepartment" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter">
+            <SelectParameters>
+                <asp:SessionParameter Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="odsDepartmentHazard" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetDepartmentHazardByDeptId" 
+        TypeName="DepartmentHazardTableAdapters.DepartmentHazardSelectCommandTableAdapter" 
+        DeleteMethod="Delete">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlDepartment" Name="dept_id" PropertyName="SelectedValue"
+                    Type="Int32" DefaultValue="0" />
+                <asp:SessionParameter Name="co_id" SessionField="USER_CO_ID" Type="Int32" DefaultValue="0" />
+            </SelectParameters>
+            <DeleteParameters>
+                <asp:Parameter Name="Original_sequence" Type="Int32" />
+                <asp:Parameter Name="user_id" Type="Int32" />
+            </DeleteParameters>
+        </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsCategories" runat="server" OldValuesParameterFormatString="original_{0}"
+        SelectMethod="GetCategoriesByType" TypeName="CategoriesTableAdapters.CategoryTableAdapter">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddlDepartment" DefaultValue="0" Name="dept_id" PropertyName="SelectedValue"
+                Type="Int32" />
+            <asp:SessionParameter DefaultValue="0" Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
+            <asp:Parameter DefaultValue="H" Name="category_type" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+
+</asp:Content>
