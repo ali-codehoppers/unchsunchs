@@ -18,6 +18,7 @@ public partial class Orders_SearchOrder : DepartmentPage
     }
     protected void btnCopy_Click(object sender, EventArgs e)
     {
+       
         DepartmentOrder.DepartmentOrderRowRow order = DatabaseUtility.GetDepartmentOrder(int.Parse(hfSourceOrderId.Value));
         if (order != null)
         {
