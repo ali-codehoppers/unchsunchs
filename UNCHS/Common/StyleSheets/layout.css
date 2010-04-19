@@ -117,7 +117,7 @@ img p {margin:0;padding:0;}
 }
 #complete {background-color:white;}
 #center {background-color:white;width:1000px;margin:auto;margin-bottom:15px;margin-top:10px;}
-#login_center {vertical-align:middle;background-color:white;width:255px;margin:auto;margin-top:200px;margin-bottom:100px;height:200px;}
+#login_center {vertical-align:middle;width:255px;margin:auto;margin-top:200px;margin-bottom:100px;height:200px;}
 .small_lable{font-size:9px;color:Silver;}
 #dialogContainer {display:none;}
 
@@ -384,4 +384,17 @@ div.home_middle
 {
 	float: left;
 	width: 50%;
+}
+.loginBox
+{
+	background-image: url('../../Images/Login_frame.gif' );
+	width: 646px;
+	height: 368px;
+	background-repeat: no-repeat;
+	padding-left:50px;
+	margin-left: 20px;
+	padding-top: 50px;
+	font-size: 10pt;
+	margin-top:100px;
+	text-align:left;
 }
