@@ -11,25 +11,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="text-align: right">
-        <div class="button_bar">
-            <div class="button_left">
-                Add/Edit H&amp;S Folder
-            </div>
-        </div>
-
-        <div class="button_right">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Next.gif';"/>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
-        </div>
-    </div>
-    <br />
+    Add/Edit H&amp;S Folder
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Key Hazards" />
@@ -42,6 +24,18 @@
     </script>
 
     
+    <div class="button_bar">
+        <div class="button_left">
+            <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
+                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
+                onmouseout="this.src='../Images/Back.gif';"/>
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
+                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
+                onmouseout="this.src='../Images/Next.gif';"/>
+        </div>        
+    </div>
     <div class="warning_text">Data may go to continuation sheet if it exceeds the number of records.</div>    
     <div id="hazardDialog" style="display:none">
         <div class="hd">
@@ -74,13 +68,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="Hazard"
             ErrorMessage="*" ControlToValidate="tbHazard"></asp:RequiredFieldValidator>
     </div>
-    <div>
-        <div class="button_right">
+    <div class="button_bar">
             <asp:ImageButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Add_Hazard_roll_selec.gif';" onmouseout="this.src='../Images/Add_Hazard.gif';"/>
-            </div>
-        <div class="button_right">
 		<input type="image" src="../Images/Key_Hazards_list.gif" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Key_Hazards_list_roll_sel.gif';" onmouseout="this.src='../Images/Key_Hazards_list.gif';" />
-		</div>
     </div>
     <!--<div class="grid_area">-->
     <div class="grid">

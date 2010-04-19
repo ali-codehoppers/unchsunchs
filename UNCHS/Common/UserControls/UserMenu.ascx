@@ -5,14 +5,14 @@
 
     <asp:TreeView ID="UserMenuTree" runat="server" 
         CollapseImageUrl="~/Images/Folder.gif" ExpandImageUrl="~/Images/Folder.gif" 
-        LineImagesFolder="~/TreeLineImages" ShowLines="True" RootNodeStyle-Font-Size="Medium" RootNodeStyle-Font-Bold="true" NodeStyle-Font-Bold="true" ExpandDepth="1">
+        LineImagesFolder="~/TreeLineImages" ShowLines="True" ExpandDepth="FullyExpand" RootNodeStyle-Font-Size="Medium" RootNodeStyle-Font-Bold="true" NodeStyle-Font-Bold="true">
         <Nodes>
             <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home">
             </asp:TreeNode>
-            <asp:TreeNode Text="H&S Folder" Value="H&S Folder" Expanded="true">
+            <asp:TreeNode Text="H&S Folder" Value="H&S Folder">
                 <asp:TreeNode NavigateUrl="~/Orders/AddOrder.aspx" Text="Create Folder" Value="Create Folder"></asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Orders/SearchOrder.aspx" Text="Search Folder" Value="Search Folder"></asp:TreeNode>
-                <asp:TreeNode NavigateUrl="~/Orders/UploadOrder.aspx" Text="Upload Addresses" Value="Upload Folder"></asp:TreeNode>
+                <asp:TreeNode NavigateUrl="~/Orders/UploadOrder.aspx" Text="Upload Folder" Value="Upload Folder"></asp:TreeNode>
             </asp:TreeNode>
             <asp:TreeNode NavigateUrl="~/Orders/GenerateCOSHH.aspx" Text="COSHH" Value="COSHH"></asp:TreeNode>
             <asp:TreeNode NavigateUrl="~/GenerateSignage.aspx" Text="Signage" Value="Signage"></asp:TreeNode>
@@ -61,7 +61,7 @@
                 </asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Maintenance/AddDepartment.aspx" Text="Create Department" Value="Create Department"></asp:TreeNode>
             </asp:TreeNode>            
-            <asp:TreeNode NavigateUrl="~/Common/help/help.pdf" Text="User Guide" Value="Help" Target="blank">
+            <asp:TreeNode NavigateUrl="~/Common/help/help.pdf" Text="Help" Value="Help">
             </asp:TreeNode>
         </Nodes>
     </asp:TreeView>
