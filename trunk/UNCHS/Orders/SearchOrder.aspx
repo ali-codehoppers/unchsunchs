@@ -7,8 +7,7 @@
 
     <style type="text/css">
         .text_field span{width:125px;height:100%;display:inline-block;}    
-        
-        
+                
         .ddl_margin
         {
             margin-right:5px;

@@ -13,8 +13,14 @@ using System.Data.SqlClient;
 
 public partial class Orders_AddOrder : DepartmentPage
 {
+
+    
+    protected void btnCopy_Click(object sender, EventArgs e)
+    {
+    }
     protected override void  Department_Page_Handling(object sender, EventArgs e)
     {
+          
         if (Request[WebConstants.Request.DEPT_ORDER_ID] != null)
         {
             if (IsPostBack == false)
@@ -74,13 +80,18 @@ public partial class Orders_AddOrder : DepartmentPage
         }
         else
         {
-            if (IsPostBack == false)
-                preSaveDepartmentOrder();
+           ClientScript.RegisterStartupScript(this.GetType(), "showCopyDialog", "YAHOO.util.Event.onDOMReady(showCopyDialog);", true);
+         // if (IsPostBack == false)
+            //   preSaveDepartmentOrder();
         }
     }
 
+    
+   
+
     private void preSaveDepartmentOrder()
     {
+        
         setDefaultValues();
         DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
         IEnumerator iEnumerator = da.InsertAndReturn(false,firstDepartmentId, loggedInUserCoId, tbOrderRef.Text, tbOrderClientRef.Text, tbOrderSMS.Text,
@@ -286,5 +297,22 @@ public partial class Orders_AddOrder : DepartmentPage
         }
         else
             SetErrorMessage(WebConstants.Messages.Error.NEXT_WARNING_COMPANYAUTOSAVE);
+    }
+    protected void btnNext_Click(object sender, ImageClickEventArgs e)
+    {
+       // setDefaultValues();
+        //DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
+        //IEnumerator iEnumerator = da.InsertSemiRecord(false, int.Parse(ddlDepartment.SelectedValue),
+          //  TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text);
+       // Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
+        
+        /*if (iEnumerator.MoveNext())
+        {
+            DepartmentOrder.DepartmentOrderRowRow dataRow = (DepartmentOrder.DepartmentOrderRowRow)iEnumerator.Current;
+            Response.Redirect("~/Orders/AddOrderPeople.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
+        }*/
+        // preSaveDepartmentOrder();
+    
+
     }
 }
