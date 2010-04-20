@@ -95,7 +95,7 @@ public partial class Orders_AddOrder : DepartmentPage
         DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
         IEnumerator iEnumerator = da.InsertAndReturn(false,firstDepartmentId, loggedInUserCoId, tbOrderRef.Text, tbOrderClientRef.Text, tbOrderSMS.Text,
             DateTime.Now, getEstWork(), DateTime.Now.AddYears(1), cbDocClient.Checked,
-            tbAddressNo.Text, tbAddress1.Text, tbAddress2.Text, tbAddress3.Text, tbAddress4.Text, tbAddress5.Text, tbPostalCode.Text, getFullAddress(),
+            tbPopupFlat.Text, tbPopupAddress1.Text, tbPopupAddress2.Text, tbPopupAddress3.Text, tbPopupAddress4.Text, tbPopupAddress5.Text, tbPopupPostCode.Text, getPopupFullAddress(),
             tbDesc.Text, cbMultiEmerExits.Checked, cbAssemPts.Checked, false, null,tbDescOfWork.Text,getEstNumOfOperatives(),ddlRiskTaking.SelectedValue,
             loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now).GetEnumerator();
         if (iEnumerator.MoveNext())
@@ -282,6 +282,20 @@ public partial class Orders_AddOrder : DepartmentPage
         addressFull.Append(tbPostalCode.Text);
         return addressFull.ToString();
     }
+
+    private string getPopupFullAddress()
+    {
+        StringBuilder addressFull = new StringBuilder();
+        addressFull.Append(tbPopupFlat.Text).Append(" ");
+        addressFull.Append(tbPopupAddress1.Text).Append(" ");
+        addressFull.Append(tbPopupAddress2.Text).Append(" ");
+        addressFull.Append(tbPopupAddress3.Text).Append(" ");
+        addressFull.Append(tbPopupAddress4.Text).Append(" ");
+        addressFull.Append(tbPopupAddress5.Text).Append(" ");
+        addressFull.Append(tbPopupPostCode.Text);
+        return addressFull.ToString();
+    }
+
     protected void btnUncancel_Click(object sender, EventArgs e)
     {
         Update(false, null);
@@ -300,18 +314,8 @@ public partial class Orders_AddOrder : DepartmentPage
             SetErrorMessage(WebConstants.Messages.Error.NEXT_WARNING_COMPANYAUTOSAVE);
     }
 
-    protected void btnCopy_Click(object sender, EventArgs e)
+    protected void btnCreate_Click(object sender, EventArgs e)
     {
-        setDefaultValues();
-        DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-        IEnumerator iEnumerator = da.InsertAndReturn(false, int.Parse(ddlDepartment.SelectedValue), loggedInUserCoId, tbOrderRef.Text, tbOrderClientRef.Text, tbOrderSMS.Text,
-            getCreatedDate(), getEstWork(), getReviewDate(), cbDocClient.Checked,
-            TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text, getFullAddress(),
-            tbDesc.Text, cbMultiEmerExits.Checked, cbAssemPts.Checked, false, null, tbDescOfWork.Text, getEstNumOfOperatives(), ddlRiskTaking.SelectedValue, loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now).GetEnumerator();
-        if (iEnumerator.MoveNext())
-        {
-            DepartmentOrder.DepartmentOrderRowRow dataRow = (DepartmentOrder.DepartmentOrderRowRow)iEnumerator.Current;
-            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
-        }
+        preSaveDepartmentOrder();
     }
 }

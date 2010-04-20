@@ -12,7 +12,7 @@
                 <asp:TreeNode NavigateUrl="~/Admin/TransferPPE.aspx" Text="Transfer PPE" Value="Transfer PPE"></asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Admin/TransferTool.aspx" Text="Transfer Plants & Tools" Value="Transfer Plants & Tools"></asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Admin/TransferPeople.aspx" Text="Transfer People" Value="Transfer People"></asp:TreeNode>
-                <asp:TreeNode NavigateUrl="~/Admin/TransferAspects.aspx" Text="Transfer Aspects" Value="Transfer Aspects"></asp:TreeNode>
+                <%--<asp:TreeNode NavigateUrl="~/Admin/TransferAspects.aspx" Text="Transfer Aspects" Value="Transfer Aspects"></asp:TreeNode>--%>
             </asp:TreeNode>
             
             <asp:TreeNode Text="Departments" Value="Departments" >
