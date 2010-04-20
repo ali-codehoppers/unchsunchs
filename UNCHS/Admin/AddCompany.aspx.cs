@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Text;
 
 public partial class Admin_AddCompany : AdminPage
-{
+{    
     protected override void  AdminPageHandling(object sender, EventArgs e)
     {
         if (Request[WebConstants.Request.CO_ID] != null)
@@ -164,7 +164,7 @@ public partial class Admin_AddCompany : AdminPage
     {
         DateTime currentDate = tbTrialStartDate.SelectedDate.Value;
         int trialNumOfDays = int.Parse(tbTrialNumOfDays.Text);
-        int index = 0;
+        int index = -1;
         while (index < trialNumOfDays)
         {
             if (currentDate.DayOfWeek != DayOfWeek.Saturday && currentDate.DayOfWeek != DayOfWeek.Sunday)
@@ -181,15 +181,66 @@ public partial class Admin_AddCompany : AdminPage
     protected void cbTrial_CheckedChanged(object sender, EventArgs e)
     {
         EnableTrialFields(cbTrial.Checked);
+        SetFocus(this);
+    }
+
+    protected void tbTrialStartDate_Changed(object sender, EventArgs e)
+    {
+        UpdateTrialEndDate();
+        SetFocus(this);
+    }
+
+    protected void tbTrialNumOfDays_Changed(object sender, EventArgs e)
+    {
+        UpdateTrialEndDate();
+        SetFocus(this);
     }
     private void EnableTrialFields(bool enable)
     {
         tbTrialNumOfDays.Enabled = enable;
         tbTrialStartDate.Enabled = enable;
 
-        if (enable && tbTrialStartDate.SelectedDate == new DateTime(1900,1,1))
+        if (enable && tbTrialStartDate.SelectedDate == new DateTime(1900, 1, 1))
         {
             tbTrialStartDate.SelectedDate = DateTime.Now;
+        }
+        else
+        {
+            tbTrialFinishDate.Text = "";
+            tbTrialNumOfDays.Text = "";
+            tbTrialStartDate.Text = "";
+        }
+    }
+
+    private void UpdateTrialEndDate()
+    {
+        tbTrialFinishDate.Text = "";
+        if (tbTrialStartDate.SelectedDate != new DateTime(1900, 1, 1) && tbTrialNumOfDays.Text.Length>0)
+        {
+            DateTime dt = GetTrialEndDate();
+            tbTrialFinishDate.Text = dt.ToString("dd/MM/yyyy");
+        }
+    }
+
+    public void SetFocus(Page sPage)
+    {
+        string[] sCtrl = null;
+        string sCtrlId = null;
+        Control sCtrlFound = default(Control);
+        string sCtrlClientId = null;
+        string sScript = null;
+
+        sCtrl = sPage.Request.Form.GetValues("__EVENTTARGET");
+        if ((sCtrl != null))
+        {
+            sCtrlId = sCtrl[0];
+            sCtrlFound = sPage.FindControl(sCtrlId);
+            if ((sCtrlFound != null))
+            {
+                sCtrlClientId = sCtrlFound.ClientID;
+                sScript = "<SCRIPT language='javascript'>document.getElementById('" + sCtrlClientId + "').focus(); if (document.getElementById('" + sCtrlClientId + "').scrollIntoView(false)) {document.getElementById('" + sCtrlClientId + "').scrollIntoView(true)} </SCRIPT>";
+                sPage.ClientScript.RegisterStartupScript(typeof(string), "controlFocus", sScript);
+            }
         }
     }
 }

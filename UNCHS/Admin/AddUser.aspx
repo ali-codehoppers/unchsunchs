@@ -25,22 +25,22 @@
     
     <div class="text_field"><span>User Level</span><ew:NumericBox ID="tbUserLevel" runat="server"></ew:NumericBox></div>
     <div class="text_field">
-        <span>User Name:</span><asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>
+        <span>Full Name:</span><asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"
          ControlToValidate="tbUserName" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     <div class="text_field">
-        <span>User Logon:</span><asp:TextBox ID="tbUserLogon" runat="server"></asp:TextBox>
+        <span>User Id:</span><asp:TextBox ID="tbUserLogon" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserLogon" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     <div class="text_field">
-        <span>User Enable:</span><asp:TextBox ID="tbUserEnable" runat="server"></asp:TextBox>
+        <span>Password:</span><asp:TextBox ID="tbUserEnable" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserEnable" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     <div class="text_field">
-        <span>User Enable Reminder:</span><asp:TextBox ID="tbUserEnableReminder" runat="server"></asp:TextBox>
+        <span>Password Reminder:</span><asp:TextBox ID="tbUserEnableReminder" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserEnableReminder" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
@@ -65,7 +65,7 @@
     <div class="button_bar">
         <asp:Button ID="btnSave" runat="server" Text="Save" onclick="btnSave_Click" Visible="true"/>
         <asp:Button ID="btnUpdate" runat="server" Text="Update" 
-            onclick="btnUpdate_Click" Visible="false"/>
+            onclick="btnUpdate_Click" Visible="false"/> Please Save your Changes before Proceeding Further.
         <asp:ObjectDataSource ID="odsCompany" runat="server" 
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCompanies" 
             TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">
