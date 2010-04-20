@@ -15,9 +15,7 @@ public partial class Orders_AddOrder : DepartmentPage
 {
 
     
-    protected void btnCopy_Click(object sender, EventArgs e)
-    {
-    }
+    
     protected override void  Department_Page_Handling(object sender, EventArgs e)
     {
           
@@ -80,8 +78,9 @@ public partial class Orders_AddOrder : DepartmentPage
         }
         else
         {
-           ClientScript.RegisterStartupScript(this.GetType(), "showCopyDialog", "YAHOO.util.Event.onDOMReady(showCopyDialog);", true);
-         // if (IsPostBack == false)
+          ClientScript.RegisterStartupScript(this.GetType(), "showCopyDialog", "YAHOO.util.Event.onDOMReady(showCopyDialog);", true);
+         
+            // if (IsPostBack == false)
             //   preSaveDepartmentOrder();
         }
     }
@@ -106,6 +105,8 @@ public partial class Orders_AddOrder : DepartmentPage
         }
     }
 
+    
+    
     private string getOrderSMS(string order_sms)
     {
         string smsOrder = order_sms.ToString();
@@ -298,21 +299,22 @@ public partial class Orders_AddOrder : DepartmentPage
         else
             SetErrorMessage(WebConstants.Messages.Error.NEXT_WARNING_COMPANYAUTOSAVE);
     }
-    protected void btnNext_Click(object sender, ImageClickEventArgs e)
+
+   
+   
+
+    protected void btnCopy_Click(object sender, EventArgs e)
     {
-       // setDefaultValues();
-        //DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-        //IEnumerator iEnumerator = da.InsertSemiRecord(false, int.Parse(ddlDepartment.SelectedValue),
-          //  TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text);
-       // Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
-        
-        /*if (iEnumerator.MoveNext())
+        setDefaultValues();
+        DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
+        IEnumerator iEnumerator = da.InsertAndReturn(false, int.Parse(ddlDepartment.SelectedValue), loggedInUserCoId, tbOrderRef.Text, tbOrderClientRef.Text, tbOrderSMS.Text,
+            getCreatedDate(), getEstWork(), getReviewDate(), cbDocClient.Checked,
+            TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text, getFullAddress(),
+            tbDesc.Text, cbMultiEmerExits.Checked, cbAssemPts.Checked, false, null, tbDescOfWork.Text, getEstNumOfOperatives(), ddlRiskTaking.SelectedValue, loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now).GetEnumerator();
+        if (iEnumerator.MoveNext())
         {
             DepartmentOrder.DepartmentOrderRowRow dataRow = (DepartmentOrder.DepartmentOrderRowRow)iEnumerator.Current;
-            Response.Redirect("~/Orders/AddOrderPeople.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
-        }*/
-        // preSaveDepartmentOrder();
-    
-
+            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + dataRow.sequence);
+        }
     }
 }

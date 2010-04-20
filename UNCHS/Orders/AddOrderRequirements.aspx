@@ -47,7 +47,7 @@
     </div>
     <div class="button_bar">
 	    <asp:ImageButton ID="btnAddRequirement" runat="server" OnClick="btnAddRequirement_Click" ValidationGroup="Requirement" ImageUrl="~/Images/Add_requirement.gif" onmouseover="this.src='../Images/Add_Requirement_roll_Sel.gif';" onmouseout="this.src='../Images/Add_requirement.gif';"/>
-        <input type="button" value="Requirements List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"  />
+        <input type="image" value="Requirements List"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"onmouseover="this.src='../Images/Requirements_list_rollover.gif';" onmouseout="this.src='../Images/Requirements_list.gif';"  />
     </div>
     <div class="grid">
         <asp:GridView ID="gvRequirement" runat="server" AllowPaging="True" AllowSorting="True"

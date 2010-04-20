@@ -46,7 +46,7 @@
     <div class="button_bar">
         <asp:ImageButton ID="btnAddWork" runat="server" ImageUrl="~/Images/Add_sequence_of_work.gif" OnClick="btnAddWork_Click" onmouseover="this.src='../Images/Add_Sequence_of_work_rol_sel.gif';" onmouseout="this.src='../Images/Add_sequence_of_work.gif';" ValidationGroup="Work"/>
         <!--<input type="image" src="../Images/Key_Hazards_list.gif" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Key_Hazards_list_roll_sel.gif';" onmouseout="this.src='../Images/Key_Hazards_list.gif';" />-->
-        <input type="button" value="Sequence of Works List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"  />
+        <input type="image"     onmouseover="this.src='../Images/Sequence_works_list_rollove.gif';" onmouseout="this.src='../Images/Sequence_works_list.gif';"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"/>
     </div>
     <div class="grid">
         <asp:GridView Width="75%" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
