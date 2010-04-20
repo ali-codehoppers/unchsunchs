@@ -72,7 +72,7 @@
                         </asp:Panel>
                         
                         <div style="margin-top:20px">Forgot your password?</div>
-                        <div style="margin-top:20px">Don't have an account? <a href="https://simplicity4business-shop.co.uk/pages/ProductPrices.aspx?productId=2">Sign up for free</a></div>
+                        <div style="margin-top:20px">Don't have an account? <a href="https://simplicity4business-shop.co.uk/pages/ProductPrices.aspx?productId=2" target="_blank">Sign up for Free Trial</a></div>
         </div>
         </td>
         </tr>

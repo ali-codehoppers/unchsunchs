@@ -14,7 +14,7 @@ As an employer, you must assess and manage health and safety risks - whether you
 </div>
 <div class="terms">
 Once you have completed the assessment it is important to put your results into practice. If you need to make a number of improvements, you should produce an action plan to deal with the most important first. You should review your assessment on an ongoing basis to make sure that it remains up to date and effective.    </div>
-    <div class="button_bar" style="text-align:center">
+    <div class="button_bar" style="text-align:center;margin-right:180px">
         <asp:Button ID="btnAgree" runat="server" 
             Text="I accept to the Terms & Conditions" onclick="btnAgree_Click" 
             style="height: 26px;text-align:center" Width="300px" />

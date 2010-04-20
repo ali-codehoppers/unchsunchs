@@ -112,8 +112,9 @@ img p {margin:0;padding:0;}
 .terms
 {
 	text-align:justify;
-	margin-right:7px;
-	color:Blue;	
+	margin-right:180px;
+	color:Blue;
+	font-size:medium;
 }
 #complete {background-color:white;}
 #center {background-color:white;width:1000px;margin:auto;margin-bottom:15px;margin-top:10px;}
