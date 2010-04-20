@@ -67,29 +67,29 @@
         <div class="bd">
             <div class="text_field">
                 <asp:HiddenField ID="HiddenField1" runat="server" />
-                <span>House/Flat No:</span><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <span>House/Flat No:</span><asp:TextBox ID="tbPopupFlat" runat="server"></asp:TextBox>
             </div>
             <div class="text_field">
-                <span >Address:</span><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <span >Address:</span><asp:TextBox ID="tbPopupAddress1" runat="server"></asp:TextBox>
             </div>
             <div class="text_field">
-                <span ></span><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <span ></span><asp:TextBox ID="tbPopupAddress2" runat="server"></asp:TextBox>
             </div>
             <div class="text_field">
-                <span ></span><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                <span ></span><asp:TextBox ID="tbPopupAddress3" runat="server"></asp:TextBox>
             </div>
             <div class="text_field">
-                <span ></span><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></div>
+                <span ></span><asp:TextBox ID="tbPopupAddress4" runat="server"></asp:TextBox></div>
             <div class="text_field">
-                <span ></span><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                <span ></span><asp:TextBox ID="tbPopupAddress5" runat="server"></asp:TextBox>
             </div>        
             <div class="text_field">
-                <span>Postal Code:</span><asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                <span>Postal Code:</span><asp:TextBox ID="tbPopupPostCode" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="ft" style="text-align:center">
-            <asp:ImageButton ID="btnCopy" runat="server" OnClick="btnCopy_Click" Text="Continue" Width="150px" ImageUrl="~/Images/Create_Folder.gif" />            
-        <asp:ImageButton PostBackUrl="~/UserHome.aspx" ID="cancel" runat="server" ImageUrl="~/Images/Cancel.gif" Width="150px" />
+            <asp:ImageButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" Text="Continue" Width="150px" ImageUrl="~/Images/Create_Folder.gif" />            
+            <asp:ImageButton PostBackUrl="~/UserHome.aspx" ID="cancel" runat="server" ImageUrl="~/Images/Cancel.gif" Width="150px" />
         </div>
     </div>
     <div class="text_field">
