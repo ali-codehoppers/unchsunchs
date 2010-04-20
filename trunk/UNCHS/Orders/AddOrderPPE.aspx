@@ -11,7 +11,25 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Add/Edit H&amp;S Folder
+    <div style="text-align: right">
+        <div class="button_bar">
+            <div class="button_left">
+                Add/Edit H&amp;S Folder
+            </div>
+        </div>
+
+        <div class="button_right">
+            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
+                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
+                onmouseout="this.src='../Images/Next.gif';"/>
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
+                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
+                onmouseout="this.src='../Images/Back.gif';"/>
+        </div>
+    </div>
+    <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="PPE" />
@@ -24,20 +42,7 @@
     </script>
 
     
-    <div style="text-align: right">
-        <div class="button_bar">
-        <div class="button_left">
-            <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Next.gif';"/>
-        </div>
-        </div>
-    </div>
+    
     <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>
     <div id="ppeDialog" style="display:none;">
         <div class="hd">
@@ -70,13 +75,13 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbPPE"
             ErrorMessage="*" ValidationGroup="PPE"></asp:RequiredFieldValidator>
     </div>
-   <div class="button_bar">
    
+       <div style="text-align:right;margin-top:10px">
 	<asp:ImageButton ID="btnAddPPE" runat="server" OnClick="btnAddPPE_Click" ValidationGroup="PPE" ImageUrl="~/Images/Add_PPE.gif" onmouseover="this.src='../Images/Add_PPE_roll_selec.gif';" onmouseout="this.src='../Images/Add_PPE.gif';"/>
-	<input type="image" src="../Images/PPE_List.gif" onclick="document.getElementById('ppeDialog').style.display='block';ppeDialog.show();return false;" ImageUrl="~/Images/Plants_Tools_List.gif" onmouseover="this.src='../Images/PPE_List_roll_selec.gif';" onmouseout="this.src='../Images/PPE_List.gif';" />
+	<input type="image" src="../Images/PPE_List.gif" onclick="document.getElementById('ppeDialog').style.display='block';ppeDialog.show();return false;" ImageUrl="~/Images/Plants_Tools_List.gif" onmouseover="this.src='../Images/PPE_List_roll_selec.gif';" onmouseout="this.src='../Images/PPE_List.gif';" style="margin-right:10px;margin-left:5px"/>
 
+    </div>
 
-    </div>    
     <div class="grid">
         <asp:GridView ID="gvPPE" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="grid_table"
