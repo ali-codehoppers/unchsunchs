@@ -38,6 +38,10 @@ Add/Edit Company
          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail"
              ErrorMessage="*Enter a valid email address." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
      </div>
+     <div class="text_field"><span >Website:</span><asp:TextBox ID="tbWebSite" runat="server"></asp:TextBox>
+         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbWebSite"
+             ErrorMessage="*Enter a valid website address." ValidationExpression="^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"></asp:RegularExpressionValidator>
+     </div>
      <div class="text_field">
         <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:middle;"><span >Notes:</span></td><td><asp:TextBox ID="txtCoNotes" runat="server" Rows="5"
             TextMode="MultiLine" ></asp:TextBox></td>
@@ -45,18 +49,20 @@ Add/Edit Company
         </table>
      </div>
     
-     <div class="field"><asp:CheckBox ID="cbAutoSave" runat="server" Text="Auto Save?"/></div>
-     <div class="text_field"><span>Fire Warden Label:</span><asp:TextBox ID="tbFireWarden" runat="server"></asp:TextBox></div>
-     <div class="text_field"><span>First Aider Label:</span><asp:TextBox ID="tbFirstAider" runat="server"></asp:TextBox></div>
-     <div class="text_field"><span>Supervisor Label:</span><asp:TextBox ID="tbSupervisor" runat="server"></asp:TextBox></div>
+     <div class="field"><asp:CheckBox ID="cbAutoSave" runat="server" Text="Auto Save?" Checked="true" Visible="false"/></div>
+     <div class="field">If you wish to change the Generic Labels below, please enter your prefered text.</div>
+     <div class="text_field"><span>Fire Warden Label:</span><asp:TextBox ID="tbFireWarden" runat="server" Text="Fire Warden"></asp:TextBox></div>
+     <div class="text_field"><span>First Aider Label:</span><asp:TextBox ID="tbFirstAider" runat="server" Text="First Aider"></asp:TextBox></div>
+     <div class="text_field"><span>Supervisor Label:</span><asp:TextBox ID="tbSupervisor" runat="server" Text="Supervisor"></asp:TextBox></div>
      <div class="field"><asp:CheckBox ID="cbMultiSups" runat="server" Text="Multiple Supervisors?"/></div>
-     <div class="field"><asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" 
-             AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/></div>
-     <div class="text_field"><span>Trial Start Date:</span><ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false"
-            DisplayMode="AutoPopup" ></ww:jQueryDatePicker></div>
-     <div class="text_field"><span>Trial Number of Days:</span><ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false"></ew:NumericBox></div>
+     
+     
+     <div class="field">
+        <asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;<ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false" DisplayMode="AutoPopup" OnTextChanged="tbTrialStartDate_Changed" AutoPostBack="true"></ww:jQueryDatePicker>
+        &nbsp;Days:&nbsp;<ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false" OnTextChanged="tbTrialNumOfDays_Changed" AutoPostBack="true"></ew:NumericBox>
+        &nbsp;Finish Date:&nbsp;<asp:TextBox ID="tbTrialFinishDate" runat="server" Enabled="false" Width="77px" ></asp:TextBox>
+     </div>
      <div class="button_bar"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"/>
          <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" /></div>
-
 </asp:Content>
-
