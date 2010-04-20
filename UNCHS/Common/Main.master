@@ -83,6 +83,7 @@
                     <div class="info"><asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>                        
                     <div><asp:contentplaceholder id="TabPlaceHolder" runat="server"></asp:contentplaceholder></div>
                 </div>
+                <!--
                 <table>
                     <tr>
                     <td style="border-right:1px;border-right-color:Black;">&nbsp;</td>
@@ -90,6 +91,8 @@
                     <td style="border-left:1px;border-left-color:Black;">&nbsp;</td>
                     </tr>
                 </table>
+                -->
+                
                 <div id="leftnav">
 		           <uc1:UserMenu ID="UserMenu" runat="server" Visible="false"/>
 		           <uc2:AdminMenu ID="AdminMenu" runat="server" Visible="false"/>
