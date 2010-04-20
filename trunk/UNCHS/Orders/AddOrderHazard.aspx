@@ -69,18 +69,20 @@
     <div class="field">
         <span class="heading">Key Hazard:</span>
     </div>
+    
     <div class="text_field">        
         <asp:TextBox ID="tbHazard" runat="server" Rows="3" TextMode="MultiLine" width="610px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="Hazard"
             ErrorMessage="*" ControlToValidate="tbHazard"></asp:RequiredFieldValidator>
+                
     </div>
-    <div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Add_Hazard_roll_selec.gif';" onmouseout="this.src='../Images/Add_Hazard.gif';"/>
-            </div>
-        <div class="button_right">
-		<input type="image" src="../Images/Key_Hazards_list.gif" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;" ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Key_Hazards_list_roll_sel.gif';" onmouseout="this.src='../Images/Key_Hazards_list.gif';" />
-		</div>
+    <div style="text-align:right;margin-top:10px">
+        <input type="image" src="../Images/Key_Hazards_list.gif" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;"
+            imageurl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Key_Hazards_list_roll_sel.gif';"
+            onmouseout="this.src='../Images/Key_Hazards_list.gif';" />
+        <asp:ImageButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard"
+            ImageUrl="~/Images/Add_Hazard.gif" onmouseover="this.src='../Images/Add_Hazard_roll_selec.gif';"
+            onmouseout="this.src='../Images/Add_Hazard.gif';" style="margin-right:10px;margin-left:5px"/>
     </div>
     <!--<div class="grid_area">-->
     <div class="grid">

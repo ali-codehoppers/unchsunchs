@@ -100,7 +100,7 @@ img p {margin:0;padding:0;}
 .button_bar {margin-top:20px;margin-bottom:20px;}
 .button_bar input{width:150px;margin-right:10px;}
 .button_left {float:left;}
-.button_right {float:right;clear:none;margin-right:20px}
+.button_right {float:right;clear:inherit;margin-right:10px}
 .button_bar_dialog {}
 .button_bar_dialog input{width:150px;margin-right:10px;}
 
