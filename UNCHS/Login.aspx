@@ -24,7 +24,7 @@
     </script>
     
 </head>
-<body class="yui-skin-sam" style="background-image:url('Images/Background_design_light.jpg');">
+<body class="yui-skin-sam">
     <form id="form1" runat="server" defaultbutton="btnLogin">
 
     <div id="confirmationDialog" style="display:none">

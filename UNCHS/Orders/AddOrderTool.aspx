@@ -73,9 +73,10 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
             ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
     </div>
-   <div class="button_bar">
+    
+    <div style="text-align:right;margin-top:10px">
 	<asp:ImageButton ID="btnAddTool" runat="server" OnClick="btnAddTool_Click" ValidationGroup="Tool" ImageUrl="~/Images/Add_plant_Tool.gif" onmouseover="this.src='../Images/Add_Plant_Tool_roll_sel.gif';" onmouseout="this.src='../Images/Add_plant_Tool.gif';"/>
-	<input type="image" src="../Images/Plants_Tools_List.gif" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;" ImageUrl="~/Images/Plants_Tools_List.gif" onmouseover="this.src='../Images/Plants_Tools_list_roll_sel.gif';" onmouseout="this.src='../Images/Plants_Tools_List.gif';" />
+	<input type="image" src="../Images/Plants_Tools_List.gif" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;" ImageUrl="~/Images/Plants_Tools_List.gif" onmouseover="this.src='../Images/Plants_Tools_list_roll_sel.gif';" onmouseout="this.src='../Images/Plants_Tools_List.gif';" style="margin-right:10px;margin-left:5px"/>
 
     </div>
 
