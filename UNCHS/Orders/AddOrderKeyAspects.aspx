@@ -12,7 +12,22 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Add/Edit H&amp;S Folder
+            <div style="text-align: right">
+        <div class="button_bar">
+            <div class="button_left">
+                Add/Edit H&amp;S Folder
+            </div>
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="ImageButton2" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
+                onmouseover="this.src='../Images/Next_rollover_selected.gif';" onmouseout="this.src='../Images/Next.gif';" />
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="ImageButton3" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
+                onmouseover="this.src='../Images/Back_rollover_selected.gif';" onmouseout="this.src='../Images/Back.gif';" />
+        </div>
+    </div>
+    <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Aspects" />
@@ -20,20 +35,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="text-align: right">
-        <div class="button_bar">
-        <div class="button_left">
-            <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Next.gif';"/>
-        </div>
-        </div>
-    </div>
     <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Sequence of Work" SuggestionType="A" ImageName="Add_Key_Aspect"/>        
     <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>
     <div class="field">
@@ -44,9 +45,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="tbKeyAspectHeader"
             ErrorMessage="*" ValidationGroup="KeyAspect"></asp:RequiredFieldValidator>
     </div>
-    <div class="button_bar">
+    <div style="text-align: right; margin-top: 10px">
 	    <asp:ImageButton ID="btnAddKeyAspect" runat="server" OnClick="btnAddKeyAspect_Click" ValidationGroup="KeyAspect" ImageUrl="~/Images/Add_Key_Aspect.gif" onmouseover="this.src='../Images/Add_key_Aspect_roll_sel.gif';" onmouseout="this.src='../Images/Add_Key_Aspect.gif';"/>
-        <input type="image" value="Key Aspects List"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"onmouseover="this.src='../Images/Key_Aspects_list_rollover.gif';" onmouseout="this.src='../Images/Key_Aspects_list.gif';"  />
+        <input type="image" value="Key Aspects List" src="../Images/Key_Aspects_list.gif" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"onmouseover="this.src='../Images/Key_Aspects_list_rollover.gif';" onmouseout="this.src='../Images/Key_Aspects_list.gif';"  style="margin-right: 10px; margin-left: 5px"/>
     </div>
     <div class="grid">
         <asp:GridView ID="gvKeyAspect" runat="server" AllowPaging="True" AllowSorting="True"

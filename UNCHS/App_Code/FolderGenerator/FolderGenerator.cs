@@ -220,7 +220,7 @@ public class FolderGenerator
                 // Create a font to work with 
                 //
                 BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, Encoding.ASCII.EncodingName, false);
-                pdfPageContents.SetFontAndSize(baseFont, 80); // 80 point font
+                pdfPageContents.SetFontAndSize(baseFont, 120); // 80 point font
                 pdfPageContents.SetRGBColorFill(180, 180, 180); // Sets the color of the font, RED in this instance
 
 

@@ -24,7 +24,7 @@
         <asp:Button ID="btnAdd" runat="server" Text="Add (s)" OnClick="btnAdd_Click" />
     </div>
 </div>
-<div class="button_bar">
+<div style="text-align: right; margin-right: 10px; margin-top:10px">
     <input type="button" value="<%=DocTypeName%> List" onclick="document.getElementById('dialog').style.display='block';dialog.show();" />
 </div>
 <div class="grid">

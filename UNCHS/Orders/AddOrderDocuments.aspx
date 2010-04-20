@@ -80,8 +80,8 @@ Add/Edit H&amp;S Folder
     <div class="field">
         <asp:CheckBox ID="cbClosed" runat="server" Text="Health & Saftey Closed"/>
     </div>
-    <div class="button_bar">
-	<asp:ImageButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" OnClientClick="showLoading();" ImageUrl="~/Images/Create_Folder.gif" onmouseover="this.src='../Images/Create_folder_roll_selec.gif';" onmouseout="this.src='../Images/Create_Folder.gif';"/>
+    <div style="text-align: right; margin-top: 10px">
+	<asp:ImageButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" OnClientClick="showLoading();" ImageUrl="~/Images/Create_Folder.gif" onmouseover="this.src='../Images/Create_folder_roll_selec.gif';" onmouseout="this.src='../Images/Create_Folder.gif';" style="margin-right: 10px; margin-left: 5px"/>
 
     </div>
     

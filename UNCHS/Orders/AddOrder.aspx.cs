@@ -300,9 +300,6 @@ public partial class Orders_AddOrder : DepartmentPage
             SetErrorMessage(WebConstants.Messages.Error.NEXT_WARNING_COMPANYAUTOSAVE);
     }
 
-   
-   
-
     protected void btnCopy_Click(object sender, EventArgs e)
     {
         setDefaultValues();

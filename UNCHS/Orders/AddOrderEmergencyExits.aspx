@@ -10,28 +10,28 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-   Add/Edit H&amp;S Folder
+    <div style="text-align: right">
+        <div class="button_bar">
+            <div class="button_left">
+                Add/Edit H&amp;S Folder
+            </div>
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="ImageButton2" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
+                onmouseover="this.src='../Images/Next_rollover_selected.gif';" onmouseout="this.src='../Images/Next.gif';" />
+        </div>
+        <div class="button_right">
+            <asp:ImageButton ID="ImageButton3" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
+                onmouseover="this.src='../Images/Back_rollover_selected.gif';" onmouseout="this.src='../Images/Back.gif';" />
+        </div>
+    </div>
+    <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Emergency" />
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
-    
-    <div style="text-align: right">
-        <div class="button_bar">
-        <div class="button_left">
-            <asp:ImageButton ID="btnBack" runat="server" ImageUrl="~/Images/Back.gif" OnClick="btnBack_Click" 
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Next.gif';"/>
-        </div>
-        </div>
-    </div>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">    
     <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Emergency Exits" SuggestionType="E" ImageName="Add_Emergency_Procedure"/>    
     <div class="warning_text" style="display:none">Data may go to continuation sheet if it exceeds the number of recods.</div>
 <div class="field">
@@ -42,9 +42,9 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbExitHeader"
         ErrorMessage="*" ValidationGroup="Exit"></asp:RequiredFieldValidator>
 </div>
-<div class="button_bar">
+<div style="text-align:right;margin-top:10px">
     <asp:ImageButton ID="btnAddExit" runat="server" OnClick="btnAddExit_Click" ValidationGroup="Exit" ImageUrl="~/Images/Add_Emergency_Procedure.gif" onmouseover="this.src='../Images/Add_Emergency_Procedure_roll_sel.gif';" onmouseout="this.src='../Images/Add_Emergency_Procedure.gif';"/>
-    <input type="image" value="Emergency Procedures List"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" onmouseover="this.src='../Images/Emergency_pro_list_rollover.gif';" onmouseout="this.src='../Images/Emergency_pro_list.gif';" />
+    <input type="image" value="Emergency Procedures List"  src="../Images/Emergency_pro_list.gif" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" onmouseover="this.src='../Images/Emergency_pro_list_rollover.gif';" onmouseout="this.src='../Images/Emergency_pro_list.gif';" style="margin-right:10px;margin-left:5px"/>
 </div>
 <div class="grid">
     <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting" OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table"  >
