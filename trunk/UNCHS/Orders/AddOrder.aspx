@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="ft" style="text-align:center">
-            <asp:ImageButton ID="btnCopy" runat="server" Text="Continue" Width="150px" ImageUrl="~/Images/Create_Folder.gif" />            
+            <asp:ImageButton ID="btnCopy" runat="server" OnClick="btnCopy_Click" Text="Continue" Width="150px" ImageUrl="~/Images/Create_Folder.gif" />            
         <asp:ImageButton PostBackUrl="~/UserHome.aspx" ID="cancel" runat="server" ImageUrl="~/Images/Cancel.gif" Width="150px" />
         </div>
     </div>

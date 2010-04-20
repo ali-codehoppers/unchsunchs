@@ -44,7 +44,7 @@
 </div>
 <div class="button_bar">
     <asp:ImageButton ID="btnAddExit" runat="server" OnClick="btnAddExit_Click" ValidationGroup="Exit" ImageUrl="~/Images/Add_Emergency_Procedure.gif" onmouseover="this.src='../Images/Add_Emergency_Procedure_roll_sel.gif';" onmouseout="this.src='../Images/Add_Emergency_Procedure.gif';"/>
-    <input type="button" value="Emergency Procedures List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" />
+    <input type="image" value="Emergency Procedures List"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" onmouseover="this.src='../Images/Emergency_pro_list_rollover.gif';" onmouseout="this.src='../Images/Emergency_pro_list.gif';" />
 </div>
 <div class="grid">
     <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting" OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table"  >

@@ -42,7 +42,7 @@ public partial class Login : System.Web.UI.Page
     }    
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        //
+        
         UserTableAdapters.un_co_user_detailsTableAdapter tableAdapter = new UserTableAdapters.un_co_user_detailsTableAdapter();
         IEnumerator iEnumerator = tableAdapter.UserLogin(tbUserName.Text, tbPassword.Text).GetEnumerator();
         if (iEnumerator.MoveNext())

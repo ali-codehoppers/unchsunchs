@@ -46,7 +46,7 @@
     </div>
     <div class="button_bar">
 	    <asp:ImageButton ID="btnAddKeyAspect" runat="server" OnClick="btnAddKeyAspect_Click" ValidationGroup="KeyAspect" ImageUrl="~/Images/Add_Key_Aspect.gif" onmouseover="this.src='../Images/Add_key_Aspect_roll_sel.gif';" onmouseout="this.src='../Images/Add_Key_Aspect.gif';"/>
-        <input type="button" value="Key Aspects List" style="width:200px;" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"  />
+        <input type="image" value="Key Aspects List"  onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"onmouseover="this.src='../Images/Key_Aspects_list_rollover.gif';" onmouseout="this.src='../Images/Key_Aspects_list.gif';"  />
     </div>
     <div class="grid">
         <asp:GridView ID="gvKeyAspect" runat="server" AllowPaging="True" AllowSorting="True"
