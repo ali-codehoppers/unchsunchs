@@ -1,17 +1,13 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddCompany.aspx.cs" Inherits="Admin_AddCompany" Title="Untitled Page" %>
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
-<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Register.master" AutoEventWireup="true" CodeFile="AddCompany.aspx.cs" Inherits="Register_AddCompany" Title="Untitled Page" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .text_field span{width:150px;height:100%;display:inline-block;}    
     </style>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-Add/Edit Company
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
-     <div class="text_field"><span>Company Name Short:</span><asp:TextBox ID="txtCompanyShortName" runat="server"></asp:TextBox>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+         <div class="text_field"><span>Company Name Short:</span><asp:TextBox ID="txtCompanyShortName" runat="server"></asp:TextBox>
      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCompanyShortName"
              ErrorMessage="*Short Name Required">     </asp:RequiredFieldValidator></div>
      <div class="text_field"><span >Company Name Long:</span><asp:TextBox ID="txtCompanyLongName" runat="server"></asp:TextBox>
@@ -57,15 +53,8 @@ Add/Edit Company
      <div class="field"><asp:CheckBox ID="cbMultiSups" runat="server" Text="Multiple Supervisors?"/></div>
      
      
-     <div class="field">
-        <asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;<ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false" DisplayMode="AutoPopup" OnTextChanged="tbTrialStartDate_Changed" AutoPostBack="true"></ww:jQueryDatePicker>
-        &nbsp;Days:&nbsp;<ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false" OnTextChanged="tbTrialNumOfDays_Changed" AutoPostBack="true"></ew:NumericBox>
-        &nbsp;Finish Date:&nbsp;<asp:TextBox ID="tbTrialFinishDate" runat="server" Enabled="false" Width="77px" ></asp:TextBox>
-     </div>
-     <div class="field">
-         <asp:CheckBox ID="cbWizard" runat="server" Text="Run Wizard for the users of this company?"/>
-     </div>
      <div class="button_bar"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"/>
-         <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" Visible="false"/></div>
+         <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" /></div>
+
 </asp:Content>
+

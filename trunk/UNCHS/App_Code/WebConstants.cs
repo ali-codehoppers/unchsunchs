@@ -22,6 +22,9 @@ public static class WebConstants
         public static string USER_ROLE = "USER_ROLE";
         public static string COMPANY_NAME = "COMPANY_NAME";
         public static string HAS_AGREED = "HAS_AGREED";
+        public static string REG_CO_ID = "REG_CO_ID";
+        public static string REG_DEPT_ID = "REG_DEPT_ID";
+        public static string REG_USER_ID = "REG_USER_ID";
     }
     public static class DocumentTypes
     {
