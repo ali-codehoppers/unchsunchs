@@ -59,6 +59,7 @@ public partial class Admin_AddCompany : AdminPage
                             tbTrialNumOfDays.Text = company.trial_num_of_days.ToString();
                         }                        
                     }
+                    cbWizard.Checked = company.flg_show_wizard;
                     
                     btnUpdate.Visible = true;
                     btnSave.Visible = false;
@@ -90,14 +91,14 @@ public partial class Admin_AddCompany : AdminPage
                     txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
                     txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, loggedInUserId,
                     DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1, cbTrial.Checked,
-                    tbTrialStartDate.SelectedDate, int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate());
+                    tbTrialStartDate.SelectedDate, int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate(),cbWizard.Checked);
             }
             else
             {
                 coTA.Insert(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
                     txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
                     txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, loggedInUserId,
-                    DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1, cbTrial.Checked, null, null, null);
+                    DateTime.Now, cbAutoSave.Checked, tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, 1, cbTrial.Checked, null, null, null,cbWizard.Checked);
             }
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
         }
@@ -147,14 +148,14 @@ public partial class Admin_AddCompany : AdminPage
                     txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
                     txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, cbAutoSave.Checked,
                     tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, cbTrial.Checked, tbTrialStartDate.SelectedDate,
-                    int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate(), coId);
+                    int.Parse(tbTrialNumOfDays.Text), GetTrialEndDate(),cbWizard.Checked, coId);
             }
             else
             {
                 coTA.Update(false, txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
                     txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
                     txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text, txtCoNotes.Text, 0, 0, false, loggedInUserId, DateTime.Now, cbAutoSave.Checked,
-                    tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, cbTrial.Checked, null,null,null,coId);
+                    tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, cbTrial.Checked, null,null,null,cbWizard.Checked,coId);
 
             }
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
@@ -162,21 +163,7 @@ public partial class Admin_AddCompany : AdminPage
     }
     private DateTime GetTrialEndDate()
     {
-        DateTime currentDate = tbTrialStartDate.SelectedDate.Value;
-        int trialNumOfDays = int.Parse(tbTrialNumOfDays.Text);
-        int index = -1;
-        while (index < trialNumOfDays)
-        {
-            if (currentDate.DayOfWeek != DayOfWeek.Saturday && currentDate.DayOfWeek != DayOfWeek.Sunday)
-            {
-                index++;
-            }
-            if (index < trialNumOfDays)
-            {
-                currentDate = currentDate.AddDays(1);
-            }
-        }
-        return currentDate;
+        return Utility.GetTrialEndDate(tbTrialStartDate.SelectedDate.Value,int.Parse(tbTrialNumOfDays.Text));
     }
     protected void cbTrial_CheckedChanged(object sender, EventArgs e)
     {

@@ -44,7 +44,7 @@ public partial class Login : System.Web.UI.Page
     {
         
         UserTableAdapters.un_co_user_detailsTableAdapter tableAdapter = new UserTableAdapters.un_co_user_detailsTableAdapter();
-        IEnumerator iEnumerator = tableAdapter.UserLogin(tbUserName.Text, tbPassword.Text).GetEnumerator();
+        IEnumerator iEnumerator = tableAdapter.UserLogin(tbUserName.Text,Utility.GetMd5Sum(tbPassword.Text)).GetEnumerator();
         if (iEnumerator.MoveNext())
         {
             User.un_co_user_detailsRow dataRow = (User.un_co_user_detailsRow)iEnumerator.Current;

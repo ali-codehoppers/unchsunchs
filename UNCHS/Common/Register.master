@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Register.master.cs" Inherits="Common_Register" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link rel="stylesheet" type="text/css" href='<%=this.ResolveClientUrl("~/Common/StyleSheets/layout.css")%>' />
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo_small.gif" AlternateText="Logo"/>
+    </div>
+    <div class="error"><asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label></div>
+    <div class="info"><asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>                        
+    
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

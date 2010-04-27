@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 /// <summary>
 /// Summary description for VerifyLoginPage
 /// </summary>
-public abstract class VerifyLoginPage : System.Web.UI.Page
+public abstract class VerifyLoginPage : GenericPage
 {
     private Company.un_co_detailsRow company = null;
     protected int loggedInUserId = 0;
@@ -17,28 +17,11 @@ public abstract class VerifyLoginPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        SetErrorMessage("");
-        SetInfoMessage("");
         LoginProcessing processing = new LoginProcessing();
         if (processing.Process(ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
         {
             AfterLoginVerifiedProcessing(sender, e);
         }
-    }
-    protected void SetErrorMessage(string error)
-    {
-        SetMessage(error, "lblError");
-    }
-    protected void SetInfoMessage(string info) 
-    {
-        SetMessage(info, "lblInfo");
-    }
-    private void SetMessage(string msg, string control)
-    {
-        Label label = (Label)this.Page.Master.FindControl(control);
-        label.Visible = true;
-        label.Text = msg;
     }
     protected Company.un_co_detailsRow GetCompany()
     {
