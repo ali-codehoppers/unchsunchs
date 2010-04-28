@@ -14,6 +14,11 @@ public partial class Register_AddDepartment : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session[WebConstants.Session.WIZARD_STEP] == null ||
+            (int)Session[WebConstants.Session.WIZARD_STEP] < 2)
+        {
+            Response.Redirect("~/Register/AddCompany.aspx");
+        }
         if (Session[WebConstants.Session.REG_CO_ID] != null 
             && Session[WebConstants.Session.REG_DEPT_ID] != null)
         {
@@ -71,6 +76,8 @@ public partial class Register_AddDepartment : GenericPage
                 {
                     Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ie.Current;
                     Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
+                    Session[WebConstants.Session.WIZARD_STEP] = 3;
+                    Response.Redirect("~/Register/AddUser.aspx");
                 }
             }
             else
@@ -96,10 +103,13 @@ public partial class Register_AddDepartment : GenericPage
         try
         {
             DepartmentTableAdapters.DepartmentSelectCommandTableAdapter dep_Adapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-            DataTable count = dep_Adapter.GetShortNameCountByDeptId(int.Parse(Request[WebConstants.Request.DEPT_ID]), txtCompanyShortName.Text);
+            DataTable count = dep_Adapter.GetShortNameCountByDeptId((int)Session[WebConstants.Session.REG_DEPT_ID], txtCompanyShortName.Text);
             if (count.Rows.Count == 0)
             {
                 dep_Adapter.UpdateDepartment(txtCompanyShortName.Text, txtCompanyLongName.Text, txtContactTitle.Text, txtContactInitial.Text.Trim(), txtForename.Text.Trim(), txtSurname.Text.Trim(), txtAddressNo.Text.Trim(), txtAddress1.Text.Trim(), txtAddress2.Text.Trim(), txtAddress3.Text.Trim(), txtAddress4.Text.Trim(), txtAddress5.Text.Trim(), txtPostalCode.Text.Trim(), GetFullAddress(), txtTele.Text.Trim(), txtTele1.Text.Trim(), txtFax.Text.Trim(), txtEmail.Text.Trim(), txtCoNotes.Text.Trim(), null, DateTime.Now, (int)Session[WebConstants.Session.REG_DEPT_ID]  );
+                Session[WebConstants.Session.WIZARD_STEP] = 3;
+                Response.Redirect("~/Register/AddUser.aspx");
+
             }
             else
             {

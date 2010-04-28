@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-    CodeFile="AddOrderKeyAspects.aspx.cs" Inherits="Orders_AddOrderKeyAspects" Title="Untitled Page" %>
+    CodeFile="AddOrderKeyAspects.aspx.cs" Inherits="Orders_AddOrderKeyAspects" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
 <%@ Register src="../Common/UserControls/SuggestionsSelectControl.ascx" tagname="SuggestionsSelectControl" tagprefix="uc1" %>

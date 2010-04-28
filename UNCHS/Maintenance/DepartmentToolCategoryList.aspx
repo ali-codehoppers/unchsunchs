@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DepartmentToolCategoryList.aspx.cs" Inherits="Maintenance_DepartmentToolCategoryList" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DepartmentToolCategoryList.aspx.cs" Inherits="Maintenance_DepartmentToolCategoryList" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/CategoryControl.ascx" TagName="CategoryControl"
     TagPrefix="uc1" %>

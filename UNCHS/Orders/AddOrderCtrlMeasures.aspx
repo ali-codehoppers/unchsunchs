@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddOrderCtrlMeasures.aspx.cs" Inherits="Orders_AddOrderCtrlMeasures"
-    Title="Untitled Page" %>
+    Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">

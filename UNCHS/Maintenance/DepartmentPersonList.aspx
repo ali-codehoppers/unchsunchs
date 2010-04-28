@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="DepartmentPersonList.aspx.cs" Inherits="Maintenance_DepartmentPersonList"
-    Title="Untitled Page" %>
+    Title="Simplicity4Business" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />

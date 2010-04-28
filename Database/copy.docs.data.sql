@@ -18,11 +18,11 @@ SET @targetDeptId = 23;
 
 
 --Document Types are wrt Co,Dept therefore first we need to copy them. to the target.
-/*INSERT INTO un_co_dept_doc_type (doc_data_type_desc,flg_delete,co_id,dept_id,sort_order,field_type,generator_class,[required],style,flg_landscape,num_of_sections,flg_checked,category)
+INSERT INTO un_co_dept_doc_type (doc_data_type_desc,flg_delete,co_id,dept_id,sort_order,field_type,generator_class,[required],style,flg_landscape,num_of_sections,flg_checked,category)
 SELECT doc_data_type_desc,flg_delete,@targetCoId,@targetDeptId,sort_order,field_type,generator_class,[required],style,flg_landscape,num_of_sections,flg_checked,category
 FROM un_co_dept_doc_type
 WHERE co_id = @sourceCoId 
-AND dept_id = @sourceDeptId;*/
+AND dept_id = @sourceDeptId;
 
 
 --The documents can be categorized. We need to copy the categories from source to target also. 
@@ -30,8 +30,7 @@ INSERT INTO un_co_dept_categories (dept_id,co_id,category_name,category_type,flg
 SELECT @targetDeptId,@targetCoId,category_name,category_type,flg_delete
 FROM un_co_dept_categories
 WHERE co_id = @sourceCoId 
-AND dept_id = @sourceDeptId
-AND category_type = 'D';
+AND dept_id = @sourceDeptId;
 
 -- Inset the document sections, these are generic sections based on co and dept. 
 insert into un_co_dept_template_sections(flg_delete,co_id,dept_id,section_index,section_desc,section_type,doc_type_id,repeat_columns)
@@ -64,9 +63,9 @@ select sections.section_id,@targetCoId,@targetDeptId,section_detail_index,sectio
    and sections.dept_id = @targetDeptId;
   
 --Insert the documents. For this we need to join the document type on the basis of name and category_id on the basis of name
-insert into un_co_dept_template_docs(co_id,dept_id,doc_type_id,doc_name,doc_desc,doc_code,flg_delete,doc_index,category_id)
+insert into un_co_dept_template_docs(co_id,dept_id,doc_type_id,doc_name,doc_desc,doc_code,flg_delete,doc_index,category_id,related_doc_codes,flg_default)
 select @targetCoId,@targetDeptId,doc_type.doc_data_type_id,un_co_dept_template_docs.doc_name,un_co_dept_template_docs.doc_desc,un_co_dept_template_docs.doc_code,
-	un_co_dept_template_docs.flg_delete,doc_index,cats.category_id
+	un_co_dept_template_docs.flg_delete,doc_index,cats.category_id,related_doc_codes,flg_default
 from un_co_dept_template_docs
 inner join un_co_dept_doc_type on un_co_dept_doc_type.doc_data_type_id = un_co_dept_template_docs.doc_type_id
 and un_co_dept_doc_type.co_id = un_co_dept_template_docs.co_id

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddOrderCOSHH.aspx.cs" Inherits="Orders_AddOrderCOSHH" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddOrderCOSHH.aspx.cs" Inherits="Orders_AddOrderCOSHH" Title="Simplicity4Business" %>
 <%@ Register Src="../Common/UserControls/OrderDocControl.ascx" TagName="OrderDocControl"
     TagPrefix="uc2" %>
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>

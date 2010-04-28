@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-    CodeFile="AddOrderPPE.aspx.cs" Inherits="Orders_AddOrderPPE" Title="Untitled Page" %>
+    CodeFile="AddOrderPPE.aspx.cs" Inherits="Orders_AddOrderPPE" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">

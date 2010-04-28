@@ -44,4 +44,8 @@ public partial class Register_UploadPeople : GenericPage
             SetErrorMessage("No file specified");
         }
     }
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/UserHome.aspx");
+    }
 }
