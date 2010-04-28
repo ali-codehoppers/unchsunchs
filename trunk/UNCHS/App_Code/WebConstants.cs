@@ -25,6 +25,7 @@ public static class WebConstants
         public static string REG_CO_ID = "REG_CO_ID";
         public static string REG_DEPT_ID = "REG_DEPT_ID";
         public static string REG_USER_ID = "REG_USER_ID";
+        public static string WIZARD_STEP = "WIZARD_STEP";
     }
     public static class DocumentTypes
     {

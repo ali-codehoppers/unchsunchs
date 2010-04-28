@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DepartmentAspectList.aspx.cs" Inherits="Maintenance_DepartmentAspectList" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DepartmentAspectList.aspx.cs" Inherits="Maintenance_DepartmentAspectList" Title="Simplicity4Business" %>
 
 <%@ Register src="../Common/UserControls/SuggestionsControl.ascx" tagname="SuggestionsControl" tagprefix="uc1" %>
 

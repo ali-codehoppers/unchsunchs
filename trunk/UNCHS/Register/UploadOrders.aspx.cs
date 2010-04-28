@@ -15,6 +15,11 @@ public partial class Register_UploadOrders : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session[WebConstants.Session.WIZARD_STEP] == null ||
+    (int)Session[WebConstants.Session.WIZARD_STEP] < 4)
+        {
+            Response.Redirect("~/Register/AddUser.aspx");
+        }
 
     }
     protected void btnUpload_Click(object sender, EventArgs e)
@@ -47,4 +52,8 @@ public partial class Register_UploadOrders : GenericPage
         }
     }
 
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Register/UploadPeople.aspx");
+    }
 }

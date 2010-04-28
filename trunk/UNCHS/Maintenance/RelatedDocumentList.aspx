@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Plain.master" AutoEventWireup="true" CodeFile="RelatedDocumentList.aspx.cs" Inherits="Maintenance_RelatedDocumentList" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Common/Plain.master" AutoEventWireup="true" CodeFile="RelatedDocumentList.aspx.cs" Inherits="Maintenance_RelatedDocumentList" Title="Simplicity4Business" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">

@@ -69,7 +69,7 @@ public partial class Login : System.Web.UI.Page
                 }
                 else
                 {
-                    handleSuccessfulLogin(dataRow.user_id, dataRow.role);
+                    handleSuccessfulLogin(dataRow.user_id, dataRow.role,dataRow.co_id);
                 }
             }
         }
@@ -85,13 +85,36 @@ public partial class Login : System.Web.UI.Page
     }
     protected void btnContinue_Click(object sender, EventArgs e)
     {
-        handleSuccessfulLogin((int)Session[WebConstants.Session.USER_ID], (string)Session[WebConstants.Session.USER_ROLE]);
+        handleSuccessfulLogin((int)Session[WebConstants.Session.USER_ID], (string)Session[WebConstants.Session.USER_ROLE],(int)Session[WebConstants.Session.USER_CO_ID]);
     }
-    private void handleSuccessfulLogin(int userId,string role)
+    private void handleSuccessfulLogin(int userId,string role,int coId)
     {
         TimeSpan SessTimeOut = new TimeSpan(0, 0, HttpContext.Current.Session.Timeout, 0, 0);
-        Cache.Insert(userId.ToString(), Request.UserHostAddress, null, DateTime.MaxValue, SessTimeOut, System.Web.Caching.CacheItemPriority.NotRemovable, null);        
-        if (role.Equals(WebConstants.Roles.User))
+        Cache.Insert(userId.ToString(), Request.UserHostAddress, null, DateTime.MaxValue, SessTimeOut, System.Web.Caching.CacheItemPriority.NotRemovable, null);
+        Company.un_co_detailsRow company = DatabaseUtility.GetCompany(coId);
+        if (company != null && company.flg_show_wizard)
+        {
+            Session[WebConstants.Session.REG_CO_ID] = company.co_id;
+            Session[WebConstants.Session.REG_USER_ID] = userId;
+            DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+            IEnumerator ie = deptTA.GetDepartmentsByCoId(coId).GetEnumerator();
+            if (ie.MoveNext())
+            {
+                Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ie.Current;
+                Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
+            }
+            if(company.Isflg_trialNull() == true || company.flg_trial == false)
+            {
+                company.trial_start_date = DateTime.Today;
+                company.flg_trial = true;
+                company.trial_num_of_days = 15;
+                company.trial_end_date = Utility.GetTrialEndDate(DateTime.Today, 15);
+                CompanyTableAdapters.un_co_detailsTableAdapter coTA = new CompanyTableAdapters.un_co_detailsTableAdapter();
+                coTA.Update(company);
+            }
+            Response.Redirect("~/Register/AddCompany.aspx");
+        }
+        else if (role.Equals(WebConstants.Roles.User))
         {
             Response.Redirect("TermsConditions.aspx");
         }

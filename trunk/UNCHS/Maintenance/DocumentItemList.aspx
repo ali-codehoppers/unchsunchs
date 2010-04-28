@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DocumentItemList.aspx.cs" Inherits="Maintenance_DocumentItemList" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="DocumentItemList.aspx.cs" Inherits="Maintenance_DocumentItemList" Title="Simplicity4Business" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">
         .text_field span{width:150px;height:100%;display:inline-block;}    

@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-    CodeFile="AddOrderSeqOfWoks.aspx.cs" Inherits="Orders_AddOrderSeqOfWoks" Title="Untitled Page" %>
+    CodeFile="AddOrderSeqOfWoks.aspx.cs" Inherits="Orders_AddOrderSeqOfWoks" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc2" %>
 <%@ Register Src="../Common/UserControls/SuggestionsSelectControl.ascx" TagName="SuggestionsSelectControl"

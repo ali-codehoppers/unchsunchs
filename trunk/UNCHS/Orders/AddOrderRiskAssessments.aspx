@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddOrderRiskAssessments.aspx.cs" Inherits="Orders_AddOrderRiskAssessments" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddOrderRiskAssessments.aspx.cs" Inherits="Orders_AddOrderRiskAssessments" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/OrderDocControl.ascx" TagName="OrderDocControl"
     TagPrefix="uc2" %>

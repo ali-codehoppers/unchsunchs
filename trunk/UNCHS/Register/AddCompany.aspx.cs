@@ -15,7 +15,7 @@ public partial class Register_AddCompany : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session[WebConstants.Session.REG_CO_ID] != null)
+        if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             if (IsPostBack == false)
             {
@@ -73,6 +73,8 @@ public partial class Register_AddCompany : GenericPage
             {
                 Session[WebConstants.Session.REG_CO_ID] = ((Company.un_co_detailsRow)ie.Current).co_id;
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+                Session[WebConstants.Session.WIZARD_STEP] = 2;
+                Response.Redirect("~/Register/AddDepartment.aspx");
             }            
         }
     }
@@ -105,6 +107,9 @@ public partial class Register_AddCompany : GenericPage
                 tbFireWarden.Text, tbFirstAider.Text, cbMultiSups.Checked, tbSupervisor.Text, true, DateTime.Today,
                 15, Utility.GetTrialEndDate(DateTime.Today,15),true, coId);
             SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+            Session[WebConstants.Session.WIZARD_STEP] = 2;
+            Response.Redirect("~/Register/AddDepartment.aspx");
+
         }
     }
 }
