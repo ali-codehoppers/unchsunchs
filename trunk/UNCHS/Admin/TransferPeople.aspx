@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="TransferPeople.aspx.cs" Inherits="Admin_TransferPeople" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="TransferPeople.aspx.cs" Inherits="Admin_TransferPeople" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">

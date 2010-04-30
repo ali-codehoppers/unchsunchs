@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Common/Register.master" AutoEventWireup="true" CodeFile="UploadOrders.aspx.cs" Inherits="Register_UploadOrders" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Register.master" AutoEventWireup="true" CodeFile="UploadOrders.aspx.cs" Inherits="Register_UploadOrders" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

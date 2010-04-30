@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-    CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Untitled Page" %>
+    CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>

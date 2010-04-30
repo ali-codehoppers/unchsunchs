@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="TransferAspects.aspx.cs" Inherits="Admin_TransferAspects" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="TransferAspects.aspx.cs" Inherits="Admin_TransferAspects" Title="Simplicity4Business" %>
 
 <%@ Register src="../Common/UserControls/TransferSuggestions.ascx" tagname="TransferSuggestions" tagprefix="uc1" %>
 
