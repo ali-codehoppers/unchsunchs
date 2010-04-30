@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Simplicity4Business</title>
     <link rel="stylesheet" type="text/css" href='../Common/StyleSheets/RegisterSteps.css' />
     <link rel="stylesheet" type="text/css" href='../Common/StyleSheets/RegisterStyle.css' />
     <script src='../Includes/unchs/RegisterMenu.js' type="text/javascript"></script>
