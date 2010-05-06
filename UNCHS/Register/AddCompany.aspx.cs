@@ -71,7 +71,17 @@ public partial class Register_AddCompany : GenericPage
                     DateTime.Today, 15, Utility.GetTrialEndDate(DateTime.Today,15),true).GetEnumerator();
             if (ie.MoveNext())
             {
-                Session[WebConstants.Session.REG_CO_ID] = ((Company.un_co_detailsRow)ie.Current).co_id;
+                int coId = ((Company.un_co_detailsRow)ie.Current).co_id;
+                Session[WebConstants.Session.REG_CO_ID] = coId;
+                DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+                IEnumerator ieDept = deptTA.InsertAndReturn(coId,false,txtCompanyShortName.Text,txtCompanyLongName.Text,txtContactTitle.Text, txtContactInitial.Text, txtForename.Text, txtSurname.Text,
+                    txtAddressNo.Text, txtAddress1.Text, txtAddress2.Text, txtAddress3.Text, txtAddress4.Text, txtAddress5.Text, txtPostalCode.Text, getFullAddress(),
+                    txtTele.Text, txtTele1.Text, txtFax.Text, txtEmail.Text,txtCoNotes.Text,null,DateTime.Now,null,DateTime.Now).GetEnumerator();
+
+                if(ieDept.MoveNext())
+                {
+                    Session[WebConstants.Session.REG_DEPT_ID] = ((Department.DepartmentSelectCommandRow)ieDept.Current).dept_id;
+                }
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
                 Session[WebConstants.Session.WIZARD_STEP] = 2;
                 Response.Redirect("~/Register/AddDepartment.aspx");
