@@ -19,7 +19,8 @@
             OnClick="btnUpload_Click" style="font: normal 12px Arial, Verdana, Helvetica, sans-serif;color: #333;height:18px;background-image: url(../Images/filed_gradient.jpg);background-repeat: repeat-x;border: 1px solid #cccccc;" />
     </div>
     <div style="color:Gray">
-        The file should be a CSV file with the following format. 
+        The file should be a CSV file with the following format.<br />
+        Please also note that headers should be provided in the first row. Any data in first row will not be processed. 
     </div>    
     <div>
         <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/folder_import.png"/>        
