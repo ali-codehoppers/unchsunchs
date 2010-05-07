@@ -50,6 +50,13 @@ public partial class Main : System.Web.UI.MasterPage
             Cache.Remove(Session[WebConstants.Session.USER_ID].ToString());
         }
         Session.Clear();
+        
+        HttpCookie cookie = Request.Cookies["UserLoginSession"];
+        if (cookie != null)
+        {
+            cookie.Expires = DateTime.Now;
+        }
+
         Response.Redirect("~/Login.aspx");
 
     }
