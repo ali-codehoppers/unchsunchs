@@ -10,9 +10,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
-using SimplicityCommLib;
-using System.Collections.Generic;
-
 public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -26,13 +23,6 @@ public partial class Login : System.Web.UI.Page
         {
             lblError.Visible = true;
             lblError.Text = WebConstants.Messages.Error.INVALID_CACHE;
-        }
-
-        //mjaved.sim.CommonLib  Cookie and Session Handling
-        HttpCookie cookie = Request.Cookies["UserLoginSession"];
-        if (cookie != null && !cookie.Value.Equals(""))
-        {
-            btnLogin_Click(new object(), new EventArgs());
         }
     }
     private bool TrialExpired(int coId)
@@ -50,91 +40,46 @@ public partial class Login : System.Web.UI.Page
             }
         }
         return true;
-    }
+    }    
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-
-        //mjaved.sim.CommonLib  Cookie and Session Handling
-        HttpCookie cookie = Request.Cookies["UserLoginSession"];
-
-        if (cookie != null && cookie.Value.Equals(""))
+        
+        UserTableAdapters.un_co_user_detailsTableAdapter tableAdapter = new UserTableAdapters.un_co_user_detailsTableAdapter();
+        IEnumerator iEnumerator = tableAdapter.UserLogin(tbUserName.Text,Utility.GetMd5Sum(tbPassword.Text)).GetEnumerator();
+        if (iEnumerator.MoveNext())
         {
-
-            UserTableAdapters.un_co_user_detailsTableAdapter tableAdapter = new UserTableAdapters.un_co_user_detailsTableAdapter();
-            IEnumerator iEnumerator = tableAdapter.UserLogin(tbUserName.Text, Utility.GetMd5Sum(tbPassword.Text)).GetEnumerator();
-            if (iEnumerator.MoveNext())
+            User.un_co_user_detailsRow dataRow = (User.un_co_user_detailsRow)iEnumerator.Current;
+            if (TrialExpired(dataRow.co_id))
             {
-                User.un_co_user_detailsRow dataRow = (User.un_co_user_detailsRow)iEnumerator.Current;
-                if (TrialExpired(dataRow.co_id))
-                {
-                    pnlTrialError.Visible = true;
-                }
-                else
-                {
-
-                    Session[WebConstants.Session.USER_ID] = dataRow.user_id;
-                    Session[WebConstants.Session.USER_ROLE] = dataRow.role;
-                    if (dataRow.Isco_idNull() == false)
-                    {
-                        Session[WebConstants.Session.USER_CO_ID] = dataRow.co_id;
-                    }
-
-                    if (Cache[dataRow.user_id.ToString()] != null && Cache[dataRow.user_id.ToString()].Equals(Request.UserHostAddress) == false)
-                    {
-                        lblIP.Text = Request.UserHostAddress;
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "ConfirmationDialog", "<script>YAHOO.util.Event.onDOMReady(showConfirmationDialog);</script>");
-                    }
-                    else
-                    {
-                        handleSuccessfulLogin(dataRow.user_id, dataRow.role, dataRow.co_id);
-                    }
-                }
+                pnlTrialError.Visible = true;
             }
             else
             {
-                lblError.Visible = true;
+
+                Session[WebConstants.Session.USER_ID] = dataRow.user_id;
+                Session[WebConstants.Session.USER_ROLE] = dataRow.role;
+                if (dataRow.Isco_idNull() == false)
+                {
+                    Session[WebConstants.Session.USER_CO_ID] = dataRow.co_id;
+                }
+
+                if (Cache[dataRow.user_id.ToString()] != null && Cache[dataRow.user_id.ToString()].Equals(Request.UserHostAddress) == false)
+                {
+                    lblIP.Text = Request.UserHostAddress;
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "ConfirmationDialog", "<script>YAHOO.util.Event.onDOMReady(showConfirmationDialog);</script>");
+                }
+                else
+                {
+                    handleSuccessfulLogin(dataRow.user_id, dataRow.role,dataRow.co_id);
+                }
             }
         }
         else
         {
-            UserTableAdapters.un_co_user_detailsTableAdapter tableAdapter = new UserTableAdapters.un_co_user_detailsTableAdapter();
-            IEnumerator iEnumerator = tableAdapter.GetUserById(int.Parse(cookie.Value)).GetEnumerator();
-            if (iEnumerator.MoveNext())
-            {
-                User.un_co_user_detailsRow dataRow = (User.un_co_user_detailsRow)iEnumerator.Current;
-                if (TrialExpired(dataRow.co_id))
-                {
-                    pnlTrialError.Visible = true;
-                }
-                else
-                {
-
-                    Session[WebConstants.Session.USER_ID] = dataRow.user_id;
-                    Session[WebConstants.Session.USER_ROLE] = dataRow.role;
-                    if (dataRow.Isco_idNull() == false)
-                    {
-                        Session[WebConstants.Session.USER_CO_ID] = dataRow.co_id;
-                    }
-
-                    if (Cache[dataRow.user_id.ToString()] != null && Cache[dataRow.user_id.ToString()].Equals(Request.UserHostAddress) == false)
-                    {
-                        lblIP.Text = Request.UserHostAddress;
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "ConfirmationDialog", "<script>YAHOO.util.Event.onDOMReady(showConfirmationDialog);</script>");
-                    }
-                    else
-                    {
-                        handleSuccessfulLogin(dataRow.user_id, dataRow.role, dataRow.co_id);
-                    }
-                }
-            }
-            else
-            {
-                lblError.Visible = true;
-            }
-        
+            lblError.Visible = true;
         }
     }
-    
+
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         Session.Clear();
