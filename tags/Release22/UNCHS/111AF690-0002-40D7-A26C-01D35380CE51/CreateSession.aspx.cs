@@ -37,7 +37,7 @@ public partial class CreateSession : System.Web.UI.Page
                     {
                         Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ieDept.Current;
                         Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
-                    }                    
+                    }
                     Response.Redirect("~/Register/AddCompany.aspx");
                 }
                 else
@@ -45,6 +45,14 @@ public partial class CreateSession : System.Web.UI.Page
                     Response.Redirect("~/UserHome.aspx");
                 }
             }
+            else
+            {
+                Response.Redirect(ConfigurationManager.AppSettings["SCurl"]);
+            }
+        }
+        else
+        {
+            Response.Redirect(ConfigurationManager.AppSettings["SCurl"]);
         }
     }
 }

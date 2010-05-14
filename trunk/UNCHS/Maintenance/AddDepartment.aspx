@@ -6,12 +6,13 @@
     </style>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="Content2" runat="server">
-Add/Edit Department
+    Add/Edit Department 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
      <div class="ddl_field">
         <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
-        <asp:DropDownList ID="ddlCompany" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short" DataValueField="co_id"></asp:DropDownList>
+        <asp:DropDownList ID="ddlCompany" runat="server" DataSourceID="odsCompanies" 
+             DataTextField="ShortName" DataValueField="CompanyId"></asp:DropDownList>
      </div>
      <div class="text_field"><span>Department Name Short:</span><asp:TextBox ID="txtCompanyShortName" runat="server"></asp:TextBox>
      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCompanyShortName"
@@ -41,7 +42,8 @@ Add/Edit Department
              ErrorMessage="*Enter a valid email address." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
      </div>
      <div class="text_field">
-        <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:middle;"><span >Notes:</span></td><td><asp:TextBox ID="txtCoNotes" runat="server" Rows="5"
+        <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:middle;"><span >
+            Notes:</span></td><td><asp:TextBox ID="txtCoNotes" runat="server" Rows="5"
             TextMode="MultiLine" ></asp:TextBox></td>
         </tr>
         </table>
@@ -50,7 +52,8 @@ Add/Edit Department
          <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" /></div>
       <asp:ValidationSummary ID="ValidationSummary1" runat="server" /> 
     <asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">
+        SelectMethod="GetAllCompanies" 
+         TypeName="SimplicityCommLib.DataSets.Common.CompanyTableAdapters.CompanyTableAdapter">
     </asp:ObjectDataSource>
 </asp:Content>
 

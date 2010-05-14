@@ -21,7 +21,8 @@
         <div style="color:Gray">
             The file should be a CSV file with the following format. 
             <br />
-            Please also note that headers should be provided in the first row. Any data in first row will not be processed.
+            Please also note that headers should be provided in the first row. Any data in first row will not be processed.<br /><br />
+        Click <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Register/CSVHelp.aspx?return=2">here</asp:HyperLink> on help on how to create CSV file. 
         </div>
         <div>
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/people_excel.png"/>

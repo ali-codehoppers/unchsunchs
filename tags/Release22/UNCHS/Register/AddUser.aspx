@@ -21,7 +21,7 @@
          ControlToValidate="tbUserName" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     <div class="text_field">
-        <span>User Id:</span><asp:TextBox ID="tbUserLogon" runat="server" CssClass="field_txt"></asp:TextBox>
+        <span>User Id:</span><asp:TextBox ID="tbUserLogon" runat="server" CssClass="field_txt" Enabled="false"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserLogon" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
@@ -60,9 +60,9 @@
         <span>Location:</span><asp:TextBox ID="tbLocation" runat="server" CssClass="field_txt"></asp:TextBox>
     </div>
     <div class="button_bar">
-        <asp:Button ID="btnSave" runat="server" Text="Save & Continue" onclick="btnSave_Click" Visible="true" style="font: normal 12px Arial, Verdana, Helvetica, sans-serif;color: #333;height:30px;width:200px;background-image: url(../Images/filed_gradient.jpg);background-repeat: repeat-x;border: 1px solid #cccccc;"/>
+        <asp:Button ID="btnSave" runat="server" Text="Save & Continue" onclick="btnSave_Click" Visible="true" style="font: normal 12px Arial, Verdana, Helvetica, sans-serif;color: #333;height:30px;width:200px;background-image: url(../Images/filed_gradient.jpg);background-repeat: repeat-x;border: 1px solid #cccccc;" ValidationGroup="Add"/>
         <asp:Button ID="btnUpdate" runat="server" Text="Save & Continue" style="font: normal 12px Arial, Verdana, Helvetica, sans-serif;color: #333;height:30px;width:200px;background-image: url(../Images/filed_gradient.jpg);background-repeat: repeat-x;border: 1px solid #cccccc;"
-            onclick="btnUpdate_Click" Visible="false"/> 
+            onclick="btnUpdate_Click" Visible="false" ValidationGroup="Add"/> 
     </div>    
 
 </asp:Content>
