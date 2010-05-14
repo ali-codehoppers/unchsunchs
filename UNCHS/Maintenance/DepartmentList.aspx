@@ -65,10 +65,13 @@
             <asp:Parameter Name="date_last_amended" Type="DateTime" />
         </InsertParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsCompanies" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCompanies" 
+        TypeName="SimplicityCommLib.DataSets.Common.CompanyTableAdapters.CompanyTableAdapter"></asp:ObjectDataSource>
     <div class="field">
         <asp:HiddenField ID="hfCoId" runat="server" />
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Maintenance/AddDepartment.aspx">Add a New Department</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Maintenance/AddDepartment.aspx">Add 
+        a New Department</asp:HyperLink>
     </div>
     <div class="ddl_field">
         <asp:Label ID="lblCompany" runat="server" Text="Company"></asp:Label>

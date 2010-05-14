@@ -3,31 +3,57 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UNCHS", "UNCHS\", "{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFramework = "2.0"
-		Debug.AspNetCompiler.VirtualPath = "/UNCHS"
-		Debug.AspNetCompiler.PhysicalPath = "D:\Projects\newProjects\Project\UNCHS\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UNCHS\"
-		Debug.AspNetCompiler.Updateable = "true"
+		TargetFramework = "3.5"
+		ProjectReferences = "{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}|SimplicityCommLib.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/UNCHS-Deployed"
+		Debug.AspNetCompiler.PhysicalPath = "UNCHS\"
+		Debug.AspNetCompiler.TargetPath = "..\..\UNCHS-Deployed\"
+		Debug.AspNetCompiler.Updateable = "false"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/UNCHS"
-		Release.AspNetCompiler.PhysicalPath = "D:\Projects\newProjects\Project\UNCHS\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\UNCHS\"
-		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.VirtualPath = "/UNCHS-Deployed"
+		Release.AspNetCompiler.PhysicalPath = "UNCHS\"
+		Release.AspNetCompiler.TargetPath = "..\..\UNCHS-Deployed\"
+		Release.AspNetCompiler.Updateable = "false"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "63727"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplicityCommLib", "..\..\ShoppingCart\trunk\SimplicityCommLib\SimplicityCommLib.csproj", "{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|.NET.ActiveCfg = Debug|.NET
 		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|.NET.Build.0 = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Release|.NET.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Release|.NET.Build.0 = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Release|.NET.ActiveCfg = Release|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
