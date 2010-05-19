@@ -3,6 +3,7 @@ using System;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using SimplicityCommLib;
 /// <summary>
 /// Summary description for RiskAssessmentProcedureGenerator
 /// </summary>
@@ -207,7 +208,7 @@ public class RiskAssessmentProcedureGenerator : GenericGenerator
         paragraph.Alignment = Element.ALIGN_CENTER;
         paragraph.SpacingBefore = 10;
         doc.Add(paragraph);
-        string rootPath = System.Configuration.ConfigurationManager.AppSettings[WebConstants.Configuration.PHYSICAL_PATH];
+        string rootPath = System.Configuration.ConfigurationManager.AppSettings[Constants.Configuration.PHYSICAL_PATH];
         Image chart = Image.GetInstance(Image.GetInstance(rootPath + @"\Images\chart.bmp"));
         chart.ScaleToFit(700, 450);
         chart.Alignment = Element.ALIGN_CENTER;

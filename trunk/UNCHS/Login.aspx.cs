@@ -170,7 +170,7 @@ public partial class Login : System.Web.UI.Page
             }
             Response.Redirect("~/Register/AddCompany.aspx");
         }
-        else if (role.Equals(WebConstants.Roles.User))
+        else if (role.Equals(Constants.Roles.User))
         {
             Response.Redirect("TermsConditions.aspx");
         }

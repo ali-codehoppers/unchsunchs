@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.IO;
 
 using LumenWorks.Framework.IO.Csv;
-public partial class Register_UploadPeople : GenericPage
+public partial class Register_UploadPeople : TempGenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

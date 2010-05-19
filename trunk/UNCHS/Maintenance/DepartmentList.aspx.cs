@@ -8,13 +8,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using SimplicityCommLib;
 
-public partial class Maintenance_DepartmentList : AuthenticatedPage
+public partial class Maintenance_DepartmentList : TempAuthenticatedPage
 {
     DataTable department = new DataTable();
     override protected void Page_Load_Extended(object sender, EventArgs e)
     {
-        if (loggedInUserRole != WebConstants.Roles.Admin)
+        if (loggedInUserRole != Constants.Roles.Admin)
         {
             hfCoId.Value = loggedInUserCoId.ToString();
             GridView1.DataBind();

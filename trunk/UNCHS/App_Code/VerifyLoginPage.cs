@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 /// <summary>
 /// Summary description for VerifyLoginPage
 /// </summary>
-public abstract class VerifyLoginPage : GenericPage
+public abstract class VerifyLoginPage : TempGenericPage
 {
     private Company.un_co_detailsRow company = null;
     protected int loggedInUserId = 0;

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
-public partial class AdminHome : AuthenticatedPage
+public partial class AdminHome : TempAuthenticatedPage
 {
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {

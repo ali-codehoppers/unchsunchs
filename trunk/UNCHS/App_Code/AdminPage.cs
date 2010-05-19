@@ -7,11 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using SimplicityCommLib;
 
 /// <summary>
 /// Summary description for AdminPage
 /// </summary>
-public abstract class AdminPage : AuthenticatedPage
+public abstract class AdminPage : TempAuthenticatedPage
 {
 	public AdminPage()
 	{
@@ -21,7 +22,7 @@ public abstract class AdminPage : AuthenticatedPage
 	}
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {
-        if (loggedInUserRole != null && loggedInUserRole.Equals(WebConstants.Roles.Admin))
+        if (loggedInUserRole != null && loggedInUserRole.Equals(Constants.Roles.Admin))
         {
             AdminPageHandling(sender,e);
         }

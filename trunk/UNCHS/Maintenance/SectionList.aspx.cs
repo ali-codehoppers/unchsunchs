@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using SimplicityCommLib;
 
 public partial class Maintenance_SectionList : DepartmentPage
 {
@@ -19,7 +20,7 @@ public partial class Maintenance_SectionList : DepartmentPage
 
     protected bool DoShowDetail(object sectionType)
     {
-        if(sectionType.ToString().Equals(WebConstants.SectionTypes.MULTIPLE_SELECT_LIST))
+        if(sectionType.ToString().Equals(Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST))
         {
             return true;
         }
@@ -28,7 +29,7 @@ public partial class Maintenance_SectionList : DepartmentPage
 
     protected string GetSectionText(object sectionValue)
     {
-        if (sectionValue.ToString().Equals(WebConstants.SectionTypes.MULTIPLE_SELECT_LIST))
+        if (sectionValue.ToString().Equals(Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST))
         {
             return "Multiple Select List";
         }
@@ -36,12 +37,12 @@ public partial class Maintenance_SectionList : DepartmentPage
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        if (ddlType.SelectedValue == WebConstants.SectionTypes.NOT_APPLICABLE)
+        if (ddlType.SelectedValue == Constants.HS.SectionTypes.NOT_APPLICABLE)
         {
             SetErrorMessage("Selected Document Type does not allow sections");
             return;
         }
-        if (ddlType.SelectedValue == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST && tbNumOfCols.Text.Length == 0)
+        if (ddlType.SelectedValue == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST && tbNumOfCols.Text.Length == 0)
         {
             SetErrorMessage("Number of Columns is required for Multiple Select Lists");
             return;
@@ -58,7 +59,7 @@ public partial class Maintenance_SectionList : DepartmentPage
         }
        
         DocumentTemplateTableAdapters.DocumentSectionTableAdapter secTA = new DocumentTemplateTableAdapters.DocumentSectionTableAdapter();
-        if (ddlType.SelectedValue == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST)
+        if (ddlType.SelectedValue == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST)
         {
             secTA.Insert(false, loggedInUserCoId, int.Parse(ddlDepartment.SelectedValue), int.Parse(tbIndex.Text), tbSec.Text, ddlType.SelectedValue,
                 int.Parse(ddlDocType.SelectedValue), int.Parse(tbNumOfCols.Text));
@@ -86,7 +87,7 @@ public partial class Maintenance_SectionList : DepartmentPage
             e.Cancel = true;
             return;
         }
-        if ((string)e.NewValues["section_type"] == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST && e.NewValues["repeat_columns"] == null)
+        if ((string)e.NewValues["section_type"] == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST && e.NewValues["repeat_columns"] == null)
         {
             SetErrorMessage("Number of Columns is required for Multiple Select Lists");
             e.Cancel = true;
@@ -95,14 +96,14 @@ public partial class Maintenance_SectionList : DepartmentPage
     protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
     {
         ddlType.Items.Clear();
-        ddlType.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
+        ddlType.Items.AddRange(Constants.HS.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
     }
 
 
     protected void ddlDocType_DataBound(object sender, EventArgs e)
     {
         ddlType.Items.Clear();
-        ddlType.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
+        ddlType.Items.AddRange(Constants.HS.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
         SetLabel();
     }
 
@@ -127,14 +128,14 @@ public partial class Maintenance_SectionList : DepartmentPage
             if (ddl != null)
             {
                 ddl.Items.Clear();
-                ddl.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
+                ddl.Items.AddRange(Constants.HS.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
             }
         }
     }
     protected void ddlDocType_SelectedIndexChanged(object sender, EventArgs e)
     {
         ddlType.Items.Clear();
-        ddlType.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text)); 
+        ddlType.Items.AddRange(Constants.HS.SectionTypes.GetSections(ddlDocType.SelectedItem.Text)); 
         SetLabel();
     }
 }

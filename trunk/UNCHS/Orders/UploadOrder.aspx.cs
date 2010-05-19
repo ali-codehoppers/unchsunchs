@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.IO;
 
 using LumenWorks.Framework.IO.Csv;
+using SimplicityCommLib;
 
 public partial class Orders_UploadOrder : DepartmentPage
 {
@@ -46,8 +47,8 @@ public partial class Orders_UploadOrder : DepartmentPage
             while (csv.ReadNextRecord())
             {
                 string fullAddress = csv["address_line1"] + " " + csv["address_line2"] + csv["address_line3"] + csv["address_line4"] + csv["address_line5"] + csv["address_post_code"];
-                IEnumerator iEnumerator = orderTA.InsertAndReturn(false, int.Parse(ddlDepartments.SelectedValue), loggedInUserCoId, WebConstants.Default.NOT_SET, WebConstants.Default.NOT_SET,
-                    WebConstants.Default.NOT_SET, DateTime.Now, 0, DateTime.Now.AddYears(1), false, "", csv["address_line1"], csv["address_line2"], csv["address_line3"],
+                IEnumerator iEnumerator = orderTA.InsertAndReturn(false, int.Parse(ddlDepartments.SelectedValue), loggedInUserCoId, Constants.HS.Default.NOT_SET, Constants.HS.Default.NOT_SET,
+                    Constants.HS.Default.NOT_SET, DateTime.Now, 0, DateTime.Now.AddYears(1), false, "", csv["address_line1"], csv["address_line2"], csv["address_line3"],
                     csv["address_line4"], csv["address_line5"], csv["address_post_code"], fullAddress, "", false,false, false, null,null,null,null,loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now).GetEnumerator();
                 if (iEnumerator.MoveNext())
                 {

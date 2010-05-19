@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using SimplicityCommLib;
 
 public partial class Maintenance_DocumentItemList : DepartmentPage
 {
@@ -55,7 +56,7 @@ public partial class Maintenance_DocumentItemList : DepartmentPage
             {
                 DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter itemTA = new DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter();
                 itemTA.DeleteBySecId(loggedInUserCoId, deptId, docId, sectionId);
-                if (section.section_type == WebConstants.SectionTypes.FREE_TEXT)
+                if (section.section_type == Constants.HS.SectionTypes.FREE_TEXT)
                 {
                     TextBox tbItem = (TextBox)ri.FindControl("tbItem");
                     itemTA.Insert(loggedInUserCoId, deptId, sectionId, docId, tbItem.Text, 1, null);
@@ -83,7 +84,7 @@ public partial class Maintenance_DocumentItemList : DepartmentPage
         DocumentTemplate.DocumentSectionEntityRow section = DatabaseUtility.GetSection(loggedInUserCoId, deptId, sectionId);
         if (section != null)
         {
-            if (section.section_type == WebConstants.SectionTypes.FREE_TEXT)
+            if (section.section_type == Constants.HS.SectionTypes.FREE_TEXT)
             {
                 TextBox tbItem = (TextBox)e.Item.FindControl("tbItem");
                 DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter itemTA = new DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter();
@@ -94,7 +95,7 @@ public partial class Maintenance_DocumentItemList : DepartmentPage
                     tbItem.Text += itemRow.item_name;
                 }
             }
-            else if (section.section_type == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST)
+            else if (section.section_type == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST)
             {
                 CheckBoxList cbItem = (CheckBoxList)e.Item.FindControl("cbItem");
                 DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter itemTA = new DocumentTemplateTableAdapters.DocumentItemEntityTableAdapter();

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using SimplicityCommLib;
 
 /// <summary>
 /// Summary description for LoginProcessing
@@ -50,7 +51,7 @@ public class LoginProcessing
 
                 if (HttpContext.Current.Session[WebConstants.Session.USER_ROLE] == null)
                 {
-                    loggedInUserRole = WebConstants.Roles.User;
+                    loggedInUserRole = Constants.Roles.User;
                 }
                 else
                 {

@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using SimplicityCommLib;
 
 public partial class Maintenance_DocumentList : DepartmentPage
 {
@@ -15,7 +16,7 @@ public partial class Maintenance_DocumentList : DepartmentPage
     {
         if (IsPostBack == false)
         {
-            if (loggedInUserRole.Equals(WebConstants.Roles.Admin) == false)
+            if (loggedInUserRole.Equals(Constants.Roles.Admin) == false)
             {
                 ddlCompany.SelectedValue = loggedInUserCoId.ToString();
                 ddlTransferCompany.SelectedValue = loggedInUserCoId.ToString();
@@ -26,7 +27,7 @@ public partial class Maintenance_DocumentList : DepartmentPage
     
     protected override void  OnPreRenderComplete(EventArgs e)
     {
-        if (loggedInUserRole.Equals(WebConstants.Roles.Admin) == false)
+        if (loggedInUserRole.Equals(Constants.Roles.Admin) == false)
         {
             ddlCompany.Visible = false;
             lblCompany.Visible = false;

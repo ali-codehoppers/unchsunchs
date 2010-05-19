@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SimplicityCommLib;
 
-public partial class Maintenance_ScreenList : AuthenticatedPage
+public partial class Maintenance_ScreenList : TempAuthenticatedPage
 {
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {
@@ -31,7 +32,7 @@ public partial class Maintenance_ScreenList : AuthenticatedPage
                 }
             }
         }
-        if (loggedInUserRole != WebConstants.Roles.Admin)
+        if (loggedInUserRole != Constants.Roles.Admin)
         {
             hfCoId.Value = loggedInUserCoId.ToString();
             ddlCompanies.Visible = false;
@@ -42,7 +43,7 @@ public partial class Maintenance_ScreenList : AuthenticatedPage
     protected void btnAddScreen_Click(object sender, EventArgs e)
     {
         ScreensTableAdapters.ScreenTableAdapter screenTA = new ScreensTableAdapters.ScreenTableAdapter();
-        if (loggedInUserRole != WebConstants.Roles.Admin)
+        if (loggedInUserRole != Constants.Roles.Admin)
         {
             screenTA.Insert(tbScreenName.Text, tbScreenURL.Text, tbHelpHTML.Text, loggedInUserCoId);
         }
@@ -65,7 +66,7 @@ public partial class Maintenance_ScreenList : AuthenticatedPage
     protected void btnUpdateScreen_Click(object sender, EventArgs e)
     {
         ScreensTableAdapters.ScreenTableAdapter screenTA = new ScreensTableAdapters.ScreenTableAdapter();
-        if (loggedInUserRole == WebConstants.Roles.Admin)
+        if (loggedInUserRole == Constants.Roles.Admin)
         {
             screenTA.Update(tbScreenName.Text, tbScreenURL.Text, tbHelpHTML.Text, int.Parse(ddlCompanies.SelectedValue), int.Parse(hfScreenId.Value), int.Parse(hfScreenId.Value));
         }

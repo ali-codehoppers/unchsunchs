@@ -9,14 +9,15 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Text;
+using SimplicityCommLib;
 
-public partial class Maintenance_AddDepartment : AuthenticatedPage
+public partial class Maintenance_AddDepartment : TempAuthenticatedPage
 {
     DataTable dt;
     int dept_id;
     override protected void Page_Load_Extended(object sender, EventArgs e)
     {
-        if (loggedInUserRole != WebConstants.Roles.Admin)
+        if (loggedInUserRole != Constants.Roles.Admin)
         {
             ddlCompany.SelectedValue = loggedInUserCoId.ToString();
             lblCompany.Visible = false;
@@ -108,7 +109,7 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
             if (dt.Rows.Count == 0)
             {
                 int coId = 0;
-                if (loggedInUserRole == WebConstants.Roles.Admin)
+                if (loggedInUserRole == Constants.Roles.Admin)
                 {
                     coId = int.Parse(ddlCompany.SelectedValue);
                 }
