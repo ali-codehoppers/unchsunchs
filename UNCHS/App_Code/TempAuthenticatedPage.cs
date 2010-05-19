@@ -11,10 +11,10 @@ using System.Web.UI.HtmlControls;
 /// <summary>
 /// Summary description for AuthenticatedPage
 /// </summary>
-public abstract class AuthenticatedPage : VerifyLoginPage
+public abstract class TempAuthenticatedPage : VerifyLoginPage
 {
     //private Company.un_co_detailsRow company = null;
-	public AuthenticatedPage()
+	public TempAuthenticatedPage()
 	{
 		//
 		// TODO: Add constructor logic here
