@@ -12,7 +12,7 @@ using System.Collections;
 /// <summary>
 /// Summary description for DepartmentPage
 /// </summary>
-public abstract class DepartmentPage : AuthenticatedPage
+public abstract class DepartmentPage : TempAuthenticatedPage
 {
 	public DepartmentPage()
 	{

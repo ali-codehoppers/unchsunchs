@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Text;
 using System.Collections.Generic;
 
-public partial class Register_AddCompany : GenericPage
+public partial class Register_AddCompany : TempGenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

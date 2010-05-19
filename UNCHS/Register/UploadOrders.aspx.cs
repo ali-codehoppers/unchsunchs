@@ -11,7 +11,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.IO;
 
 using LumenWorks.Framework.IO.Csv;
-public partial class Register_UploadOrders : GenericPage
+using SimplicityCommLib;
+public partial class Register_UploadOrders : TempGenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -34,8 +35,8 @@ public partial class Register_UploadOrders : GenericPage
                 while (csv.ReadNextRecord())
                 {
                     string fullAddress = csv[0] + csv[1] + csv[2] + csv[3] + csv[4] + csv[5];
-                    IEnumerator iEnumerator = orderTA.InsertAndReturn(false, (int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_CO_ID], WebConstants.Default.NOT_SET, WebConstants.Default.NOT_SET,
-                        WebConstants.Default.NOT_SET, DateTime.Now, 0, DateTime.Now.AddYears(1), false, "", csv[0], csv[1], csv[2],
+                    IEnumerator iEnumerator = orderTA.InsertAndReturn(false, (int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_CO_ID], Constants.HS.Default.NOT_SET, Constants.HS.Default.NOT_SET,
+                        Constants.HS.Default.NOT_SET, DateTime.Now, 0, DateTime.Now.AddYears(1), false, "", csv[0], csv[1], csv[2],
                         csv[3], csv[4], csv[5], fullAddress, "", false, false, false, null, null, null, null, (int)Session[WebConstants.Session.REG_USER_ID], DateTime.Now, (int)Session[WebConstants.Session.REG_USER_ID], DateTime.Now).GetEnumerator();
                     if (iEnumerator.MoveNext())
                     {

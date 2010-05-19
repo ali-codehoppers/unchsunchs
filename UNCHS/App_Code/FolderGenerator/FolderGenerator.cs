@@ -14,6 +14,7 @@ using System.Text;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using SimplicityCommLib;
 /// <summary>
 /// Summary description for FolderGenerator
 /// </summary>
@@ -41,7 +42,7 @@ public class FolderGenerator
             else
                 doc = new Document();
 
-            filePath = System.Configuration.ConfigurationManager.AppSettings[WebConstants.Configuration.PHYSICAL_PATH];
+            filePath = System.Configuration.ConfigurationManager.AppSettings[Constants.Configuration.PHYSICAL_PATH];
             filePath += @"\Folders\";
             Random random = new Random();
             fileName = random.Next(1, int.MaxValue).ToString();

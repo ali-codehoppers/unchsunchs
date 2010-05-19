@@ -8,8 +8,9 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using SimplicityCommLib;
 
-public partial class Register_AddUser : GenericPage
+public partial class Register_AddUser : TempGenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -64,7 +65,7 @@ public partial class Register_AddUser : GenericPage
         {
             IEnumerator ie = userTA.InsertAndReturn(false, (int)Session[WebConstants.Session.REG_CO_ID],1, tbUserName.Text, tbUserLogon.Text,
                 Utility.GetMd5Sum(tbUserEnable.Text), tbUserEnableReminder.Text, tbTelephone.Text, tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text,
-                tbLocation.Text, null, DateTime.Now, null, DateTime.Now,WebConstants.Roles.User).GetEnumerator();
+                tbLocation.Text, null, DateTime.Now, null, DateTime.Now,Constants.Roles.User).GetEnumerator();
             if(ie.MoveNext())
             {
                 User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ie.Current;

@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class GenerateSignage : AuthenticatedPage
+public partial class GenerateSignage : TempAuthenticatedPage
 {
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {

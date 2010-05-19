@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Text;
 using System.Data.SqlClient;
+using SimplicityCommLib;
 
 public partial class Orders_AddOrder : DepartmentPage
 {
@@ -28,11 +29,11 @@ public partial class Orders_AddOrder : DepartmentPage
                 {
                     //ddlDepartment.DataBind();
                     ddlDepartment.SelectedValue = dataRow.dept_id.ToString();
-                    if (dataRow.order_ref != WebConstants.Default.NOT_SET)
+                    if (dataRow.order_ref != Constants.HS.Default.NOT_SET)
                         tbOrderRef.Text = dataRow.order_ref;
-                    if (dataRow.order_client_ref != WebConstants.Default.NOT_SET)
+                    if (dataRow.order_client_ref != Constants.HS.Default.NOT_SET)
                         tbOrderClientRef.Text = dataRow.order_client_ref;
-                    if (dataRow.order_sms != WebConstants.Default.NOT_SET)
+                    if (dataRow.order_sms != Constants.HS.Default.NOT_SET)
                         tbOrderSMS.Text = dataRow.order_sms;
                     dtCreated.SelectedDate = dataRow.date_order_created;
                     tbEstWork.Text = dataRow.order_est_of_works.ToString();
@@ -191,15 +192,15 @@ public partial class Orders_AddOrder : DepartmentPage
     {
         if (tbOrderRef.Text.Trim().Length == 0)
         {
-            tbOrderRef.Text = WebConstants.Default.NOT_SET;
+            tbOrderRef.Text = Constants.HS.Default.NOT_SET;
         }
         if (tbOrderClientRef.Text.Trim().Length == 0)
         {
-            tbOrderClientRef.Text = WebConstants.Default.NOT_SET;
+            tbOrderClientRef.Text = Constants.HS.Default.NOT_SET;
         }
         //if (tbOrderSMS.Text.Trim().Length == 0)
         //{
-        //    tbOrderSMS.Text = WebConstants.Default.NOT_SET;
+        //    tbOrderSMS.Text = Constants.HS.Default.NOT_SET;
         //}
     }
 

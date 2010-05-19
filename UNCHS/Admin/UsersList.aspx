@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
 <div class="ddl_field"><span>Company:</span><asp:DropDownList ID="ddlCompany" 
-        runat="server" DataSourceID="odsCompany" DataTextField="co_name_short" 
-        DataValueField="co_id" ondatabound="ddlCompany_DataBound" AutoPostBack="true">
+        runat="server" DataSourceID="odsCompany" DataTextField="ShortName" 
+        DataValueField="CompanyId" ondatabound="ddlCompany_DataBound" AutoPostBack="true">
         </asp:DropDownList></div>
 <div class="ddl_field">
     <span>Role:</span><asp:DropDownList ID="ddlRole" runat="server" 
@@ -68,7 +68,69 @@
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsCompany" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCompanies" 
-        TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">
+        
+        TypeName="SimplicityCommLib.DataSets.Common.CompanyTableAdapters.CompanyTableAdapter" 
+        DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+        <DeleteParameters>
+            <asp:Parameter Name="Original_CompanyId" Type="Int32" />
+            <asp:Parameter Name="Original_FlgDeleted" Type="Boolean" />
+            <asp:Parameter Name="Original_ShortName" Type="String" />
+            <asp:Parameter Name="Original_FullName" Type="String" />
+            <asp:Parameter Name="Original_ContactTitle" Type="String" />
+            <asp:Parameter Name="Original_ContactInitials" Type="String" />
+            <asp:Parameter Name="Original_ContactForename" Type="String" />
+            <asp:Parameter Name="Original_ContactSurname" Type="String" />
+            <asp:Parameter Name="Original_CompanyNotes" Type="String" />
+            <asp:Parameter Name="Original_FlgSystemLocked" Type="Boolean" />
+            <asp:Parameter Name="Original_CreatedBy" Type="Int32" />
+            <asp:Parameter Name="Original_DateCreated" Type="DateTime" />
+            <asp:Parameter Name="Original_LastAmenededBy" Type="Int32" />
+            <asp:Parameter Name="Original_DateLastAmended" Type="DateTime" />
+        </DeleteParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="FlgDeleted" Type="Boolean" />
+            <asp:Parameter Name="ShortName" Type="String" />
+            <asp:Parameter Name="FullName" Type="String" />
+            <asp:Parameter Name="ContactTitle" Type="String" />
+            <asp:Parameter Name="ContactInitials" Type="String" />
+            <asp:Parameter Name="ContactForename" Type="String" />
+            <asp:Parameter Name="ContactSurname" Type="String" />
+            <asp:Parameter Name="CompanyNotes" Type="String" />
+            <asp:Parameter Name="FlgSystemLocked" Type="Boolean" />
+            <asp:Parameter Name="CreatedBy" Type="Int32" />
+            <asp:Parameter Name="DateCreated" Type="DateTime" />
+            <asp:Parameter Name="LastAmenededBy" Type="Int32" />
+            <asp:Parameter Name="DateLastAmended" Type="DateTime" />
+            <asp:Parameter Name="Original_CompanyId" Type="Int32" />
+            <asp:Parameter Name="Original_FlgDeleted" Type="Boolean" />
+            <asp:Parameter Name="Original_ShortName" Type="String" />
+            <asp:Parameter Name="Original_FullName" Type="String" />
+            <asp:Parameter Name="Original_ContactTitle" Type="String" />
+            <asp:Parameter Name="Original_ContactInitials" Type="String" />
+            <asp:Parameter Name="Original_ContactForename" Type="String" />
+            <asp:Parameter Name="Original_ContactSurname" Type="String" />
+            <asp:Parameter Name="Original_CompanyNotes" Type="String" />
+            <asp:Parameter Name="Original_FlgSystemLocked" Type="Boolean" />
+            <asp:Parameter Name="Original_CreatedBy" Type="Int32" />
+            <asp:Parameter Name="Original_DateCreated" Type="DateTime" />
+            <asp:Parameter Name="Original_LastAmenededBy" Type="Int32" />
+            <asp:Parameter Name="Original_DateLastAmended" Type="DateTime" />
+        </UpdateParameters>
+        <InsertParameters>
+            <asp:Parameter Name="FlgDeleted" Type="Boolean" />
+            <asp:Parameter Name="ShortName" Type="String" />
+            <asp:Parameter Name="FullName" Type="String" />
+            <asp:Parameter Name="ContactTitle" Type="String" />
+            <asp:Parameter Name="ContactInitials" Type="String" />
+            <asp:Parameter Name="ContactForename" Type="String" />
+            <asp:Parameter Name="ContactSurname" Type="String" />
+            <asp:Parameter Name="CompanyNotes" Type="String" />
+            <asp:Parameter Name="FlgSystemLocked" Type="Boolean" />
+            <asp:Parameter Name="CreatedBy" Type="Int32" />
+            <asp:Parameter Name="DateCreated" Type="DateTime" />
+            <asp:Parameter Name="LastAmenededBy" Type="Int32" />
+            <asp:Parameter Name="DateLastAmended" Type="DateTime" />
+        </InsertParameters>
     </asp:ObjectDataSource>    
 </div>
 </asp:Content>

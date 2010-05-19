@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Text;
 
-public partial class Register_AddDepartment : GenericPage
+public partial class Register_AddDepartment : TempGenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

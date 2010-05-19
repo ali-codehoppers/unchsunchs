@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using SimplicityCommLib;
 
 /// <summary>
 /// Summary description for DetailDocumentTypeGenerator
@@ -26,7 +27,7 @@ public abstract class DetailDocumentTypeGenerator : GenericGenerator
         PdfPTable nestedTable = null;
 
 
-        if (section.Type == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST)
+        if (section.Type == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST)
         {
             textCount++;
             nestedTable = new PdfPTable(section.RepeatColumns);
@@ -99,7 +100,7 @@ public abstract class DetailDocumentTypeGenerator : GenericGenerator
             }
 
             DataTable dtItems = itemTA.GetBySecId(docType.CoId, docType.DeptId, docType.DocId, section.SectionId);
-            if (section.Type == WebConstants.SectionTypes.MULTIPLE_SELECT_LIST)
+            if (section.Type == Constants.HS.SectionTypes.MULTIPLE_SELECT_LIST)
             {
                 IEnumerator ieSecDetail = secDetailTA.GetBySecId(docType.CoId, docType.DeptId, section.SectionId).GetEnumerator();
                 while (ieSecDetail.MoveNext())
@@ -117,7 +118,7 @@ public abstract class DetailDocumentTypeGenerator : GenericGenerator
                     section.Details.Add(sectionDetail);
                 }
             }
-            if (section.Type == WebConstants.SectionTypes.FREE_TEXT)
+            if (section.Type == Constants.HS.SectionTypes.FREE_TEXT)
             {
                 foreach(DataRow itemRow in dtItems.Rows)
                 {
