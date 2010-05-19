@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 /// <summary>
 /// Summary description for GenericPage
 /// </summary>
-public abstract class GenericPage : System.Web.UI.Page
+public abstract class TempGenericPage : System.Web.UI.Page
 {
     protected void SetErrorMessage(string error)
     {
