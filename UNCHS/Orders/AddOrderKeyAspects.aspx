@@ -15,7 +15,7 @@
             <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Key Aspects
             </div>
         </div>
         <div class="button_right">
@@ -41,7 +41,7 @@
         <span class="heading">Key Aspects of Site Induction:</span>
     </div>
     <div class="text_field">
-        <asp:TextBox ID="tbKeyAspectHeader" runat="server" Rows="3" TextMode="MultiLine" width="610"></asp:TextBox>
+        <asp:TextBox ID="tbKeyAspectHeader" runat="server" Rows="3" TextMode="MultiLine" width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="tbKeyAspectHeader"
             ErrorMessage="*" ValidationGroup="KeyAspect"></asp:RequiredFieldValidator>
     </div>
@@ -53,7 +53,7 @@
         <asp:GridView ID="gvKeyAspect" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsKeyAspect"
             OnRowDeleting="gvKeyAspect_RowDeleting" CssClass="grid_table"
-            OnRowUpdating="gvKeyAspect_RowUpdating" PageSize="50">
+            OnRowUpdating="gvKeyAspect_RowUpdating" PageSize="50" Width="805px">
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

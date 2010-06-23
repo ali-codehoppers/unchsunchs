@@ -15,7 +15,33 @@ public partial class Orders_AddOrderDocuments : OrderDetailPage
 {
     public override void Order_Detail_Handling(object sender, EventArgs e, int deptId)
     {
+        if (Request[WebConstants.Request.DEPT_ORDER_ID] != null)
+        {
+            if (IsPostBack == false)
+            {
+                DepartmentOrder.DepartmentOrderRowRow order = DatabaseUtility.GetDepartmentOrder(int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]));
+                if (order != null)
+                {
 
+                    if (!order.Isdate_sent_to_clientNull())
+                    {
+                        dtClient.SelectedDate = order.date_sent_to_client;
+                    }
+                    else
+                    {
+                        dtClient.SelectedDate = DateTime.Now;
+                    }
+                    if (!order.Isflg_asbestos_registerNull())
+                    {
+                        cbRegister.Checked = order.flg_asbestos_register;
+                    }
+                    if (!order.Isflg_health_safety_closedNull())
+                    {
+                        cbClosed.Checked = order.flg_health_safety_closed;
+                    }
+                }
+            }
+        }
     }
     protected bool AreEqual(object data,string val)
     {

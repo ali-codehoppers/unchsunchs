@@ -14,7 +14,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - PPE
             </div>
         </div>
 
@@ -71,7 +71,7 @@
         <span class="heading">PPE:</span>
     </div>
     <div class="text_field">
-        <asp:TextBox ID="tbPPE" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbPPE" runat="server" Width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbPPE"
             ErrorMessage="*" ValidationGroup="PPE"></asp:RequiredFieldValidator>
     </div>
@@ -86,7 +86,7 @@
         <asp:GridView ID="gvPPE" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="grid_table"
             DataKeyNames="sequence" DataSourceID="odsPPE"
-             OnRowDeleting="gvPPE_RowDeleting" OnRowUpdating="gvPPE_RowUpdating" PageSize="50">
+             OnRowDeleting="gvPPE_RowDeleting" OnRowUpdating="gvPPE_RowUpdating" PageSize="50" Width="805px">
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

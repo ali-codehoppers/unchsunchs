@@ -14,7 +14,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - People
             </div>
         </div>
 

@@ -37,7 +37,15 @@
         }
         YAHOO.util.Event.onDOMReady(renderDialog);
     </script>
-    
+    <script type="text/javascript" src="../Includes/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        function showCompleteAddress(id){
+            $('div#addressDetail'+id).show();
+        }
+        function hideCompleteAddress(id){
+            $('div#addressDetail'+id).hide();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
     Search H&amp;S Folder
@@ -77,15 +85,21 @@
 
     <div class="info_message">You can use % as a wildcard next to other characters to improve your search results. For example, %ad% or ad% returns all records with a word in one of the searched fields that begins with "ad".</div>
     <div class="field">
-        <asp:Label ID="lblDepartment" CssClass="label" runat="server" Text="Department:" style="width:100px;"></asp:Label><asp:DropDownList
+        <div style="float:left">
+        <asp:Label ID="lblDepartment" CssClass="label" runat="server" Text="Department:" style="width:110px;"></asp:Label><asp:DropDownList
             ID="ddlDepartments" runat="server" AppendDataBoundItems="True" DataSourceID="odsDepartments"
             DataTextField="co_name_short" DataValueField="dept_id" OnDataBound="ddlDepartments_DataBound" CssClass="ddl_margin" Width="155px" >
         </asp:DropDownList>
-        <span class="label" style="width:100px;">Reference:</span><asp:TextBox ID="tbOrderRef" runat="server"></asp:TextBox>
+        </div>
+        <div style="float:left">
+        <span class="label" style="width:110px;">Reference:</span><asp:TextBox ID="tbOrderRef" runat="server" Width="200px"></asp:TextBox>
+        </div>
+        <div style="clear:both"></div>
     </div>
     <div class="field">
-        <span class="label" style="width:100px;">Post Code:</span><asp:TextBox ID="tbPostCode" runat="server"></asp:TextBox>    
-        <span class="label" style="width:100px;">Site Address:</span><asp:TextBox ID="tbSiteAddress" runat="server" Width="200px"></asp:TextBox>	
+        <div style="float:left"><span class="label" style="width:110px;">Post Code:</span><asp:TextBox ID="tbPostCode" runat="server"></asp:TextBox></div>
+        <div style="float:left"><span class="label" style="width:110px;">Site Address:</span><asp:TextBox ID="tbSiteAddress" runat="server" Width="200px"></asp:TextBox></div>	
+        <div style="clear:both"></div>
     </div>
     <div class="field">
         <span class="label" style="width:100px;">Order Date:</span><span class="label" style="width:40px;">From:</span><ww:jQueryDatePicker ID="tbDateFrom" runat="server"
@@ -160,18 +174,62 @@
                 </ItemTemplate>
                 <HeaderStyle Width="45px" />
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="Print">
+                <ItemTemplate>
+                    <center>
+                        <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("sequence") %>' runat="server">
+                        <img alt="Print" src="../Images/print_icon.png" />
+                        </asp:HyperLink>
+                    </center>
+                </ItemTemplate>
+                <HeaderStyle Width="45px" />
+            </asp:TemplateField>
             
                      <asp:BoundField DataField="order_sms" HeaderText="SMS Reference" SortExpression="order_sms">
                 
             </asp:BoundField>
             <asp:TemplateField HeaderText="Address" SortExpression="address_post_code">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("address_post_code") %>'></asp:TextBox>
-                </EditItemTemplate>
                 <ItemTemplate>
+                    <div id="addressText<%# Eval("sequence") %>" onmouseover='showCompleteAddress(<%# Eval("sequence") %>);' onmouseout='hideCompleteAddress(<%# Eval("sequence") %>);'>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("address_no") %> '></asp:Label>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("address_line1") %> '></asp:Label>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("address_post_code") %>'></asp:Label>
+                    </div>
+                    <div id="addressDetail<%# Eval("sequence") %>" class="addressArea" style="position:absolute;display:none;background-color:White;border: solid 1px #000;color:Black;width:400px">
+                        <div style="text-align:center;margin-top:5px;margin-bottom:5px;">
+                            <b>Brief Description of Works</b>
+                        </div>                     
+                        <div>
+                            <%# Eval("desc_of_work")%>
+                        </div>
+                        <hr />
+                        <div style="text-align:center;margin-top:5px;margin-bottom:5px;">
+                            <b>Address</b>
+                        </div>
+                        <div>
+                            <span>House/Flat No:</span><%# Eval("address_no") %>
+                        </div>
+                        <div >
+                            <span >Address: </span><%# Eval("address_line1")%>
+                        </div>
+                        <div >
+                            <span></span><%# Eval("address_line2")%>
+                        </div>
+                        <div >
+                            <span ></span><%# Eval("address_line3")%>
+                        </div>
+                        <div >
+                            <span ></span><%# Eval("address_line4")%>
+                        </div >
+                        <div >
+                            <span ></span><%# Eval("address_line5")%>
+                        </div >
+                        <div >
+                            <span>Postal Code:</span><%# Eval("address_post_code")%>
+                        </div>   
+                        
+                    </div>
+       
                 </ItemTemplate>
                 
             </asp:TemplateField>            

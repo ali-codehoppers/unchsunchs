@@ -14,7 +14,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Key Hazards
             </div>
         </div>
 
@@ -71,7 +71,7 @@
     </div>
     
     <div class="text_field">        
-        <asp:TextBox ID="tbHazard" runat="server" Rows="3" TextMode="MultiLine" width="610px"></asp:TextBox>
+        <asp:TextBox ID="tbHazard" runat="server" Rows="3" TextMode="MultiLine" width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="Hazard"
             ErrorMessage="*" ControlToValidate="tbHazard"></asp:RequiredFieldValidator>
                 
@@ -88,7 +88,7 @@
     <div class="grid">
         <asp:GridView ID="gvHazard" runat="server" DataSourceID="odsOrderHazard" 
             OnRowDeleting="gvHazard_RowDeleting" OnRowUpdating="gvHazard_RowUpdating" DataKeyNames="sequence" AutoGenerateColumns="False" AllowSorting="True"
-            AllowPaging="True" PageSize="50" CssClass="grid_table">
+            AllowPaging="True" PageSize="50" CssClass="grid_table" Width="99%">
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

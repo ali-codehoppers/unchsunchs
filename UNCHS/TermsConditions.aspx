@@ -6,18 +6,17 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <div class="terms">
-You are using Simplicity for Business H&S Live as a free 14 days trial and in doing so it should be used as a proof of concept as Risk Assessment and Method Statement are an import way to safe working and should be treated as so.
-As an employer, you must assess and manage health and safety risks - whether you are a big business, a small business or just a one-person operation. Accidents and ill health can ruin lives and damage your business. You are not expected to eliminate all risk, but you are required to protect people as far as 'reasonably practicable'.
+Simplicity for Business H&S Live is a unique document management application that assists you in easily and quickly creating and maintaining your health and safety documents, that are required as part of your Company’s health and safety policy and procedures.
+ </div>
+<div class="terms">
+Risk Assessments and Method Statements are important tools in protecting both your workers and your business and for supporting you in maintaining safe working practices and should be treated as such.  They help you to focus on those risks that have the potential to cause harm.  Most of these risks can be readily controlled by straightforward measures. 
 </div>
 <div class="terms">
-    A risk assessment is an important tool in protecting your workers and your business. It helps you focus on those risks that have the potential to cause harm. Most of these can be readily controlled by straightforward measures.
-</div>
-<div class="terms">
-Once you have completed the assessment it is important to put your results into practice. If you need to make a number of improvements, you should produce an action plan to deal with the most important first. You should review your assessment on an ongoing basis to make sure that it remains up to date and effective.    </div>
-    <div class="button_bar" style="text-align:center;margin-right:180px">
+Simplicity for Business H&S Live alone cannot ensure the safety of your staff or your business. As an employer, it is your responsibility to assess and manage health and safety risks – whether you are a large or small business, or a one person operation.  Accidents and ill health can ruin lives and damage your business.  You are not expected to eliminate all risk, but you are required to protect people as far as is ‘reasonably practicable’.  Once you have completed the risk assessment, it is important to put your results into practice.  If you need to make a number of improvements, you should produce an action plan to deal with and implement those improvements, starting with the most important actions first. 
+     <div class="button_bar" style="text-align:center;">
         <asp:Button ID="btnAgree" runat="server" 
-            Text="I accept to the Terms & Conditions" onclick="btnAgree_Click" 
-            style="height: 26px;text-align:center" Width="300px" />
+            Text="I accept that I have Read and Understood the above Disclaimer" onclick="btnAgree_Click" 
+            style="height: 26px;text-align:center" Width="500px" />
     </div>
 </asp:Content>
 

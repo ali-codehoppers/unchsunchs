@@ -40,7 +40,6 @@
             <asp:BoundField DataField="co_name_short" HeaderText="Company" SortExpression="co_name_short" />
             <asp:BoundField DataField="user_name" HeaderText="User Name" SortExpression="user_name" />
             <asp:BoundField DataField="user_logon" HeaderText="User Login" SortExpression="user_logon" />
-            <asp:BoundField DataField="user_enable" HeaderText="User Enable" SortExpression="user_enable" />
             <asp:BoundField DataField="user_enable_reminder" HeaderText="User Enable Reminder"
                 SortExpression="user_enable_reminder" />
             <asp:BoundField DataField="role" HeaderText="Role" SortExpression="role" />

@@ -16,7 +16,7 @@
         <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Requirements
             </div>
         </div>
         <div class="button_right">
@@ -41,7 +41,7 @@
         <span class="heading">Client/Site Specific Requirements:</span>
     </div>
     <div class="text_field">
-        <asp:TextBox ID="tbRequirementTitle" runat="server" Rows="3" TextMode="MultiLine" width="610"></asp:TextBox>
+        <asp:TextBox ID="tbRequirementTitle" runat="server" Rows="3" TextMode="MultiLine" width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="tbRequirementTitle"
             ErrorMessage="*" ValidationGroup="Requirement"></asp:RequiredFieldValidator>
     </div>
@@ -54,7 +54,7 @@
             AutoGenerateColumns="False" CssClass="grid_table"
             DataKeyNames="sequence" DataSourceID="odsClient"
             OnRowDeleting="gvRequirement_RowDeleting"
-            OnRowUpdating="gvRequirement_RowUpdating" PageSize="50">
+            OnRowUpdating="gvRequirement_RowUpdating" PageSize="50" Width="805px">
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

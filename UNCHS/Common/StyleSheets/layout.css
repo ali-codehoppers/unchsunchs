@@ -1,6 +1,6 @@
 /* CSS Document */
 
-body  {margin:0;padding:0; background-image:url('~/images/Background_design_light.jpg')}
+body  {margin:0;padding:0; background-image:url('../images/Background_design_light.jpg');color:White;}
 html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px; width:100%;height:100%}		
 ul, li {list-style:none;margin:0;padding:0;}
 li a {text-decoration:none;color:black;}
@@ -115,6 +115,7 @@ img p {margin:0;padding:0;}
 	margin-right:180px;
 	color:Blue;
 	font-size:medium;
+	margin-bottom:20px;
 }
 #complete {background-color:white;}
 #center {background-color:white;width:1000px;margin:auto;margin-bottom:15px;margin-top:10px;}
@@ -319,6 +320,13 @@ div.home_middle
     background-color: #fff;
 }
 
+.trialArea
+{
+    color: #0099FF;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
 #top
 {
 	
@@ -340,7 +348,7 @@ div.home_middle
 	margin: 0;
 	padding: 0 0 0 0;
 	overflow:auto;
-	min-height:600px;	
+	height:900px;	
 }
 
 #leftnav a:visted
@@ -370,7 +378,7 @@ div.home_middle
 
 #content
 {
-	min-height:600px;
+	min-height:900px;
 	margin-left: 175px;
 	padding-left: 10px;
 	border-left: 1px solid #292F8D;
@@ -398,4 +406,14 @@ div.home_middle
 	font-size: 10pt;
 	margin-top:100px;
 	text-align:left;
+}
+.adressArea
+{
+    position: absolute;
+    background-color: #FFFFFF;
+    width:300px;
+}
+.addressArea span
+{
+    width:100px;display:inline-block;
 }

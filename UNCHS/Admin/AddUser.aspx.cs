@@ -24,7 +24,6 @@ public partial class Admin_AddUser : AdminPage
                     tbUserLevel.Text = user.user_level.ToString();
                     tbUserName.Text = user.user_name;
                     tbUserLogon.Text = user.user_logon;
-                    tbUserEnable.Text = user.user_enable;
                     tbUserEnableReminder.Text = user.user_enable_reminder;
                     if(user.Isuser_telephoneNull() == false)  tbTelephone.Text = user.user_telephone;
                     if (user.Isuser_tel_extNull() == false) tbTelExt.Text = user.user_tel_ext;
@@ -42,32 +41,49 @@ public partial class Admin_AddUser : AdminPage
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-        if (userTA.GetUserByLogonName(tbUserLogon.Text, null).GetEnumerator().MoveNext())
+        if (IsValid())
         {
-            SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
+            UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+            if (userTA.GetUserByLogonName(tbUserLogon.Text, null).GetEnumerator().MoveNext())
+            {
+                SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
+            }
+            else
+            {
+                userTA.Insert(false, int.Parse(ddlCompany.SelectedValue), int.Parse(tbUserLevel.Text), tbUserName.Text, tbUserLogon.Text,
+                    Utility.GetMd5Sum(tbUserEnable.Text), tbUserEnableReminder.Text, tbTelephone.Text, tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text,
+                    tbLocation.Text, loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now, ddlRole.SelectedValue);
+                SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+            }
         }
-        else
+    }
+
+    private bool IsValid()
+    {
+        bool valid = true;
+        if (tbUserEnable.Text.Equals(tbConfirmUserEnable.Text) == false)
         {
-            userTA.Insert(false, int.Parse(ddlCompany.SelectedValue), int.Parse(tbUserLevel.Text), tbUserName.Text, tbUserLogon.Text,
-                tbUserEnable.Text, tbUserEnableReminder.Text, tbTelephone.Text, tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text,
-                tbLocation.Text, loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now,ddlRole.SelectedValue);
-            SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+            SetErrorMessage(WebConstants.Messages.Error.PASSWORDS_DONOT_MATCH);
+            valid = false;
         }
+        return valid;
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-        if (userTA.GetUserByLogonName(tbUserLogon.Text, int.Parse(Request[WebConstants.Request.USER_ID])).GetEnumerator().MoveNext())
+        if (IsValid())
         {
-            SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
-        }
-        else
-        {
-            userTA.Update(int.Parse(tbUserLevel.Text), tbUserName.Text, tbUserLogon.Text, tbUserEnable.Text, tbUserEnableReminder.Text, tbTelephone.Text,
-                tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text, tbLocation.Text, loggedInUserId, DateTime.Now, int.Parse(Request[WebConstants.Request.USER_ID]));
-            SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+            UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+            if (userTA.GetUserByLogonName(tbUserLogon.Text, int.Parse(Request[WebConstants.Request.USER_ID])).GetEnumerator().MoveNext())
+            {
+                SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
+            }
+            else
+            {
+                userTA.Update(int.Parse(tbUserLevel.Text), tbUserName.Text, tbUserLogon.Text, Utility.GetMd5Sum(tbUserEnable.Text), tbUserEnableReminder.Text, tbTelephone.Text,
+                    tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text, tbLocation.Text, loggedInUserId, DateTime.Now, int.Parse(Request[WebConstants.Request.USER_ID]));
+                SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
+            }
         }
     }
 }

@@ -24,3 +24,19 @@
         .text_field {margin-left:20px;margin-top:4px;}
         .text_field span{width:200px;height:100%;display:inline-block;}   
         .field  {margin-left:20px;}
+
+.uploadTable 
+{
+    color: #000000;
+    border: 1px solid #000000;
+}
+.uploadTable thead tr
+{
+    background-color: #808080;
+    font-weight: bold;
+}
+
+.uploadTable td
+{
+    border: 1px solid #000000;
+}

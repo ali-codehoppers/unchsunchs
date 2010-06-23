@@ -33,9 +33,6 @@ public partial class Register_AddUser : GenericPage
                     User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)iEnum.Current;
                     tbUserName.Text = user.user_name;
                     tbUserLogon.Text = user.user_logon;
-                    tbUserEnable.Text = user.user_enable;
-                    tbConfirmUserEnable.Text = user.user_enable;
-                    tbUserEnableReminder.Text = user.user_enable_reminder;
                     if (user.Isuser_telephoneNull() == false) tbTelephone.Text = user.user_telephone;
                     if (user.Isuser_tel_extNull() == false) tbTelExt.Text = user.user_tel_ext;
                     if (user.Isuser_tel_mobileNull() == false) tbMobile.Text = user.user_tel_mobile;
@@ -46,16 +43,24 @@ public partial class Register_AddUser : GenericPage
                     btnUpdate.Visible = true;
                 }
             }
+            else
+            {
+                tbUserEnable.Visible = true;
+                tbConfirmUserEnable.Visible = true;
+                tbUserEnableReminder.Visible = true;
+                tbUserLogon.Enabled = true;
+            }
         }
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
+
+        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
         if (tbUserEnable.Text != tbConfirmUserEnable.Text)
         {
             SetErrorMessage("Passwords do not match");
             return;
         }
-        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
         if (userTA.GetUserByLogonName(tbUserLogon.Text, null).GetEnumerator().MoveNext())
         {
             SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
@@ -83,11 +88,6 @@ public partial class Register_AddUser : GenericPage
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        if (tbUserEnable.Text != tbConfirmUserEnable.Text)
-        {
-            SetErrorMessage("Passwords do not match");
-            return;
-        }
         UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
         if (userTA.GetUserByLogonName(tbUserLogon.Text, (int)Session[WebConstants.Session.REG_USER_ID]).GetEnumerator().MoveNext())
         {
@@ -95,15 +95,40 @@ public partial class Register_AddUser : GenericPage
         }
         else
         {
-            userTA.Update(1, tbUserName.Text, tbUserLogon.Text,Utility.GetMd5Sum(tbUserEnable.Text), tbUserEnableReminder.Text, tbTelephone.Text,
-                tbTelExt.Text, tbMobile.Text, tbEmail.Text, tbDepartment.Text, tbLocation.Text, null, DateTime.Now, (int)Session[WebConstants.Session.REG_USER_ID]);
-            TransferTableAdapters.TransferTableAdapter tranTA = new TransferTableAdapters.TransferTableAdapter();
-            tranTA.TransferAll(int.Parse(ConfigurationSettings.AppSettings["SourceCompanyId"]),
-                int.Parse(ConfigurationSettings.AppSettings["SourceDepartmentId"]), (int)Session[WebConstants.Session.REG_CO_ID],
-                (int)Session[WebConstants.Session.REG_DEPT_ID],(int)Session[WebConstants.Session.REG_USER_ID]);
-            Session[WebConstants.Session.WIZARD_STEP] = 4;
-            Response.Redirect("~/Register/UploadOrders.aspx");
+            IEnumerator ieUsers = userTA.GetUserById((int)Session[WebConstants.Session.REG_USER_ID]).GetEnumerator();
+            if (ieUsers.MoveNext())
+            {
+                User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUsers.Current;
+                //user.user_name = tbUserName.Text;
+                user.user_telephone = tbTelephone.Text;
+                user.user_tel_ext = tbTelExt.Text;
+                user.user_tel_mobile = tbMobile.Text;
+                user.user_email = tbEmail.Text;
+                user.user_department = tbDepartment.Text;
+                user.user_location = tbLocation.Text;
+                user.date_last_amended = DateTime.Now;
+
+                userTA.Update(user);
+
+                TransferTableAdapters.TransferTableAdapter tranTA = new TransferTableAdapters.TransferTableAdapter();
+                tranTA.TransferAll(int.Parse(ConfigurationSettings.AppSettings["SourceCompanyId"]),
+                    int.Parse(ConfigurationSettings.AppSettings["SourceDepartmentId"]), (int)Session[WebConstants.Session.REG_CO_ID],
+                    (int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_USER_ID]);
+                Session[WebConstants.Session.WIZARD_STEP] = 4;
+                Response.Redirect("~/Register/UploadOrders.aspx");
+            }
         }
+    }
+
+    protected string DivDisplay()
+    {
+        if (Session[WebConstants.Session.REG_CO_ID] != null
+            && Session[WebConstants.Session.REG_DEPT_ID] != null
+            && Session[WebConstants.Session.REG_USER_ID] != null)
+        {
+            return "style='display:none'";
+        }
+        return "";
     }
 
 }

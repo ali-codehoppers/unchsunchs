@@ -25,16 +25,18 @@ public partial class Register_UploadPeople : GenericPage
             {
                 using (CsvReader csv = new CsvReader(new StreamReader(FileUploader.FileContent), true))
                 {
-                    int count = 1;
+                    int count = 0;
                     while (csv.ReadNextRecord())
                     {
-                        DepartmentOrderPersonTableAdapters.DepartmentOrderPersonEntityTableAdapter personTA = new DepartmentOrderPersonTableAdapters.DepartmentOrderPersonEntityTableAdapter();
-                        personTA.Insert((int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_CO_ID], count++, csv[0],
-                            (int)Session[WebConstants.Session.REG_USER_ID], bool.Parse(csv[1]), bool.Parse(csv[2]), bool.Parse(csv[3]), bool.Parse(csv[4]));
+                        DepartmentPersonTableAdapters.un_ref_co_dept_peopleTableAdapter personTA = new DepartmentPersonTableAdapters.un_ref_co_dept_peopleTableAdapter();
+                        personTA.Insert((int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_CO_ID],csv[0],
+                            (int)Session[WebConstants.Session.REG_USER_ID], ParseBoolean(csv[1]), ParseBoolean(csv[2]), ParseBoolean(csv[3]));
+                        count++;
                     }
+                    SetInfoMessage(count + " people added to the system.");
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 SetErrorMessage("Error processing the file. Please check its contents. File should be CSV and in the format shown below");
             }
@@ -47,5 +49,10 @@ public partial class Register_UploadPeople : GenericPage
     protected void btnContinue_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/UserHome.aspx");
+    }
+
+    private bool ParseBoolean(string value)
+    {
+        return (value.ToLower().Equals("true") || value.ToLower().Equals("yes") || value.ToLower().Equals("1"));
     }
 }

@@ -24,12 +24,14 @@
         <asp:Button ID="btnAdd" runat="server" Text="Add (s)" OnClick="btnAdd_Click" />
     </div>
 </div>
-<div style="text-align: right; margin-right: 10px; margin-top:10px">
-    <input type="button" value="<%=DocTypeName%> List" onclick="document.getElementById('dialog').style.display='block';dialog.show();" />
+<div style="margin-left: 650px; margin-top:10px">
+    <img src="../Images/<%=ImageName%>.gif" alt="<%=DocTypeName%> List" onclick="document.getElementById('dialog').style.display='block';dialog.show();"
+        onmouseover="this.src='../Images/<%=ImageName%>_rollover.gif';" onmouseout="this.src='../Images/<%=ImageName%>.gif';" />
+    
 </div>
 <div class="grid">
     <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
-        DataKeyNames="dept_order_doc_id" DataSourceID="odsDeptDocs" OnRowDeleted="gvDocs_RowDeleted" PageSize="50">
+        DataKeyNames="dept_order_doc_id" DataSourceID="odsDeptDocs" OnRowDeleted="gvDocs_RowDeleted" PageSize="50" Width="805px">
         <Columns>
             <asp:TemplateField HeaderText="Delete" >
                 <HeaderStyle Width="5%" />

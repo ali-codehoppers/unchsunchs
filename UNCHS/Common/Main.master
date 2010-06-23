@@ -28,7 +28,7 @@
         <!--YUI END-->
 	 
 		<style type="text/css">
-			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:100%;height:100%;background-color:#646874;}		
+			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:100%;height:100%;background-color:#FFF;}		
 			div.rounded div {
                 height: 1px;
                 overflow: hidden;
@@ -83,6 +83,7 @@
                     <div class="info"><asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>                        
                     <div><asp:contentplaceholder id="TabPlaceHolder" runat="server"></asp:contentplaceholder></div>
                 </div>
+                <div class="trialArea"><%=GetTrialHTML()%></div>
                 <!--
                 <table>
                     <tr>

@@ -13,7 +13,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Emergency Exits
             </div>
         </div>
         <div class="button_right">
@@ -38,7 +38,7 @@
     <span class="heading">Emergency Procedures:</span>
 </div>
 <div class="text_field">    
-    <asp:TextBox ID="tbExitHeader" runat="server" Rows="3" TextMode="MultiLine" Width="610px"></asp:TextBox>    
+    <asp:TextBox ID="tbExitHeader" runat="server" Rows="3" TextMode="MultiLine" Width="98%"></asp:TextBox>    
     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbExitHeader"
         ErrorMessage="*" ValidationGroup="Exit"></asp:RequiredFieldValidator>
 </div>
@@ -47,7 +47,7 @@
     <input type="image" value="Emergency Procedures List"  src="../Images/Emergency_pro_list.gif" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;" onmouseover="this.src='../Images/Emergency_pro_list_rollover.gif';" onmouseout="this.src='../Images/Emergency_pro_list.gif';" style="margin-right:10px;margin-left:5px"/>
 </div>
 <div class="grid">
-    <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting" OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table"  >
+    <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting" OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table" Width="805px" >
         <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

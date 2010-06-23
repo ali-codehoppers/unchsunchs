@@ -14,7 +14,7 @@
                 <asp:TreeNode NavigateUrl="~/Orders/SearchOrder.aspx" Text="Search Folder" Value="Search Folder"></asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Orders/UploadOrder.aspx" Text="Upload Addresses" Value="Upload Folder"></asp:TreeNode>
             </asp:TreeNode>
-            <asp:TreeNode NavigateUrl="~/Orders/GenerateCOSHH.aspx" Text="COSHH" Value="COSHH"></asp:TreeNode>
+            
             <asp:TreeNode NavigateUrl="~/GenerateSignage.aspx" Text="Signage" Value="Signage"></asp:TreeNode>
             <asp:TreeNode Text="Settings" Value="Settings" >
                 <asp:TreeNode Text="Departments" Value="Departments" >
@@ -46,11 +46,11 @@
                     </asp:TreeNode>           
                     <asp:TreeNode Text="Requirements" Value="Requirements" >
                         <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementCategoryList.aspx" Text="Requirement Category List" Value="Requirement Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx" Text="Default Requirement List" Value="Default Requirement  List"></asp:TreeNode>    
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx" Text="Default Requirements List" Value="Default Requirements  List"></asp:TreeNode>    
                     </asp:TreeNode>           
                     <asp:TreeNode Text="Aspects" Value="Aspects" >
                         <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectCategoryList.aspx" Text="Requirement Aspect List" Value="Requirement Aspect List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectList.aspx" Text="Default Aspect List" Value="Default Aspect List"></asp:TreeNode>    
+                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectList.aspx" Text="Default Aspects List" Value="Default Aspects List"></asp:TreeNode>    
                     </asp:TreeNode>                                                                                
                 </asp:TreeNode>
                 <asp:TreeNode Text="Document Templates" Value="Document Templates" 
@@ -59,7 +59,7 @@
                     <asp:TreeNode NavigateUrl="~/Maintenance/SectionList.aspx" Text="Sections List" Value="Sections List"></asp:TreeNode>
                     <asp:TreeNode NavigateUrl="~/Maintenance/DocumentList.aspx" Text="Documents List" Value="Documents List"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode NavigateUrl="~/Maintenance/AddDepartment.aspx" Text="Create Department" Value="Create Department"></asp:TreeNode>
+                
             </asp:TreeNode>            
             <asp:TreeNode NavigateUrl="~/Common/help/help.pdf" Text="User Guide" Value="Help" Target="blank">
             </asp:TreeNode>

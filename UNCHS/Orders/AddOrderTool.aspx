@@ -14,7 +14,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Plants &amp; Tools
             </div>
         </div>
 
@@ -69,7 +69,7 @@
         <span class="heading">Plant &amp; Tool Name:</span>
     </div>
     <div class="text_field">
-        <asp:TextBox ID="tbTool" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbTool" runat="server" Width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
             ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
     </div>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="grid">
-        <asp:GridView Width="75%" ID="gvTool" runat="server" AllowPaging="True" AllowSorting="True"
+        <asp:GridView Width="805px" ID="gvTool" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsTool"
             OnRowDeleting="gvTool_RowDeleting" OnRowUpdating="gvTool_RowUpdating" PageSize="50" CssClass="grid_table">
             <Columns>

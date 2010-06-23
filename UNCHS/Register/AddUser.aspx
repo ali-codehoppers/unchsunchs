@@ -25,19 +25,19 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserLogon" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
-    <div class="text_field">
-        <span>Password:</span><asp:TextBox ID="tbUserEnable" runat="server" CssClass="field_txt" TextMode="Password"></asp:TextBox>
+    <div class="text_field" <%=DivDisplay()%>>
+        <span>Password:</span><asp:TextBox ID="tbUserEnable" runat="server" CssClass="field_txt" TextMode="Password" Visible="false"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserEnable" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
-    <div class="text_field">
-        <span>Confirm Password:</span><asp:TextBox ID="tbConfirmUserEnable" runat="server" CssClass="field_txt" TextMode="Password"></asp:TextBox>
+    <div class="text_field" <%=DivDisplay()%>>
+        <span>Confirm Password:</span><asp:TextBox ID="tbConfirmUserEnable" runat="server" CssClass="field_txt" TextMode="Password" Visible="false"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" 
         ControlToValidate="tbConfirmUserEnable" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     
-    <div class="text_field">
-        <span>Password Reminder:</span><asp:TextBox ID="tbUserEnableReminder" runat="server" CssClass="field_txt"></asp:TextBox>
+    <div class="text_field" <%=DivDisplay()%>>
+        <span>Password Reminder:</span><asp:TextBox ID="tbUserEnableReminder" runat="server" CssClass="field_txt" Visible="false"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserEnableReminder" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
