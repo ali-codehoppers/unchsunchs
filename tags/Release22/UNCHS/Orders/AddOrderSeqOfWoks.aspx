@@ -16,7 +16,7 @@
     <div style="text-align: right">
         <div class="button_bar">
             <div class="button_left">
-                Add/Edit H&amp;S Folder
+                Add/Amend H&amp;S Folder - Sequence of Work
             </div>
         </div>
         <div class="button_right">
@@ -42,7 +42,7 @@
         <span class="heading">Sequence of Work:</span>
     </div>
     <div class="text_field">
-        <asp:TextBox ID="tbWork" runat="server" Rows="3" TextMode="MultiLine" Width="610"></asp:TextBox>
+        <asp:TextBox ID="tbWork" runat="server" Rows="3" TextMode="MultiLine" Width="98%"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="tbWork"
             ErrorMessage="*" ValidationGroup="Work"></asp:RequiredFieldValidator>
     </div>
@@ -55,9 +55,9 @@
             style="margin-right: 10px; margin-left: 5px" />
     </div>
     <div class="grid">
-        <asp:GridView Width="75%" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
+        <asp:GridView Width="805px" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="grid_table" DataKeyNames="sequence" DataSourceID="odsWork"
-            OnRowDeleting="gvWork_RowDeleting" OnRowUpdating="gvWork_RowUpdating" PageSize="50">
+            OnRowDeleting="gvWork_RowDeleting" OnRowUpdating="gvWork_RowUpdating" PageSize="50" >
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <EditItemTemplate>

@@ -95,6 +95,7 @@ public static class WebConstants
             public static string DOC_NOT_GENERATED = "Document could not be generated.";
             public static string NO_DEPT_DEFINED = "No department defined in the system. Atleast one department must be defined.";
             public static string INVALID_CACHE = "You have been logged out because you logged in from another machine";
+            public static string PASSWORDS_DONOT_MATCH = "The passwords that you have entered do not match";
         }
     }
     public static class Request

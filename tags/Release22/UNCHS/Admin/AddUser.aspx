@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddUser.aspx.cs" Inherits="Admin_AddUser" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddUser.aspx.cs" Inherits="Admin_AddUser" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
@@ -35,10 +36,15 @@
         ControlToValidate="tbUserLogon" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
     <div class="text_field">
-        <span>Password:</span><asp:TextBox ID="tbUserEnable" runat="server"></asp:TextBox>
+        <span>New Password:</span><asp:TextBox ID="tbUserEnable" runat="server" TextMode="Password"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" 
         ControlToValidate="tbUserEnable" ValidationGroup="Add"></asp:RequiredFieldValidator>
     </div>
+    <div class="text_field">
+        <span>Confirm Password:</span><asp:TextBox ID="tbConfirmUserEnable" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" 
+        ControlToValidate="tbConfirmUserEnable" ValidationGroup="Add"></asp:RequiredFieldValidator>
+    </div>    
     <div class="text_field">
         <span>Password Reminder:</span><asp:TextBox ID="tbUserEnableReminder" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" 
@@ -55,6 +61,9 @@
     </div>
     <div class="text_field">
         <span>Email:</span><asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" 
+        ControlToValidate="tbEmail" ValidationGroup="Add"></asp:RequiredFieldValidator>
+        
     </div>
     <div class="text_field">
         <span>Department:</span><asp:TextBox ID="tbDepartment" runat="server"></asp:TextBox>

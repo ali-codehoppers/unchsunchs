@@ -25,6 +25,13 @@ public partial class Common_UserControls_OrderDocControl : System.Web.UI.UserCon
         get { return hfDocTypeName.Value; }
         set { hfDocTypeName.Value = value; }
     }
+    public string ImageName
+    {
+        get
+        {
+            return hfDocTypeName.Value.Replace(" ", "_")+"_List";
+        }
+    }
     private void BindRepeater()
     {
         if (Session[WebConstants.Session.USER_CO_ID] != null && Session[WebConstants.Session.DEPT_ID] != null)

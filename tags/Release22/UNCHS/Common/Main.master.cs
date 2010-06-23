@@ -53,4 +53,23 @@ public partial class Main : System.Web.UI.MasterPage
         Response.Redirect("~/Login.aspx");
 
     }
+
+    protected string GetTrialHTML()
+    {
+        string html = "";
+        if (Session[WebConstants.Session.USER_CO_ID] != null)
+        {
+            Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
+            if (company != null)
+            {
+                if (company.Isflg_trialNull() == false && company.flg_trial)
+                {
+                    string url = ConfigurationManager.AppSettings["SCurl"] + "/pages/ProductPrices.aspx?productId=2";
+                    html = "Your trial ends in " + company.trial_end_date.Subtract(DateTime.Now).Days + " days on " + company.trial_end_date.ToShortDateString() + "";
+                    html += "<a href='" + url  + "'><img src='" + this.ResolveClientUrl("~/Images/Buy_Now.gif") + "' onmouseover=\"this.src='" + this.ResolveClientUrl("~/Images/Buy_now_rollover.gif") + "'\" onmouseout=\"this.src='" + this.ResolveClientUrl("~/Images/Buy_now.gif") + "'\"/></a>";
+                }
+            }
+        }
+        return html;
+    }
 }

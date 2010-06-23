@@ -15,7 +15,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-Add/Edit H&amp;S Folder
+Add/Amend H&amp;S Folder 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:tabcontrol id="TabControl1" runat="server" Selected="Docs"></uc1:tabcontrol>
@@ -80,7 +80,7 @@ Add/Edit H&amp;S Folder
     <div class="field">
         <asp:CheckBox ID="cbClosed" runat="server" Text="Health & Saftey Closed"/>
     </div>
-    <div style="text-align: right; margin-top: 10px">
+    <div style="margin-top: 10px">
 	<asp:ImageButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" OnClientClick="showLoading();" ImageUrl="~/Images/Create_Folder.gif" onmouseover="this.src='../Images/Create_folder_roll_selec.gif';" onmouseout="this.src='../Images/Create_Folder.gif';" style="margin-right: 10px; margin-left: 5px"/>
 
     </div>

@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-    Add/Edit H&amp;S Folder
+    Add/Amend H&amp;S Folder
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server"><uc1:TabControl ID="TabControl1" runat="server" Selected="Log" />
 </asp:Content>
@@ -17,7 +17,7 @@
 
 </div>
     <div class="grid">
-        <asp:GridView ID="gvLogs" runat="server" AutoGenerateColumns="False" DataKeyNames="log_id" DataSourceID="odsLog" PageSize="50" Width="50%">
+        <asp:GridView ID="gvLogs" runat="server" AutoGenerateColumns="False" DataKeyNames="log_id" DataSourceID="odsLog" PageSize="50" Width="50%" CssClass="grid_table">
             <Columns>
                 <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>

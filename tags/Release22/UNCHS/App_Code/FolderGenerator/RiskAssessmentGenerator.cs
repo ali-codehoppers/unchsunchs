@@ -17,6 +17,7 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
     string deptSerial;
     string docSerial;
     string relatedRiskAssessments;
+    string documentName;
     
     string reviewDate;
     
@@ -56,10 +57,15 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
     private void SetRelatedRiskAssesssments(DocumentType docType)
     {
         DepartmentOrderDoc.DocumentEntityRow document = DatabaseUtility.GetDocument(docType.DocId);
-        if (document != null && document.Isrelated_doc_codesNull() == false)
+        if (document != null )
         {
-            relatedRiskAssessments = document.related_doc_codes;
-        }
+            if (document.Isrelated_doc_codesNull() == false)
+            {
+                relatedRiskAssessments = document.related_doc_codes;
+            }     
+            docSerial = document.doc_code;
+            documentName = document.doc_name;
+        }        
     }
 
 	public RiskAssessmentGenerator()
@@ -71,7 +77,40 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
         docSerial = "";
         relatedRiskAssessments = "";
         reviewDate = "";
+        documentName = "";
+    }
 
+    protected void AddHeader(Document doc)
+    {
+        Font headerFont = FontFactory.GetFont("Arial", 16, Color.GRAY);
+        PdfPTable table = new PdfPTable(2);
+        table.SetWidths(new float[] { 15f, 85f });
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.BOX;
+        table.DefaultCell.BorderColor = Color.GRAY;
+        table.DefaultCell.HorizontalAlignment = Table.ALIGN_CENTER;
+        table.DefaultCell.VerticalAlignment = Table.ALIGN_MIDDLE;
+        table.SpacingAfter = 10f;
+        //table.DefaultCell. = 20;
+        table.AddCell(new Phrase(docSerial, headerFont));
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        table.AddCell(new Phrase(documentName.ToUpper() + "\n(GENERIC RISK ASSESSMENT)",headerFont));        
+        doc.Add(table);
+    }
+    private PdfPCell GetRiskAssessmentCell(Font boldFontSmall,Font normalFontSmall)
+    {
+        PdfPCell cell = new PdfPCell();
+        cell.AddElement(new Phrase(GetNextSectionHeading(), boldFontSmall));
+        cell.AddElement(new Phrase(GetNextSectionText(), normalFontSmall));
+        return cell;
+    }
+    private PdfPCell GetRiskAssessmentDetailCell(Font normalFontSmall,string heading,string content)
+    {
+        Font underLineFont = FontFactory.GetFont("Arial", 10, Font.UNDERLINE);
+        PdfPCell cell = new PdfPCell();
+        cell.AddElement(new Phrase(heading,underLineFont));
+        cell.AddElement(new Phrase(content,normalFontSmall));
+        return cell;
     }
 
     protected override void GenerateDocument(Document doc, DocumentType docType, string addSheet, PdfWriter writer)
@@ -81,41 +120,27 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
         Font boldUnderlineFontSmall = FontFactory.GetFont("Arial", 10, Font.BOLD | Font.UNDERLINE);
         Font smallestFont = FontFactory.GetFont("Arial", 9f, Font.NORMAL);
 
+        AddHeader(doc);
+
         // Create a table with 3 columns
         PdfPTable table = new PdfPTable(2);
         table.WidthPercentage = 100;
 
-        table.DefaultCell.Colspan = 2;
-        table.DefaultCell.Border = Rectangle.NO_BORDER;
-        table.DefaultCell.FixedHeight = 40.0f;
-        table.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-        table.AddCell(new Phrase("General Risk Assessment", FontFactory.GetFont("Times New Roman", 20, Font.BOLD)));
 
         table.DefaultCell.Colspan = 1;
         table.DefaultCell.FixedHeight = 0.0f;
         table.DefaultCell.Border = Rectangle.BOX;
         table.DefaultCell.FixedHeight = 20f;
         table.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
-        table.AddCell(new Phrase("Employer: " + employer, boldUnderlineFontSmall));
-        table.AddCell(new Phrase("Site: " + siteAddress, boldUnderlineFontSmall));
+        table.AddCell(new Phrase("EMPLOYER: " + employer, boldUnderlineFontSmall));
+        table.AddCell(new Phrase("SITE/PROJECT: " + siteAddress, boldUnderlineFontSmall));
 
-        table.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-        table.DefaultCell.FixedHeight = 60f;
-        table.AddCell(new Phrase("Assessor Name: " + assessorName, boldFontSmall));
-
-        table.DefaultCell.VerticalAlignment = Element.ALIGN_TOP;
-        table.DefaultCell.Rowspan = 2;
-        table.AddCell(new Phrase("Assessment Serial Number: " + docSerial + "/" + deptSerial + "\n\nAssessment Date: ____________\n\nRelated Risk Assessments: " + relatedRiskAssessments, boldFontSmall));
-
-        table.DefaultCell.Rowspan = 1;
-        table.DefaultCell.FixedHeight = 40f;
-        table.AddCell(new Phrase("Is a More Detailed Assessment Needed:NO, BUT SITE-SPECIFIC INFORMATION REQUIRED ON PAGE 2 OF THIS ASSESSMENT", boldFontSmall));
         table.SpacingAfter = 15f;
         doc.Add(table);
 
         table = new PdfPTable(2);
         table.WidthPercentage = 100f;
-        table.SetWidths(new float[] { 60f, 40f });
+
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
 
@@ -131,6 +156,7 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
 
         table.DefaultCell.Rowspan = 3;
+        //table.DefaultCell.FixedHeight = 90f;
         table.AddCell(new Phrase(GetNextSectionText(), smallestFont));
 
         table.DefaultCell.Rowspan = 1;
@@ -139,46 +165,92 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
         table.AddCell(new Phrase(GetNextSectionText(), smallestFont));
 
         table.DefaultCell.Colspan = 2;
+        //table.DefaultCell.FixedHeight = 90f;
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
         table.AddCell(new Phrase(GetNextSectionText(),smallestFont));
         //AddOverflowText(doc, table, GetNextSectionText(), GetPrevTextHeading());
+
+        table.DefaultCell.Colspan = 2;
+        table.AddCell(new Phrase("7. RISK ASSESMENT:", boldFontSmall));
         doc.Add(table);
 
-        table = new PdfPTable(2);
-        table.SetWidths(new float[] { 55f, 45f });
+        table = new PdfPTable(3);
+        table.SetWidths(new float[] { 25f,25f, 50f });
         table.WidthPercentage = 100;
 
         table.DefaultCell.FixedHeight = 25f;
         table.DefaultCell.VerticalAlignment = Element.ALIGN_TOP;
-        table.AddCell(new Phrase(GetNextSectionHeading() + " " + GetNextSectionText(), boldFontSmall));
-        table.AddCell(new Phrase(GetNextSectionHeading() + " " + GetNextSectionText() + "   " + GetNextSectionHeading() + GetNextSectionText(), boldFontSmall));
+        table.AddCell(GetRiskAssessmentCell(boldFontSmall,normalFontSmall));
+        table.AddCell(GetRiskAssessmentCell(boldFontSmall, normalFontSmall));
+        table.AddCell(GetRiskAssessmentCell(boldFontSmall, normalFontSmall));
+
+        table.AddCell(GetRiskAssessmentDetailCell(normalFontSmall, "Severity:","Death = 4, Major Injury = 3,\nMinor Injury = 2, No Injury = 1"));
+        table.AddCell(GetRiskAssessmentDetailCell(normalFontSmall, "Probability:", "Very Likely = 4, Likely = 3,\nUnlikely = 2, Extremely Unlikely = 1"));
+        table.AddCell(GetRiskAssessmentDetailCell(normalFontSmall, "Risk:", "High = 9-16, Medium = 5-8, Low = 1-4\nIMMEDIATE ACTION MUST BE TAKEN FOR ALL HIGH RISK ACTIVITIES"));
         doc.Add(table);
 
 
         table = new PdfPTable(2);
-        table.SetWidths(new float[] { 70f, 30f });
+        table.SetWidths(new float[] { 50f, 50f });
         table.WidthPercentage = 100;
         table.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
         table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
-        table.AddCell(new Phrase(GetNextSectionText(), smallestFont));
-        //AddOverflowText(doc, table, GetNextSectionText(), GetPrevTextHeading());
-    
-        table.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+        table.AddCell(new Phrase(GetNextSectionText(), smallestFont));        
         table.AddCell(new Phrase(GetNextSectionText(), boldFontSmall));
+
+        table.AddCell(new Phrase("10. ASSESSOR’S NAME: " + assessorName, boldFontSmall));
+        table.AddCell(new Phrase("ASSESSOR’S SIGNATURE: " , boldFontSmall));
+        table.AddCell(new Phrase("11. ASSESSMENT DATE: ", boldFontSmall));
+        table.AddCell(new Phrase("12. NEXT FORMAL REVIEW DATE: " + reviewDate, boldFontSmall));
+        doc.Add(table);
+
+        doc.NewPage();
+        AddHeader(doc);
+
+        table = new PdfPTable(1);
+        table.WidthPercentage = 100;
+        table.DefaultCell.HorizontalAlignment = Table.ALIGN_CENTER;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        table.SpacingAfter = 10.0f;
+        table.AddCell(new Phrase("CONTINUATION / SITE-SPECIFIC INFORMATION (Assessment Serial Number: " + docSerial + ")", boldFontSmall));
+
+        doc.Add(table);
+
+        table = new PdfPTable(1);
+        table.WidthPercentage = 100;
+        table.DefaultCell.HorizontalAlignment = Table.ALIGN_LEFT;
+        table.DefaultCell.Border = Rectangle.BOX;
+        table.AddCell(new Phrase(GetNextSectionHeading(), boldFontSmall));
+        table.AddCell(CreateSectionDetail());
+        table.SpacingAfter = 10f;
+        doc.Add(table);      
+        
+
+        table = new PdfPTable(1);
+        table.WidthPercentage = 100;
+        table.DefaultCell.HorizontalAlignment = Table.ALIGN_LEFT;
+        table.DefaultCell.Border = Rectangle.BOX;
+        table.AddCell(new Phrase("13. ADDITIONAL TASK/ SITE SPECIFIC INFORMATION:", boldFontSmall));
         doc.Add(table);
 
         table = new PdfPTable(2);
         table.WidthPercentage = 100;
-        table.DefaultCell.FixedHeight = 15f;
-        table.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-        table.AddCell(new Phrase("10. ASSESSOR’S SIGNATURE:", boldFontSmall));
-        table.AddCell(new Phrase("11. NEXT FORMAL REVIEW DATE: " + reviewDate, boldFontSmall));
-        table.DefaultCell.Colspan = 2;
-        table.DefaultCell.FixedHeight = 0.0f;
-        table.AddCell(new Phrase("On completion of reading this document please sign and date below.\nAny questions relating to this document should be raised with a supervisor.", boldFontSmall));
+        table.DefaultCell.FixedHeight = 25f;
+        for (int i = 0; i < 6; i++)
+        {
+            table.AddCell("");
+            table.AddCell("");
+        }
+        
         doc.Add(table);
-
+        table = new PdfPTable(1);
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        table.AddCell(new Phrase("PERSONS UNDERTAKING THE TASK SHOULD SIGN AND DATE BELOW TO COMFIRM THAT THEY HAVE READ AND UNDERSTAND THE RISK ASSESSMENT",boldUnderlineFontSmall));
+        table.SpacingAfter = 10.0f;
+        table.SpacingBefore = 15.0f;
+        doc.Add(table);
 
         table = new PdfPTable(3);
         table.WidthPercentage = 100;
@@ -193,47 +265,9 @@ public class RiskAssessmentGenerator : DetailDocumentTypeGenerator
             table.AddCell(""); table.AddCell(""); table.AddCell("");
         }
         doc.Add(table);
-        doc.NewPage();
-        table = new PdfPTable(1);
-        table.WidthPercentage = 100;
-        table.DefaultCell.Border = Rectangle.NO_BORDER;
-        table.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-        table.DefaultCell.FixedHeight = 20f;
-        table.AddCell(new Phrase("CONTINUATION / SITE-SPECIFIC INFORMATION (Assessment Serial Number: " + docSerial + " )", boldFontSmall));
+        
+        
+        
 
-        table.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
-        table.DefaultCell.Border = Rectangle.TOP_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 160f;
-        table.AddCell(new Phrase("Continued from Item Number ………overleaf:", boldFontSmall));
-        table.DefaultCell.Border = Rectangle.NO_BORDER;
-        table.DefaultCell.FixedHeight = 0.0f;
-        table.DefaultCell.Border = Rectangle.BOTTOM_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.AddCell(new Phrase("                                           Signed :                                                    Date :", boldFontSmall));
-
-        table.DefaultCell.Border = Rectangle.TOP_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 160f;
-        table.AddCell(new Phrase("Continued from Item Number………overleaf:", boldFontSmall));
-        table.DefaultCell.Border = Rectangle.TOP_BORDER;
-        table.DefaultCell.Border = Rectangle.BOTTOM_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 0.0f;
-        table.AddCell(new Phrase("                                           Signed :                                                    Date :", boldFontSmall));
-
-        table.DefaultCell.Border = Rectangle.TOP_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 160f;
-        table.AddCell(new Phrase("Supplementary Note No. 1", boldFontSmall));
-        table.DefaultCell.Border = Rectangle.BOTTOM_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 0.0f;
-        table.AddCell(new Phrase("                                           Signed :                                                    Date :", boldFontSmall));
-
-
-        table.DefaultCell.Border = Rectangle.TOP_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 160f;
-        table.AddCell(new Phrase("Supplementary Note No. 2", boldFontSmall));
-
-        table.DefaultCell.Border = Rectangle.BOTTOM_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-        table.DefaultCell.FixedHeight = 0.0f;
-        table.AddCell(new Phrase("                                           Signed :                                                    Date :", boldFontSmall));
-
-        doc.Add(table);
     }
 }
