@@ -18,7 +18,7 @@ public abstract class VerifyLoginPage : GenericPage
     protected void Page_Load(object sender, EventArgs e)
     {
         LoginProcessing processing = new LoginProcessing();
-        if (processing.Process(ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
+        if (processing.Process(this,ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
         {
             AfterLoginVerifiedProcessing(sender, e);
         }
@@ -31,6 +31,7 @@ public abstract class VerifyLoginPage : GenericPage
             Session[WebConstants.Session.COMPANY_NAME] = company.co_name_long;
         }
         return company;
+      
     }
 
 }
