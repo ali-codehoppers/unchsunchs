@@ -29,7 +29,7 @@ public abstract class AuthenticatedUserControl : System.Web.UI.UserControl
     protected override void OnInit(EventArgs e)
     {
         LoginProcessing processing = new LoginProcessing();
-        if (processing.Process(ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
+        if (processing.Process(this.Page,ref loggedInUserId, ref loggedInUserCoId, ref loggedInUserRole))
         {
             base.OnInit(e);
         }
