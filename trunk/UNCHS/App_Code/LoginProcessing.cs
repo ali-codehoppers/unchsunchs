@@ -50,6 +50,10 @@ public class LoginProcessing
                     //there is only one row
                     loggedInUserId = (int)dtUsers.Rows[0]["user_id"];
                     authenticated = true;
+                    if (HttpContext.Current.Cache[loggedInUserId.ToString()] == null)
+                    {
+                        HandlePostLoginProcess(loggedInUserId, (string)dtUsers.Rows[0]["role"], (int)dtUsers.Rows[0]["co_id"]);
+                    }
                 }
             }
             else
@@ -88,5 +92,42 @@ public class LoginProcessing
             }
         }
         return false;
+    }
+
+    public void HandlePostLoginProcess(int userId, string role, int coId)
+    {
+        TimeSpan SessTimeOut = new TimeSpan(0, 0, HttpContext.Current.Session.Timeout, 0, 0);
+        HttpContext.Current.Cache.Insert(userId.ToString(), HttpContext.Current.Request.UserHostAddress, null, DateTime.MaxValue, SessTimeOut, System.Web.Caching.CacheItemPriority.NotRemovable, null);
+        Company.un_co_detailsRow company = DatabaseUtility.GetCompany(coId);
+        if (company != null && company.flg_show_wizard)
+        {
+            HttpContext.Current.Session[WebConstants.Session.REG_CO_ID] = company.co_id;
+            HttpContext.Current.Session[WebConstants.Session.REG_USER_ID] = userId;
+            DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+            IEnumerator ie = deptTA.GetDepartmentsByCoId(coId).GetEnumerator();
+            if (ie.MoveNext())
+            {
+                Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ie.Current;
+                HttpContext.Current.Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
+            }
+            if (company.Isflg_trialNull() == true || company.flg_trial == false)
+            {
+                company.trial_start_date = DateTime.Today;
+                company.flg_trial = true;
+                company.trial_num_of_days = 15;
+                company.trial_end_date = Utility.GetTrialEndDate(DateTime.Today, 15);
+                CompanyTableAdapters.un_co_detailsTableAdapter coTA = new CompanyTableAdapters.un_co_detailsTableAdapter();
+                coTA.Update(company);
+            }
+            HttpContext.Current.Response.Redirect("~/Register/AddCompany.aspx");
+        }
+        else if (role.Equals(WebConstants.Roles.User))
+        {
+            HttpContext.Current.Response.Redirect("TermsConditions.aspx");
+        }
+        else
+        {
+            HttpContext.Current.Response.Redirect(role + "Home.aspx");
+        }
     }
 }
