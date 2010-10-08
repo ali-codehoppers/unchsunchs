@@ -7,12 +7,14 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Collections.Specialized;
 
 /// <summary>
 /// Summary description for GenericPage
 /// </summary>
 public abstract class GenericPage : System.Web.UI.Page
 {
+    public static NameValueCollection AppSettings = System.Configuration.ConfigurationManager.AppSettings;
     protected void SetErrorMessage(string error)
     {
         SetMessage(error, "lblError");
