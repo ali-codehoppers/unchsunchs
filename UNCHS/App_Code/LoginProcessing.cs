@@ -21,6 +21,8 @@ public class LoginProcessing
 
     public bool Process(Page page,ref int loggedInUserId, ref int loggedInUserCoId, ref string loggedInUserRole)
     {
+        
+
         bool authenticated = false;
         if (bool.Parse(ConfigurationSettings.AppSettings["UseFormsAuthentication"]) == false)
         {

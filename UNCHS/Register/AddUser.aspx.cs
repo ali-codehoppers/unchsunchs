@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Linq;
 
 public partial class Register_AddUser : GenericPage
 {
@@ -76,9 +77,10 @@ public partial class Register_AddUser : GenericPage
                 Session[WebConstants.Session.REG_USER_ID] = user.user_id;
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_SAVED);
                 TransferTableAdapters.TransferTableAdapter tranTA = new TransferTableAdapters.TransferTableAdapter();
-                tranTA.TransferAll(int.Parse(ConfigurationSettings.AppSettings["SourceCompanyId"]),
-                    int.Parse(ConfigurationSettings.AppSettings["SourceDepartmentId"]), (int)Session[WebConstants.Session.REG_CO_ID],
+                tranTA.TransferAll(int.Parse(AppSettings["SourceCompanyId"]),
+                    int.Parse(AppSettings["SourceDepartmentId"]), (int)Session[WebConstants.Session.REG_CO_ID],
                     (int)Session[WebConstants.Session.REG_DEPT_ID], user.user_id);
+                UpdateTrialLicense();
                 Session[WebConstants.Session.WIZARD_STEP] = 4;
                 Response.Redirect("~/Register/UploadOrders.aspx");
 
@@ -114,6 +116,7 @@ public partial class Register_AddUser : GenericPage
                 tranTA.TransferAll(int.Parse(ConfigurationSettings.AppSettings["SourceCompanyId"]),
                     int.Parse(ConfigurationSettings.AppSettings["SourceDepartmentId"]), (int)Session[WebConstants.Session.REG_CO_ID],
                     (int)Session[WebConstants.Session.REG_DEPT_ID], (int)Session[WebConstants.Session.REG_USER_ID]);
+                UpdateTrialLicense();
                 Session[WebConstants.Session.WIZARD_STEP] = 4;
                 Response.Redirect("~/Register/UploadOrders.aspx");
             }
@@ -131,4 +134,30 @@ public partial class Register_AddUser : GenericPage
         return "";
     }
 
+    private void UpdateTrialLicense()
+    {
+        CompanyTableAdapters.un_co_detailsTableAdapter compTA = new CompanyTableAdapters.un_co_detailsTableAdapter();
+        if (Session[WebConstants.Session.REGISTERING_FOR_TRIAL] != null)
+        {
+            compTA.CompanyTrialUpdate((int)Session[WebConstants.Session.SIMPLICITY_COMPANY_ID], true);
+            Simplicity.Data.SimplicityEntities simplicityDatabaseContext = new Simplicity.Data.SimplicityEntities();
+            int userId = (int)Session[WebConstants.Session.USER_ID];
+            Simplicity.Data.UserProduct userProduct = (from userProd in simplicityDatabaseContext.UserProducts where userProd.ProductID == 2 && userProd.UserID == userId select userProd).FirstOrDefault();
+            if (userProduct == null)
+            {
+                userProduct = new Simplicity.Data.UserProduct();
+                userProduct.UserID = userId;
+                userProduct.ProductID = 2;
+                simplicityDatabaseContext.AddToUserProducts(userProduct);
+            }
+            userProduct.IsTrial = true;
+            userProduct.StartDate = DateTime.Now;
+            userProduct.EndDate = DateTime.Now.AddDays(15);
+            simplicityDatabaseContext.SaveChanges();
+        }
+        else
+        {
+            compTA.CompanyTrialUpdate((int)Session[WebConstants.Session.SIMPLICITY_COMPANY_ID], false);
+        }
+    }
 }

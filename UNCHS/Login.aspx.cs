@@ -9,12 +9,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.Collections.Specialized;
 
 public partial class Login : System.Web.UI.Page
 {
+    private static NameValueCollection AppSettings = System.Configuration.ConfigurationManager.AppSettings;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request[WebConstants.Request.SESSION_EXPIRED] != null)
+       /* if (Request[WebConstants.Request.SESSION_EXPIRED] != null)
         {
             lblError.Visible = true;
             lblError.Text = WebConstants.Messages.Error.SESSION_EXPIRED;
@@ -23,7 +25,9 @@ public partial class Login : System.Web.UI.Page
         {
             lblError.Visible = true;
             lblError.Text = WebConstants.Messages.Error.INVALID_CACHE;
-        }
+        }*/
+
+        Response.Redirect(AppSettings["LoginURL"]);
     }
     private bool TrialExpired(int coId)
     {
