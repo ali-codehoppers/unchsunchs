@@ -17,11 +17,11 @@ public abstract class VerifyLoginPage : GenericPage
     protected int loggedInUserCoId = 0;
     protected string loggedInUserRole = null;
 
-    protected abstract void AfterLoginVerifiedProcessing(object sender, EventArgs e);    
+    protected abstract void AfterLoginVerifiedProcessing(object sender, EventArgs e);
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Process(); 
+        Process();
         AfterLoginVerifiedProcessing(sender, e);
     }
 
@@ -31,20 +31,81 @@ public abstract class VerifyLoginPage : GenericPage
         {
             SimplicityEntities databaseContext = new SimplicityEntities();
             Simplicity.Data.Session session = (from ses in databaseContext.Sessions where ses.SessionUID == User.Identity.Name select ses).FirstOrDefault();
-            Session[WebConstants.Session.USER_ID] = session.User.UserID;
-            Session[WebConstants.Session.USER_ROLE] = WebConstants.Roles.User;
-            loggedInUserRole = WebConstants.Roles.User;
-            loggedInUserId = session.User.UserID;
-            if (session.User.Company != null)
+            int HSProductId = int.Parse(AppSettings["HSProductIDInSimplicity"]);
+
+            UserTableAdapters.un_co_user_detailsTableAdapter userTa = new UserTableAdapters.un_co_user_detailsTableAdapter();
+            IEnumerator<User.un_co_user_detailsRow> users = userTa.GetBySimplicityID(session.User.UserID).GetEnumerator();
+            if (users.MoveNext())
             {
-                Session[WebConstants.Session.SIMPLICITY_COMPANY_ID] = session.User.Company.CompanyID;
-                CompanyTableAdapters.un_co_detailsTableAdapter ta = new CompanyTableAdapters.un_co_detailsTableAdapter();
-                IEnumerator<Company.un_co_detailsRow> ie = ta.GetBySimplicityID(session.User.Company.CompanyID).GetEnumerator();
-                if (ie.MoveNext())
+                Session[WebConstants.Session.SIMPLICITY_USER_ID] = session.User.UserID;
+                Session[WebConstants.Session.USER_ID] = users.Current.user_id;
+                Session[WebConstants.Session.USER_ROLE] = WebConstants.Roles.User;
+                loggedInUserRole = WebConstants.Roles.User;
+                loggedInUserId = users.Current.user_id;
+                if (session.User.Company != null)
                 {
-                    Session[WebConstants.Session.USER_CO_ID] = ie.Current.co_id;
-                    Session[WebConstants.Session.COMPANY_NAME] = ie.Current.co_name_long;
-                    loggedInUserCoId = ie.Current.co_id;
+                    Session[WebConstants.Session.SIMPLICITY_COMPANY_ID] = session.User.Company.CompanyID;
+                    CompanyTableAdapters.un_co_detailsTableAdapter ta = new CompanyTableAdapters.un_co_detailsTableAdapter();
+                    IEnumerator<Company.un_co_detailsRow> companies = ta.GetBySimplicityID(session.User.Company.CompanyID).GetEnumerator();
+                    if (companies.MoveNext())
+                    {
+                        Session[WebConstants.Session.USER_CO_ID] = companies.Current.co_id;
+                        Session[WebConstants.Session.COMPANY_NAME] = companies.Current.co_name_long;
+                        loggedInUserCoId = companies.Current.co_id;
+
+                        //going to check for licenses                        
+                        List<CompanyProduct> companyProducts = (from cp in databaseContext.CompanyProducts where cp.CompanyID == session.User.Company.CompanyID && cp.ProductID == HSProductId select cp).ToList<CompanyProduct>();
+                        int numOfLicenses = 0;
+                        foreach (CompanyProduct cp in companyProducts)
+                        {
+                            if (cp.EndDate.CompareTo(DateTime.Now) >= 0)
+                            {
+                                numOfLicenses = numOfLicenses + cp.NumOfLicenses;
+                            }
+                        }
+                        if (numOfLicenses > 0)//check for available licenses now
+                        {
+                            int numOfUsedLicenses = 0;
+                            List<Session> userSessions = (from ses in databaseContext.Sessions where ses.ProductID == HSProductId && ses.SessionID != session.SessionID select ses).ToList<Session>();
+                            foreach (Session ses in userSessions)
+                            {
+                                numOfUsedLicenses = numOfUsedLicenses + 1;
+                            }
+                            if (numOfLicenses - numOfUsedLicenses > 0)
+                            {
+                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current.user_id);
+                            }
+                            else
+                            {
+                                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=All licenses are consumed right now. Please try later");
+                            }
+                        }
+                        else //check if trial version is available
+                        {
+                            bool isTrial = false;
+                            List<UserProduct> userProducts = (from up in databaseContext.UserProducts where up.UserID == session.User.UserID && up.ProductID == HSProductId select up).ToList<UserProduct>();
+                            foreach (UserProduct up in userProducts)
+                            {
+                                if (up.EndDate.CompareTo(DateTime.Now) >= 0)
+                                {
+                                    isTrial = true;
+                                    break;
+                                }
+                            }
+                            if (!isTrial)
+                            {
+                                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You are not authorized to access Health and Safety");
+                            }
+                            else
+                            {
+                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current.user_id);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You have no company assigned. Please contact administrator");
+                    }
                 }
                 else
                 {
@@ -53,12 +114,12 @@ public abstract class VerifyLoginPage : GenericPage
             }
             else
             {
-                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You have no company assigned. Please contact administrator");
+                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=No user found in Health and Safety for Simplicity user. Please contact administrator");
             }
         }
         else
         {
-            Response.Redirect(AppSettings["LoginURL"] + "?" +WebConstants.Request.SESSION_EXPIRED + "=true");
+            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true");
         }
     }
 
@@ -70,7 +131,24 @@ public abstract class VerifyLoginPage : GenericPage
             Session[WebConstants.Session.COMPANY_NAME] = company.co_name_long;
         }
         return company;
-      
+
+    }
+
+    private void GoToPage(bool isShowWizard, int companyId, int userId)
+    {
+        if (isShowWizard)
+        {
+            Session[WebConstants.Session.REG_CO_ID] = companyId;
+            Session[WebConstants.Session.REG_USER_ID] = userId;
+            DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+            IEnumerator ieDept = deptTA.GetDepartmentsByCoId(companyId).GetEnumerator();
+            if (ieDept.MoveNext())
+            {
+                Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ieDept.Current;
+                Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
+            }
+            Response.Redirect("~/Register/AddCompany.aspx");
+        }
     }
 
 }

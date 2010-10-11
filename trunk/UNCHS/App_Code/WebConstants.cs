@@ -28,6 +28,7 @@ public static class WebConstants
         public static string WIZARD_STEP = "WIZARD_STEP";
         public static string REGISTERING_FOR_TRIAL = "REGISTERING_FOR_TRIAL";
         public static string SIMPLICITY_COMPANY_ID = "SIMPLICITY_COMPANY_ID";
+        public static string SIMPLICITY_USER_ID = "SIMPLICITY_USER_ID";
     }
     public static class DocumentTypes
     {

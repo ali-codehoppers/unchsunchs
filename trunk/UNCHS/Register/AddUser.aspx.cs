@@ -141,7 +141,7 @@ public partial class Register_AddUser : GenericPage
         {
             compTA.CompanyTrialUpdate((int)Session[WebConstants.Session.SIMPLICITY_COMPANY_ID], true);
             Simplicity.Data.SimplicityEntities simplicityDatabaseContext = new Simplicity.Data.SimplicityEntities();
-            int userId = (int)Session[WebConstants.Session.USER_ID];
+            int userId = (int)Session[WebConstants.Session.SIMPLICITY_USER_ID];
             Simplicity.Data.UserProduct userProduct = (from userProd in simplicityDatabaseContext.UserProducts where userProd.ProductID == 2 && userProd.UserID == userId select userProd).FirstOrDefault();
             if (userProduct == null)
             {
