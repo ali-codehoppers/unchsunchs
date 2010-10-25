@@ -13,6 +13,6 @@ public partial class Common_Register : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Image110.PostBackUrl = ConfigurationManager.AppSettings["SCurl"];
     }
 }
