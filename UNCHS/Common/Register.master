@@ -35,7 +35,7 @@
       <td height="110">
         <div style="float:left;"><asp:Image ID="Image2" runat="server" src="~/Images/logo.jpg" Width="307" Height="102" />
             </div>
-            <div style="float:right;"><asp:ImageButton ID="Image110" alt="backtosimplicity" runat="server" src="~/Images/back_home.png" /></div>
+            <div style="float:right;"><asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server" src="~/Images/back_home.png" /></div>
         </td>
       </tr>
       <tr>
