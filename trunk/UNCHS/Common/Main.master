@@ -73,8 +73,11 @@
                                 <td>
                                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Logo_small.gif" AlternateText="Logo"/></td>
                                 <td align="right">
+                                    <div style="padding-bottom:20px;"><asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server" src="~/Images/back_home.png" /></div>
+                                    <div>
                                     <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#292F8D" Font-Size="14"></asp:Label>
-                                    <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#21A8E2" Font-Size="14"></asp:Label>                                                    
+                                    <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#21A8E2" Font-Size="14"></asp:Label>                                     
+                                    </div>               
                                 </td>
                             </tr>
                         </table>    

@@ -21,7 +21,8 @@ public partial class Main : System.Web.UI.MasterPage
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
-        }       
+        }
+        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCurl"];
     }
     private void SetHelp(int loggedInUserCoId)
     {
