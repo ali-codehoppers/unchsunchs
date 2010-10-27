@@ -75,7 +75,7 @@ public partial class Register_ForTrial : GenericPage
         }
         else
         {
-            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true");
+            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true&GOTO_URL=" + Request.Url);
         }
     }
 }

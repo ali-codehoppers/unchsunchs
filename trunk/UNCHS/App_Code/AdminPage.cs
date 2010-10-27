@@ -27,6 +27,7 @@ public abstract class AdminPage : AuthenticatedPage
         }
         else
         {
+            Session[WebConstants.Session.RETURN_URL] = Request.Url;
             Response.Redirect("~/Login.aspx");
         }
     }

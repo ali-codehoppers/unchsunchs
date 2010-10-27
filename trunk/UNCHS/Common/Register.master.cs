@@ -13,6 +13,6 @@ public partial class Common_Register : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCurl"];
+        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
     }
 }

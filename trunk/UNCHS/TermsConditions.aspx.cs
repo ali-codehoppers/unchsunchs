@@ -13,6 +13,6 @@ public partial class TermsConditions : VerifyLoginPage
     protected void btnAgree_Click(object sender, EventArgs e)
     {
         Session[WebConstants.Session.HAS_AGREED] = true;
-        Response.Redirect(loggedInUserRole + "Home.aspx");
+        Response.Redirect(loggedInUserRole + "Home.aspx",false);
     }
 }

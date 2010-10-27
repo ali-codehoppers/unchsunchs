@@ -22,7 +22,7 @@ public partial class Main : System.Web.UI.MasterPage
         {
             SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
-        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCurl"];
+        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
     }
     private void SetHelp(int loggedInUserCoId)
     {
@@ -51,7 +51,8 @@ public partial class Main : System.Web.UI.MasterPage
             Cache.Remove(Session[WebConstants.Session.USER_ID].ToString());
         }
         Session.Clear();
-        Response.Redirect("~/Login.aspx");
+        Response.Redirect(ConfigurationSettings.AppSettings["LogoutURL"]);
+        //Response.Redirect("~/Login.aspx");
 
     }
 
@@ -65,7 +66,7 @@ public partial class Main : System.Web.UI.MasterPage
             {
                 if (company.Isflg_trialNull() == false && company.flg_trial)
                 {
-                    string url = ConfigurationManager.AppSettings["SCurl"] + "/pages/ProductPrices.aspx?productId=2";
+                    string url = ConfigurationManager.AppSettings["SCurl"] + "/ProductPrices.aspx?productId=2";
                     html = "Your trial ends in " + company.trial_end_date.Subtract(DateTime.Now).Days + " days on " + company.trial_end_date.ToShortDateString() + "";
                     html += "<a href='" + url  + "'><img src='" + this.ResolveClientUrl("~/Images/Buy_Now.gif") + "' onmouseover=\"this.src='" + this.ResolveClientUrl("~/Images/Buy_now_rollover.gif") + "'\" onmouseout=\"this.src='" + this.ResolveClientUrl("~/Images/Buy_now.gif") + "'\"/></a>";
                 }
