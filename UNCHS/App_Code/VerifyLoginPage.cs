@@ -119,7 +119,7 @@ public abstract class VerifyLoginPage : GenericPage
         }
         else
         {
-            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true");
+            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true&GOTO_URL=" + Request.Url);
         }
     }
 
@@ -149,17 +149,7 @@ public abstract class VerifyLoginPage : GenericPage
             }
             Response.Redirect("~/Register/AddCompany.aspx");
         }
-        else
-        {
-            if (user.role.Equals(WebConstants.Roles.User))
-            {
-                HttpContext.Current.Response.Redirect("TermsConditions.aspx");
-            }
-            else
-            {
-                HttpContext.Current.Response.Redirect(user.role + "Home.aspx");
-            }
-        }
+        
     }
 
 }

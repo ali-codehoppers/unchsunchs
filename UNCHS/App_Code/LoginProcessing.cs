@@ -31,6 +31,7 @@ public class LoginProcessing
         {
             if (HttpContext.Current.Session[WebConstants.Session.USER_ID] == null)
             {
+                HttpContext.Current.Session[WebConstants.Session.RETURN_URL] = HttpContext.Current.Request.Url;
                 HttpContext.Current.Response.Redirect("~/Login.aspx?" + WebConstants.Request.SESSION_EXPIRED + "=true");
             }
             else
@@ -53,26 +54,29 @@ public class LoginProcessing
                 {
                     authenticated = true;
                     loggedInUserId = users.Current.user_id;
-                    if (HttpContext.Current.Cache[loggedInUserId.ToString()] == null)
+                    /*if (HttpContext.Current.Cache[loggedInUserId.ToString()] == null)
                     {
                         HandlePostLoginProcess(users.Current.user_id, users.Current.role, users.Current.co_id);
-                    }
+                    }*/
                 }
                 else
                 {
+                    HttpContext.Current.Session[WebConstants.Session.RETURN_URL] = HttpContext.Current.Request.Url;
                     HttpContext.Current.Response.Redirect("~/Login.aspx?" + WebConstants.Request.SESSION_EXPIRED + "=true");
                 }
             }
             else
             {
+                HttpContext.Current.Session[WebConstants.Session.RETURN_URL] = HttpContext.Current.Request.Url;
                 HttpContext.Current.Response.Redirect("~/Login.aspx?" + WebConstants.Request.SESSION_EXPIRED + "=true");
             }
         }
         if(authenticated)
         {
-            
-            if (HttpContext.Current.Cache[loggedInUserId.ToString()] == null || HttpContext.Current.Cache[loggedInUserId.ToString()].Equals(HttpContext.Current.Request.UserHostAddress) == false)
+
+            if (HttpContext.Current.Session[WebConstants.Session.USER_ID] == null)
             {
+                HttpContext.Current.Session[WebConstants.Session.RETURN_URL] = HttpContext.Current.Request.Url;
                 HttpContext.Current.Response.Redirect("~/Login.aspx?" + WebConstants.Request.INVALID_CACHE + "=true");
             }
             else

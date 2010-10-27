@@ -29,6 +29,7 @@ public static class WebConstants
         public static string REGISTERING_FOR_TRIAL = "REGISTERING_FOR_TRIAL";
         public static string SIMPLICITY_COMPANY_ID = "SIMPLICITY_COMPANY_ID";
         public static string SIMPLICITY_USER_ID = "SIMPLICITY_USER_ID";
+        public static string RETURN_URL = "RETURN_URL";
     }
     public static class DocumentTypes
     {

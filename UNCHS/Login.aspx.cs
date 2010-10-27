@@ -26,7 +26,12 @@ public partial class Login : System.Web.UI.Page
             lblError.Visible = true;
             lblError.Text = WebConstants.Messages.Error.INVALID_CACHE;
         }*/
-
+        if (Session[WebConstants.Session.RETURN_URL] != null)
+        {
+            string gotoUrl = (string)Session[WebConstants.Session.RETURN_URL];
+            Response.Redirect(AppSettings["LoginURL"] + "?GOTO_URL="+gotoUrl);
+        }
+        else
         Response.Redirect(AppSettings["LoginURL"]);
     }
     private bool TrialExpired(int coId)
