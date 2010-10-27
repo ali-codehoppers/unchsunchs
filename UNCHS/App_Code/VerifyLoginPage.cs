@@ -73,7 +73,7 @@ public abstract class VerifyLoginPage : GenericPage
                             }
                             if (numOfLicenses - numOfUsedLicenses > 0)
                             {
-                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current.user_id);
+                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current);
                             }
                             else
                             {
@@ -98,7 +98,7 @@ public abstract class VerifyLoginPage : GenericPage
                             }
                             else
                             {
-                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current.user_id);
+                                GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current);
                             }
                         }
                     }
@@ -134,12 +134,12 @@ public abstract class VerifyLoginPage : GenericPage
 
     }
 
-    private void GoToPage(bool isShowWizard, int companyId, int userId)
+    private void GoToPage(bool isShowWizard, int companyId, User.un_co_user_detailsRow user)
     {
         if (isShowWizard)
         {
             Session[WebConstants.Session.REG_CO_ID] = companyId;
-            Session[WebConstants.Session.REG_USER_ID] = userId;
+            Session[WebConstants.Session.REG_USER_ID] = user.user_id;
             DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
             IEnumerator ieDept = deptTA.GetDepartmentsByCoId(companyId).GetEnumerator();
             if (ieDept.MoveNext())
@@ -148,6 +148,17 @@ public abstract class VerifyLoginPage : GenericPage
                 Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
             }
             Response.Redirect("~/Register/AddCompany.aspx");
+        }
+        else
+        {
+            if (user.role.Equals(WebConstants.Roles.User))
+            {
+                HttpContext.Current.Response.Redirect("TermsConditions.aspx");
+            }
+            else
+            {
+                HttpContext.Current.Response.Redirect(user.role + "Home.aspx");
+            }
         }
     }
 
