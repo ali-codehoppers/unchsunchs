@@ -66,7 +66,8 @@ public abstract class VerifyLoginPage : GenericPage
                         if (numOfLicenses > 0)//check for available licenses now
                         {
                             int numOfUsedLicenses = 0;
-                            List<Session> userSessions = (from ses in databaseContext.Sessions where ses.ProductID == HSProductId && ses.SessionID != session.SessionID select ses).ToList<Session>();
+                            var check = (from userTable in databaseContext.Users where userTable.CompanyID == session.User.Company.CompanyID select userTable).ToList() ;
+                            List<Session> userSessions = (from ses in databaseContext.Sessions where ses.ProductID == HSProductId && (from userTable in databaseContext.Users where userTable.CompanyID == session.User.Company.CompanyID select userTable.UserID).Contains(ses.UserID) && DateTime.Compare(DateTime.Now,ses.LastActivityTime)>30 && ses.SessionID != session.SessionID select ses).ToList<Session>();
                             foreach (Session ses in userSessions)
                             {
                                 numOfUsedLicenses = numOfUsedLicenses + 1;
