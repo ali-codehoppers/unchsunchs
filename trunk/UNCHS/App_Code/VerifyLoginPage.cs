@@ -6,6 +6,9 @@ using System.Collections.Specialized;
 using Simplicity.Data;
 using System.Linq;
 using System.Collections;
+using System.Web.Security;
+using System.Web.Configuration;
+
 
 /// <summary>
 /// Summary description for VerifyLoginPage
@@ -27,6 +30,8 @@ public abstract class VerifyLoginPage : GenericPage
 
     private void Process()
     {
+      
+
         if (User.Identity.IsAuthenticated)
         {
             SimplicityEntities databaseContext = new SimplicityEntities();
@@ -120,7 +125,7 @@ public abstract class VerifyLoginPage : GenericPage
         }
         else
         {
-            Response.Redirect(AppSettings["LoginURL"] + "?" + WebConstants.Request.SESSION_EXPIRED + "=true&GOTO_URL=" + Request.Url);
+            Response.Redirect("~/Login.aspx" + "?" + WebConstants.Request.SESSION_EXPIRED + "=true&GOTO_URL=" + Request.Url);
         }
     }
 

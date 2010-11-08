@@ -46,8 +46,7 @@
        </div>
         <div class="ft" style="text-align:right">
             
-                <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-                <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click" />
+
             
         </div>
     </div>	    
@@ -56,6 +55,7 @@
         <td valign="bottom" align="center">
         <div class="loginBox">
             <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/small_logo.png"/>
+                        
                         <div class="field" style="margin-top:20px"><span>User Name:</span><asp:TextBox ID="tbUserName" runat="server" Width="250px"></asp:TextBox></div>
                         <div class="field" style="margin-top:20px">
                             <div style="float:left"><span>Password:</span><asp:TextBox ID="tbPassword" runat="server" TextMode="Password" Width="250px"></asp:TextBox></div>
@@ -63,7 +63,8 @@
                             <div style="clear:both"></div>
                         </div>                   
             
-                        <asp:Label ID="lblError" runat="server" Text="Invalid User Name / Password" Visible="false" CssClass="error"></asp:Label>
+                        <asp:Label ID="lblError" runat="server" Text="" Visible="false" CssClass="error"></asp:Label>
+                        <asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label>
                         <asp:Panel ID="pnlTrialError" runat="server" Visible="false">
                             <asp:Label ID="Label1" runat="server" Text="Your trial period has expired." CssClass="error"></asp:Label><br /> 
                             <asp:Label ID="Label2" runat="server" Text="Please click " CssClass="error"></asp:Label>       
@@ -72,7 +73,7 @@
                         </asp:Panel>
                         
                         <div style="margin-top:20px">Forgot your password?</div>
-                        <div style="margin-top:20px">Don't have an account? <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/pages/ProductPrices.aspx?productId=2" >Sign up for Free Trial</a></div>
+                        <div style="margin-top:20px">Don't have an account? <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/ProductPrices.aspx?productId=2" >Sign up for Free Trial</a></div>
         </div>
         </td>
         </tr>

@@ -14,7 +14,7 @@ using System.Collections.Specialized;
 /// <summary>
 /// Summary description for LoginProcessing
 /// </summary>
-public class LoginProcessing
+public class LoginProcessing 
 {
     public static NameValueCollection AppSettings = System.Configuration.ConfigurationManager.AppSettings;
 	public LoginProcessing()
@@ -42,7 +42,7 @@ public class LoginProcessing
         }
         else 
         {
-            if (page.User.Identity.IsAuthenticated)
+            if (page.User.Identity.IsAuthenticated )
             {
                 SimplicityEntities databaseContext = new SimplicityEntities();
                 Simplicity.Data.Session session = (from ses in databaseContext.Sessions where ses.SessionUID == page.User.Identity.Name select ses).FirstOrDefault();
