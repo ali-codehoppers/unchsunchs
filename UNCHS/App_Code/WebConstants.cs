@@ -88,6 +88,7 @@ public static class WebConstants
         }
         public static class Error
         {
+            public static string CANNOT_LOGIN = "Invalid User Name / Password";
             public static string SESSION_EXPIRED = "Session Expired. Please login again.";
             public static string INVALID_ID = "Select record is not present.";
             public static string ALREAD_EXISTS = "Record with this name already exists.";
@@ -104,6 +105,8 @@ public static class WebConstants
     }
     public static class Request
     {
+        public static string NEED_LOGIN = "NEED_LOGIN";
+        public static string FROM_PAGE = "fromPage";
         public static string SESSION_EXPIRED = "sessionExpired";
         public static string DEPT_PERSON_ID = "deptPersonId";
         public static string ACTION = "action";

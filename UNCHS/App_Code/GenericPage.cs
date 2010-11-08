@@ -26,9 +26,18 @@ public abstract class GenericPage : System.Web.UI.Page
     }
     private void SetMessage(string msg, string control)
     {
-        Label label = (Label)this.Page.Master.FindControl(control);
+        Label label;
+        try
+        {
+            label = (Label)this.Page.Master.FindControl(control);
+        }
+        catch(Exception ex)
+        {
+            label = (Label)this.Page.FindControl(control);
+        }
         label.Visible = true;
         label.Text = msg;
+        
     }
 
     protected override void OnLoad(EventArgs e)
@@ -43,6 +52,7 @@ public abstract class GenericPage : System.Web.UI.Page
             Simplicity.Data.Session session = (from s in DatabaseContext.Sessions where s.SessionUID == User.Identity.Name select s).FirstOrDefault();
             if (session != null && session.User != null)
             {
+                loggedInUser = session.User;
                 session.LastActivityTime = DateTime.Now;
                 session.EndTime = DateTime.Now.AddMinutes(30);
                 session.IP = Request.UserHostAddress;
@@ -52,5 +62,13 @@ public abstract class GenericPage : System.Web.UI.Page
         }
 
         base.OnLoad(e);
+    }
+    private Simplicity.Data.User loggedInUser;
+    protected Simplicity.Data.User LoggedIsUser
+    {
+        get
+        {
+            return loggedInUser;
+        }
     }
 }
