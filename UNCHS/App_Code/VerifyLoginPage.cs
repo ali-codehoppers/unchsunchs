@@ -95,6 +95,7 @@ public abstract class VerifyLoginPage : GenericPage
                                 if (up.EndDate.CompareTo(DateTime.Now) >= 0)
                                 {
                                     isTrial = true;
+                                    Session["isTrial"] = isTrial;
                                     break;
                                 }
                             }

@@ -24,8 +24,13 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         }
         BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
         Logginuser.Text = Session["userName"].ToString();
-
-       // btnAccount_info.PostBackUrl = "";
+        if (Session["isTrial"] == "true")
+        {
+            productTrial.Visible = true;
+        }
+        else {
+            notproductTrial.Visible = true;
+        }       
     }
     private void SetHelp(int loggedInUserCoId)
     {
