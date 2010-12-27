@@ -64,7 +64,9 @@
                     </div>
                     <div style="float: left; height: 27px; background-color: #FEC828" class="txt_white">
                         <div style="padding-top: 3px;">
-                            <strong><asp:Label ID="Logginuser" runat="server"></asp:Label> Logged In</strong></div>
+                            <strong>
+                                <asp:Label ID="Logginuser" runat="server"></asp:Label>
+                                Logged In</strong></div>
                     </div>
                     <div class="floatLeft">
                         <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
@@ -72,7 +74,7 @@
                     </div>
                     <div style="float: left; height: 27px; background-color: #4FA2C2" class="txt_white">
                         <div style="padding-top: 3px;">
-                            <asp:LinkButton ID="btnLogout" runat="server" onclick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
+                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
                             |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
                             <a href="#help" class="txt_white">Help</a></div>
                     </div>
@@ -81,11 +83,19 @@
                             height="27" />
                     </div>
                 </div>
+
                 <div style="float: right; padding-top: 30px;">
-                    <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
-                    <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
+                    <div style="text-align:right">
+                        <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
+                        <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
                         Font-Size="14"></asp:Label>
+                    </div>
+                    <div style="text-align:right">
+                        <asp:Label runat="server" ID="productTrial" Visible="false" style="font-size:24px;color:#1FA8DF">Health &amp; Safety Demo</asp:Label>
+                        <asp:Label runat="server" ID="notproductTrial" Visible="false" style="font-size:24px;;color:#1FA8DF">Health &amp; Safety</asp:Label>
+                    </div>
                 </div>
+                
             </div>
             <div style="clear: both">
             </div>
@@ -110,16 +120,14 @@
             <div style="padding-left: 260px;">
                 <asp:ContentPlaceHolder ID="HeadingPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
-                
-                <asp:Panel runat="server" Visible="false" ID="errorPanel" >
-                <div style="background-color:White ;">
-                <div class="error" style="width: 100%;">
-                    <asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label></div>
-                <div class="info" style="width: 100%;">
-                    <asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>
-                 </div>
-                    </asp:Panel>
-                
+                <asp:Panel runat="server" Visible="false" ID="errorPanel" style="padding:0px 0px 0px 0px">
+                    <div style="background-color: White;">
+                        <div class="error_msg" >
+                            <asp:Label ID="lblError" runat="server" CssClass="error"  Text="" Visible="false"></asp:Label>
+                        
+                        <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label></div>
+                        </div>
+                </asp:Panel>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
                 <%if (helpHTML != null && helpHTML.Length > 0)
