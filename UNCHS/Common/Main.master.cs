@@ -23,6 +23,9 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
             SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
         BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
+        Logginuser.Text = Session["userName"].ToString();
+
+       // btnAccount_info.PostBackUrl = "";
     }
     private void SetHelp(int loggedInUserCoId)
     {
@@ -44,7 +47,7 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         }
     }
 
-    protected void btnLogout_Click(object sender, ImageClickEventArgs e)
+    protected void btnLogout_Click(object sender, EventArgs e)
     {
         if (Session[WebConstants.Session.USER_ID] != null)
         {
@@ -55,7 +58,11 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         //Response.Redirect("~/Login.aspx");
 
     }
-
+    protected void btnAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect(ConfigurationSettings.AppSettings["SCurl"]+"/SignUp.aspx");
+    }
+    
     protected string GetTrialHTML()
     {
         string html = "";

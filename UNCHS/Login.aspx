@@ -77,13 +77,13 @@
                     <div id="buttondiv">
                         <div class="login_btn" style="padding-right: 10px;">
                             <div class="linkdiv">
-                                <asp:LinkButton runat="server" ID="btnLogin" OnClick="btnLogin_Click" NavigateUrl="index.html" style="text-decoration: none; color: #ffffff;">LOGIN</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnLogin" OnClick="btnLogin_Click" NavigateUrl="index.html" style="text-decoration: none; color: #ffffff;  padding:5px 20px 5px 20px">LOGIN</asp:LinkButton>
                             </div>
                         </div>
                     </div>
                     <div style="clear: both; padding-top: 40px; padding-left: 150px;">
                         <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/ProductPrices.aspx?productId=2"
-                            class="txt_blue">SIGN UP HERE</a>
+                            class="txt_blue" style="color:#333">SIGN UP HERE</a>
                     </div>
                 </div>
             </div>

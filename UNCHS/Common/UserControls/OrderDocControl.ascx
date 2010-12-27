@@ -1,18 +1,22 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="OrderDocControl.ascx.cs" Inherits="Common_UserControls_OrderDocControl" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeFile="OrderDocControl.ascx.cs"
+    Inherits="Common_UserControls_OrderDocControl" %>
 <asp:HiddenField ID="hfDocTypeName" runat="server" />
 <script type="text/javascript">
     var dialog;
 </script>
-<div id="dialog" style="display:none">
+<div id="dialog" style="display: none">
     <div class="hd">
-        Select <%=DocTypeName%> to Add:</div>
-    <div class="bd" style="overflow: auto;height:400px">
+        Select
+        <%=DocTypeName%>
+        to Add:</div>
+    <div class="bd" style="overflow: auto; height: 400px">
         <div class="field">
             <asp:Repeater ID="rptDocs" runat="server" OnItemDataBound="rptDocs_ItemDataBound">
                 <ItemTemplate>
-                    <asp:HiddenField ID="hfCategoryName" runat="server" Value='<%# Container.DataItem %>'/>
+                    <asp:HiddenField ID="hfCategoryName" runat="server" Value='<%# Container.DataItem %>' />
                     <fieldset>
-                        <legend><b><%# Container.DataItem %></b></legend>
+                        <legend><b>
+                            <%# Container.DataItem %></b></legend>
                         <asp:CheckBoxList ID="cbDocs" runat="server" RepeatColumns="3" Width="100%">
                         </asp:CheckBoxList>
                     </fieldset>
@@ -21,26 +25,45 @@
         </div>
     </div>
     <div class="ft">
-        <asp:Button ID="btnAdd" runat="server" Text="Add (s)" OnClick="btnAdd_Click" />
+        <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnAdd" runat="server" Text="Add (s)" OnClick="btnAdd_Click" CssClass="txt_white">Add (s)</asp:LinkButton>
+            </div>
+            <div style="float: left">
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+            <div style="clear:both"></div>
+        
     </div>
 </div>
-<div style="margin-left: 650px; margin-top:10px">
-    <img src="../Images/<%=ImageName%>.gif" alt="<%=DocTypeName%> List" onclick="document.getElementById('dialog').style.display='block';dialog.show();"
-        onmouseover="this.src='../Images/<%=ImageName%>_rollover.gif';" onmouseout="this.src='../Images/<%=ImageName%>.gif';" />
-    
+<div class="button_bar">
+    <div class="button_right" style="padding-left: 340px;">
+        <div style="float: left">
+            <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+        </div>
+        <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+            <a href="#" class="txt_white" onclick="document.getElementById('dialog').style.display='block';dialog.show();">
+                <%=DocTypeName%>List</a>
+        </div>
+        <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+    </div>
 </div>
 <div class="grid">
     <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
-        DataKeyNames="dept_order_doc_id" DataSourceID="odsDeptDocs" OnRowDeleted="gvDocs_RowDeleted" PageSize="50" Width="805px">
+        DataKeyNames="dept_order_doc_id" DataSourceID="odsDeptDocs" OnRowDeleted="gvDocs_RowDeleted"
+        PageSize="50" Width="805px">
         <Columns>
-            <asp:TemplateField HeaderText="Delete" >
+            <asp:TemplateField HeaderText="Delete">
                 <HeaderStyle Width="5%" />
-                <ItemTemplate>               
+                <ItemTemplate>
                     <center>
-                    <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                            ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"></asp:ImageButton>
+                        <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
+                            ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                        </asp:ImageButton>
                     </center>
-                </ItemTemplate>              
+                </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="doc_name" HeaderText="Name" SortExpression="doc_name">
                 <ItemStyle Width="75%" />
@@ -58,7 +81,8 @@
     </asp:GridView>
 </div>
 <asp:ObjectDataSource ID="odsDeptDocs" runat="server" DeleteMethod="Delete" InsertMethod="Insert"
-    OldValuesParameterFormatString="original_{0}" SelectMethod="GetDocsByTypeName" TypeName="DepartmentOrderDocTableAdapters.DepartmentOrderDocTableAdapter">
+    OldValuesParameterFormatString="original_{0}" SelectMethod="GetDocsByTypeName"
+    TypeName="DepartmentOrderDocTableAdapters.DepartmentOrderDocTableAdapter">
     <DeleteParameters>
         <asp:Parameter Name="Original_dept_order_doc_id" Type="Int32" />
     </DeleteParameters>
@@ -79,18 +103,16 @@
     </InsertParameters>
 </asp:ObjectDataSource>
 <script type="text/javascript">
-    	// Instantiate the Dialog
-	dialog = new YAHOO.widget.Dialog("dialog", 
-						{ width : "980px",							
-						  fixedcenter : true,
-						  close : true,
-		                  zindex:3,
-		                  modal:true,							  
-						  visible : false, 
-						  constraintoviewport : false,
-						  draggable:true
+    // Instantiate the Dialog
+    dialog = new YAHOO.widget.Dialog("dialog",
+						{ width: "980px",
+						    fixedcenter: true,
+						    close: true,
+						    zindex: 3,
+						    modal: true,
+						    visible: false,
+						    constraintoviewport: false,
+						    draggable: true
 						});
-	dialog.render();
+    dialog.render();
 </script>
-
-

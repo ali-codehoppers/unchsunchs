@@ -21,7 +21,18 @@
             </div>
         </div>
         <div class="ft">
-            <asp:ImageButton ID="btnAddSuggestions" runat="server" OnClick="btnAddSuggestions_Click" />                
+            <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnAddSuggestions" runat="server" OnClick="btnAddSuggestions_Click" CssClass="txt_white"></asp:LinkButton>   
+               
+            </div>
+            <div style="float: left">
+                <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+                <div style="clear:both"></div>
+                         
         </div>
     </div>
     <script type="text/javascript">

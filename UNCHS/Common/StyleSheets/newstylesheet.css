@@ -1,0 +1,283 @@
+body {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	line-height:20px;
+}
+
+.login_error {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #e6351d;
+	background: url(../../Images/error_pnl.jpg) 0 center no-repeat;
+	text-decoration: none;
+	width:331px;
+	height: 126px;
+}
+.login_body
+{
+	font: normal 13px 'Lucida Sans Unicode' , 'Lucida Grande' , sans-serif;
+	color: #444;
+	text-decoration: none;
+	width: 289px;
+	height: 292px;
+	background-image: url('../../Images/login_bg.jpg');
+}
+.login_field {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #555555;
+	border:1px solid #cccccc;
+	height: 20px;
+	width:230px;
+}
+A.login:active,  A.login:link, A.login:visited {
+	font: normal 11px Arial, Verdana, Helvetica, sans-serif;
+	color: #ff9e0d;
+	text-decoration: underline;
+}
+A.login:hover {
+	color: #333;
+	text-decoration: none;
+}
+A.txt_blue:active,  A.txt_blue:link, A.txt_blue:visited {
+	font: normal 13px "Trebuchet MS",Arial, Verdana, Helvetica, sans-serif;
+	color: #056783;
+	text-decoration: none;
+	
+}
+A.txt_blue:hover {
+	color: #333;
+	text-decoration: underline;
+}
+A.txt_white:active,  A.txt_white:link, A.txt_white:visited, .txt_white {
+	font: normal 13px "Trebuchet MS",Arial, Verdana, Helvetica, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	padding:0px 5px 0px 5px;
+	margin: 0px 0px 0px 0px;
+}
+A.txt_white:hover {
+	color: #0c4859;
+	text-decoration: underline;
+}
+A.txt_blue:active, A.txt_blue:link, A.txt_blue:visited
+{
+	font: normal 14px "Trebuchet MS" ,Arial, Verdana, Helvetica, sans-serif;
+	color: #bbd9f8;
+	
+}
+A.txt_blue:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
+{
+	
+	font: normal 14px "Trebuchet MS" ,Arial, Verdana, Helvetica, sans-serif;
+	color: #000;
+	text-decoration: none;
+}
+
+.left_nav_link:active,  .left_nav_link:link, .left_nav_link:visited {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.left_nav_link:hover {
+	color: #fead12;
+	text-decoration: none;
+}
+.login_btn
+{
+	float: left;
+	font: bold 13px "Trebuchet MS" ,Arial, Verdana, Helvetica, sans-serif;
+	color: #ffffff;
+	height: 32px;
+	width: 90px;
+	background: url(../../Images/blank_btn.jpg) no-repeat left top;
+}
+.login_btn:hover{
+	background-position: bottom left;
+}
+.footer_sub {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #fff;
+	padding-top: 10px;
+	padding-left: 30px
+}
+.footer_sub_pages {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #020650;
+}
+.left_nav_pnl {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #fff;
+	background: url(../../Images/left_nav_top.jpg) 0 center no-repeat;
+	padding:11px 0px 0px 0px;
+	width:252px;
+	height:40px;
+}
+.mid_pnl_r
+{
+	background: url(../../Images/big_pnl_mid.jpg) 0 center repeat-x;
+}
+.mid_yellow
+{
+	background: url(../../Images/btn_y_mid.jpg) repeat-x center;
+	height:23px;
+	float:left;
+	padding-top:10px;
+}
+.mid_blue {
+	background: url(../../Images/btn_b_mid.jpg) 0 center repeat-x;
+	float:left;
+	height:23px;
+	padding-top:10px;
+}
+.breadcrum_mid {
+	font: normal 14px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #fff;
+	background: url(../../Images/bc_mid.jpg) 0 center repeat-x;
+	padding:0px 3px 0px 3px;
+}
+.error_msg {
+	font: normal 13px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #d10200;
+	border:1px solid #db797b;
+	background-color:#f4cdce;
+	padding:5px 5px 5px 5px;
+}
+.error
+{
+	text-align:left;
+	color:Red; 
+	font-weight:bold;
+}
+.error_thin
+{
+	text-align:left; 
+	color:Red;
+}
+.dropdown_txt {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	height:20px;
+	width:150px;
+}
+.field_txt {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	height: 20px;
+	border:1px solid #999;
+	width:300px;
+}
+.field_txt_small {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	height: 20px;
+	border:1px solid #999;
+	width:100px;
+}
+.text_area {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	height: 90px;
+	border:1px solid #999;
+	width:300px;
+}
+.btn_mid_blue {
+	font: normal 14px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #fff;
+	background: url(../../Images/btn_submit_mid.jpg) 0 center repeat-x;
+	padding:0px 3px 0px 3px;
+}
+A.txt_white_link1:active,  A.txt_white_link1:link, A.txt_white_link1:visited {
+	font: normal 13px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #fff;
+	text-decoration: none;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+A.txt_white_link1:hover {
+	color: #031c36;
+	text-decoration: underline;
+}
+.left_nav_link {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #000;
+	height:30px;
+	background-image: url(../../Images/left_nav_partition.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom;	
+}
+#maindiv
+{
+	padding-top: 220px; 
+	width: 660px;
+	margin: auto;	
+}
+#leftdiv
+{
+	float: left;
+	padding-right: 15px; 
+	padding-top: 15px;
+}
+.floatLeft
+{
+	float:left;	
+}
+#leftdiv .logodiv
+{
+	padding-left: 20px;
+}
+#leftdiv .login_error .msg
+{
+	padding-left: 15px;
+	padding-top: 15px;
+}
+#formdiv
+{
+	padding-top: 55px; 
+	padding-left: 10px;
+}
+.row
+{
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}
+.col
+{
+	padding-bottom: 5px;
+}
+#buttondiv
+{
+	padding-top: 30px; 
+	padding-bottom: 5px;
+}
+#buttondiv .login_btn .linkdiv
+{
+	text-align: center; 
+	padding-top: 8px;
+}
+.terms
+{
+	text-align:justify;
+	font-size:medium;
+	margin-bottom:20px;
+}
+.button_bar 
+{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+#leftnav
+{
+	float: left;
+	width: 175px;
+	margin: 0;
+	padding: 0 0 0 0;
+
+}

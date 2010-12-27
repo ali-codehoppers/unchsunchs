@@ -2,8 +2,28 @@
     CodeFile="DepartmentList.aspx.cs" Inherits="Maintenance_DepartmentList" Title="Department List" %>
 
 <asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="HeadingContent" runat="server">
-    Departments List</asp:Content>
+       <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
+               Departments List
+            </div>
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+        </div>
+    </div> </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+<div style="background-color: White; padding: 15px 10px 25px 10px">
     <asp:ObjectDataSource ID="odsDepartment" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
         <SelectParameters>
@@ -66,9 +86,18 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter"></asp:ObjectDataSource>
-    <div class="field">
+    <div class="field" style="padding-bottom:5px;">
         <asp:HiddenField ID="hfCoId" runat="server" />
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Maintenance/AddDepartment.aspx">Add a New Department</asp:HyperLink>
+        <div style="float: left">
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:HyperLink ID="HyperLink1" CssClass="txt_white" runat="server" NavigateUrl="~/Maintenance/AddDepartment.aspx">Add a New Department</asp:HyperLink>
+            </div>
+
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+
+
     </div>
     <div class="ddl_field">
         <asp:Label ID="lblCompany" runat="server" Text="Company"></asp:Label>
@@ -118,5 +147,15 @@
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />
         </asp:GridView>
+    </div>
+    </div>
+        <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
     </div>
 </asp:Content>

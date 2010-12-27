@@ -37,20 +37,35 @@ public partial class Common_TabControl : System.Web.UI.UserControl
         menuItems.Add("Log", "OrderLog.aspx");
 
         StringBuilder lis = new StringBuilder();
+        lis.Append("<div style='width:100%'>");
         foreach (KeyValuePair<string, string> kvPair in menuItems)
         {
-            lis.Append("<li ");
-            if(kvPair.Key.Equals(Selected))
+            
+            if (kvPair.Key.Equals(Selected))
             {
-                lis.Append("class='selected'");
+                lis.Append("<div class='floatLeft'><img src=" + ResolveClientUrl("~/images/btn_y_left.jpg") + " width='8' height='33' /></div>");
+                lis.Append("<div class='mid_yellow'><a class='txt_yellow' href='").Append(kvPair.Value);
             }
-            lis.Append("><a href='").Append(kvPair.Value);
+            else {
+                lis.Append("<div class='floatLeft'><img src=" + ResolveClientUrl("~/images/btn_b_left.jpg") + " width='8' height='33' /></div>");
+                lis.Append("<div class='mid_blue'><a class='txt_blue' href='").Append(kvPair.Value);
+            }
             if(Request[WebConstants.Request.DEPT_ORDER_ID] != null)
             {
                 lis.Append("?").Append(WebConstants.Request.DEPT_ORDER_ID).Append("=").Append(Request[WebConstants.Request.DEPT_ORDER_ID]);
             }
-            lis.Append("'>").Append(kvPair.Key).Append("</a></li>");            
+            lis.Append("'>").Append(kvPair.Key).Append("</a></div>");
+            if (kvPair.Key.Equals(Selected))
+            {
+                lis.Append("<div class='floatLeft'><img style='margin-right:4px' src=" + ResolveClientUrl("~/images/btn_y_right.jpg") + " width='8' height='33' /></div>");
+            }
+            else {
+                lis.Append("<div class='floatLeft'><img style='margin-right:4px' src=" + ResolveClientUrl("~/images/btn_b_right.jpg") + " width='8' height='33' /></div>");
+            }
+            
+
         }
+        lis.Append("</div>");
         LiList = lis.ToString();
     }
     protected void Page_Load(object sender, EventArgs e)
