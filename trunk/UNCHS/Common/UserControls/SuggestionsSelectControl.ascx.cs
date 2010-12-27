@@ -102,10 +102,11 @@ public partial class Common_UserControls_SuggestionsSelectControl : Authenticate
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        btnAddSuggestions.ImageUrl = "~/Images/" + imageName + ".gif";        
+        imageName=imageName.Replace('_', ' ');
+        btnAddSuggestions.Text= imageName ;        
 //        Add_Sequence_of_work_rol_sel
         //btnAddSuggestions.Attributes["onmouseover"] = "this.src='../Images/" + imageName + "_roll_sel.gif'";
-        btnAddSuggestions.Attributes["onmouseout"] = "this.src='../Images/" + imageName + ".gif'";
+   //     btnAddSuggestions.Attributes["onmouseout"] = "this.src='../Images/" + imageName + ".gif'";
     }
     protected void rptSuggestions_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {

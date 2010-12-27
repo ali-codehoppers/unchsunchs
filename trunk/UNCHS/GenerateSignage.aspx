@@ -4,13 +4,33 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
+                    <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
                 Signage Document
+            </div>
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+        </div>
+    </div>
 </asp:Content>
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
+    <div style="background-color: White; padding: 15px 10px 25px 10px">
     <div class="ddl_field">
-        <asp:DropDownList ID="ddlDepartments" runat="server" AutoPostBack="True" 
+        <asp:DropDownList ID="ddlDepartments" runat="server" AutoPostBack="True"  CssClass="dropdown_txt"
             DataSourceID="odsDepartments" DataTextField="co_name_short" 
             DataValueField="dept_id">
         </asp:DropDownList>
@@ -19,8 +39,16 @@
     <div class="field"><asp:HyperLink ID="hlDoc" runat="server" Visible="false">Link to Document</asp:HyperLink>
     </div>
     <div class="button_bar">
-        <asp:Button ID="btnGenerate" runat="server" Text="Generate" 
-            onclick="btnGenerate_Click" />
+        <div style="float: left">
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnGenerate" runat="server" CssClass="txt_white"
+            onclick="btnGenerate_Click" >Generate</asp:LinkButton>
+            </div>
+
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+
     </div>
     <div class="grid">
         <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
@@ -75,6 +103,15 @@
                 Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
+</div>
+   <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
+    </div>
 </asp:Content>
 

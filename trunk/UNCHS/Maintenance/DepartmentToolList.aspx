@@ -15,15 +15,41 @@
 
 </asp:Content>
 <asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="ContenPlaceHolder2" runat="server">
-    Default Plants &amp; Tools List</asp:Content>
+    <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
+                Default Plants &amp; Tools List
+            </div>
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+        </div>
+    </div></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div class="ddl_field">
-        <span style="width:100px;">Department:</span><asp:DropDownList ID="ddlDepartment" runat="server" 
+   <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div class="ddl_field" style="padding-bottom:5px;">
+        <div style="float:left; width:200px;">
+            <span style="font-weight:bold">Department:</span>
+        </div>
+        <asp:DropDownList ID="ddlDepartment" runat="server" CssClass="dropdown_txt"
             DataSourceID="odsDepartment" DataTextField="co_name_short" DataValueField="dept_id"
             AutoPostBack="true">
         </asp:DropDownList></div>
-    <div class="ddl_field">
-        <span style="width:100px;">Category:</span><asp:DropDownList ID="ddlCategory" runat="server"
+    <div class="ddl_field" style="padding-bottom:5px;">
+    <div style="float:left; width:200px;">
+        <span style="font-weight:bold">Category:</span>
+        </div>
+        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="dropdown_txt"
             DataSourceID="odsCategories" DataTextField="category_name" DataValueField="category_id" >
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
@@ -31,27 +57,61 @@
         
     </div>    
         
-    <div class="text_field">
-        <span style="width:100px;">Plant &amp; Tool:</span><asp:TextBox ID="tbName" runat="server" ></asp:TextBox><asp:RequiredFieldValidator
+    <div class="text_field" style="padding-bottom:5px;">
+        <div style="float:left; width:200px;">
+            <span style="font-weight:bold">Plant &amp; Tool:</span>
+        </div>
+        <asp:TextBox ID="tbName" runat="server" CssClass="field_txt" ></asp:TextBox><asp:RequiredFieldValidator
             ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" CssClass="error"
             ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator>
     </div>
-    <div class="field">
-        <span style="width:100px;">Default:</span><asp:CheckBox ID="cbDefault" runat="server" />
+    <div class="field" style="padding-bottom:5px;">
+         <div style="float:left; width:200px;">
+        <span style="font-weight:bold">Default:</span>
+        </div>
+        <asp:CheckBox ID="cbDefault" runat="server" />
     </div>     
     
         <div class="button_bar">
-            <asp:Button ID="btnAdd" runat="server" Text="Add Plant &amp; Tool" OnClick="btnAdd_Click" ValidationGroup="Top" />
+            <div style="float: left">
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnAdd" runat="server" CssClass="txt_white" OnClick="btnAdd_Click" ValidationGroup="Top" >Add Plant &amp; Tool</asp:LinkButton>
+            </div>
+            <div style="float: left">
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+            <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnCancel" runat="server" CssClass="txt_white" OnClick="btnCancel_Click" >Cancel</asp:LinkButton>
+            </div>
+
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+
+            
             <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Tool"
                 Visible="False" ValidationGroup="Top" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            
             <asp:HiddenField ID="hfDeptPersonId" runat="server" />
         </div>
         <hr />
         <input type="hidden" name="idOrdering" id="idOrdering" />
         <div class="button_bar">
-            <asp:Button ID="btnSave" runat="server" Text="Save Ordering" OnClick="btnSave_Click"
-                OnClientClick="return saveReorderedList();" />
+            <div style="float: left">
+                <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+               <asp:LinkButton ID="btnSave" runat="server" CssClass="txt_white" OnClick="btnSave_Click"
+                OnClientClick="return saveReorderedList();" >Save Ordering</asp:LinkButton>
+                            </div>
+
+                <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+
+            
+            
         </div>
         <div class="workArea">
             
@@ -131,5 +191,14 @@
             <asp:Parameter DefaultValue="T" Name="category_type" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-        
+      </div>
+    <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
+    </div>  
 </asp:Content>

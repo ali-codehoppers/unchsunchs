@@ -9,30 +9,56 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-            <div style="text-align: right">
-        <div class="button_bar">
-            <div class="button_left">
+<div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
                 Add/Amend H&amp;S Folder - Risk Assessments
             </div>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="ImageButton2" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';" onmouseout="this.src='../Images/Next.gif';" />
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="ImageButton3" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';" onmouseout="this.src='../Images/Back.gif';" />
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>
     </div>
-    <br />
+               
+
+
+
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server"><uc1:TabControl ID="TabControl1" runat="server" Selected="Risks" />
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">    
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">  
+<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:240px;">  
     <uc2:OrderDocControl id="OrderDocControl1" runat="server" DocTypeName="Risk Assessments">
-    </uc2:OrderDocControl>
     
+    </uc2:OrderDocControl>
+ 
+         <div class="button_right" style="float: left; padding-left:340px; padding-top: 20px">
+            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/btn_pre.jpg" />
+        </div>
+        <div class="button_right" style="padding-top: 20px">
+            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
+        </div>  
+</div>
+ <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
+    </div>           
 </asp:Content>
 

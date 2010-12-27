@@ -27,14 +27,20 @@ public abstract class GenericPage : System.Web.UI.Page
     private void SetMessage(string msg, string control)
     {
         Label label;
+        Panel panel;
         try
         {
+            panel = (Panel)this.Page.Master.FindControl("errorPanel");
+            panel.Visible = true;
             label = (Label)this.Page.Master.FindControl(control);
+            
         }
         catch(Exception ex)
         {
+            
             label = (Label)this.Page.FindControl(control);
         }
+        
         label.Visible = true;
         label.Text = msg;
         

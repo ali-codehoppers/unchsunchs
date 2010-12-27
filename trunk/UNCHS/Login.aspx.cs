@@ -60,6 +60,8 @@ public partial class nLogin : GenericPage
             FormsAuthentication.SetAuthCookie(session.SessionUID, false);
             Session[WebConstants.Session.USER_ID] = user.UserID;
             Session["userName"] = user.Email;
+            Session["userFullName"]=user.FullName;
+            //Session["isTrial"] = user.UserProducts.FirstOrDefault().IsTrial;
             Session["sessionID"] = session.SessionUID;
             if (Session[WebConstants.Session.RETURN_URL] != null)
             {

@@ -1,14 +1,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserMenu.ascx.cs" Inherits="Common_UserControls_UserMenu" %>
-
-    <p>
-        &nbsp;</p>
-
-    <asp:TreeView ID="UserMenuTree" runat="server" 
-        CollapseImageUrl="~/Images/Folder.gif" ExpandImageUrl="~/Images/Folder.gif" 
-        LineImagesFolder="~/TreeLineImages" ShowLines="True" RootNodeStyle-Font-Size="Medium" RootNodeStyle-Font-Bold="true" NodeStyle-Font-Bold="true" ExpandDepth="1">
+    
+    <div class="left_nav_pnl" style="text-align:center">
+        MAIN NAVIGATION
+    </div>
+    <div style="background-color:White; width:252px;">
+    <asp:TreeView ID="UserMenuTree" runat="server" style="padding-left:10px;"
+        CollapseImageUrl="~/Images/arrow_bottom.jpg" ExpandImageUrl="~/Images/arrow_left.jpg" NoExpandImageUrl="~/Images/arrow_left.jpg"
+         ExpandDepth="1" NodeStyle-CssClass="left_nav_link" NodeStyle-HorizontalPadding="10px" >
         <Nodes>
             <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home">
             </asp:TreeNode>
+            
             <asp:TreeNode Text="H&S Folder" Value="H&S Folder" Expanded="true">
                 <asp:TreeNode NavigateUrl="~/Orders/AddOrder.aspx" Text="Create Folder" Value="Create Folder"></asp:TreeNode>
                 <asp:TreeNode NavigateUrl="~/Orders/SearchOrder.aspx" Text="Search Folder" Value="Search Folder"></asp:TreeNode>
@@ -65,4 +67,11 @@
             </asp:TreeNode>
         </Nodes>
     </asp:TreeView>
+        <div style="float:left;">
+            <div style="float:left"><asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt="" width="15" height="14" /></div>
+            <div style="background-color:White; float:left; height:14px;width:222px;"></div>
+            <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt="" width="15" height="14" />
+        </div>
+    </div>
+    
 

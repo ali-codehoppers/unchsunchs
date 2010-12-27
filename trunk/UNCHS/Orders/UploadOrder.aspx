@@ -4,9 +4,29 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Upload H&amp;S Folder<br />
+        <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
+               Upload H&amp;S Folder<br />
+            </div>
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+       <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:260px">
     <div class="field">
         <asp:Label ID="lblDepartment" runat="server" CssClass="label" Style="width: 100px"
             Text="Department:"></asp:Label><asp:DropDownList ID="ddlDepartments" runat="server"
@@ -20,7 +40,16 @@
         <asp:FileUpload ID="fileUpload" runat="server" />
     </div>
     <div class="button_bar">
-        <asp:Button ID="btnUpload" runat="server" Text="Upload" ValidationGroup="A" OnClick="btnUpload_Click" />
+        <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnUpload" runat="server" Text="Upload" ValidationGroup="A" OnClick="btnUpload_Click" CssClass="txt_white">Upload</asp:LinkButton>
+            </div>
+           
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            
+        
     </div>
     <div style="font-size: 3; font-weight: bold; color: Navy;">
 <br />
@@ -51,4 +80,14 @@
             <asp:SessionParameter DefaultValue="0" Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+        </div>
+    <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
+    </div>
 </asp:Content>

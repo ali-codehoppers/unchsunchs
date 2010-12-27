@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">
-        .text_field span{width:150px;height:100%;display:inline-block;}    
-        .field span{width:150px;display:inline-block;}    
-        .ddl_field span{width:150px;display:inline-block;}    
+        .text_field span{width:150px;}    
+        .field span{width:150px;}    
+        .ddl_field span{width:150px;}    
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">

@@ -6,168 +6,214 @@
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
-
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="text-align: right">
-        <div class="button_bar">
-            <div class="button_left">
+    <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="background-color: White; border-top: 1px solid white">
+        <div style="margin: auto; width: 98%">
+            <div style="float: left">
+                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
                 Add/Amend H&amp;S Folder - Plants &amp; Tools
             </div>
-        </div>
-
-        <div class="button_right">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/Next.gif"
-                onmouseover="this.src='../Images/Next_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Next.gif';"/>
-        </div>
-        <div class="button_right">
-            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/Back.gif"
-                onmouseover="this.src='../Images/Back_rollover_selected.gif';"
-                onmouseout="this.src='../Images/Back.gif';"/>
+            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>
     </div>
-    
-    <br />
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server"><uc2:TabControl ID="TabControl2" runat="server" Selected="Plants & Tools" />
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+    <uc2:TabControl ID="TabControl2" runat="server" Selected="Plants & Tools" />
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-
     <script type="text/javascript">
         var toolDialog;
     </script>
-    <div class="warning_text">Data may go to continuation sheet if it exceeds the number of recods.</div>
-    <div id="toolDialog" style="display:none;">
-        <div class="hd">
-            Select Tools to Add:
-        </div>
-        <div class="bd" style="overflow: auto;height:400px;">
-            <div class="field" >
-                <asp:Repeater ID="rptTools" runat="server" OnItemDataBound="rptTools_ItemDataBound">
-                    <ItemTemplate>
-                        <asp:HiddenField ID="hfCategoryName" runat="server" Value='<%# Container.DataItem %>'/>
-                        <fieldset>
-                            <legend><b><%# Container.DataItem %></b></legend>
-                            <asp:CheckBoxList ID="cbTools" runat="server" RepeatColumns="3" Width="100%">
-                            </asp:CheckBoxList>
-                        </fieldset>
-                    </ItemTemplate>
-                </asp:Repeater>
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;">
+        <div class="warning_text" style="padding-top: 10px; padding-bottom: 10px;">
+            <strong>Data may go to continuation sheet if it exceeds the number of recods.</strong></div>
+        <div id="toolDialog" style="display: none;">
+            <div class="hd">
+                Select Tools to Add:
+            </div>
+            <div class="bd" style="overflow: auto; height: 400px;">
+                <div class="field">
+                    <asp:Repeater ID="rptTools" runat="server" OnItemDataBound="rptTools_ItemDataBound">
+                        <ItemTemplate>
+                            <asp:HiddenField ID="hfCategoryName" runat="server" Value='<%# Container.DataItem %>' />
+                            <fieldset>
+                                <legend><b>
+                                    <%# Container.DataItem %></b></legend>
+                                <asp:CheckBoxList ID="cbTools" runat="server" RepeatColumns="3" Width="100%">
+                                </asp:CheckBoxList>
+                            </fieldset>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+            <div class="ft">
+                <div class="button_bar_dialog">
+                    <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnAddTools" runat="server" OnClick="btnAddTools_Click" CssClass="txt_white"
+                        >Add Plant &amp; Tool</asp:LinkButton>
+            </div>
+            <div style="float: left">
+                <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+            <div style="clear:both"></div>
+                </div>
             </div>
         </div>
-        <div class="ft">
-            <div class="button_bar_dialog">
-	<asp:ImageButton ID="btnAddTools" runat="server" OnClick="btnAddTools_Click" ImageUrl="~/Images/Add_plant_Tool.gif" onmouseover="this.src='../Images/Add_Plant_Tool_roll_sel.gif';" onmouseout="this.src='../Images/Add_plant_Tool.gif';"/>
+        <div class="field">
+            <span class="heading">
+                <strong>Plant &amp; Tool Name:</strong>
+            </span>
+        </div>
+        <div class="text_field">
+            <asp:TextBox ID="tbTool" runat="server" Width="98%"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
+                ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
+        </div>
+        
+        <div class="grid">
+            <asp:GridView Width="805px" ID="gvTool" runat="server" AllowPaging="True" AllowSorting="True"
+                AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsTool" OnRowDeleting="gvTool_RowDeleting"
+                OnRowUpdating="gvTool_RowUpdating" PageSize="50" CssClass="grid_table">
+                <Columns>
+                    <asp:TemplateField HeaderText="Edit">
+                        <EditItemTemplate>
+                            <center>
+                                <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="True" CommandName="Update"
+                                    ImageUrl="~/Images/edit.png" AlternateText="Update"></asp:ImageButton>
+                            </center>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <center>
+                                <asp:ImageButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"
+                                    ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
+                            </center>
+                        </ItemTemplate>
+                        <HeaderStyle Width="45px" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Delete">
+                        <EditItemTemplate>
+                            <center>
+                                <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
+                                    ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
+                            </center>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <center>
+                                <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
+                                    ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                                </asp:ImageButton>
+                            </center>
+                        </ItemTemplate>
+                        <HeaderStyle Width="45px" />
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="tool_desc" HeaderText="Tool" SortExpression="tool_desc" />
+                </Columns>
+                <PagerStyle CssClass="grid_pager" />
+                <FooterStyle CssClass="grid_footer" />
+                <SelectedRowStyle CssClass="grid_selected_row" />
+                <HeaderStyle CssClass="grid_header" />
+                <AlternatingRowStyle CssClass="grid_alternating_row" />
+                <RowStyle CssClass="grid_row" />
+            </asp:GridView>
+            &nbsp;
+        </div>
+        <asp:ObjectDataSource ID="odsTool" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetAllDepartmentTool" TypeName="DepartmentOrderDetailTableAdapters.DepartmentOrderToolTableAdapter"
+            DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="0" Name="dept_id" SessionField="DEPT_ID" Type="Int32" />
+                <asp:SessionParameter Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
+                <asp:QueryStringParameter DefaultValue="" Name="order_seq" QueryStringField="deptOrderId"
+                    Type="Int32" />
+            </SelectParameters>
+            <DeleteParameters>
+                <asp:Parameter Name="user_id" Type="Int32" />
+                <asp:Parameter Name="sequence" Type="Int32" />
+            </DeleteParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="tool_desc" Type="String" />
+                <asp:Parameter Name="user_id" Type="Int32" />
+                <asp:Parameter Name="sequence" Type="Int32" />
+                <asp:Parameter Name="original_sequence" Type="Int32" />
+            </UpdateParameters>
+            <InsertParameters>
+                <asp:Parameter Name="dept_id" Type="Int32" />
+                <asp:Parameter Name="co_id" Type="Int32" />
+                <asp:Parameter Name="order_seq" Type="Int32" />
+                <asp:Parameter Name="tool_desc" Type="String" />
+                <asp:Parameter Name="user_id" Type="Int32" />
+            </InsertParameters>
+        </asp:ObjectDataSource>
+        <div class="button_bar">
+            <div class="button_right" style="padding-left: 340px;">
+                <div style="float: left">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                    
+            <asp:LinkButton ID="btnAddTool" runat="server" OnClick="btnAddTool_Click" ValidationGroup="Tool"
+                CssClass="txt_white">Add Plant &amp; Tool
+        </asp:LinkButton>
+        </div>
+                <div style="float: left">
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                </div>
+                <div style="float: left; padding-left:15px;">
+                    <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                
+            <a href="" class="txt_white" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;"
+                 style="margin-right: 10px; margin-left: 5px" >Plants &amp; Tools List</a>
+        </div>
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                
             </div>
         </div>
+        <div class="button_right" style="float: left; padding-left: 340px; padding-top: 20px">
+            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/btn_pre.jpg" />
+        </div>
+        <div class="button_right" style="padding-top: 20px">
+            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
+        </div>
     </div>
-    <div class="field">
-        <span class="heading">Plant &amp; Tool Name:</span>
+    <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
     </div>
-    <div class="text_field">
-        <asp:TextBox ID="tbTool" runat="server" Width="98%"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
-            ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
-    </div>
-    
-    <div style="text-align:right;margin-top:10px">
-	<asp:ImageButton ID="btnAddTool" runat="server" OnClick="btnAddTool_Click" ValidationGroup="Tool" ImageUrl="~/Images/Add_plant_Tool.gif" onmouseover="this.src='../Images/Add_Plant_Tool_roll_sel.gif';" onmouseout="this.src='../Images/Add_plant_Tool.gif';"/>
-	<input type="image" src="../Images/Plants_Tools_List.gif" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;" ImageUrl="~/Images/Plants_Tools_List.gif" onmouseover="this.src='../Images/Plants_Tools_list_roll_sel.gif';" onmouseout="this.src='../Images/Plants_Tools_List.gif';" style="margin-right:10px;margin-left:5px"/>
-
-    </div>
-
-    <div class="grid">
-        <asp:GridView Width="805px" ID="gvTool" runat="server" AllowPaging="True" AllowSorting="True"
-            AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsTool"
-            OnRowDeleting="gvTool_RowDeleting" OnRowUpdating="gvTool_RowUpdating" PageSize="50" CssClass="grid_table">
-            <Columns>
-                <asp:TemplateField HeaderText="Edit">
-                    <EditItemTemplate>
-                        <center>
-                        <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="True" CommandName="Update"
-                            ImageUrl="~/Images/edit.png" AlternateText="Update"></asp:ImageButton>
-                        </center>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                    <center>
-                        <asp:ImageButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"
-                            ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
-                    </center>
-                    </ItemTemplate>
-                    <HeaderStyle Width="45px"/>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delete">
-                    <EditItemTemplate>
-                    <center>
-                        <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                            ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
-                    </center>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                    <center>
-                        <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                            ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
-                        </asp:ImageButton>
-                    </center>
-                    </ItemTemplate>
-                    <HeaderStyle Width="45px"/>
-                </asp:TemplateField>                
-                <asp:BoundField DataField="tool_desc" HeaderText="Tool" SortExpression="tool_desc" />
-            </Columns>
-            <PagerStyle CssClass="grid_pager" />
-            <FooterStyle CssClass="grid_footer" />
-            <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="grid_header" />
-            <AlternatingRowStyle CssClass="grid_alternating_row" />
-            <RowStyle CssClass="grid_row" />
-        </asp:GridView>
-        &nbsp;
-    </div>
-    <asp:ObjectDataSource ID="odsTool" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetAllDepartmentTool" TypeName="DepartmentOrderDetailTableAdapters.DepartmentOrderToolTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
-        <SelectParameters>
-            <asp:SessionParameter DefaultValue="0" Name="dept_id" SessionField="DEPT_ID" Type="Int32" />
-            <asp:SessionParameter Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
-            <asp:QueryStringParameter DefaultValue="" Name="order_seq" QueryStringField="deptOrderId"
-                Type="Int32" />
-        </SelectParameters>
-        <DeleteParameters>
-            <asp:Parameter Name="user_id" Type="Int32" />
-            <asp:Parameter Name="sequence" Type="Int32" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="tool_desc" Type="String" />
-            <asp:Parameter Name="user_id" Type="Int32" />
-            <asp:Parameter Name="sequence" Type="Int32" />
-            <asp:Parameter Name="original_sequence" Type="Int32" />
-        </UpdateParameters>
-        <InsertParameters>
-            <asp:Parameter Name="dept_id" Type="Int32" />
-            <asp:Parameter Name="co_id" Type="Int32" />
-            <asp:Parameter Name="order_seq" Type="Int32" />
-            <asp:Parameter Name="tool_desc" Type="String" />
-            <asp:Parameter Name="user_id" Type="Int32" />
-        </InsertParameters>
-    </asp:ObjectDataSource>
-    &nbsp;
-
     <script type="text/javascript">
-        	// Instantiate the Dialog
-		toolDialog = new YAHOO.widget.Dialog("toolDialog", 
-							{ width : "980px",
-							  fixedcenter : true,
-							  close : true,
-			                  zindex:3,
-			                  modal:true,							  
-							  visible : false, 
-							  constraintoviewport : false
+        // Instantiate the Dialog
+        toolDialog = new YAHOO.widget.Dialog("toolDialog",
+							{ width: "980px",
+							    fixedcenter: true,
+							    close: true,
+							    zindex: 3,
+							    modal: true,
+							    visible: false,
+							    constraintoviewport: false
 							});
-		toolDialog.render();
+        toolDialog.render();
 
     </script>
-
 </asp:Content>
