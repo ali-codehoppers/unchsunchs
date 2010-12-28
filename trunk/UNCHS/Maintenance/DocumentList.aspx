@@ -103,11 +103,23 @@
                 </div>
             </div>
             <div class="ft">
-                <asp:Button ID="btnTransfer" runat="server" Text="Transfer" OnClick="btnTransfer_Click" />
+                <div style="float: left">
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnTransfer" runat="server" Text="Transfer" OnClick="btnTransfer_Click" CssClass="txt_white"></asp:LinkButton>
+            </div>
+
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+
+                
             </div>
         </div>
-        <div class="ddl_field">
-            <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList
+        <div class="ddl_field" style="padding-bottom:5px">
+            <div style="float:left; width:200px;">
+            <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
+            </div>
+            <asp:DropDownList
                 ID="ddlCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
                 DataValueField="co_id" AutoPostBack="true">
             </asp:DropDownList>
@@ -160,15 +172,18 @@
                 ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="tbIndex"
                 ValidationGroup="Add"></asp:RequiredFieldValidator>
         </div>
-        <div class="field">
+        <div class="field" style="padding-bottom:5px">
             <div style="float:left; width:200px;">
                 <span>Default:</span>
             </div>
             <asp:CheckBox ID="cbDefault" runat="server" />
         </div>
         <div class="field">
-            <asp:Label ID="lblContents" runat="server" Text="Contents:" Visible="false"></asp:Label><asp:FileUpload
-                ID="fileUpload" runat="server" Visible="false" Width="405px" />
+            <div style="float:left; width:200px;">
+            <asp:Label ID="lblContents" runat="server" Text="Contents:" Visible="false"></asp:Label>
+            </div>
+            <asp:FileUpload
+                ID="fileUpload" runat="server" Visible="false"  CssClass="field_txt"/>
         </div>
         <div class="button_bar">
             
@@ -179,9 +194,9 @@
                 <asp:LinkButton ID="btnAdd" runat="server" OnClick="btnAdd_Click"
                 ValidationGroup="Add" CssClass="txt_white">Add Document</asp:LinkButton>
             </div>
-            <div style="float: left">
+            
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-            </div>
+            
             <a href="" onclick="canShowTransferDialog(this);"
                 style="width: 250px; display: none" >Transfer Selected Document</a>
             

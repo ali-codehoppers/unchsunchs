@@ -2,32 +2,84 @@
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">
-        .text_field span{width:150px;height:100%;display:inline-block;}    
-        .field span{width:150px;display:inline-block;}    
-        .ddl_field span{width:150px;display:inline-block;}    
+        .text_field span{            width: 340px;
+            height: 100%;
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: bold;
+            font-size: 12px;}    
+        .field span{            width: 340px;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;}    
+        .ddl_field span{            width: 340px;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;}    
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
+    <div style="float: left;">
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    </div>
+    <div style="float: left; width: 96.05%;">
+        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+            height="20" />
+    </div>
+    <div>
+        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
+    <div style="background-color: White; padding: 15px 10px 25px 10px">
     <div class="field">
-        <span>Department:</span><asp:Label ID="lblDept" runat="server" Text="[Department]" Width="500px"></asp:Label>
+        <div style="float:left; width:200px;">
+        <span>Department:</span>
+        </div>
+        <asp:Label ID="lblDept" runat="server" Text="[Department]" Width="500px"></asp:Label>
     </div>    
     <div class="text_field">
-        <span>Section:</span><asp:Label ID="lblSection" runat="server" Text="[Section]" Width="500px"></asp:Label>        
+    <div style="float:left; width:200px;">
+        <span>Section:</span>
+        </div>
+        <asp:Label ID="lblSection" runat="server" Text="[Section]" Width="500px"></asp:Label>        
     </div>
     <div class="text_field">
-        <span>Section Detail:</span><asp:TextBox ID="tbSecDetail" runat="server" ></asp:TextBox>
+    <div style="float:left; width:200px;">
+        <span>Section Detail:</span>
+        </div>
+        <asp:TextBox ID="tbSecDetail" runat="server" CssClass="field_txt"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="Add" ControlToValidate="tbSecDetail"></asp:RequiredFieldValidator>        
     </div>
 
     <div class="text_field">
-        <span>Detail Index:</span><ew:NumericBox ID="tbIndex" runat="server" ></ew:NumericBox>                        
+    <div style="float:left; width:200px;">
+        <span>Detail Index:</span>
+        </div>
+        <ew:NumericBox ID="tbIndex" runat="server" CssClass="field_txt" ></ew:NumericBox>                        
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ValidationGroup="Add" ControlToValidate="tbIndex"></asp:RequiredFieldValidator>
     </div>
     <div class="button_bar">
-        <asp:Button ID="btnAdd" runat="server" Text="Add Section Detail" OnClick="btnAdd_Click" ValidationGroup="Add"/>
-        <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
+        <div style="float: left">
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                        <asp:LinkButton ID="btnAdd" runat="server" Text="Add Section Detail" OnClick="btnAdd_Click" ValidationGroup="Add" CssClass="txt_white"></asp:LinkButton>
+            </div>
+            <div style="float: left">
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+            <div style="float: left; padding-left:10px;">
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" CssClass="txt_white"></asp:LinkButton>
+            </div>
+
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            
+
+        
     </div>
     <div class="grid">
         <asp:GridView ID="gvSecDetails" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
@@ -115,6 +167,16 @@
                 <asp:Parameter Name="section_detail_desc" Type="String" />
             </InsertParameters>
         </asp:ObjectDataSource>
+    </div>
+    </div>
+        <div style="float: left; width: 100%">
+        <div style="float: left">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
+                Width="15" Height="14" /></div>
+        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        </div>
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
+            Width="15" Height="14" />
     </div>
 </asp:Content>
 
