@@ -81,15 +81,21 @@
                             height="27" />
                     </div>
                 </div>
-                <div style="float: right; padding-top: 30px;">
-                    <div style="text-align:right">
+                <div style="float: right; padding-top: 10px;">
+                    <div>
+                        <div class="trialArea">
+                <%=GetTrialHTML()%></div>
+                    </div>
+                    <div style="text-align: right">
                         <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
                         <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
-                        Font-Size="14"></asp:Label>
+                            Font-Size="14"></asp:Label>
                     </div>
-                    <div style="text-align:right">
-                        <asp:Label runat="server" ID="productTrial" Visible="false" style="font-size:24px;color:#1FA8DF">Health &amp; Safety Demo</asp:Label>
-                        <asp:Label runat="server" ID="notproductTrial" Visible="false" style="font-size:24px;color:#1FA8DF">Health &amp; Safety</asp:Label>
+                    <div style="text-align: right">
+                        <asp:Label runat="server" ID="productTrial" Visible="false" Style="font-size: 24px;
+                            color: #1FA8DF">Health &amp; Safety Demo</asp:Label>
+                        <asp:Label runat="server" ID="notproductTrial" Visible="false" Style="font-size: 24px;
+                            color: #1FA8DF">Health &amp; Safety</asp:Label>
                     </div>
                 </div>
             </div>
@@ -106,10 +112,11 @@
         </div>
         <div style="padding-top: 15px;">
             <div id="content" style="min-height: 330px;">
-                <asp:Panel runat="server" Visible="false" ID="errorPanel">
-                    <div style="background-color: White; ">
-                        <asp:Label ID="lblError" runat="server" Text="" CssClass="error" Visible="false"></asp:Label>
-                        <asp:Label ID="lblInfo" runat="server" Text="" CssClass="error" Visible="false"></asp:Label>
+                <asp:Panel runat="server" Visible="false" ID="errorPanel" Style="padding: 0px 0px 0px 0px">
+                    <div style="background-color: White;">
+                        <div class="error_msg">
+                            <asp:Label ID="lblError" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                            <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label></div>
                     </div>
                 </asp:Panel>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
@@ -124,8 +131,7 @@
                 </div>
                 <%} %>
             </div>
-            <div class="trialArea">
-                <%=GetTrialHTML()%></div>
+            
         </div>
         <div style="width: 100%">
         </div>

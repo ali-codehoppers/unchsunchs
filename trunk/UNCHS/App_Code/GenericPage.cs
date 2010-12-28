@@ -37,8 +37,13 @@ public abstract class GenericPage : System.Web.UI.Page
         }
         catch(Exception ex)
         {
-            
-            label = (Label)this.Page.FindControl(control);
+            try
+            {
+                label = (Label)this.Page.Master.FindControl(control);
+            }
+            catch(Exception e) {
+                label = (Label)this.Page.FindControl(control);
+            }
         }
         
         label.Visible = true;

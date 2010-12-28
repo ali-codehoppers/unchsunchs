@@ -84,7 +84,11 @@
                     </div>
                 </div>
 
-                <div style="float: right; padding-top: 30px;">
+                <div style="float: right; padding-top: 10px;">
+                    <div>
+                        <div class="trialArea">
+                            <%=GetTrialHTML()%></div>
+                    </div>
                     <div style="text-align:right">
                         <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
                         <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
@@ -140,8 +144,7 @@
                 </div>
                 <%} %>
             </div>
-            <div class="trialArea">
-                <%=GetTrialHTML()%></div>
+            
         </div>
         <div style="width: 100%">
         </div>
