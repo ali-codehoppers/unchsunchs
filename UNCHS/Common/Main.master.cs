@@ -24,13 +24,21 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         }
         BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
         Logginuser.Text = Session["userName"].ToString();
-        if (Session["isTrial"] == "true")
+        if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
-            productTrial.Visible = true;
+            Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
+            if (company != null)
+            {
+                if (company.Isflg_trialNull() == false && company.flg_trial)
+                {
+                    productTrial.Visible = true;
+                }
+                else {
+                notproductTrial.Visible = true;
+                }  
+            }
         }
-        else {
-            notproductTrial.Visible = true;
-        }       
+   
     }
     private void SetHelp(int loggedInUserCoId)
     {
