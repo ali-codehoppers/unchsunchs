@@ -1,7 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SuggestionsControl.ascx.cs"
     Inherits="Common_UserControls_SuggestionsControl" %>
-<div class="ddl_field">
-    <asp:Label ID="lblDepartment" runat="server" Text="Department:" Width="100px"></asp:Label><asp:DropDownList
+<div class="ddl_field" style="padding-bottom:10px;">
+    <div style="float:left; width:200px; font-weight:bold">
+    <asp:Label ID="lblDepartment" runat="server" Text="Department:"></asp:Label>
+    </div>
+    <asp:DropDownList CssClass="dropdown_txt"
         ID="ddlDepartment" runat="server" AutoPostBack="true" OnDataBound="ddlDepartment_DataBound"
         OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
     </asp:DropDownList>

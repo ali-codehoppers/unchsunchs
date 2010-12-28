@@ -300,5 +300,5 @@
     <script>
         document.getElementById("ctl00_ContentPlaceHolder_tbOrderSMS").disabled = true;
     </script>
-    </div>
+
 </asp:Content>

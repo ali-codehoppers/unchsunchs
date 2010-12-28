@@ -1,13 +1,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="CategoryControl.ascx.cs"
     Inherits="Common_UserControls_CategoryControl" %>
-<div class="ddl_field">
-    <asp:Label ID="lblDepartment" runat="server" Text="Department:" Width="80px"></asp:Label><asp:DropDownList
+<div class="ddl_field" style="padding-bottom:5px;">
+    <div style="float: left; width: 200px;font-weight:bold">
+        <asp:Label ID="lblDepartment" runat="server" Text="Department:" Width="80px"></asp:Label>
+    </div>
+    <asp:DropDownList CssClass="dropdown_txt"
         ID="ddlDepartment" runat="server" DataSourceID="odsDept" DataTextField="co_name_short"
         DataValueField="dept_id" OnDataBound="ddlDepartment_DataBound" AutoPostBack="True"
         OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
     </asp:DropDownList>
 </div>
-<div class="text_field">
+<div class="text_field" style="padding-bottom:5px;">
     <div style="float: left; width: 200px;">
         <span style="font-weight: bold">Category:</span>
     </div>

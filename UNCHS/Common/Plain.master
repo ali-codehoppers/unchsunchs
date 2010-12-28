@@ -6,6 +6,7 @@
 <head runat="server">
     <title>UNCHS</title>
     <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/newstylesheet.css" />
 
     <asp:contentplaceholder id="HeadContentPlaceHolder" runat="server"></asp:contentplaceholder>
     <style type="text/css">
