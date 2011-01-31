@@ -16,8 +16,16 @@
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
     <div style="background-color: White; border-bottom:1px solid white">
-        <div style="margin: auto; width: 900px;">
-            <div class="terms">
+        <table width="1065px" border="0" cellspacing="0" cellpadding="0" style="margin-left:15px;">
+                    <tr>
+                      <td width="1%" align="right"><img src="images/bc_left.jpg" alt="" width="8" height="31" /></td>
+                      <td width="99%" class="breadcrum_mid"><b>Terms and Conditions</b></td>
+                      <td width="0%"><img src="images/bc_right.jpg" alt="" width="8" height="31" /></td>
+                    </tr>
+                  </table>
+        <div style="margin: auto; width: 839px;">
+            
+            <div class="terms" style="margin-top:30px">
                 Simplicity for Business H&S Live is a unique document management application that
                 assists you in easily and quickly creating and maintaining your health and safety
                 documents, that are required as part of your Company&#8217;s health and safety policy
@@ -42,10 +50,11 @@
                 those improvements, starting with the most important actions first.
                 
             </div>
-            <div class="button_bar" style="text-align: center;">
-                    <asp:Button ID="btnAgree" runat="server" Text="I accept that I have Read and Understood the above Disclaimer"
-                        OnClick="btnAgree_Click" Style="height: 26px; text-align: center" Width="500px" />
-                </div>
+            
+            <div style="width:100%;text-align:center">
+                <button class="rounded" id="btnAgree" runat="server" onserverclick="btnAgree_Click">
+	  <span>I accept that I have Read and Understood the above Disclaimer</span>	</button>
+            </div>
         </div>
 
             
