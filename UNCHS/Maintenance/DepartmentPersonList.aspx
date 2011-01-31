@@ -46,7 +46,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:530px;">
         <div class="ddl_field" style="padding-bottom:5px;">
             <div style="float: left; width: 200px;">
                 <span>Department:</span>
@@ -106,13 +106,13 @@
         <input type="hidden" name="idOrdering" id="idOrdering" />
         <div class="grid">
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" DataKeyNames="sequence" CssClass="grid_table" DataSourceID="odsDepartmentPerson"
-                PageSize="50" OnDataBound="GridView1_DataBound">
+                AutoGenerateColumns="False" DataKeyNames="sequence" CssClass="table_header_result" DataSourceID="odsDepartmentPerson"
+                PageSize="50" OnDataBound="GridView1_DataBound" style="width:100%">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit" InsertVisible="False" SortExpression="dept_id">
                         <ItemTemplate>
                             <center>
-                                <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Edit"
+                                <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"
                                     OnCommand="UpdateDepartmentPerson" CommandArgument='<%#Eval("sequence")%>' />
                             </center>
                         </ItemTemplate>
@@ -121,7 +121,7 @@
                     <asp:TemplateField HeaderText="Delete" InsertVisible="False" SortExpression="dept_id">
                         <ItemTemplate>
                             <center>
-                                <asp:ImageButton ID="ImageButton1" CssClass="noborder" runat="server" ImageUrl="~/Images/delete.png"
+                                <asp:ImageButton ID="ImageButton1" CssClass="noborder" runat="server" ImageUrl="~/Images/icon_cancel.png"
                                     OnCommand="DeleteDepartmentPerson" CommandArgument='<%# Eval("sequence") %>'
                                     OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                             </center>
@@ -172,7 +172,7 @@
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

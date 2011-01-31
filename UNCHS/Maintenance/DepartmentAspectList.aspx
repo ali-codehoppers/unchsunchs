@@ -36,7 +36,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:590px;">
         <uc1:SuggestionsControl ID="SuggestionsControl1" runat="server" CategoryType="A"
             SuggestionType="A" EntityName="Key Aspects" />
     </div>

@@ -26,7 +26,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 260px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 290px">
         <div class="field">
             <div style="float:left; width:200px;">
             <asp:Label ID="lblDepartment" runat="server" CssClass="label" style="font-weight:bold"

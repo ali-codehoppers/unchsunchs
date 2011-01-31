@@ -37,10 +37,10 @@
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Emergency" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;">
         <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Emergency Exits"
             SuggestionType="E" ImageName="Add_Emergency_Procedure" />
-        <div class="warning_text" style="display: none" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="warning_text" style="display: none; padding-top: 10px; padding-bottom: 10px;">
             <strong>Data may go to continuation sheet if it exceeds the number of recods.</strong></div>
         <div class="field">
             <span class="heading"><strong>Emergency Procedures:</strong></span>
@@ -53,19 +53,19 @@
         <div class="grid">
             <asp:GridView ID="gvExit" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
                 DataKeyNames="sequence" DataSourceID="odsExit" OnRowDeleting="gvExit_RowDeleting"
-                OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="grid_table" Width="805px">
+                OnRowUpdating="gvExit_RowUpdating" PageSize="50" CssClass="table_header_result" Width="100%">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="True" CommandName="Update"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Update"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Update"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"></asp:ImageButton>
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -74,13 +74,13 @@
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
                                 </asp:ImageButton>
                             </center>
                         </ItemTemplate>
@@ -90,9 +90,8 @@
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
-                <HeaderStyle CssClass="grid_header" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

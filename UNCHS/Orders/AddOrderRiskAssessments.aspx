@@ -29,17 +29,14 @@
             <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>
     </div>
-               
-
-
-
 
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server"><uc1:TabControl ID="TabControl1" runat="server" Selected="Risks" />
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+<uc1:TabControl ID="TabControl1" runat="server" Selected="Risks" />
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">  
-<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:240px;">  
+<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:255px;">  
     <uc2:OrderDocControl id="OrderDocControl1" runat="server" DocTypeName="Risk Assessments">
     
     </uc2:OrderDocControl>

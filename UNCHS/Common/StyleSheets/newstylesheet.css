@@ -151,6 +151,14 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	background-color:#f4cdce;
 	
 }
+.error_msg_search {
+	font: normal 13px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #d10200;
+	border:1px solid #db797b;
+	background-color:#f4cdce;
+	padding:5px 0px 5px 5px;
+	margin-right:10px;
+}
 .error
 {
 	text-align:left;
@@ -172,14 +180,14 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
 	height: 20px;
-	border:1px solid #999;
+	border:1px solid #cbcbcb;
 	width:300px;
 }
 .field_txt_small {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
 	height: 20px;
-	border:1px solid #999;
+	border:1px solid #cbcbcb;
 	width:100px;
 }
 .text_area {
@@ -212,7 +220,8 @@ A.txt_white_link1:hover {
 	height:30px;
 	background-image: url(../../Images/left_nav_partition.jpg);
 	background-repeat: no-repeat;
-	background-position: left bottom;	
+	background-position: left bottom;
+	width:100%
 }
 #maindiv
 {
@@ -326,4 +335,20 @@ background-position: 0% -30px;
 
 button::-moz-focus-inner {
 border: none;
+}
+.table_header{
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #fff;
+	height:27px;
+	border-right:1px solid #006699;
+	background: url(../../images/ta_header.jpg) 0 center repeat-x;
+	padding:0px 3px 0px 3px;
+	
+}
+.table_header_result {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	height:27px;
+	border-right:1px dotted #cbcbcb;
+	border-bottom:1px dotted #cbcbcb;
 }

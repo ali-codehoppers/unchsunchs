@@ -76,7 +76,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:380px;">
         <div id="editDialog" style="display: none">
             <div class="hd">
                 Edit Related Documents:</div>
@@ -204,7 +204,7 @@
             
         </div>
         <div class="grid">
-            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
+            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result" style="width:100%"
                 DataKeyNames="doc_id" DataSourceID="odsDocs" PageSize="50" AllowPaging="True"
                 AllowSorting="True" OnRowUpdating="gvDocs_RowUpdating" OnRowCommand="gvDocs_RowCommand">
                 <Columns>
@@ -220,11 +220,11 @@
                         <HeaderStyle Width="50px" />
                         <ItemTemplate>
                             <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Edit"
-                                ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
+                                ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"></asp:ImageButton>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Update"
-                                ImageUrl="~/Images/edit.png" AlternateText="Update" ValidationGroup="Grid"></asp:ImageButton>
+                                ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Grid"></asp:ImageButton>
                         </EditItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
@@ -232,11 +232,11 @@
                         <HeaderStyle Width="50px" />
                         <EditItemTemplate>
                             <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                                ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
+                                ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"></asp:ImageButton>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                                ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                                ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
                             </asp:ImageButton>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
@@ -316,7 +316,7 @@
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

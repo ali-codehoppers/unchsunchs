@@ -43,7 +43,7 @@
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Docs"></uc1:TabControl>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 200px;">
         <div id="loadingDiv">
         </div>
         <script type="text/javascript">

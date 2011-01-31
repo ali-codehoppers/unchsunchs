@@ -28,7 +28,7 @@
     </div> 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
-<div style="background-color: White; padding: 15px 10px 25px 10px">
+<div style="background-color: White; padding: 15px 10px 25px 10px;min-height:385px;">
     <uc1:CategoryControl id="CategoryControl1" runat="server" CategoryType="D">
     </uc1:CategoryControl>  
         </div>

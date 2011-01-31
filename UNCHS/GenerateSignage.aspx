@@ -28,7 +28,7 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:290px;">
     <div class="ddl_field">
         <asp:DropDownList ID="ddlDepartments" runat="server" AutoPostBack="True"  CssClass="dropdown_txt"
             DataSourceID="odsDepartments" DataTextField="co_name_short" 
@@ -46,13 +46,12 @@
                 <asp:LinkButton ID="btnGenerate" runat="server" CssClass="txt_white"
             onclick="btnGenerate_Click" >Generate</asp:LinkButton>
             </div>
-
-                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
 
     </div>
     <div class="grid">
-        <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
-            DataSourceID="odsDocuments" PageSize="50" AllowPaging="True" 
+        <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result"
+            DataSourceID="odsDocuments" PageSize="50" AllowPaging="True" style="width:100%;"
             AllowSorting="True" DataKeyNames="doc_id" >
 
             <PagerStyle CssClass="grid_pager" />
@@ -77,7 +76,7 @@
             </Columns>
             <FooterStyle CssClass="grid_footer" />
             <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="grid_header" />
+            <HeaderStyle CssClass="table_header" />
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />            
         </asp:GridView>

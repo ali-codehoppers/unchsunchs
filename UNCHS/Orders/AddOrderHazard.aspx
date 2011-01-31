@@ -86,19 +86,19 @@
         <div class="grid">
             <asp:GridView ID="gvHazard" runat="server" DataSourceID="odsOrderHazard" OnRowDeleting="gvHazard_RowDeleting"
                 OnRowUpdating="gvHazard_RowUpdating" DataKeyNames="sequence" AutoGenerateColumns="False"
-                AllowSorting="True" AllowPaging="True" PageSize="50" CssClass="grid_table" Width="99%">
+                AllowSorting="True" AllowPaging="True" PageSize="50" CssClass="table_header_result" Width="100%">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="True" CommandName="Update"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Update"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Update"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"></asp:ImageButton>
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -107,26 +107,25 @@
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
                                 </asp:ImageButton>
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:BoundField DataField="hazard_desc" HeaderText="Hazard" SortExpression="hazard_desc">
+                    <asp:BoundField DataField="hazard_desc" HeaderText="Hazard" SortExpression="hazard_desc" >
                     </asp:BoundField>
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>
