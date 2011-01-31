@@ -31,16 +31,16 @@
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Log" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;">
         <div class="grid">
             <asp:GridView ID="gvLogs" runat="server" AutoGenerateColumns="False" DataKeyNames="log_id"
-                DataSourceID="odsLog" PageSize="50" Width="50%" CssClass="grid_table">
+                DataSourceID="odsLog" PageSize="50" Width="100%" CssClass="table_header_result">
                 <Columns>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Delete"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete"></asp:ImageButton>
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -63,9 +63,8 @@
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
-                <HeaderStyle CssClass="grid_header" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

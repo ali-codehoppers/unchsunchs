@@ -64,8 +64,8 @@
     <div>
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
-    <div style="background-color: White; border-top: 1px solid white">
-        <div style="margin: auto; width: 98%">
+    <div style="background-color: White; border-top: 1px solid white; ">
+        <div style="margin: auto; width: 98%;">
             <div style="float: left">
                 <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
             <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -76,7 +76,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:240px">
         <div id="copyDialog" style="display: none">
             <div class="hd">
                 Enter the Address for new folder:</div>
@@ -136,7 +136,7 @@
         </div>
     </div>
     <div class="info_message" style="padding-top: 10px; padding-bottom: 10px;">
-        <div class="error_msg">
+        <div class="error_msg_search">
             You can use % as a wildcard next to other characters to improve your search results.
             For example, %ad% or ad% returns all records with a word in one of the searched
             fields that begins with "ad".</div>
@@ -173,23 +173,14 @@
         <div style="padding-bottom: 5px;">
             <asp:TextBox ID="tbSiteAddress" runat="server" CssClass="field_txt"></asp:TextBox></div>
     </div>
-    <div class="field">
-        <span class="label" style="width: 100px;"><strong>Order Date:</strong></span>
-    </div>
-    <div class="field">
+    <div >
         <div style="width: 200px; float: left">
-            <span class="label" style="width: 40px;"><strong>From:</strong></span>
+            <span style="width: 100px;"><strong>Order Date:</strong></span>
         </div>
-        <div style="padding-bottom: 5px;">
-            <ww:jQueryDatePicker ID="tbDateFrom" runat="server" DisplayMode="AutoPopup" CssClass="field_txt"></ww:jQueryDatePicker>
-        </div>
-    </div>
-    <div class="field">
-        <div style="width: 200px; float: left">
-            <span class="label" style="width: 25px;"><strong>To:</strong></span></div>
-        <div>
-            <ww:jQueryDatePicker ID="tbToDate" runat="server" DisplayMode="AutoPopup" CssClass="field_txt"></ww:jQueryDatePicker>
-        </div>
+        <span class="label" style="width: 40px;">From:</span>
+        <ww:jQueryDatePicker ID="tbDateFrom" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></ww:jQueryDatePicker>
+        <span class="label"  style="width: 25px;">To:</span>
+        <ww:jQueryDatePicker ID="tbToDate" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></ww:jQueryDatePicker>
     </div>
     <div class="field" style="display: none;">
         <div style="width: 200px; float: left">
@@ -229,24 +220,24 @@
                 Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <div class="grid">
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-            CssClass="grid_table" AutoGenerateColumns="False" DataKeyNames="sequence" OnRowDeleting="GridView1_RowDeleting"
+    <div class="grid" style="margin-right:15px;">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table_header_result"
+            style="width:100%; " AutoGenerateColumns="False" DataKeyNames="sequence" OnRowDeleting="GridView1_RowDeleting"
             DataSourceID="odsDeptOrder" PageSize="50" OnRowCommand="GridView1_RowCommand">
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <ItemTemplate>
                         <center>
-                            <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" ImageUrl="~/Images/edit.png"
+                            <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" ImageUrl="~/Images/icon_edit.png"
                                 CommandName="EditOrder" CommandArgument='<%# Eval("sequence") %>' AlternateText="Edit" />
                         </center>
                     </ItemTemplate>
                     <HeaderStyle Width="45px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Cancel">
+                <asp:TemplateField HeaderText="Cancel" >
                     <ItemTemplate>
                         <center>
-                            <asp:ImageButton ID="ImageButton4" runat="server" CausesValidation="False" ImageUrl="~/Images/cancel_order.png"
+                            <asp:ImageButton ID="ImageButton4" runat="server" CausesValidation="False" ImageUrl="~/Images/icon_cancel.png"
                                 Visible='<%#!Convert.ToBoolean(Eval("flg_cancelled"))%>' CommandName="CancelOrder"
                                 CommandArgument='<%# Eval("sequence") %>' AlternateText="Cancel" OnClientClick="return confirm('Are you sure you want to Cancel this order?');" />
                             <asp:ImageButton ID="ImageButton5" runat="server" CausesValidation="False" ImageUrl="~/Images/un_cancel_order.png"
@@ -256,20 +247,20 @@
                     </ItemTemplate>
                     <HeaderStyle Width="45px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Clone">
+                <asp:TemplateField HeaderText="Clone" >
                     <ItemTemplate>
                         <center>
-                            <img alt="Clone" src="../Images/copy.png" onclick='showCopyDialog(<%# Eval("sequence") %>)' />
+                            <img alt="Clone" src="../Images/icon_clone.png" onclick='showCopyDialog(<%# Eval("sequence")%>)' style="cursor:pointer"/>
                         </center>
                     </ItemTemplate>
                     <HeaderStyle Width="45px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Print">
+                <asp:TemplateField HeaderText="Print" >
                     <ItemTemplate>
                         <center>
                             <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("sequence") %>'
-                                runat="server">
-                        <img alt="Print" src="../Images/print_icon.png" />
+                                runat="server" style="text-decoration:none">
+                        <img alt="Print" src="../Images/icon_print.png" />
                             </asp:HyperLink>
                         </center>
                     </ItemTemplate>
@@ -299,8 +290,7 @@
                                 <b>Address</b>
                             </div>
                             <div>
-                                <span>House/Flat No:</span><%# Eval("address_no") %>
-                            </div>
+                                <span>House/Flat No:</span><%# Eval("address_no") %></div>
                             <div>
                                 <span>Address: </span>
                                 <%# Eval("address_line1")%>
@@ -322,8 +312,7 @@
                                 <%# Eval("address_line5")%>
                             </div>
                             <div>
-                                <span>Postal Code:</span><%# Eval("address_post_code")%>
-                            </div>
+                                <span>Postal Code:</span><%# Eval("address_post_code")%></div>
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -331,18 +320,16 @@
                     DataFormatString="{0:dd/MM/yyyy}"></asp:BoundField>
                 <asp:BoundField DataField="date_order_review" HeaderText="Review Date" SortExpression="date_order_review"
                     DataFormatString="{0:dd/MM/yyyy}"></asp:BoundField>
-                <asp:TemplateField HeaderText="Risk Assessments" SortExpression="num_of_risk_assessments">
+                <asp:TemplateField HeaderText="Risk Assessments" SortExpression="num_of_risk_assessments" >
                     <ItemTemplate>
-                        <center>
                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("num_of_risk_assessments") %>'></asp:Label>
-                        </center>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
             <PagerStyle CssClass="grid_pager" />
             <FooterStyle CssClass="grid_footer" />
             <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="grid_header" />
+            <HeaderStyle CssClass="table_header" />
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />
             <PagerSettings PageButtonCount="100" />

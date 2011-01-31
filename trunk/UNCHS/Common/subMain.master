@@ -50,55 +50,52 @@
                 <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
                     height="87" />
             </div>
-            <div style="float: right; padding-right: 10px;">
-                <div>
-                    <div class="floatLeft" style="padding-right: 10px;">
-                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
-                            ImageUrl="~/Images/back_home.png" Height="27" />
-                    </div>
-                    <div class="floatLeft">
-                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
+            <div style="float:right; padding-right: 10px; width:50%; ">
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
-                    <div style="float: left; height: 27px; background-color: #FEC828" class="txt_white">
+                    <div style="float:right; height: 27px; background-color: #4FA2C2" class="txt_white">
+                        <div style="padding-top: 3px;">
+                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
+                            |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
+                            <a href="#help" class="txt_white">Help</a></div>
+                    </div>
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
+                            height="27" />
+                    </div>
+                    <div style="float:right; height: 27px; background-color: #FEC828" class="txt_white">
                         <div style="padding-top: 3px;">
                             <strong>
                                 <asp:Label ID="Logginuser" runat="server"></asp:Label>
                                 Logged In</strong></div>
                     </div>
-                    <div class="floatLeft">
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
-                    <div style="float: left; height: 27px; background-color: #4FA2C2" class="txt_white">
-                        <div style="padding-top: 3px;">
-                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
-                            |<asp:LinkButton ID="btnAccount" runat="server" OnClick="btnAccount_Click" class="txt_white">My Account</asp:LinkButton>|
-                            <a href="#help" class="txt_white">Help</a></div>
+                    <div  style="float:right;padding-right: 10px;">
+                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
+                            ImageUrl="~/Images/back_home.png" Height="27" />
                     </div>
-                    <div>
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
-                            height="27" />
-                    </div>
-                </div>
-                <div style="float: right; padding-top: 10px;">
-                    <div>
+     
+           </div>
+                <div style="float:right;padding-top: 10px;">
+                    <div >
                         <div class="trialArea">
-                <%=GetTrialHTML()%></div>
+                            <%=GetTrialHTML()%></div>
                     </div>
-                    <div style="text-align: right">
+                    <div style="text-align:right">
                         <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
                         <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
-                            Font-Size="14"></asp:Label>
+                        Font-Size="14"></asp:Label>
                     </div>
-                    <div style="text-align: right">
-                        <asp:Label runat="server" ID="productTrial" Visible="false" Style="font-size: 24px;
-                            color: #1FA8DF">Health &amp; Safety Demo</asp:Label>
-                        <asp:Label runat="server" ID="notproductTrial" Visible="false" Style="font-size: 24px;
-                            color: #1FA8DF">Health &amp; Safety</asp:Label>
+                    <div style="text-align:right">
+                        <asp:Label runat="server" ID="productTrial" Visible="false" style="font-size:24px;color:#1FA8DF">Health &amp; Safety Demo</asp:Label>
+                        <asp:Label runat="server" ID="notproductTrial" Visible="false" style="font-size:24px;;color:#1FA8DF">Health &amp; Safety</asp:Label>
                     </div>
                 </div>
-            </div>
             <div style="clear: both">
             </div>
             <div class="floatLeft">
@@ -133,9 +130,7 @@
             </div>
             
         </div>
-        <div style="width: 100%">
-        </div>
-        <div class="footer_sub_pages" style="padding-top: 10px; width: 250px; margin: auto">
+        <div class="footer_sub_pages" style="padding-top:20px; width: 250px; margin: auto">
             Copyright (c) Ultranova Coding Securities Ltd
         </div>
     </div>

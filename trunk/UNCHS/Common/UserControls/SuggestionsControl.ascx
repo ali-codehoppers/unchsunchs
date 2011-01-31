@@ -77,7 +77,7 @@
 <div class="workArea">
     <asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand">
         <HeaderTemplate>
-            <div class="draglistHeader">
+            <div class="table_header">
                 <asp:Label ID="Label1" runat="server" Style="margin-left: 50px;">Category Name</asp:Label>
                 <asp:Label ID="Label3" runat="server" Style="margin-left: 50px;">Default</asp:Label>
                 <asp:Label ID="Label2" runat="server" Style="margin-left: 40px;">Hazard</asp:Label>
@@ -85,13 +85,13 @@
             <ul id="dragDropUL" class="draglist">
         </HeaderTemplate>
         <ItemTemplate>
-            <li class="ddLi" id="li_<%#DataBinder.Eval(Container.DataItem, "suggestion_id")%>">
+            <li class="table_header_result" style="height:30px" id="li_<%#DataBinder.Eval(Container.DataItem, "suggestion_id")%>">
                 <!--<div class="liData">-->
-                <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Edit"
+                <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"
                     CommandName="Edit" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "suggestion_id")%>' />
                 <!--</div>-->
                 <!--<div class="liData">-->
-                <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/delete.png" AlternateText="Delete"
+                <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete"
                     CommandName="Delete" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "suggestion_id")%>'
                     OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                 <!--</div>-->

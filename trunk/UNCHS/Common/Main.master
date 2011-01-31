@@ -52,40 +52,39 @@
                 <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
                     height="87" />
             </div>
-            <div style="float: right; padding-right: 10px;">
-                <div>
-                    <div class="floatLeft" style="padding-right: 10px;">
-                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
-                            ImageUrl="~/Images/back_home.png" Height="27" />
-                    </div>
-                    <div class="floatLeft">
-                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
+            <div style="float:right; padding-right: 10px; width:50%; ">
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
-                    <div style="float: left; height: 27px; background-color: #FEC828" class="txt_white">
-                        <div style="padding-top: 3px;">
-                            <strong>
-                                <asp:Label ID="Logginuser" runat="server"></asp:Label>
-                                Logged In</strong></div>
-                    </div>
-                    <div class="floatLeft">
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
-                            height="27" />
-                    </div>
-                    <div style="float: left; height: 27px; background-color: #4FA2C2" class="txt_white">
+                    <div style="float:right; height: 27px; background-color: #4FA2C2" class="txt_white">
                         <div style="padding-top: 3px;">
                             <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
                             |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
                             <a href="#help" class="txt_white">Help</a></div>
                     </div>
-                    <div>
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
-                </div>
-
-                <div style="float: right; padding-top: 10px;">
-                    <div>
+                    <div style="float:right; height: 27px; background-color: #FEC828" class="txt_white">
+                        <div style="padding-top: 3px;">
+                            <strong>
+                                <asp:Label ID="Logginuser" runat="server"></asp:Label>
+                                Logged In</strong></div>
+                    </div>
+                    <div style="float:right">
+                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
+                            height="27" />
+                    </div>
+                    <div  style="float:right;padding-right: 10px;">
+                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
+                            ImageUrl="~/Images/back_home.png" Height="27" />
+                    </div>
+     
+           </div>
+                <div style="float:right;padding-top: 10px;">
+                    <div >
                         <div class="trialArea">
                             <%=GetTrialHTML()%></div>
                     </div>
@@ -100,7 +99,7 @@
                     </div>
                 </div>
                 
-            </div>
+            
             <div style="clear: both">
             </div>
             <div class="floatLeft">
@@ -130,10 +129,16 @@
                             <asp:Label ID="lblError" runat="server" CssClass="error"  Text="" Visible="false"></asp:Label>
                         
                         <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label></div>
-                        </div>
+                    </div>
+                    
                 </asp:Panel>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-                </asp:ContentPlaceHolder>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server" >
+                    </asp:ContentPlaceHolder>
+
+                <div class="footer_sub_pages" style="padding-top: 20px; width: 250px; margin: auto">
+                    Copyright (c) Ultranova Coding Securities Ltd
+                </div>
                 <%if (helpHTML != null && helpHTML.Length > 0)
                   { %>
                 <div class="help" id="help">
@@ -144,12 +149,6 @@
                 </div>
                 <%} %>
             </div>
-            
-        </div>
-        <div style="width: 100%">
-        </div>
-        <div class="footer_sub_pages" style="padding-top: 10px; width: 250px; margin: auto">
-            Copyright (c) Ultranova Coding Securities Ltd
         </div>
     </div>
     </form>

@@ -30,23 +30,23 @@
     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
 </div>
 <div class="grid">
-    <asp:GridView ID="gvCategories" runat="server" CssClass="grid_table" AllowPaging="True"
+    <asp:GridView ID="gvCategories" runat="server" CssClass="table_header_result" AllowPaging="True"
         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="category_id" DataSourceID="odsCategories"
-        PageSize="50" OnRowUpdating="gvCategories_RowUpdating">
+        PageSize="50" OnRowUpdating="gvCategories_RowUpdating" style="width:100%">
         <PagerStyle CssClass="grid_pager" />
         <FooterStyle CssClass="grid_footer" />
         <SelectedRowStyle CssClass="grid_selected_row" />
-        <HeaderStyle CssClass="grid_header" />
+        <HeaderStyle CssClass="table_header" />
         <AlternatingRowStyle CssClass="grid_alternating_row" />
         <RowStyle CssClass="grid_row" />
         <Columns>
             <asp:TemplateField HeaderText="Edit">
                 <EditItemTemplate>
-                    <asp:ImageButton ID="btnEdit1" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Update"
+                    <asp:ImageButton ID="btnEdit1" runat="server" ImageUrl="~/Images/icon_edit.png" AlternateText="Update"
                         CommandName="Update" />
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:ImageButton ID="btnEdit1" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Edit"
+                    <asp:ImageButton ID="btnEdit1" runat="server" ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"
                         CommandName="Edit" />
                 </ItemTemplate>
                 <HeaderStyle Width="50px" HorizontalAlign="Center" />
@@ -54,11 +54,11 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Delete">
                 <EditItemTemplate>
-                    <asp:ImageButton ID="btnEdit2" runat="server" ImageUrl="~/Images/delete.png" AlternateText="Cancel"
+                    <asp:ImageButton ID="btnEdit2" runat="server" ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"
                         CommandName="Cancel" />
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:ImageButton ID="btnEdit2" runat="server" ImageUrl="~/Images/delete.png" AlternateText="Delete"
+                    <asp:ImageButton ID="btnEdit2" runat="server" ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete"
                         CommandName="Delete" />
                 </ItemTemplate>
                 <HeaderStyle Width="50px" HorizontalAlign="Center" />

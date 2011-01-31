@@ -23,7 +23,7 @@
         </div>
     </div> </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-<div style="background-color: White; padding: 15px 10px 25px 10px">
+<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:350px;">
     <asp:ObjectDataSource ID="odsDepartment" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
         <SelectParameters>
@@ -106,16 +106,16 @@
     </div>
     <div class="grid">
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-            AutoGenerateColumns="False" CssClass="grid_table"
+            AutoGenerateColumns="False" CssClass="table_header_result"
             DataKeyNames="dept_id" DataSourceID="odsDepartment"
-             PageSize="50">
+             PageSize="50" style="width:100%">
             <Columns>
                 <asp:TemplateField HeaderText="Edit" InsertVisible="False" SortExpression="dept_id">
                     <ItemTemplate>
                     <center>
                         
                             <a href='AddDepartment.aspx?depId=<%# Eval("dept_id") %>' style="border:none; text-decoration:none;">
-                                <img src="../Images/edit.png" alt="Edit" class="noborder" /></a>
+                                <img src="../Images/icon_edit.png" alt="Edit" class="noborder" /></a>
                         
                     </center>                        
                     </ItemTemplate>
@@ -124,7 +124,7 @@
                     <ItemTemplate>
                     <center>
                         
-                            <asp:ImageButton ID="ImageButton1" CssClass="noborder" runat="server" ImageUrl="~/Images/delete.png" CommandName="Delete"
+                            <asp:ImageButton ID="ImageButton1" CssClass="noborder" runat="server" ImageUrl="~/Images/icon_cancel.png" CommandName="Delete"
                                  OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                         
                         </center>
@@ -143,7 +143,7 @@
             <PagerStyle CssClass="grid_pager" />
             <FooterStyle CssClass="grid_footer" />
             <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="grid_header" />
+            <HeaderStyle CssClass="table_header" />
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />
         </asp:GridView>

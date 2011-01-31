@@ -37,7 +37,7 @@
     </div></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:590px;">
     <div class="ddl_field" style="padding-bottom:5px">
         <div style="float:left;width:200px">
             <span style="font-weight:bold">Department:</span>
@@ -116,22 +116,22 @@
                 <asp:Repeater ID="repeater" runat="server" DataSourceID="odsDepartmentPPE" 
                     OnItemCommand="repeater_ItemCommand">
                     <HeaderTemplate>
-                        <div class="draglistHeader">
+                        <div class="table_header">
                             <asp:Label ID="Label1" runat="server" style="margin-left:50px;">Category Name</asp:Label>
                             <asp:Label ID="Label3" runat="server" style="margin-left:50px;">Default</asp:Label>
                             <asp:Label ID="Label2" runat="server" style="margin-left:40px;">Hazard</asp:Label>
                             
                         </div>
-        <ul id="dragDropUL" class="draglist">
+        <ul id="dragDropUL" class="draglist" style="width:100%; list-style: none;">
                     </HeaderTemplate>                   
                 <ItemTemplate>
-                    <li class="ddLi" id="li_<%#DataBinder.Eval(Container.DataItem, "sequence")%>">
+                    <li class="table_header_result" style="height:30px" id="li_<%#DataBinder.Eval(Container.DataItem, "sequence")%>">
                         <!--<div class="liData">-->
-                        <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/edit.png" AlternateText="Edit"
+                        <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"
                             CommandName="Edit" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "sequence")%>' />
                         <!--</div>-->
                         <!--<div class="liData">-->
-                        <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/delete.png" AlternateText="Delete"
+                        <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete"
                             CommandName="Delete" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "sequence")%>'
                             OnClientClick="return confirm('Are you sure you want to delete this record?');" />
                         <!--</div>-->

@@ -36,7 +36,7 @@
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Work" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 180px;">
         <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Sequence of Work"
             SuggestionType="W" ImageName="Add_sequence_of_work" />
         <div class="warning_text" style="padding-top: 10px; padding-bottom: 10px;">
@@ -71,21 +71,21 @@
             </div>
         </div>
         <div class="grid">
-            <asp:GridView Width="805px" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" CssClass="grid_table" DataKeyNames="sequence" DataSourceID="odsWork"
+            <asp:GridView Width="100%" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
+                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence" DataSourceID="odsWork"
                 OnRowDeleting="gvWork_RowDeleting" OnRowUpdating="gvWork_RowUpdating" PageSize="50">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="True" CommandName="Update"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Update"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Update"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"
-                                    ImageUrl="~/Images/edit.png" AlternateText="Edit"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"></asp:ImageButton>
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -94,13 +94,13 @@
                         <EditItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Cancel"></asp:ImageButton>
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"></asp:ImageButton>
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                                    ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
+                                    ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');">
                                 </asp:ImageButton>
                             </center>
                         </ItemTemplate>
@@ -110,9 +110,8 @@
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
-                <HeaderStyle CssClass="grid_header" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

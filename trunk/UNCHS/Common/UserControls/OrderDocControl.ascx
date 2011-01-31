@@ -51,9 +51,9 @@
     </div>
 </div>
 <div class="grid">
-    <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
+    <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result"
         DataKeyNames="dept_order_doc_id" DataSourceID="odsDeptDocs" OnRowDeleted="gvDocs_RowDeleted"
-        PageSize="50" Width="805px">
+        PageSize="50" Width="100%">
         <Columns>
             <asp:TemplateField HeaderText="Delete">
                 <HeaderStyle Width="5%" />
@@ -75,7 +75,7 @@
         <PagerStyle CssClass="grid_pager" />
         <FooterStyle CssClass="grid_footer" />
         <SelectedRowStyle CssClass="grid_selected_row" />
-        <HeaderStyle CssClass="grid_header" />
+        <HeaderStyle CssClass="table_header" />
         <AlternatingRowStyle CssClass="grid_alternating_row" />
         <RowStyle CssClass="grid_row" />
     </asp:GridView>

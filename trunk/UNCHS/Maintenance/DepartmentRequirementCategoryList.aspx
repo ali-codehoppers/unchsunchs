@@ -30,7 +30,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
-<div style="background-color: White; padding: 15px 10px 25px 10px">
+<div style="background-color: White; padding: 15px 10px 25px 10px;min-height:590px;">
 <uc1:CategoryControl id="CategoryControl1" runat="server" CategoryType="R"></uc1:CategoryControl>
 </div>    <div style="float: left; width: 100%">
         <div style="float: left">

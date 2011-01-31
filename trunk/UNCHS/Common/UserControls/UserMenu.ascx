@@ -5,10 +5,11 @@
     </div>
     <div style="background-color:White; width:252px;">
     <asp:TreeView ID="UserMenuTree" runat="server" style="padding-left:10px;"
-        CollapseImageUrl="~/Images/arrow_bottom.jpg" ExpandImageUrl="~/Images/arrow_left.jpg" NoExpandImageUrl="~/Images/arrow_left.jpg"
-         ExpandDepth="1" NodeStyle-CssClass="left_nav_link" NodeStyle-HorizontalPadding="10px" >
+    CollapseImageUrl="~/Images/arrow_bottom.jpg" 
+    ExpandImageUrl="~/Images/arrow_left.jpg" NoExpandImageUrl="~/Images/arrow_left.jpg" ExpandDepth="1" 
+    NodeStyle-CssClass="left_nav_link" NodeStyle-HorizontalPadding="10px" SelectedNodeStyle-ImageUrl="~/Images/arrow_select.jpg">
         <Nodes>
-            <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home">
+            <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home" >
             </asp:TreeNode>
             
             <asp:TreeNode Text="H&S Folder" Value="H&S Folder" Expanded="true">
@@ -23,8 +24,7 @@
                     <asp:TreeNode NavigateUrl="~/Maintenance/AddDepartment.aspx" Text="Create Department" Value="Create Department"></asp:TreeNode>
                     <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentList.aspx" Text="Departments List" Value="Departments List"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode Text="Safety Method Statement Default" 
-                    Value="Safety Method Statement Default" >
+                <asp:TreeNode Text="Safety Method Statement Default" Value="Safety Method Statement Default" >
                     <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentPersonList.aspx" Text="Default Person List" Value="Default Person List"></asp:TreeNode>
                     <asp:TreeNode Text="PPE" Value="PPE" >
                         <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentPPECategoryList.aspx" Text="PPE Category List" Value="PPE Category List"></asp:TreeNode>
@@ -66,6 +66,7 @@
             <asp:TreeNode NavigateUrl="~/Common/help/help.pdf" Text="User Guide" Value="Help" Target="blank">
             </asp:TreeNode>
         </Nodes>
+        
     </asp:TreeView>
         <div style="float:left;">
             <div style="float:left"><asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt="" width="15" height="14" /></div>
@@ -73,5 +74,3 @@
             <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt="" width="15" height="14" />
         </div>
     </div>
-    
-

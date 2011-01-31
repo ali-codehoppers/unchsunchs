@@ -34,14 +34,14 @@
     <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:240px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:255px;">
         <div class="grid">
             <asp:GridView ID="gvPeople" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" CssClass="grid_table" DataKeyNames="sequence" DataSourceID="odsDepartmentPeople"
-                PageSize="50" OnDataBound="gvPeople_DataBound">
+                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence" DataSourceID="odsDepartmentPeople"
+                PageSize="50" OnDataBound="gvPeople_DataBound" style="width:100%">
                 <Columns>
-                    <asp:BoundField DataField="name_desc" HeaderText="Person" SortExpression="name_desc" />
-                    <asp:TemplateField HeaderText="Supervisor?">
+                    <asp:BoundField DataField="name_desc" HeaderText="Person" SortExpression="name_desc"  HeaderStyle-CssClass="table_header"/>
+                    <asp:TemplateField HeaderText="Supervisor?" HeaderStyle-CssClass="table_header">
                         <ItemTemplate>
                             <center>
                                 <asp:CheckBox Visible='<%#Eval("flg_supervisor")%>' Enabled='<%#Eval("flg_supervisor")%>'
@@ -49,7 +49,7 @@
                             </center>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="First Aider?">
+                    <asp:TemplateField HeaderText="First Aider?" HeaderStyle-CssClass="table_header">
                         <ItemTemplate>
                             <center>
                                 <asp:CheckBox Visible='<%#Eval("flg_first_aider")%>' Enabled='<%#Eval("flg_first_aider")%>'
@@ -57,7 +57,7 @@
                             </center>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Fire Warden?">
+                    <asp:TemplateField HeaderText="Fire Warden?" HeaderStyle-CssClass="table_header">
                         <ItemTemplate>
                             <center>
                                 <asp:CheckBox Visible='<%#Eval("flg_fire_warden")%>' Enabled='<%#Eval("flg_fire_warden")%>'
@@ -68,9 +68,8 @@
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
-                <HeaderStyle CssClass="grid_header" />
+                <HeaderStyle CssClass="table_header" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="grid_header" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>
