@@ -45,13 +45,14 @@
 <body class="yui-skin-sam" style="background: #e7f3f6 url('<%=this.ResolveClientUrl("~/Images/bg_r_sub.jpg")%>') repeat-x;">
     <form id="form1" runat="server">
     <div style="width: 1100px; margin: auto">
-        <div style="background-color: #FFFFFF; width: 100%;">
-            <div class="floatLeft" style="padding-top: 15px; padding-left: 10px;">
-                <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
-                    height="87" />
-            </div>
-            <div style="float:right; padding-right: 10px; width:50%; ">
-                    <div style="float:right">
+        <div style="background-color: #FFFFFF;width: 100%;">
+            <div style="float: left;  width: 100%">
+                <div style="float: left; padding-top: 15px; padding-left: 10px; width: 40%">
+                    <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
+                        height="87" />
+                </div>
+                <div style="float: left; padding-right: 10px; width: 58%">
+                    <div style="float:right;">
                         <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
@@ -61,7 +62,7 @@
                             |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
                             <a href="#help" class="txt_white">Help</a></div>
                     </div>
-                    <div style="float:right">
+                    <div style="float:right;">
                         <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
@@ -71,31 +72,33 @@
                                 <asp:Label ID="Logginuser" runat="server"></asp:Label>
                                 Logged In</strong></div>
                     </div>
-                    <div style="float:right">
+                    <div style="float:right;">
                         <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
                             height="27" />
                     </div>
-                    <div  style="float:right;padding-right: 10px;">
+                    <div style="float:right;padding-right: 10px;">
                         <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
                             ImageUrl="~/Images/back_home.png" Height="27" />
                     </div>
-     
-           </div>
-                <div style="float:right;padding-top: 10px;">
-                    <div >
-                        <div class="trialArea">
-                            <%=GetTrialHTML()%></div>
-                    </div>
-                    <div style="text-align:right">
-                        <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
-                        <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
-                        Font-Size="14"></asp:Label>
-                    </div>
-                    <div style="text-align:right">
-                        <asp:Label runat="server" ID="productTrial" Visible="false" style="font-size:24px;color:#1FA8DF">Health &amp; Safety Demo</asp:Label>
-                        <asp:Label runat="server" ID="notproductTrial" Visible="false" style="font-size:24px;;color:#1FA8DF">Health &amp; Safety</asp:Label>
+                    <div style="float:right;padding-top: 10px;">
+                        <div>
+                            <div class="trialArea">
+                                <%=GetTrialHTML()%></div>
+                        </div>
+                        <div style="text-align: right">
+                            <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
+                            <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
+                                Font-Size="14"></asp:Label>
+                        </div>
+                        <div style="text-align: right">
+                            <asp:Label runat="server" ID="productTrial" Visible="false" Style="font-size: 24px;
+                                color: #1FA8DF">Health &amp; Safety Demo</asp:Label>
+                            <asp:Label runat="server" ID="notproductTrial" Visible="false" Style="font-size: 24px;
+                                color: #1FA8DF">Health &amp; Safety</asp:Label>
+                        </div>
                     </div>
                 </div>
+            </div>
             <div style="clear: both">
             </div>
             <div class="floatLeft">
@@ -128,9 +131,8 @@
                 </div>
                 <%} %>
             </div>
-            
         </div>
-        <div class="footer_sub_pages" style="padding-top:20px; width: 250px; margin: auto">
+        <div class="footer_sub_pages" style="padding-top: 20px; width: 250px; margin: auto">
             Copyright (c) Ultranova Coding Securities Ltd
         </div>
     </div>

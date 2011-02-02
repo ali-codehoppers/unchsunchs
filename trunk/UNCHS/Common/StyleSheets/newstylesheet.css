@@ -80,7 +80,7 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	text-decoration: none;
 }
 
-.left_nav_link:active,  .left_nav_link:link, .left_nav_link:visited {
+.left_nav_link:active,.left_nav_link:link, .left_nav_link:visited {
 	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
 	color: #333;
 	text-decoration: none;
@@ -151,13 +151,18 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	background-color:#f4cdce;
 	
 }
-.error_msg_search {
-	font: normal 13px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-	color: #d10200;
-	border:1px solid #db797b;
-	background-color:#f4cdce;
-	padding:5px 0px 5px 5px;
-	margin-right:10px;
+.error_msg_search
+{
+	padding: .5em;
+	margin-bottom: 0.5em;
+	border: 2px solid #ddd; 
+	margin-left:3em;
+	margin-right:3em;
+	margin-top:0.5em;
+	background: #E6EFC2; 
+	color: #529214; 
+	border-color: #C6D880;
+	font-weight:bold;
 }
 .error
 {
@@ -336,14 +341,14 @@ background-position: 0% -30px;
 button::-moz-focus-inner {
 border: none;
 }
-.table_header{
+.table_header, tr.table_header th a:link, tr.table_header th a:active, tr.table_header th a:visited{
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #fff;
 	height:27px;
-	border-right:1px solid #006699;
+	text-decoration:none;
+	font-weight:bold;
 	background: url(../../images/ta_header.jpg) 0 center repeat-x;
 	padding:0px 3px 0px 3px;
-	
 }
 .table_header_result {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -351,4 +356,8 @@ border: none;
 	height:27px;
 	border-right:1px dotted #cbcbcb;
 	border-bottom:1px dotted #cbcbcb;
+}
+.removeStyle
+{
+	text-decoration:none;	
 }

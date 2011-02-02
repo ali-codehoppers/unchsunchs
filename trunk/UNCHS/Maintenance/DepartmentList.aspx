@@ -115,7 +115,7 @@
                     <center>
                         
                             <a href='AddDepartment.aspx?depId=<%# Eval("dept_id") %>' style="border:none; text-decoration:none;">
-                                <img src="../Images/icon_edit.png" alt="Edit" class="noborder" /></a>
+                                <img src="../Images/icon_edit.png" alt="Edit" class="noborder" style="border:none;"/></a>
                         
                     </center>                        
                     </ItemTemplate>
