@@ -137,9 +137,15 @@
     </div>
     <div class="info_message" style="padding-top: 10px; padding-bottom: 10px;">
         <div class="error_msg_search">
-            You can use % as a wildcard next to other characters to improve your search results.
-            For example, %ad% or ad% returns all records with a word in one of the searched
-            fields that begins with "ad".</div>
+           <div style="float:left; padding:8px;"> 
+                <asp:Image ID="Image7" ImageUrl="~/Images/success.png" runat="server" />
+           </div>
+           <div>
+                You can use % as a wildcard next to other characters to improve your search results.
+                For example, %ad% or ad% returns all records with a word in one of the searched
+                fields that begins with "ad".
+            </div>
+        </div>
     </div>
     <div class="field" style="padding-bottom: 5px;">
         <div style="width: 200px; float: left; font-weight: bold">
@@ -189,7 +195,10 @@
         <asp:TextBox ID="tbClientRef" runat="server"></asp:TextBox>
     </div>
     <div class="button_bar">
-        <div style="float: left; padding-left: 10px;">
+        <div style="float: left;width:200px;display:block">
+            &nbsp;
+        </div>
+        <div style="float: left;">
             <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
         </div>
         <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
@@ -260,7 +269,7 @@
                         <center>
                             <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("sequence") %>'
                                 runat="server" style="text-decoration:none">
-                        <img alt="Print" src="../Images/icon_print.png" />
+                        <img alt="Print" src="../Images/icon_print.png" style="border:0px;" />
                             </asp:HyperLink>
                         </center>
                     </ItemTemplate>
