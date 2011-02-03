@@ -279,11 +279,10 @@ A.txt_white_link1:hover {
 }
 .terms
 {
-	text-align:justify;
-	
-	color:Black;
-	font-size:medium;
-	margin-bottom:20px;
+	text-align: justify;
+	color: #000099;
+	font-size: medium;
+	margin-bottom: 20px;
 }
 .button_bar 
 {
