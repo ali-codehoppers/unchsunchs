@@ -43,7 +43,7 @@
         }
         YAHOO.util.Event.onDOMReady(renderDialog);
     </script>
-    <script type="text/javascript" src="../Includes/jquery-1.4.2.min.js"></script>
+
     <script type="text/javascript">
         function showCompleteAddress(id) {
             $('div#addressDetail' + id).show();

@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-    CodeFile="UserHome.aspx.cs" Inherits="Home" Title="Simplicity4Business" %>
+    CodeFile="UserHome.aspx.cs" Inherits="Home" Title="Simplicity4Business" EnableEventValidation="true"%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div style="float: left;">
