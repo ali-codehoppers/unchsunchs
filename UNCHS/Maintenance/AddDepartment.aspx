@@ -117,7 +117,7 @@
             <div style="float:left; width:200px;">
                         <span>Notes:</span>
             </div>
-                        <asp:TextBox ID="txtCoNotes" runat="server" Rows="5" TextMode="MultiLine" style="width:300px"></asp:TextBox>
+                        <asp:TextBox ID="txtCoNotes" runat="server" Rows="5" CssClass="text_area" TextMode="MultiLine" style="width:300px"></asp:TextBox>
 
         </div>
         <div class="button_bar">

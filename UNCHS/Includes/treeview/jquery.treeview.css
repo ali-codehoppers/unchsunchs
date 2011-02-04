@@ -1,9 +1,10 @@
 ﻿.treeview, .treeview ul
 {
-	margin:0px;
-	padding:0px;
+	margin: 0px;
+	padding: 0px;
 	list-style-image: url('../../Images/arrow_left.jpg');
 	list-style-position: inside;
+
 }
 
 .treeview ul 
@@ -86,7 +87,7 @@
 }
 
 span,a.txt_black:active,  a.txt_black:link, a.txt_black:visited {
-	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	font: normal 13px Arial, Verdana, Helvetica, sans-serif;
 	color: #333;
 	text-decoration: none;
 	padding:0px 0px 0px 0px;
@@ -98,11 +99,13 @@ a.txt_black:hover {
 }
 span.txt_black
 {
-	display:block;
+	display:inline-block;
 	height: 25px;
+	width:90%;
 	background-image: url('../../Images/left_nav_partition.jpg');
 	background-repeat: no-repeat;
 	background-position: left bottom;
+
 }
 .left_nav
 {
