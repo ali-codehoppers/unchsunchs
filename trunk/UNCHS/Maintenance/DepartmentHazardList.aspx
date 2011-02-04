@@ -59,7 +59,7 @@
     <div style="float:left; width:200px">
         <span style="font-weight:bold">Hazard:</span>
         </div>
-        <asp:TextBox ID="tbName" runat="server" Rows="3" style="width:200px"
+        <asp:TextBox ID="tbName" runat="server" Rows="3" style="width:200px" CssClass="text_area"
             TextMode="MultiLine"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                 runat="server" ErrorMessage="*" CssClass="error" ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator>
 

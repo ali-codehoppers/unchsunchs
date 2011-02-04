@@ -188,6 +188,12 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	border:1px solid #cbcbcb;
 	width:300px;
 }
+.field_txt_area {
+	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+	border:1px solid #cbcbcb;
+	width:300px;
+}
 .field_txt_small {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
@@ -199,7 +205,7 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
 	height: 90px;
-	border:1px solid #999;
+	border:1px solid #cbcbcb;
 	width:300px;
 }
 .btn_mid_blue {

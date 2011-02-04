@@ -4,217 +4,166 @@
 </div>
 <div style="background-color: White; width: 252px;">
     <ul id="red" class="treeview-red">
-        <li>
-            <span class="txt_black">
+        <li id="red-home" >
+            <span class="txt_black" >
                 <asp:HyperLink runat="server" CssClass="txt_black" ID="HomeNode" NavigateUrl="~/UserHome.aspx">Home</asp:HyperLink>
             </span>
         </li>
-        <li><span class="txt_black">H&S Folder</span>
+        <li id="red-folder" <%String urlString = Request.Url.ToString();
+                               if (urlString.Contains("UserHome.aspx")
+                               ||urlString.Contains("AddOrder.aspx")
+                               ||urlString.Contains("SearchOrder.aspx")
+                               ||urlString.Contains("UploadOrder.aspx")
+                               ||urlString.Contains("GenerateSignage.aspx")
+                               ||urlString.Contains("help.pdf")){ %>class="closed"<%}
+                             else{%>class="open"<%} %>><span class="txt_black">H&S Folder</span>
             <ul>
-                <li>
-                    <div class="left_nav">
+                <li id="red-createfolder" >
+                    <span class="txt_black">
                         <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink1" NavigateUrl="~/Orders/AddOrder.aspx">Create Folder</asp:HyperLink>
-                    </div>
+                    </span>
                 </li>
-                <li>
-                    <div class="left_nav">
+                <li id="red-searchfolder">
+                    <span class="txt_black">
                         <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink2" NavigateUrl="~/Orders/SearchOrder.aspx">Search Folder</asp:HyperLink>
-                    </div>
+                    </span>
                 </li>
-                <li>
-                    <div class="left_nav">
+                <li id="red-uploadfolder">
+                    <span class="txt_black">
                         <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink3" NavigateUrl="~/Orders/UploadOrder.aspx">Upload Addresses</asp:HyperLink>
-                    </div>
+                    </span>
                 </li>
             </ul>
         </li>
-        <li>
-            <div class="left_nav">
+        <li id="red-signage">
+            <span class="txt_black">
                 <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink4" NavigateUrl="~/GenerateSignage.aspx">Signage</asp:HyperLink>
-            </div>
+            </span>
         </li>
-        <li><span class="txt_black">Settings</span>
+        <li id="red-settings" <%urlString = Request.Url.ToString();
+                               if (urlString.Contains("AddDepartment.aspx")
+                               ||urlString.Contains("DepartmentList.aspx")
+                               ||urlString.Contains("DepartmentPersonList.aspx")
+                               ||urlString.Contains("DepartmentPPECategoryList.aspx")
+                               ||urlString.Contains("DepartmentPPEList.aspx")
+                               ||urlString.Contains("DepartmentHazardCategoryList.aspx")
+                               ||urlString.Contains("DepartmentHazardList.aspx")
+                               ||urlString.Contains("DepartmentToolCategoryList.aspx")
+                               ||urlString.Contains("DepartmentToolList.aspx")
+                               ||urlString.Contains("DepartmentWorkCategoryList.aspx")
+                               ||urlString.Contains("DepartmentWorkList.aspx")
+                               ||urlString.Contains("DepartmentEmergencyCategoryList.aspx")
+                               ||urlString.Contains("DepartmentEmergencyList.aspx")
+                               ||urlString.Contains("DepartmentRequirementCategoryList.aspx")
+                               ||urlString.Contains("DepartmentRequirementList.aspx")
+                               ||urlString.Contains("DepartmentAspectCategoryList.aspx")
+                               ||urlString.Contains("DepartmentAspectList.aspx")
+                               ||urlString.Contains("DocumentCategoryList.aspx")
+                               ||urlString.Contains("SectionList.aspx")
+                               ||urlString.Contains("DocumentList.aspx")){ %>class="closed"<%}
+                             else{%>class="open"<%} %>><span class="txt_black">Settings</span>
             <ul>
-                <li><span class="txt_black">Departments</span>
+                <li id="red-departments" <%urlString = Request.Url.ToString();
+                               if (urlString.Contains("AddDepartment.aspx")
+                               ||urlString.Contains("DepartmentList.aspx")){ %>class="closed"<%}
+                             else{%>class="open"<%} %>><span class="txt_black">Departments</span>
                     <ul>
-                        <li>
-                            <div class="left_nav">
+                        <li id="red-adddepartments">
+                            <span class="txt_black">
                                 <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink5" NavigateUrl="~/Maintenance/AddDepartment.aspx">Create Department</asp:HyperLink>
-                            </div>
+                            </span>
                         </li>
-                        <li>
-                            <div class="left_nav">
+                        <li id="red-listdepartments">
+                            <span class="txt_black">
                                 <asp:HyperLink runat="server" CssClass="txt_black" ID="HyperLink6" NavigateUrl="~/Maintenance/DepartmentList.aspx">Departments List</asp:HyperLink>
-                            </div>
+                            </span>
                         </li>
                     </ul>
                 </li>
-                <li><span class="txt_black">Safety Method Statement Default</span>
+                <li id="red-safety"><span class="txt_black">Safety Method Statement Default</span>
                     <ul>
-                        <li><span class="txt_black">
+                        <li id="red-default"><span class="txt_black">
                             <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink7" NavigateUrl="~/Maintenance/DepartmentPersonList.aspx">Default Person List</asp:HyperLink></span></li>
-                        <li><span class="txt_black">PPE</span>
+                        <li id="red-ppe"><span class="txt_black">PPE</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categoryppe"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink8" NavigateUrl="~/Maintenance/DepartmentPPECategoryList.aspx">PPE Category List</asp:HyperLink>
                                 </span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listppe"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink9" NavigateUrl="~/Maintenance/DepartmentPPEList.aspx">Default PPE List</asp:HyperLink>
                                 </span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Key Hazards</span>
+                        <li id="red-hazards"><span class="txt_black">Key Hazards</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categoryhazards"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink10" NavigateUrl="~/Maintenance/DepartmentHazardCategoryList.aspx">Key Hazard Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listhazards"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink11" NavigateUrl="~/Maintenance/DepartmentHazardList.aspx">Default Key Hazards List </asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Plants & Tools</span>
+                        <li id="red-tools"><span class="txt_black">Plants & Tools</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categorytools"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink12" NavigateUrl="~/Maintenance/DepartmentToolCategoryList.aspx">Plants & Tools Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listtools"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink13" NavigateUrl="~/Maintenance/DepartmentToolList.aspx">Default Plants & Tools List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Works</span>
+                        <li id="red-work"><span class="txt_black">Works</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categorywork"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink14" NavigateUrl="~/Maintenance/DepartmentWorkCategoryList.aspx">Work Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listwork"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink15" NavigateUrl="~/Maintenance/DepartmentWorkList.aspx">Default Works List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Emergency</span>
+                        <li id="red-emergency"><span class="txt_black">Emergency</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categoryemergency"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink16" NavigateUrl="~/Maintenance/DepartmentEmergencyCategoryList.aspx">Emergency Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listemergency"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink17" NavigateUrl="~/Maintenance/DepartmentEmergencyList.aspx">Default Emergency List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Requirements</span>
+                        <li id="red-requirements"><span class="txt_black">Requirements</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categoryrequirements"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink18" NavigateUrl="~/Maintenance/DepartmentRequirementCategoryList.aspx">Requirement Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-lsitrequirements"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink19" NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx">Default Requirements List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li><span class="txt_black">Aspects</span>
+                        <li id="red-aspects"><span class="txt_black">Aspects</span>
                             <ul>
-                                <li><span class="txt_black">
+                                <li id="red-categoryaspects"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink20" NavigateUrl="~/Maintenance/DepartmentAspectCategoryList.aspx">Aspect Category List</asp:HyperLink></span></li>
-                                <li><span class="txt_black">
+                                <li id="red-listaspects"><span class="txt_black">
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink21" NavigateUrl="~/Maintenance/DepartmentAspectList.aspx">Default Aspects List</asp:HyperLink></span></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><span class="txt_black">Document Templates</span>
+                <li id="red-template"><span class="txt_black">Document Templates</span>
                     <ul>
-                        <li><span class="txt_black">
+                        <li id="red-categorytemplate"><span class="txt_black">
                             <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink22" NavigateUrl="~/Maintenance/DocumentCategoryList.aspx">Documents Category List</asp:HyperLink>
                         </span></li>
-                        <li><span class="txt_black">
+                        <li id="red-sectiontemplate"><span class="txt_black">
                             <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink23" NavigateUrl="~/Maintenance/SectionList.aspx">Sections List</asp:HyperLink>
                         </span></li>
-                        <li><span class="txt_black">
+                        <li id="red-listtemplate"><span class="txt_black">
                             <asp:HyperLink CssClass="txt_black" runat="server" ID="HyperLink24" NavigateUrl="~/Maintenance/DocumentList.aspx">Documents List</asp:HyperLink>
                         </span></li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <li class="open"><span class="txt_black">
+        <li  id="red-guide"><span class="txt_black">
             <asp:HyperLink runat="server" ID="HyperLink25" NavigateUrl="~/Common/help/help.pdf"
                 Target="_blank" CssClass="txt_black">User Guide</asp:HyperLink>
         </span></li>
     </ul>
-    <asp:TreeView ID="UserMenuTree" runat="server" Style="padding-left: 10px;" CollapseImageUrl="~/Images/arrow_bottom.jpg"
-        ExpandImageUrl="~/Images/arrow_left.jpg" NoExpandImageUrl="~/Images/arrow_left.jpg"
-        ExpandDepth="1" NodeStyle-CssClass="left_nav_link" NodeStyle-HorizontalPadding="10px"
-        SelectedNodeStyle-ImageUrl="~/Images/arrow_select.jpg">
-        <Nodes>
-            <asp:TreeNode NavigateUrl="~/UserHome.aspx" Text="Home" Value="Home"></asp:TreeNode>
-            <asp:TreeNode Text="H&S Folder" Value="H&S Folder" Expanded="true">
-                <asp:TreeNode NavigateUrl="~/Orders/AddOrder.aspx" Text="Create Folder" Value="Create Folder">
-                </asp:TreeNode>
-                <asp:TreeNode NavigateUrl="~/Orders/SearchOrder.aspx" Text="Search Folder" Value="Search Folder">
-                </asp:TreeNode>
-                <asp:TreeNode NavigateUrl="~/Orders/UploadOrder.aspx" Text="Upload Addresses" Value="Upload Folder">
-                </asp:TreeNode>
-            </asp:TreeNode>
-            <asp:TreeNode NavigateUrl="~/GenerateSignage.aspx" Text="Signage" Value="Signage">
-            </asp:TreeNode>
-            <asp:TreeNode Text="Settings" Value="Settings">
-                <asp:TreeNode Text="Departments" Value="Departments" SelectAction="SelectExpand">
-                    <asp:TreeNode NavigateUrl="~/Maintenance/AddDepartment.aspx" Text="Create Department"
-                        Value="Create Department"></asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentList.aspx" Text="Departments List"
-                        Value="Departments List"></asp:TreeNode>
-                </asp:TreeNode>
-                <asp:TreeNode Text="Safety Method Statement Default" Value="Safety Method Statement Default">
-                    <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentPersonList.aspx" Text="Default Person List"
-                        Value="Default Person List"></asp:TreeNode>
-                    <asp:TreeNode Text="PPE" Value="PPE">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentPPECategoryList.aspx" Text="PPE Category List"
-                            Value="PPE Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentPPEList.aspx" Text="Default PPE List"
-                            Value="Default PPE  List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Key Hazards" Value="Key Hazards">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentHazardCategoryList.aspx" Text="Key Hazard Category List"
-                            Value="Key Hazard Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentHazardList.aspx" Text="Default Key Hazard List"
-                            Value="Default Key Hazard List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Plants & Tools" Value="Plants & Tools">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentToolCategoryList.aspx" Text="Plants & Tools Category List"
-                            Value="Plants & Tools Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentToolList.aspx" Text="Default Plants & Tools List"
-                            Value="Default Plants & Tools List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Works" Value="Works">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentWorkCategoryList.aspx" Text="Work Category List"
-                            Value="Work Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentWorkList.aspx" Text="Default Work List"
-                            Value="Default Work  List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Emergency" Value="Emergency">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentEmergencyCategoryList.aspx" Text="Emergency Category List"
-                            Value="Emergency Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentEmergencyList.aspx" Text="Default Emergency List"
-                            Value="Default Emergency  List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Requirements" Value="Requirements">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementCategoryList.aspx"
-                            Text="Requirement Category List" Value="Requirement Category List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx" Text="Default Requirements List"
-                            Value="Default Requirements  List"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Aspects" Value="Aspects">
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectCategoryList.aspx" Text="Requirement Aspect List"
-                            Value="Requirement Aspect List"></asp:TreeNode>
-                        <asp:TreeNode NavigateUrl="~/Maintenance/DepartmentAspectList.aspx" Text="Default Aspects List"
-                            Value="Default Aspects List"></asp:TreeNode>
-                    </asp:TreeNode>
-                </asp:TreeNode>
-                <asp:TreeNode Text="Document Templates" Value="Document Templates">
-                    <asp:TreeNode NavigateUrl="~/Maintenance/DocumentCategoryList.aspx" Text="Documents Category List"
-                        Value="Documents Category List"></asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="~/Maintenance/SectionList.aspx" Text="Sections List" Value="Sections List">
-                    </asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="~/Maintenance/DocumentList.aspx" Text="Documents List"
-                        Value="Documents List"></asp:TreeNode>
-                </asp:TreeNode>
-            </asp:TreeNode>
-            <asp:TreeNode NavigateUrl="~/Common/help/help.pdf" Text="User Guide" Value="Help"
-                Target="blank"></asp:TreeNode>
-        </Nodes>
-    </asp:TreeView>
     <div style="float: left;">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""

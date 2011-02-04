@@ -31,7 +31,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:415px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 415px;">
         <div class="ddl_field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <span>Department:</span>
@@ -59,7 +59,7 @@
             <div style="float: left; width: 200px;">
                 <span>Section:</span>
             </div>
-            <asp:TextBox ID="tbSec" runat="server" Rows="3" TextMode="MultiLine" Style="width: 300px;"></asp:TextBox>
+            <asp:TextBox ID="tbSec" runat="server" Rows="3" TextMode="MultiLine" Style="width: 300px;" CssClass="text_area"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
                 ControlToValidate="tbSec"></asp:RequiredFieldValidator>
         </div>
@@ -97,9 +97,10 @@
             <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
         </div>
         <div class="grid">
-            <asp:GridView ID="gvSections" runat="server" AutoGenerateColumns="False" CssClass="table_header_result" style="width=100%"
-                DataKeyNames="section_id" DataSourceID="odsSections" PageSize="50" AllowPaging="True"
-                AllowSorting="True" OnRowUpdating="gvSections_RowUpdating" OnPreRender="gvSections_PreRender">
+            <asp:GridView ID="gvSections" runat="server" AutoGenerateColumns="False" CssClass="table_header_result"
+                Style="width=100%" DataKeyNames="section_id" DataSourceID="odsSections" PageSize="50"
+                AllowPaging="True" AllowSorting="True" OnRowUpdating="gvSections_RowUpdating"
+                OnPreRender="gvSections_PreRender">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <HeaderStyle Width="50px" />
@@ -109,7 +110,8 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Update"
-                                ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Grid"></asp:ImageButton>
+                                ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Grid">
+                            </asp:ImageButton>
                         </EditItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
