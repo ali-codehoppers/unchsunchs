@@ -2,10 +2,11 @@
     CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
-<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
+<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %> 
+<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %> 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
+
     <style type="text/css">
         .text_field span
         {
@@ -32,12 +33,14 @@
         }
     </style>
     <script type="text/javascript">
+        
         var copyDialog;
         function showCopyDialog() {
 
             document.getElementById('copyDialog').style.display = 'block';
             copyDialog.show();
         }
+        
         function renderDialog() {
             copyDialog = new YAHOO.widget.Dialog("copyDialog",
 							    { width: "650px",
@@ -81,7 +84,7 @@
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"></uc1:TabControl>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div id="copyDialog" style="display: none">
+    <div id="copyDialog" style="display:none">
         <div class="hd">
             Enter the Address for new folder:</div>
         <div class="bd">
@@ -148,8 +151,9 @@
             <span>SMS Ref:</span><asp:TextBox ID="tbOrderSMS" runat="server" CssClass="field_txt"
                 Enabled="false"></asp:TextBox></div>
         <div class="field">
-            <span>Date Created:</span><ww:jQueryDatePicker ID="dtCreated" runat="server" CssClass="field_txt_small"
-                DisplayMode="AutoPopup" DateFormat="dd/MM/yyyy"></ww:jQueryDatePicker>
+            <span>Date Created:</span>
+            <asp:Calendar ID="dtCreated" runat="server" CssClass="field_txt_small"
+                DisplayMode="AutoPopup" DateFormat="dd/MM/yyyy"></asp:Calendar>
         </div>
         <div class="text_field">
             <span>Estimated Duration of Work (days):</span><ew:NumericBox ID="tbEstWork" runat="server"
@@ -166,8 +170,8 @@
                 ID="tbEstNumOperatives" CssClass="field_txt" runat="server"></ew:NumericBox></div>
         <div class="field">
             <span>Review Date:</span><asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true"
-                OnCheckedChanged="cbReview_CheckedChanged" /><ww:jQueryDatePicker CssClass="field_txt_small"
-                    ID="dtReview" runat="server" DisplayMode="AutoPopup" Enabled="false" DateFormat="dd/MM/yyyy"></ww:jQueryDatePicker></div>
+                OnCheckedChanged="cbReview_CheckedChanged" /><asp:Calendar CssClass="field_txt_small"
+                    ID="dtReview" runat="server" DisplayMode="AutoPopup" Enabled="false" DateFormat="dd/MM/yyyy"></asp:Calendar></div>
         <div class="field" style="display: none;">
             <span>Document to Client:</span><asp:CheckBox ID="cbDocClient" runat="server" /></div>
         <div class="text_field" style="padding-bottom: 5px">
@@ -297,8 +301,7 @@
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
     </div>
-    <script>
+    <script type="text/javascript">
         document.getElementById("ctl00_ContentPlaceHolder_tbOrderSMS").disabled = true;
     </script>
-
 </asp:Content>

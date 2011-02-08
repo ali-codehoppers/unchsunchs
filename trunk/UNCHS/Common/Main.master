@@ -10,6 +10,7 @@
     <title>Simplicity Health & Safety Live</title>
     <!--YUI -->
     <!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
+    
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/assets/skins/sam/menu.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
@@ -20,13 +21,18 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo/yahoo-min.js")%>"></script>
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/event/event-min.js")%>"></script>
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
+    
+    
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/unchs/nifty.js")%>"></script>
+
+
+
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/jquery-1.4.2.min.js")%>"></script>
     <link rel="stylesheet" href="<%=this.ResolveClientUrl("~/Includes/treeview/jquery.treeview.css")%>" />
     <link rel="stylesheet" href="<%=this.ResolveClientUrl("~/Includes/treeview/screen.css")%>" /> 
-    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/jquery-1.4.2.min.js")%>"></script>
-    <script src="<%=this.ResolveClientUrl("~/Includes/treeview/lib/jquery.cookie.js")%>" type="text/javascript"></script>
-	<script src="<%=this.ResolveClientUrl("~/Includes/treeview/jquery.treeview.js")%>" type="text/javascript"></script>
-	<script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/treeview/demo.js")%>"></script>
+    <script src="<%=this.ResolveClientUrl("~/Includes/treeview/jquery.treeview.js")%>" type="text/javascript"></script>
+	<script src="<%=this.ResolveClientUrl("~/Includes/treeview/lib/jquery.cookie.js")%>" type="text/javascript"></script>
+
     <!--YUI END-->
     <style type="text/css">
         div.rounded div
@@ -37,6 +43,7 @@
     </style>
     <script type="text/javascript">
 
+    
         function renderHelpDialog() {
 
             if (!NiftyCheck()) {
@@ -159,21 +166,22 @@
             </div>
         </div>
     </div>
-        <script type="text/javascript">
-            
-                // third example
-                $("#red").treeview({
-                    animated: "fast",
-                    collapsed: true,
-                    unique: true,
-                    persist: "cookie",
-                    toggle: function () {
-                        window.console && console.log("%o was toggled", this);
-                    }
-                });
-            
-            </script>
+    <script type="text/javascript">
+
+            $("#red").treeview({
+                animated: "fast",
+                collapsed: true,
+                unique: true,
+                persist: "cookie",
+                toggle: function () {
+                    window.console && console.log("%o was toggled", this);
+                }
+            });
+
+
+     </script>
             
     </form>
+
 </body>
 </html>
