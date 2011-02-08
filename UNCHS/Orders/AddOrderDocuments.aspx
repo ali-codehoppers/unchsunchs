@@ -101,7 +101,7 @@
         <hr />
         <div class="field">
             <strong>Date Sent to Client:</strong>
-            <ww:jQueryDatePicker ID="dtClient" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></ww:jQueryDatePicker>
+            <asp:Calendar ID="dtClient" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
         </div>
         <div class="field">
             <strong>

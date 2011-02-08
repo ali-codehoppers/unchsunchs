@@ -159,6 +159,7 @@
                 Target="_blank" CssClass="txt_black">User Guide</asp:HyperLink>
         </span></li>
     </ul>
+ 
     <div style="float: left;">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""

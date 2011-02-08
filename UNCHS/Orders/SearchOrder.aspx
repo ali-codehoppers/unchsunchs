@@ -2,8 +2,9 @@
     CodeFile="SearchOrder.aspx.cs" Inherits="Orders_SearchOrder" Title="Simplicity4Business"
     EnableEventValidation="true" %>
 
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
+<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
+
     <style type="text/css">
         .text_field span
         {
@@ -12,7 +13,6 @@
             font-weight: bold;
             font-size: 12px;
         }
-        
         .ddl_margin
         {
             width: 340px;
@@ -21,7 +21,7 @@
         }
     </style>
     <script type="text/javascript">
-        var copyDialog;
+       /* var copyDialog;
         function showCopyDialog(sourceOrderId) {
             document.getElementById('<%=hfSourceOrderId.ClientID%>').value = sourceOrderId;
             document.getElementById('copyDialog').style.display = 'block';
@@ -41,7 +41,7 @@
             copyDialog.render();
 
         }
-        YAHOO.util.Event.onDOMReady(renderDialog);
+        YAHOO.util.Event.onDOMReady(renderDialog);*/
     </script>
 
     <script type="text/javascript">
@@ -183,10 +183,11 @@
         <div style="width: 200px; float: left">
             <span style="width: 100px;"><strong>Order Date:</strong></span>
         </div>
-        <span class="label" style="width: 40px;">From:</span>
-        <ww:jQueryDatePicker ID="tbDateFrom" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></ww:jQueryDatePicker>
+        <span class="label" style="width: 40px;">From:
+        </span>
+        &nbsp;<asp:Calendar ID="tbDateFrom" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
         <span class="label"  style="width: 25px;">To:</span>
-        <ww:jQueryDatePicker ID="tbToDate" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></ww:jQueryDatePicker>
+        <asp:Calendar ID="tbToDate" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
     </div>
     <div class="field" style="display: none;">
         <div style="width: 200px; float: left">
@@ -222,9 +223,9 @@
             <asp:ControlParameter ControlID="tbOrderRef" Name="ord_ref" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="tbClientRef" Name="client_ref" PropertyName="Text"
                 Type="String" DefaultValue="" />
-            <asp:ControlParameter ControlID="tbDateFrom" DefaultValue="" Name="from_date" PropertyName="Text"
+            <asp:ControlParameter ControlID="tbDateFrom" DefaultValue="" Name="from_date" 
                 Type="String" />
-            <asp:ControlParameter ControlID="tbToDate" Name="to_date" PropertyName="Text" Type="String" />
+            <asp:ControlParameter ControlID="tbToDate" Name="to_date"  Type="String" />
             <asp:ControlParameter ControlID="tbPostCode" Name="postal_code" PropertyName="Text"
                 Type="String" />
         </SelectParameters>
