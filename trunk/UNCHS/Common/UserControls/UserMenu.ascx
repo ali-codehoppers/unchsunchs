@@ -3,14 +3,14 @@
     MAIN NAVIGATION
 </div>
 <div style="background-color: White; width: 252px;">
-    <ul id="red" class="treeview-red">
-        <li id="red-home" >
-            <span class="txt_black" >
+    <ul id="red" class="treeview-red" style="width:100%">
+        <li id="red-home" style="width:100%">
+            <span class="txt_black" style="width:100%">
                 <asp:Image runat="server" ID="HomeNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
                 <asp:HyperLink runat="server" CssClass="txt_black" ID="HomeNode" NavigateUrl="~/UserHome.aspx">Home</asp:HyperLink>
             </span>
         </li>
-        <li id="red-folder"><span class="txt_black">H&S Folder</span>
+        <li id="red-folder"><span class="txt_black_collapse">H&S Folder</span>
             <ul>
                 <li id="red-createfolder" >
                     <span class="txt_black">
@@ -38,9 +38,9 @@
                 <asp:HyperLink runat="server" CssClass="txt_black" ID="SignageNode" NavigateUrl="~/GenerateSignage.aspx">Signage</asp:HyperLink>
             </span>
         </li>
-        <li id="red-settings"><span class="txt_black">Settings</span>
+        <li id="red-settings"><span class="txt_black_collapse">Settings</span>
             <ul>
-                <li id="red-departments"><span class="txt_black">Departments</span>
+                <li id="red-departments"><span class="txt_black_collapse">Departments</span>
                     <ul>
                         <li id="red-adddepartments">
                             <span class="txt_black">
@@ -56,12 +56,12 @@
                         </li>
                     </ul>
                 </li>
-                <li id="red-safety"><span class="txt_black">Safety Method Statement Default</span>
+                <li id="red-safety"><span class="txt_black_collapse">Safety Method Statement Default</span>
                     <ul>
                         <li id="red-default"><span class="txt_black">
                             <asp:Image runat="server" ID="DefaultListNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
                             <asp:HyperLink CssClass="txt_black" runat="server" ID="DefaultListNode" NavigateUrl="~/Maintenance/DepartmentPersonList.aspx">Default Person List</asp:HyperLink></span></li>
-                        <li id="red-ppe"><span class="txt_black">PPE</span>
+                        <li id="red-ppe"><span class="txt_black_collapse">PPE</span>
                             <ul>
                                 <li id="red-categoryppe"><span class="txt_black">
                                     <asp:Image runat="server" ID="PPENodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -73,7 +73,7 @@
                                 </span></li>
                             </ul>
                         </li>
-                        <li id="red-hazards"><span class="txt_black">Key Hazards</span>
+                        <li id="red-hazards"><span class="txt_black_collapse">Key Hazards</span>
                             <ul>
                                 <li id="red-categoryhazards"><span class="txt_black">
                                     <asp:Image runat="server" ID="KeyNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -83,7 +83,7 @@
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="KeyListNode" NavigateUrl="~/Maintenance/DepartmentHazardList.aspx">Default Key Hazards List </asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li id="red-tools"><span class="txt_black">Plants & Tools</span>
+                        <li id="red-tools"><span class="txt_black_collapse">Plants & Tools</span>
                             <ul>
                                 <li id="red-categorytools"><span class="txt_black">
                                     <asp:Image runat="server" ID="PlantNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -93,7 +93,7 @@
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="PlantListNode" NavigateUrl="~/Maintenance/DepartmentToolList.aspx">Default Plants & Tools List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li id="red-work"><span class="txt_black">Works</span>
+                        <li id="red-work"><span class="txt_black_collapse">Works</span>
                             <ul>
                                 <li id="red-categorywork"><span class="txt_black">
                                     <asp:Image runat="server" ID="WorkNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -103,7 +103,7 @@
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="WorkListNode" NavigateUrl="~/Maintenance/DepartmentWorkList.aspx">Default Works List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li id="red-emergency"><span class="txt_black">Emergency</span>
+                        <li id="red-emergency"><span class="txt_black_collapse">Emergency</span>
                             <ul>
                                 <li id="red-categoryemergency"><span class="txt_black">
                                     <asp:Image runat="server" ID="EmergencyNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -113,7 +113,7 @@
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="EmergencyListNode" NavigateUrl="~/Maintenance/DepartmentEmergencyList.aspx">Default Emergency List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li id="red-requirements"><span class="txt_black">Requirements</span>
+                        <li id="red-requirements"><span class="txt_black_collapse">Requirements</span>
                             <ul>
                                 <li id="red-categoryrequirements"><span class="txt_black">
                                     <asp:Image runat="server" ID="RequirmentNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -123,7 +123,7 @@
                                     <asp:HyperLink CssClass="txt_black" runat="server" ID="RequirmentListNode" NavigateUrl="~/Maintenance/DepartmentRequirementList.aspx">Default Requirements List</asp:HyperLink></span></li>
                             </ul>
                         </li>
-                        <li id="red-aspects"><span class="txt_black">Aspects</span>
+                        <li id="red-aspects"><span class="txt_black_collapse">Aspects</span>
                             <ul>
                                 <li id="red-categoryaspects"><span class="txt_black">
                                     <asp:Image runat="server" ID="AspectNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>
@@ -135,7 +135,7 @@
                         </li>
                     </ul>
                 </li>
-                <li id="red-template"><span class="txt_black">Document Templates</span>
+                <li id="red-template"><span class="txt_black_collapse">Document Templates</span>
                     <ul>
                         <li id="red-categorytemplate"><span class="txt_black">
                             <asp:Image runat="server" ID="DocumentNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>

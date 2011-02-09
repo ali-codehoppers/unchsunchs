@@ -13,6 +13,13 @@
             font-weight: bold;
             font-size: 12px;
         }
+        .text_field_dialog
+        {
+
+            padding-bottom: 8px;
+            font-weight: bold;
+            font-size: 12px;
+        }
         .ddl_margin
         {
             width: 340px;
@@ -21,7 +28,7 @@
         }
     </style>
     <script type="text/javascript">
-       /* var copyDialog;
+        var copyDialog;
         function showCopyDialog(sourceOrderId) {
             document.getElementById('<%=hfSourceOrderId.ClientID%>').value = sourceOrderId;
             document.getElementById('copyDialog').style.display = 'block';
@@ -41,7 +48,7 @@
             copyDialog.render();
 
         }
-        YAHOO.util.Event.onDOMReady(renderDialog);*/
+        YAHOO.util.Event.onDOMReady(renderDialog);
     </script>
 
     <script type="text/javascript">
@@ -81,44 +88,44 @@
             <div class="hd">
                 Enter the Address for new folder:</div>
             <div class="bd">
-                <div class="text_field">
+                <div class="text_field_dialog">
                     <asp:HiddenField ID="hfSourceOrderId" runat="server" />
-                    <div style="float: left; width: 150px;">
+                    <div style="float: left; width: 300px;">
                         <span>House/Flat No:</span>
                     </div>
-                    <asp:TextBox ID="tbAddressNo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAddressNo" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">
                         <span>Address:</span>
                     </div>
-                    <asp:TextBox ID="tbAddress1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAddress1" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">&nbsp;
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">&nbsp;
                     </div>
-                    <asp:TextBox ID="tbAddress2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAddress2" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">&nbsp;
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">&nbsp;
                     </div>
-                    <asp:TextBox ID="tbAddress3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAddress3" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">&nbsp;
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">&nbsp;
                     </div>
-                    <asp:TextBox ID="tbAddress4" runat="server"></asp:TextBox></div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">
+                    <asp:TextBox ID="tbAddress4" runat="server" CssClass="field_txt"></asp:TextBox></div>
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">
                     &nbsp;
                     </div>
-                    <asp:TextBox ID="tbAddress5" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAddress5" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
-                <div class="text_field">
-                    <div style="float: left; width: 150px;">
+                <div class="text_field_dialog">
+                    <div style="float: left; width: 300px;">
                         <span>Postal Code:</span>
                     </div>
-                    <asp:TextBox ID="tbPostalCode" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbPostalCode" runat="server" CssClass="field_txt"></asp:TextBox>
                 </div>
             </div>
         <div class="ft" style="text-align: center">

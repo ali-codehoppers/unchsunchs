@@ -139,13 +139,12 @@
                 <asp:ContentPlaceHolder ID="HeadingPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
                 <asp:Panel runat="server" Visible="false" ID="errorPanel" style="padding:0px 0px 0px 0px">
-                    <div style="background-color: White;">
-                        <div class="error_msg" >
-                            <asp:Label ID="lblError" runat="server" CssClass="error"  Text="" Visible="false"></asp:Label>
-                        
-                        <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label></div>
+                    <div style="background-color:White; float:left;width:100%">
+                        <div class="error_msg">
+                            <asp:Label ID="lblError" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                            <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                        </div>
                     </div>
-                    
                 </asp:Panel>
 
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server" >
