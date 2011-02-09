@@ -50,7 +50,9 @@
 	text-decoration: none; 
 	cursor: pointer; }
 
-.treeview li {  			
+.treeview li 
+{
+			
 }
 .treeview li.collapsable
 {
@@ -106,39 +108,59 @@
 	display: block;
 }
 
-span,a.txt_black:active,  a.txt_black:link, a.txt_black:visited {
+a.txt_black:active, a.txt_black:link,a.txt_black:visited 
+{
+
 	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
 	color: #333;
 	text-decoration: none;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 }
-a.txt_black:hover {
+a.txt_black:hover 
+{
+
 	color: #fead12;
 	text-decoration: none;
 }
 a.txt_select:active,  a.txt_select:link, a.txt_select:visited {
+	
 	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
 	color: #ffa810;
 	text-decoration: none;
 	padding:0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 }
-a.txt_select:hover {
+a.txt_select:hover 
+{
+
 	color: #fead12;
 	text-decoration: none;
 }
-span.txt_black
+span.txt_black, span.txt_black_collapse
 {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	display:inline-block;
 	height: 25px;
-	width:90%;
 	background-image: url('../../Images/left_nav_partition.jpg');
 	background-repeat: no-repeat;
 	background-position: left bottom;
 }
+span.txt_black
+{
+	width:100%;
+	}
+span.txt_black_collapse
+{
+	width:90%;
+}
 .left_nav
 {
+	
 	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
 	color: #000;
 	height: 25px;
@@ -146,7 +168,6 @@ span.txt_black
 	background-repeat: no-repeat;
 	background-position: left bottom;
 }
-
 .selectNodeSelected
 {
 
@@ -154,5 +175,6 @@ span.txt_black
 
 .selectNodeNotSelected
 {
+	
 	padding-right:5px;	
 }

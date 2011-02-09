@@ -9,34 +9,38 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-<div style="float: left;">
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
-    </div>
-    <div style="float: left; width: 96.05%;">
-        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
-            height="20" />
-    </div>
-    <div>
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
-    </div>
-    <div style="background-color: White; border-top: 1px solid white">
-        <div style="margin: auto; width: 98%">
-            <div style="float: left">
-                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
-            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                Add/Amend H&amp;S Folder - Risk Assessments
-            </div>
-            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+     <div style="float:left; width:100%;">   
+        <div style="float: left;">
+            <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+        </div>
+        <div style="float: left; width: 96.1%;">
+            <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+                height="20" />
+        </div>
+        <div>
+            <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
 
+     <div style="float:left; width:99.99%">
+        <div style="background-color: White; border-top: 1px solid white;">
+            <div style="margin: auto; width: 97.6%; ">
+                <div style="float: left">
+                    <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+                <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
+                     Add/Amend H&amp;S Folder - Risk Assessments
+                </div>
+                <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+            </div>
+        </div>
+     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
 <uc1:TabControl ID="TabControl1" runat="server" Selected="Risks" />
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">  
-<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:255px;">  
+<div style="background-color: White; padding: 15px 10px 25px 10px; min-height:255px;float:left; width:97.65%">  
     <uc2:OrderDocControl id="OrderDocControl1" runat="server" DocTypeName="Risk Assessments">
     
     </uc2:OrderDocControl>

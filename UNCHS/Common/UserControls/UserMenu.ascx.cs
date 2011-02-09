@@ -12,11 +12,25 @@ using System.Web.UI.HtmlControls;
 public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
 {
     private String urlString;
+    private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx", "AddOrderHazard.aspx", "AddOrderSeqOfWoks.aspx", "AddOrderTool.aspx", "AddOrderPPE.aspx", "AddOrderEmergencyExits.aspx", "AddOrderRequirements.aspx", "AddOrderKeyAspects.aspx", "AddOrderRiskAssessments.aspx", "AddOrderDocuments.aspx", "OrderLog.aspx" };
+    private String[] section = { "SectionList.aspx","SectionDetailList.aspx" };
+    private String[] document = { "DocumentList.aspx", "DocumentItemList.aspx" };    
     protected void Page_Load(object sender, EventArgs e)
     {
         urlString = Request.Url.ToString();
         HomeNode.CssClass = SelectClass("UserHome.aspx", HomeNodeImage);
-        CreateNode.CssClass = SelectClass("AddOrder.aspx", CreateNodeImage);
+        foreach (String n in order)
+        {
+            if (urlString.Contains(n))
+            {
+                CreateNode.CssClass = SelectClass(n, CreateNodeImage);
+                break;
+            }
+            else {
+                CreateNode.CssClass = SelectClass(n, CreateNodeImage);
+            }
+        }
+        
         SearchNode.CssClass = SelectClass("SearchOrder.aspx", SearchNodeImage);
         UploadNode.CssClass = SelectClass("UploadOrder.aspx", UploadNodeImage);
         SignageNode.CssClass = SelectClass("GenerateSignage.aspx", SignageNodeImage);
@@ -38,8 +52,31 @@ public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
         AspectNode.CssClass = SelectClass("DepartmentAspectCategoryList.aspx",AspectNodeImage);
         AspectListNode.CssClass = SelectClass("DepartmentAspectList.aspx",AspectListNodeImage);
         DocumentNode.CssClass = SelectClass("DocumentCategoryList.aspx",DocumentNodeImage);
-        SectionNode.CssClass = SelectClass("SectionList.aspx",SectionNodeImage);
-        DocumentListNode.CssClass = SelectClass("DocumentList.aspx",DocumentListNodeImage);
+        foreach (String n in section)
+        {
+            if (urlString.Contains(n))
+            {
+                SectionNode.CssClass = SelectClass(n, SectionNodeImage);
+                break;
+            }
+            else
+            {
+                SectionNode.CssClass = SelectClass(n, SectionNodeImage);
+            }
+        }
+        foreach (String n in document)
+        {
+            if (urlString.Contains(n))
+            {
+                DocumentListNode.CssClass = SelectClass(n, DocumentListNodeImage);
+                break;
+            }
+            else
+            {
+                DocumentListNode.CssClass = SelectClass(n, DocumentListNodeImage);
+            }
+        }
+
         GuideNode.CssClass = SelectClass("help.pdf", GuideNodeImage);
     }
     public String SelectClass(String Page , Image Node)

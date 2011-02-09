@@ -82,12 +82,13 @@
         
     </div>
     <div class="grid">
-        <asp:GridView ID="gvSecDetails" runat="server" AutoGenerateColumns="False" CssClass="grid_table"
-            DataKeyNames="section_detail_id" DataSourceID="odsSecDetails" PageSize="50" AllowPaging="True" AllowSorting="True" OnRowUpdating="gvSecDetails_RowUpdating">
+        <asp:GridView ID="gvSecDetails" runat="server" AutoGenerateColumns="False" CssClass="table_header_result"
+            DataKeyNames="section_detail_id" DataSourceID="odsSecDetails" PageSize="50" AllowPaging="True" 
+            AllowSorting="True" OnRowUpdating="gvSecDetails_RowUpdating" style="width:100%">
             <PagerStyle CssClass="grid_pager" />
             <FooterStyle CssClass="grid_footer" />
             <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="grid_header" />
+            <HeaderStyle CssClass="table_header" />
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />
             <Columns>
@@ -95,11 +96,11 @@
                     <HeaderStyle Width="50px" />
                     <ItemTemplate>                                        
                         <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Edit"
-                            ImageUrl="~/Images/edit.png" AlternateText="Edit" ></asp:ImageButton>
+                            ImageUrl="~/Images/icon_edit.png" AlternateText="Edit" ></asp:ImageButton>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Update"
-                            ImageUrl="~/Images/edit.png" AlternateText="Update" ValidationGroup="Update"></asp:ImageButton>                    
+                            ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Update"></asp:ImageButton>                    
                     </EditItemTemplate>              
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>            
@@ -107,11 +108,11 @@
                     <HeaderStyle Width="50px" />
                     <EditItemTemplate>
                         <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
-                            ImageUrl="~/Images/delete.png" AlternateText="Cancel" ></asp:ImageButton>                    
+                            ImageUrl="~/Images/Icon_cancel.png" AlternateText="Cancel" ></asp:ImageButton>                    
                     </EditItemTemplate>
                     <ItemTemplate>                                        
                         <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"
-                            ImageUrl="~/Images/delete.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"></asp:ImageButton>
+                            ImageUrl="~/Images/icon_cancel.png" AlternateText="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"></asp:ImageButton>
                     </ItemTemplate>         
                     <ItemStyle HorizontalAlign="Center" />     
                 </asp:TemplateField>                        

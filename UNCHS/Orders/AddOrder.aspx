@@ -2,15 +2,23 @@
     CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
-<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %> 
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %> 
+<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
+<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
-
     <style type="text/css">
+        .text_field_dialog span
+        {
+            width: 300px;
+            height: 100%;
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: bold;
+            font-size: 12px;
+        }
         .text_field span
         {
-            width: 340px;
+            width: 400px;
             height: 100%;
             display: inline-block;
             padding-bottom: 8px;
@@ -19,28 +27,28 @@
         }
         .field span
         {
-            width: 340px;
+            width: 400px;
             display: inline-block;
             padding-bottom: 10px;
             font-weight: bold;
         }
         .ddl_field span
         {
-            width: 340px;
+            width: 400px;
             display: inline-block;
             padding-bottom: 10px;
             font-weight: bold;
         }
     </style>
     <script type="text/javascript">
-        
+
         var copyDialog;
         function showCopyDialog() {
 
             document.getElementById('copyDialog').style.display = 'block';
             copyDialog.show();
         }
-        
+
         function renderDialog() {
             copyDialog = new YAHOO.widget.Dialog("copyDialog",
 							    { width: "650px",
@@ -59,55 +67,62 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="float: left;">
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
-    </div>
-    <div style="float: left; width: 96.05%;">
-        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
-            height="20" />
-    </div>
-    <div>
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
-    </div>
-    <div style="background-color: White; border-top: 1px solid white">
-        <div style="margin: auto; width: 98%">
-            <div style="float: left">
-                <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
-            <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                Add/Amend H&amp;S Folder
-            </div>
-            <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+
+     <div style="float:left; width:100%;">   
+        <div style="float: left;">
+            <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+        </div>
+        <div style="float: left; width: 96.1%;">
+            <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
+                height="20" />
+        </div>
+        <div>
+            <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
+
+     <div style="float:left; width:99.99%">
+        <div style="background-color: White; border-top: 1px solid white;">
+            <div style="margin: auto; width: 97.6%; ">
+                <div style="float: left">
+                    <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
+                <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
+                    Add/Amend H&amp;S Folder
+                </div>
+                <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
+            </div>
+        </div>
+     </div>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"></uc1:TabControl>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div id="copyDialog" style="display:none">
+    <div id="copyDialog" style="display: none;">
         <div class="hd">
             Enter the Address for new folder:</div>
         <div class="bd">
-            <div class="text_field">
+            <div class="text_field_dialog">
                 <asp:HiddenField ID="HiddenField1" runat="server" />
-                <span>House/Flat No:</span><asp:TextBox ID="tbPopupFlat" runat="server"></asp:TextBox>
+                <span>House/Flat No:</span><asp:TextBox ID="tbPopupFlat" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field">
-                <span>Address:</span><asp:TextBox ID="tbPopupAddress1" runat="server"></asp:TextBox>
+            <div class="text_field_dialog">
+                <span>Address:</span><asp:TextBox ID="tbPopupAddress1" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field" style="padding-left: 340px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress2" runat="server"></asp:TextBox>
+            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+                <asp:TextBox ID="tbPopupAddress2" runat="server"  CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field" style="padding-left: 340px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress3" runat="server"></asp:TextBox>
+            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+                <asp:TextBox ID="tbPopupAddress3" runat="server"  CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field" style="padding-left: 340px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress4" runat="server"></asp:TextBox></div>
-            <div class="text_field" style="padding-left: 340px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress5" runat="server"></asp:TextBox>
+            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+                <asp:TextBox ID="tbPopupAddress4" runat="server"  CssClass="field_txt"></asp:TextBox></div>
+            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+                <asp:TextBox ID="tbPopupAddress5" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field">
-                <span>Postal Code:</span><asp:TextBox ID="tbPopupPostCode" runat="server"></asp:TextBox>
+            <div class="text_field_dialog">
+                <span>Postal Code:</span><asp:TextBox ID="tbPopupPostCode" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
         </div>
         <div class="ft" style="text-align: center">
@@ -121,7 +136,7 @@
             <div style="float: left">
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
-            <div style="float: left; padding-left:10px;">
+            <div style="float: left; padding-left: 10px;">
                 <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
@@ -131,10 +146,11 @@
             <div style="float: left">
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
-            <div style="clear:both"></div>
+            <div style="clear: both">
+            </div>
         </div>
     </div>
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="float:left;width:97.65%;background-color: White; padding: 15px 10px 25px 10px;">
         <div class="text_field">
             <asp:HiddenField ID="hfSourceOrderId" runat="server" />
             <asp:Label ID="lblDepartment" runat="server" Text="Department:"></asp:Label><asp:DropDownList
@@ -171,7 +187,9 @@
         <div class="field">
             <span>Review Date:</span><asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true"
                 OnCheckedChanged="cbReview_CheckedChanged" /><asp:Calendar CssClass="field_txt_small"
-                    ID="dtReview" runat="server" DisplayMode="AutoPopup" Enabled="false" DateFormat="dd/MM/yyyy"></asp:Calendar></div>
+                     ID="dtReview" runat="server" DisplayMode="AutoPopup" Enabled="false"
+                    DateFormat="dd/MM/yyyy"></asp:Calendar>
+        </div>
         <div class="field" style="display: none;">
             <span>Document to Client:</span><asp:CheckBox ID="cbDocClient" runat="server" /></div>
         <div class="text_field" style="padding-bottom: 5px">
@@ -190,13 +208,13 @@
             <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field">
             <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 340px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
             <asp:TextBox ID="tbAddress2" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 340px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
             <asp:TextBox ID="tbAddress3" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 340px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
             <asp:TextBox ID="tbAddress4" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 340px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
             <asp:TextBox ID="tbAddress5" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field">
             <span>Post Code:</span><asp:TextBox ID="tbPostalCode" CssClass="field_txt" runat="server"></asp:TextBox></div>
@@ -292,11 +310,11 @@
             <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
         </div>
     </div>
-    <div style="float: left; width: 100%">
+    <div style="float: left; width: 100%; ">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div style="background-color: White; float: left; height: 14px; width: 96.35%;">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

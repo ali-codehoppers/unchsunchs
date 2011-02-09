@@ -59,7 +59,7 @@ Add/Edit Company
      
      <div class="field">
         <asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;<asp:Calendar ID="tbTrialStartDate" runat="server" Enabled="false" DisplayMode="AutoPopup" OnTextChanged="tbTrialStartDate_Changed" AutoPostBack="true"></asp:Calendar>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;<ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false" DisplayMode="AutoPopup" OnTextChanged="tbTrialStartDate_Changed" AutoPostBack="true"></ww:jQueryDatePicker>
         &nbsp;Days:&nbsp;<ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false" OnTextChanged="tbTrialNumOfDays_Changed" AutoPostBack="true"></ew:NumericBox>
         &nbsp;Finish Date:&nbsp;<asp:TextBox ID="tbTrialFinishDate" runat="server" Enabled="false" Width="77px" ></asp:TextBox>
      </div>
