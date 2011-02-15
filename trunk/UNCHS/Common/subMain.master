@@ -4,8 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
     <link rel="stylesheet" type="text/css" href='<%=this.ResolveClientUrl("~/Common/StyleSheets/newstylesheet.css")%>' />
     <title>Simplicity Health & Safety Live</title>
+    <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico"/>
     <!--YUI -->
     <!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
@@ -78,7 +81,7 @@
                     </div>
                     <div style="float:right;padding-right: 10px;">
                         <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
-                            ImageUrl="~/Images/back_home.png" Height="27" />
+                            ImageUrl="~/Images/back_home.jpg" Height="27" />
                     </div>
                     <div style="float:right;padding-top: 10px;">
                         <div>

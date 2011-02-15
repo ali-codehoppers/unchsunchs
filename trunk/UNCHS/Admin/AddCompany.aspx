@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true" CodeFile="AddCompany.aspx.cs" Inherits="Admin_AddCompany" Title="Simplicity4Business" %>
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
+
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <style type="text/css">
@@ -59,7 +59,9 @@ Add/Edit Company
      
      <div class="field">
         <asp:CheckBox ID="cbTrial" runat="server" Text="Trial?" AutoPostBack="true" oncheckedchanged="cbTrial_CheckedChanged"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;<ww:jQueryDatePicker ID="tbTrialStartDate" runat="server" Enabled="false" DisplayMode="AutoPopup" OnTextChanged="tbTrialStartDate_Changed" AutoPostBack="true"></ww:jQueryDatePicker>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;
+        <asp:Calendar ID="tbTrialStartDate" runat="server"></asp:Calendar>
+        
         &nbsp;Days:&nbsp;<ew:NumericBox ID="tbTrialNumOfDays" runat="server" Width="22px" MaxLength="3" Enabled="false" OnTextChanged="tbTrialNumOfDays_Changed" AutoPostBack="true"></ew:NumericBox>
         &nbsp;Finish Date:&nbsp;<asp:TextBox ID="tbTrialFinishDate" runat="server" Enabled="false" Width="77px" ></asp:TextBox>
      </div>

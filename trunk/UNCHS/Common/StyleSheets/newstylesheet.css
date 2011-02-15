@@ -178,8 +178,9 @@ A.txt_yellow:active, A.txt_yellow:link, A.txt_yellow:visited
 .dropdown_txt {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
-	height:20px;
-	width:150px;
+	height: 20px;
+	border:1px solid #cbcbcb;
+	width:305px;
 }
 .field_txt {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -365,4 +366,12 @@ border: none;
 .removeStyle
 {
 	text-decoration:none;	
+}
+.trial_txt
+{
+	margin: 2px;
+	padding: 2px;
+	border: thin solid #FFCC00;
+	font: normal 13px 'Lucida Sans Unicode' , 'Lucida Grande' , sans-serif;
+	color: #333;
 }

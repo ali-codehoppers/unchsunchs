@@ -18,6 +18,7 @@ public partial class Orders_AddOrder : DepartmentPage
     
     protected override void  Department_Page_Handling(object sender, EventArgs e)
     {
+
           
         if (Request[WebConstants.Request.DEPT_ORDER_ID] != null)
         {
@@ -34,21 +35,22 @@ public partial class Orders_AddOrder : DepartmentPage
                         tbOrderClientRef.Text = dataRow.order_client_ref;
                     if (dataRow.order_sms != WebConstants.Default.NOT_SET)
                         tbOrderSMS.Text = dataRow.order_sms;
-                    dtCreated.SelectedDate = dataRow.date_order_created;
+                    dtCreated.Text = dataRow.date_order_created.ToShortDateString();
                     tbEstWork.Text = dataRow.order_est_of_works.ToString();
                     if (dataRow.Isest_num_of_operativesNull() == false)
                         tbEstNumOperatives.Text = dataRow.est_num_of_operatives.ToString();
-
+                    
                     if (dataRow.Isdate_order_reviewNull())
                     {
+                        
                         cbReview.Checked = false;
-                        dtReview.Enabled = false;
+                        tbReviewDate.Enabled = false;
                     }
                     else
                     {
                         cbReview.Checked = true;
-                        dtReview.Enabled = true;
-                        dtReview.SelectedDate = dataRow.date_order_review;
+                        tbReviewDate.Enabled = true;
+                        tbReviewDate.Text = dataRow.date_order_review.ToShortDateString();
                     }
                     if (dataRow.Isflg_order_doc_to_clientNull() == false)
                     {
@@ -134,7 +136,7 @@ public partial class Orders_AddOrder : DepartmentPage
         dtCreated.Enabled = enable;
         tbEstWork.Enabled = enable;
         cbReview.Enabled = enable;
-        dtReview.Enabled = enable;
+        tbReviewDate.Enabled = enable;
         cbDocClient.Enabled = enable;
         tbAddressNo.Enabled = enable;
         tbAddress1.Enabled = enable;
@@ -157,7 +159,7 @@ public partial class Orders_AddOrder : DepartmentPage
     }
     protected void cbReview_CheckedChanged(object sender, EventArgs e)
     {
-        dtReview.Enabled = cbReview.Checked;
+        tbReviewDate.Enabled = cbReview.Checked;
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -239,7 +241,7 @@ public partial class Orders_AddOrder : DepartmentPage
         {
             try
             {
-                reviewDate = dtReview.SelectedDate;
+                reviewDate = DateTime.Parse(tbReviewDate.Text);
                 //IFormatProvider provider = new System.Globalization.CultureInfo("en-CA", true);
                 //String datetime = dtReview.SelectedDate.ToString();
                 //reviewDate = DateTime.Parse(datetime, provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault);
@@ -258,7 +260,7 @@ public partial class Orders_AddOrder : DepartmentPage
         Nullable<DateTime> createdDate = DateTime.Now;
         try
         {
-            createdDate = dtCreated.SelectedDate;
+            createdDate = DateTime.Parse(tbReviewDate.Text);
             //IFormatProvider provider = new System.Globalization.CultureInfo("en-CA", true);
             //String datetime = dtCreated.SelectedDate.ToString();
             //createdDate = DateTime.Parse(datetime, provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault);

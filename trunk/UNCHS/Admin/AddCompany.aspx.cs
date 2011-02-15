@@ -163,7 +163,7 @@ public partial class Admin_AddCompany : AdminPage
     }
     private DateTime GetTrialEndDate()
     {
-        return Utility.GetTrialEndDate(tbTrialStartDate.SelectedDate.Value,int.Parse(tbTrialNumOfDays.Text));
+        return Utility.GetTrialEndDate(tbTrialStartDate.SelectedDate,int.Parse(tbTrialNumOfDays.Text));
     }
     protected void cbTrial_CheckedChanged(object sender, EventArgs e)
     {
@@ -195,7 +195,7 @@ public partial class Admin_AddCompany : AdminPage
         {
             tbTrialFinishDate.Text = "";
             tbTrialNumOfDays.Text = "";
-            tbTrialStartDate.Text = "";
+            //tbTrialStartDate.Text = "";
         }
     }
 
