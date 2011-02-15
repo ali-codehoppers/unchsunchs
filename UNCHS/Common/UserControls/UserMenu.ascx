@@ -3,7 +3,7 @@
     MAIN NAVIGATION
 </div>
 <div style="background-color: White; width: 252px;">
-    <ul id="red" class="treeview-red" style="width:100%">
+    <ul id="red" class="treeview-red" style="width:100%;min-height:330px">
         <li id="red-home" style="width:100%">
             <span class="txt_black" style="width:100%">
                 <asp:Image runat="server" ID="HomeNodeImage" ImageUrl="~/Images/arrow_left.jpg"/>

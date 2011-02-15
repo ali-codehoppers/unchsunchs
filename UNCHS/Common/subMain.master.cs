@@ -23,7 +23,7 @@ public partial class Common_subMain : System.Web.UI.MasterPage
             SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
         BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
-        //Logginuser.Text = Session["userName"].ToString();
+        Logginuser.Text = Session["userName"].ToString();
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
