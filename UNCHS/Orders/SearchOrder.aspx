@@ -1,8 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="SearchOrder.aspx.cs" Inherits="Orders_SearchOrder" Title="Simplicity4Business"
     EnableEventValidation="true" %>
-
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
 
     <style type="text/css">
@@ -190,11 +188,14 @@
         <div style="width: 200px; float: left">
             <span style="width: 100px;"><strong>Order Date:</strong></span>
         </div>
-        <span class="label" style="width: 40px;">From:
-        </span>
-        &nbsp;<asp:Calendar ID="tbDateFrom" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
-        <span class="label"  style="width: 25px;">To:</span>
-        <asp:Calendar ID="tbToDate" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
+        <div style="float:left; ">
+            <span class="label" style="width: 40px;padding-right:10px; padding-top:5px;float:left">From:</span>
+        <asp:TextBox runat="server" ID="tbDateFrom" CssClass="field_txt_small"></asp:TextBox>   
+        </div>
+        <div>
+        <span class="label"  style="width: 25px;padding-right:10px; padding-left:10px;padding-top:5px;float:left">To:</span>
+        <asp:TextBox runat="server" ID="tbToDate" CssClass="field_txt_small"></asp:TextBox>   
+        </div>
     </div>
     <div class="field" style="display: none;">
         <div style="width: 200px; float: left">
@@ -230,9 +231,9 @@
             <asp:ControlParameter ControlID="tbOrderRef" Name="ord_ref" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="tbClientRef" Name="client_ref" PropertyName="Text"
                 Type="String" DefaultValue="" />
-            <asp:ControlParameter ControlID="tbDateFrom" DefaultValue="" Name="from_date" 
-                Type="String" />
-            <asp:ControlParameter ControlID="tbToDate" Name="to_date"  Type="String" />
+            <asp:ControlParameter ControlID="tbDateFrom" DefaultValue="" Name="from_date" PropertyName="Text"
+                />
+            <asp:ControlParameter ControlID="tbToDate" Name="to_date" PropertyName="Text"  Type="String" />
             <asp:ControlParameter ControlID="tbPostCode" Name="postal_code" PropertyName="Text"
                 Type="String" />
         </SelectParameters>
@@ -362,4 +363,11 @@
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
     </div>
+        <script type="text/javascript">
+
+            $(function () {
+                $('#<%=tbDateFrom.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+                $('#<%=tbToDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+            });
+    </script>
 </asp:Content>

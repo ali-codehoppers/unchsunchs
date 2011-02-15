@@ -25,11 +25,11 @@ public partial class Orders_AddOrderDocuments : OrderDetailPage
 
                     if (!order.Isdate_sent_to_clientNull())
                     {
-                        dtClient.SelectedDate = order.date_sent_to_client;
+                        dtClient.Text = order.date_sent_to_client.ToShortDateString();
                     }
                     else
                     {
-                        dtClient.SelectedDate = DateTime.Now;
+                        dtClient.Text = DateTime.Now.ToShortDateString();
                     }
                     if (!order.Isflg_asbestos_registerNull())
                     {
@@ -147,7 +147,7 @@ public partial class Orders_AddOrderDocuments : OrderDetailPage
         else
         {
             DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter ta = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-            ta.UpdateOrderDetails(null, dtClient.SelectedDate, cbRegister.Checked, cbClosed.Checked, null, loggedInUserId, int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]));
+            ta.UpdateOrderDetails(null, DateTime.Parse(dtClient.Text), cbRegister.Checked, cbClosed.Checked, null, loggedInUserId, int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]));
             FolderGenerator folderGenerator = new FolderGenerator(docTypes);
             if (folderGenerator.Generate())
             {

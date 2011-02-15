@@ -4,6 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Login</title>
+    <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico"/>
     <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/newstylesheet.css" />
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/fonts/fonts-min.css" />
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/container/assets/skins/sam/container.css" />

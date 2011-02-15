@@ -3,7 +3,6 @@
 
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
@@ -105,8 +104,10 @@
                     Checked='true'></asp:CheckBox></strong></div>
         <hr />
         <div class="field">
+            <div style="float:left; padding-right:10px; padding-top:5px">
             <strong>Date Sent to Client:</strong>
-            <asp:Calendar ID="dtClient" runat="server" DisplayMode="AutoPopup" CssClass="field_txt_small"></asp:Calendar>
+            </div>
+                    <asp:TextBox runat="server" ID="dtClient" CssClass="field_txt_small"></asp:TextBox>   
         </div>
         <div class="field">
             <strong>
@@ -146,4 +147,9 @@
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
     </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#<%=dtClient.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+            });
+    </script>
 </asp:Content>

@@ -3,7 +3,6 @@
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
-<%@ Register Assembly="jQueryDatePicker" Namespace="Westwind.Web.Controls" TagPrefix="ww" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <style type="text/css">
@@ -166,14 +165,18 @@
         <div class="text_field">
             <span>SMS Ref:</span><asp:TextBox ID="tbOrderSMS" runat="server" CssClass="field_txt"
                 Enabled="false"></asp:TextBox></div>
-        <div class="field">
-            <span>Date Created:</span>
-            <asp:Calendar ID="dtCreated" runat="server" CssClass="field_txt_small"
-                DisplayMode="AutoPopup" DateFormat="dd/MM/yyyy"></asp:Calendar>
+        <div class="text_field" >
+            <div style="float:left">
+                <span>Date Created:</span>
+            </div>
+            <div>
+                <asp:TextBox runat="server" ID="dtCreated" CssClass="field_txt"></asp:TextBox>    
+            </div>
         </div>
         <div class="text_field">
             <span>Estimated Duration of Work (days):</span><ew:NumericBox ID="tbEstWork" runat="server"
-                CssClass="field_txt"></ew:NumericBox></div>
+                CssClass="field_txt"></ew:NumericBox>
+        </div>
         <div class="ddl_field">
             <span>Risk Rating:</span><asp:DropDownList ID="ddlRiskTaking" runat="server" CssClass="dropdown_txt">
                 <asp:ListItem Value="Low" Text="Low"></asp:ListItem>
@@ -185,10 +188,12 @@
             <span>Estimated number of Operatives on Site(at any one time):</span><ew:NumericBox
                 ID="tbEstNumOperatives" CssClass="field_txt" runat="server"></ew:NumericBox></div>
         <div class="field">
-            <span>Review Date:</span><asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true"
-                OnCheckedChanged="cbReview_CheckedChanged" /><asp:Calendar CssClass="field_txt_small"
-                     ID="dtReview" runat="server" DisplayMode="AutoPopup" Enabled="false"
-                    DateFormat="dd/MM/yyyy"></asp:Calendar>
+            <div style="float:left">
+            <span>Review Date:</span>
+            </div>
+            <asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true"
+                OnCheckedChanged="cbReview_CheckedChanged" style="width:5%;float:left"/>
+            <asp:TextBox runat="server" ID="tbReviewDate" CssClass="field_txt" style="width:260px;"></asp:TextBox>    
         </div>
         <div class="field" style="display: none;">
             <span>Document to Client:</span><asp:CheckBox ID="cbDocClient" runat="server" /></div>
@@ -321,5 +326,9 @@
     </div>
     <script type="text/javascript">
         document.getElementById("ctl00_ContentPlaceHolder_tbOrderSMS").disabled = true;
+        $(function () {
+            $('#<%=tbReviewDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+            $('#<%=dtCreated.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+        });
     </script>
 </asp:Content>
