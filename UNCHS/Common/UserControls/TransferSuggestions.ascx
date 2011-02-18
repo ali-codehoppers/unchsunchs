@@ -5,13 +5,13 @@
                 <legend><%=EntityName%> List</legend>
                 <div class="ddl_field">
                     <span>Company:</span>
-                    <asp:DropDownList ID="ddlCompany1" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short" 
+                    <asp:DropDownList ID="ddlCompany1" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short" CssClass="dropdown_txt"
                         DataValueField="co_id" AutoPostBack="true">
                     </asp:DropDownList>
                 </div>
                 <div class="ddl_field">
                     <span>Department:</span>
-                    <asp:DropDownList ID="ddlDepartment1" runat="server" 
+                    <asp:DropDownList ID="ddlDepartment1" runat="server" CssClass="dropdown_txt"
                         DataSourceID="odsDeparment1" DataTextField="co_name_short" 
                         DataValueField="dept_id" AutoPostBack="True"  >
                     </asp:DropDownList>
@@ -62,12 +62,12 @@
                 <div class="ddl_field">
                     <span>Company:</span>
                     <asp:DropDownList ID="ddlCompany2" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short" 
-                        DataValueField="co_id" AutoPostBack="true">
+                        DataValueField="co_id" AutoPostBack="true" CssClass="dropdown_txt">
                     </asp:DropDownList>
                 </div>                
                 <div class="ddl_field">
                     <span>Department:</span>
-                    <asp:DropDownList ID="ddlDepartment2" runat="server" 
+                    <asp:DropDownList ID="ddlDepartment2" runat="server"  CssClass="dropdown_txt"
                         DataSourceID="odsDeparment2" DataTextField="co_name_short" 
                         DataValueField="dept_id" AutoPostBack="True"  >
                     </asp:DropDownList>

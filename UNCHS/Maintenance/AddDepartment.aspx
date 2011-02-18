@@ -39,7 +39,7 @@
     <div style="background-color: White; padding: 15px 10px 25px 10px">
         <div class="ddl_field" style="padding-bottom:5px;">
             <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
-            <asp:DropDownList ID="ddlCompany" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short"
+            <asp:DropDownList ID="ddlCompany" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short"  CssClass="dropdown_txt"
                 DataValueField="co_id">
             </asp:DropDownList>
         </div>
@@ -126,11 +126,13 @@
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                 <asp:LinkButton ID="btnSave" runat="server" CssClass="txt_white" OnClick="btnSave_Click" >Save</asp:LinkButton>
+                <asp:LinkButton ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update"  CssClass="txt_white"></asp:LinkButton>
             </div>
             
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             
-            <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" /></div>
+            
+         </div>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}"
             SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">

@@ -23,7 +23,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div class="ddl_field">
-        <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList
+        <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList CssClass="dropdown_txt" 
             ID="ddlCompanies" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short"
             AutoPostBack="true" DataValueField="co_id" OnDataBound="ddlCompanies_DataBound"
             OnSelectedIndexChanged="ddlCompanies_SelectedIndexChanged">

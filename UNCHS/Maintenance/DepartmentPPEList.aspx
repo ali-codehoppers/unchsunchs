@@ -76,6 +76,8 @@
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                 <asp:LinkButton ID="btnAdd" runat="server" CssClass="txt_white" OnClick="btnAdd_Click" ValidationGroup="Top" >Add PPE</asp:LinkButton>
+                <asp:LinkButton ID="btnUpate" runat="server" CssClass="txt_white" OnClick="btnUpate_Click" Text="Update PPE"
+            Visible="False" ValidationGroup="Top" ></asp:LinkButton>
             </div>
             <div style="float: left">
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
@@ -90,8 +92,7 @@
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
 
         
-        <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update PPE"
-            Visible="False" ValidationGroup="Top" />
+        
         
         <asp:HiddenField ID="hfDeptPersonId" runat="server" />
     </div> 

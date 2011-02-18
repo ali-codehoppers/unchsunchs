@@ -172,8 +172,8 @@
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    <a class="txt_white" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;"
-                    href="">Key Hazards List</a>
+                    <asp:LinkButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard"
+                      Style="margin-right: 10px; margin-left: 5px" CssClass="txt_white" >Add Hazard</asp:LinkButton>
                 </div>
                 <div style="float: left">
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
@@ -183,8 +183,9 @@
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                     
-                <asp:LinkButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard"
-                      Style="margin-right: 10px; margin-left: 5px" CssClass="txt_white" >Add Hazard</asp:LinkButton>
+                
+                      <a class="txt_white" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;"
+                    href="">Key Hazards List</a>
                 </div>
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
                 

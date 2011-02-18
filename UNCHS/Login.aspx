@@ -27,7 +27,7 @@
     <div id="maindiv">
         <div id="leftdiv">
             <div class="logodiv">
-                <img src="Images/login_logo.jpg" alt="" />
+                <img src="Images/newlogo.jpg" alt="" />
             </div>
             <asp:Panel runat="server" ID="errorPanel" Visible="false">
                 <div class="login_error">

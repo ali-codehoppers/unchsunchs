@@ -74,6 +74,8 @@ public partial class Orders_AddOrderDocuments : OrderDetailPage
     private void GenerateFolder()
     {
         hlDoc.Visible = false;
+        Image4.Visible = false;
+        Image5.Visible = false;
         List<DocumentType> docTypes = new List<DocumentType>();
         for (int i=0;i<rptDocTypes.Items.Count;i++)
         {
@@ -156,6 +158,8 @@ public partial class Orders_AddOrderDocuments : OrderDetailPage
                 logTA.Insert(int.Parse(Request[WebConstants.Request.DEPT_ORDER_ID]), loggedInUserCoId, (int)Session[WebConstants.Session.DEPT_ID], loggedInUserId, DateTime.Now, completePath, false);
                 ClientScript.RegisterStartupScript(this.GetType(), "redirect", "window.open(\"../Folders/" + folderGenerator.fileName + "\");",true);
                 hlDoc.Visible = true;
+                Image4.Visible = true;
+                Image5.Visible = true;
                 hlDoc.NavigateUrl = completePath;
             }
             else

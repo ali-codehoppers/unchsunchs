@@ -347,14 +347,15 @@ background-position: 0% -30px;
 button::-moz-focus-inner {
 border: none;
 }
-.table_header, tr.table_header th a:link, tr.table_header th a:active, tr.table_header th a:visited{
-	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+.table_header, tr.table_header th a:link, tr.table_header th a:active, tr.table_header th a:visited
+{
+	font: normal 12px 'Lucida Sans Unicode' , 'Lucida Grande' , sans-serif;
 	color: #fff;
-	height:27px;
-	text-decoration:none;
-	font-weight:bold;
-	background: url(../../images/ta_header.jpg) 0 center repeat-x;
-	padding:0px 3px 0px 3px;
+	height: 25px;
+	text-decoration: none;
+	font-weight: bold;
+	background: url(../../images/ta_header.jpg) repeat-x 0 center;
+	padding: 0px 3px 0px 3px;
 }
 .table_header_result {
 	font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -362,6 +363,16 @@ border: none;
 	height:27px;
 	border-right:1px dotted #cbcbcb;
 	border-bottom:1px dotted #cbcbcb;
+}
+.table_header_search, tr.table_header_search th a:link, tr.table_header_search th a:active, tr.table_header_search th a:visited
+{
+	font: normal 12px 'Lucida Sans Unicode' , 'Lucida Grande' , sans-serif;
+	color: #fff;
+	height: 40px;
+	text-decoration: none;
+	font-weight: bold;
+	margin: 0px 5px 0px 5px;
+	background: url(../../images/ta_header_search.jpg) repeat-x 0 center;
 }
 .removeStyle
 {

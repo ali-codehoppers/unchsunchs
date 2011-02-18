@@ -72,7 +72,7 @@ public partial class Maintenance_DepartmentHazardList : DepartmentPage
     }
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Home.aspx");
+        Response.Redirect("~/"+loggedInUserRole + "Home.aspx");
     }
     protected void btnUpate_Click(object sender, EventArgs e)
     {

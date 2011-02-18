@@ -59,7 +59,7 @@
     <div style="float:left; width:200px">
         <span style="font-weight:bold">Hazard:</span>
         </div>
-        <asp:TextBox ID="tbName" runat="server" Rows="3" style="width:200px" CssClass="text_area"
+        <asp:TextBox ID="tbName" runat="server" Rows="3" CssClass="text_area"
             TextMode="MultiLine"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                 runat="server" ErrorMessage="*" CssClass="error" ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator>
 
@@ -77,6 +77,8 @@
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                 <asp:LinkButton ID="btnAdd" runat="server" CssClass="txt_white" OnClick="btnAdd_Click" ValidationGroup="Top" >Add Hazard</asp:LinkButton>
+                <asp:LinkButton ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Hazard"
+                Visible="False" ValidationGroup="Top" CssClass="txt_white" ></asp:LinkButton>
             </div>
             <div style="float: left">
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
@@ -91,8 +93,7 @@
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
 
             
-            <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Hazard"
-                Visible="False" ValidationGroup="Top" />
+            
             
             <asp:HiddenField ID="hfDeptPersonId" runat="server" />
         </div>

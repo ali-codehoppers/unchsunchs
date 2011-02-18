@@ -87,7 +87,7 @@
             <span class="heading"><strong>PPE:</strong></span>
         </div>
         <div class="text_field">
-            <asp:TextBox ID="tbPPE" runat="server" Width="98%"></asp:TextBox>
+            <asp:TextBox ID="tbPPE" runat="server" Rows="5" TextMode="MultiLine" Width="98%"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbPPE"
                 ErrorMessage="*" ValidationGroup="PPE"></asp:RequiredFieldValidator>
         </div>

@@ -123,11 +123,14 @@ public partial class Maintenance_SectionList : DepartmentPage
     {
         if (this.gvSections.EditIndex != -1)
         {
-            DropDownList ddl = this.gvSections.Rows[this.gvSections.EditIndex].FindControl("ddlGridType") as DropDownList;
-            if (ddl != null)
+            if (this.gvSections.Rows.Count > 0)
             {
-                ddl.Items.Clear();
-                ddl.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
+                DropDownList ddl = this.gvSections.Rows[this.gvSections.EditIndex].FindControl("ddlGridType") as DropDownList;
+                if (ddl != null)
+                {
+                    ddl.Items.Clear();
+                    ddl.Items.AddRange(WebConstants.SectionTypes.GetSections(ddlDocType.SelectedItem.Text));
+                }
             }
         }
     }
