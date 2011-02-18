@@ -71,10 +71,22 @@
     
         </script>
         <div class="field">
-            <asp:HyperLink ID="hlDoc" runat="server" Visible="false" Target="_blank">Link to the Document</asp:HyperLink>
+
+            <div style="padding:5px">
+                <div style="float: left">
+                    <asp:Image ID="Image4" runat="server" Visible="false" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                    <asp:HyperLink ID="hlDoc" CssClass="txt_white" runat="server" Visible="false" Target="_blank">Link to the Document</asp:HyperLink>
+                </div>
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" Visible="false"/>
+
+            </div>
+            <div style="clear:both">
+            </div>
         </div>
-        <strong>
-            <div class="field">
+        <div class="field">
+            <strong>
                 <asp:Repeater ID="rptDocTypes" runat="server" DataSourceID="odsDocTypes">
                     <ItemTemplate>
                         <div class="field" style='<%#DataBinder.Eval(Container.DataItem, "style")%>'>
@@ -94,8 +106,8 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
-        </strong>
+            </strong>
+        </div>
         <div class="field">
             &nbsp;</div>
         <div class="field">

@@ -101,7 +101,7 @@
     </div>
     <div class="ddl_field">
         <asp:Label ID="lblCompany" runat="server" Text="Company"></asp:Label>
-        <asp:DropDownList ID="ddlCompanies" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short" DataValueField="co_id" AutoPostBack="True" OnSelectedIndexChanged="ddlCompanies_SelectedIndexChanged">
+        <asp:DropDownList ID="ddlCompanies" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short" DataValueField="co_id" AutoPostBack="True" OnSelectedIndexChanged="ddlCompanies_SelectedIndexChanged"  CssClass="dropdown_txt">
         </asp:DropDownList>
     </div>
     <div class="grid">

@@ -33,10 +33,9 @@
                 Text="Department:">
                
                 </asp:Label></div> 
-                <asp:DropDownList ID="ddlDepartments" runat="server"
-                    AppendDataBoundItems="True" CssClass="ddl_margin" DataSourceID="odsDepartments"
-                    DataTextField="co_name_short" DataValueField="dept_id" OnDataBound="ddlDepartments_DataBound"
-                    Width="155px">
+                <asp:DropDownList ID="ddlDepartments" runat="server"  CssClass="dropdown_txt"
+                    AppendDataBoundItems="True" DataSourceID="odsDepartments"
+                    DataTextField="co_name_short" DataValueField="dept_id" OnDataBound="ddlDepartments_DataBound">
                 </asp:DropDownList>
             &nbsp;
         </div>

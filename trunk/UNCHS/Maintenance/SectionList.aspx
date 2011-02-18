@@ -38,7 +38,7 @@
             </div>
             <asp:DropDownList ID="ddlDepartment" runat="server" OnSelectedIndexChanged="ddlType_SelectedIndexChanged"
                 DataSourceID="odsDepartment" DataTextField="co_name_short" DataValueField="dept_id"
-                CssClass="dropdown_txt" Style="width: 200px;" AutoPostBack="True">
+                CssClass="dropdown_txt" AutoPostBack="True">
             </asp:DropDownList>
         </div>
         <div class="ddl_field">
@@ -47,8 +47,7 @@
             </div>
             <asp:DropDownList ID="ddlDocType" runat="server" DataSourceID="odsDocTypes" DataTextField="doc_data_type_desc"
                 DataValueField="doc_data_type_id" OnSelectedIndexChanged="ddlDocType_SelectedIndexChanged"
-                AutoPostBack="True" OnDataBound="ddlDocType_DataBound" CssClass="dropdown_txt"
-                Style="width: 200px;">
+                AutoPostBack="True" OnDataBound="ddlDocType_DataBound" CssClass="dropdown_txt">
             </asp:DropDownList>
         </div>
         <div class="field" style="padding-top: 5px; padding-bottom: 5px">
@@ -75,8 +74,7 @@
             <div style="float: left; width: 200px;">
                 <span>Section Type:</span>
             </div>
-            <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="TRUE" CssClass="dropdown_txt"
-                Style="width: 200px">
+            <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="TRUE" CssClass="dropdown_txt">
                 <asp:ListItem Value="FREE_TEXT" Text="Free Text"></asp:ListItem>
                 <asp:ListItem Value="MULTIPLE_SELECT_LIST" Text="Multiple Select List"></asp:ListItem>
             </asp:DropDownList>
@@ -131,7 +129,7 @@
                     <asp:TemplateField HeaderText="Section" SortExpression="section_desc">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" TextMode="MultiLine" runat="server" Text='<%# Bind("section_desc") %>'
-                                Width="400px" Rows="3"></asp:TextBox>
+                                Width="200px" Rows="3"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
                                 ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
@@ -151,7 +149,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Section Type" SortExpression="section_type">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlGridType" runat="server" SelectedValue='<%# Bind("section_type") %>'>
+                            <asp:DropDownList ID="ddlGridType" style="width:110px" CssClass="dropdown_txt" runat="server" SelectedValue='<%# Bind("section_type") %>'>
                                 <asp:ListItem Value="FREE_TEXT">Free Text</asp:ListItem>
                                 <asp:ListItem Value="MULTIPLE_SELECT_LIST">Multiple Select List</asp:ListItem>
                             </asp:DropDownList>

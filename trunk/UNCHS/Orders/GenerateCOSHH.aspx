@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server">
     <div class="ddl_field">
         <asp:DropDownList ID="ddlDepartments" runat="server" AutoPostBack="True" 
-            DataSourceID="odsDepartments" DataTextField="co_name_short" 
+            DataSourceID="odsDepartments" DataTextField="co_name_short"  CssClass="dropdown_txt"
             DataValueField="dept_id">
         </asp:DropDownList>
         

@@ -91,13 +91,13 @@
                 Transfer Documents:</div>
             <div class="bd">
                 <div class="ddl_field">
-                    <asp:Label ID="lblTransferCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList
+                    <asp:Label ID="lblTransferCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList  CssClass="dropdown_txt"
                         ID="ddlTransferCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
                         DataValueField="co_id" AutoPostBack="true" OnSelectedIndexChanged="ddlTransferCompany_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
                 <div class="ddl_field" >
-                    <span>Department:</span><asp:DropDownList ID="ddlTransferDeparment" runat="server" 
+                    <span>Department:</span><asp:DropDownList ID="ddlTransferDeparment" runat="server" CssClass="dropdown_txt"
                         DataSourceID="odsTransferDepartments" DataTextField="co_name_short" DataValueField="dept_id">
                     </asp:DropDownList>
                 </div>
@@ -119,8 +119,7 @@
             <div style="float:left; width:200px;">
             <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
             </div>
-            <asp:DropDownList
-                ID="ddlCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
+            <asp:DropDownList CssClass="dropdown_txt" ID="ddlCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
                 DataValueField="co_id" AutoPostBack="true">
             </asp:DropDownList>
         </div>
@@ -128,7 +127,7 @@
             <div style="float:left; width:200px;">
                 <span>Department:</span>
             </div>
-            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment" CssClass="dropdown_txt" style="width:200px;"
+            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment" CssClass="dropdown_txt"
                 DataTextField="co_name_short" DataValueField="dept_id" AutoPostBack="True" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
@@ -136,7 +135,7 @@
             <div style="float:left; width:200px;">
                 <span>Document Type:</span>
             </div>
-            <asp:DropDownList ID="ddlDocTypes" runat="server" DataSourceID="odsDocTypes" CssClass="dropdown_txt" style="width:200px;"
+            <asp:DropDownList ID="ddlDocTypes" runat="server" DataSourceID="odsDocTypes" CssClass="dropdown_txt"
                 DataTextField="doc_data_type_desc" DataValueField="doc_data_type_id" AutoPostBack="True"
                 OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
             </asp:DropDownList>
@@ -145,7 +144,7 @@
             <div style="float:left; width:200px;">
                 <span>Category:</span>
             </div>
-            <asp:DropDownList ID="ddlCategories" runat="server" DataSourceID="odsCategories" CssClass="dropdown_txt" style="width:200px;"
+            <asp:DropDownList ID="ddlCategories" runat="server" DataSourceID="odsCategories" CssClass="dropdown_txt"
                 DataTextField="category_name" DataValueField="category_id">
             </asp:DropDownList>
         </div>
@@ -204,7 +203,7 @@
             
         </div>
         <div class="grid">
-            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result" style="width:100%"
+            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result" style="width:100%; "
                 DataKeyNames="doc_id" DataSourceID="odsDocs" PageSize="50" AllowPaging="True"
                 AllowSorting="True" OnRowUpdating="gvDocs_RowUpdating" OnRowCommand="gvDocs_RowCommand">
                 <Columns>
@@ -217,7 +216,7 @@
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Edit">
-                        <HeaderStyle Width="50px" />
+                        <HeaderStyle Width="40px" />
                         <ItemTemplate>
                             <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Edit"
                                 ImageUrl="~/Images/icon_edit.png" AlternateText="Edit"></asp:ImageButton>
@@ -229,7 +228,7 @@
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Delete">
-                        <HeaderStyle Width="50px" />
+                        <HeaderStyle Width="40px" />
                         <EditItemTemplate>
                             <asp:ImageButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel"
                                 ImageUrl="~/Images/icon_cancel.png" AlternateText="Cancel"></asp:ImageButton>
@@ -243,17 +242,21 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Category" SortExpression="category_name">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="odsCategories" DataTextField="category_name"
+                            
+                            <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="odsCategories" DataTextField="category_name" CssClass="dropdown_txt" style="width:165px;"
                                 DataValueField="category_id" SelectedValue='<%# Bind("category_id") %>'>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("category_name") %>'></asp:Label>
                         </ItemTemplate>
+                        
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Code" SortExpression="doc_code">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbgDocCode" runat="server" Text='<%# Bind("doc_code") %>'></asp:TextBox>
+
+                            <asp:TextBox ID="tbgDocCode" runat="server" Text='<%# Bind("doc_code") %>' style="width:40px;"></asp:TextBox>
+
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbgDocCode" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
@@ -261,19 +264,19 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("doc_code") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Document Name" SortExpression="doc_name">
+                    <asp:TemplateField HeaderText="Document Name" SortExpression="doc_name" >
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbgDocName" runat="server" Text='<%# Bind("doc_name") %>'></asp:TextBox>
+                            <asp:TextBox ID="tbgDocName" runat="server" Text='<%# Bind("doc_name") %>' ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbgDocName" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("doc_name") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("doc_name") %>' ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Document Index" SortExpression="doc_index">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbIndex" runat="server" Text='<%# Bind("doc_index") %>'></asp:TextBox>
+                            <asp:TextBox ID="tbIndex" runat="server" Text='<%# Bind("doc_index") %>'  style="width:105px;"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator111" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbIndex" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
@@ -284,7 +287,7 @@
                     <asp:TemplateField HeaderText="Default" SortExpression="flg_default">
                         <EditItemTemplate>
                             <center>
-                                <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>' />
+                                <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>'  />
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
@@ -296,15 +299,11 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Rel. Doc. Codes" SortExpression="related_doc_codes">
                         <ItemTemplate>
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <td>
-                                    <img alt="Edit" onclick="showEditDialog('<%#"RelatedDocumentList.aspx?" + WebConstants.Request.DEPT_ID + "=" + Eval("dept_id") + "&" + WebConstants.Request.DOC_ID + "=" + Eval("doc_id") + "&" + WebConstants.Request.DOC_TYPE_ID + "=" + Eval("doc_type_id") %>');"
+                              <img style="float:left;" alt="Edit" onclick="showEditDialog('<%#"RelatedDocumentList.aspx?" + WebConstants.Request.DEPT_ID + "=" + Eval("dept_id") + "&" + WebConstants.Request.DOC_ID + "=" + Eval("doc_id") + "&" + WebConstants.Request.DOC_TYPE_ID + "=" + Eval("doc_type_id") %>');"
                                         src="../Images/Btn_edit.gif"></img>
-                                </td>
-                                <td>
-                                    <asp:Label ID="Label33" runat="server" Text='<%# Eval("related_doc_codes") %>'></asp:Label>
-                                </td>
-                            </table>
+                              <div style="float:left;">
+                                <asp:TextBox ID="Label33" runat="server" Text='<%# Eval("related_doc_codes") %>' ReadOnly="true" style="width:60px;" TextMode="MultiLine" ></asp:TextBox>
+                              </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Details">
@@ -316,7 +315,7 @@
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
                 <SelectedRowStyle CssClass="grid_selected_row" />
-                <HeaderStyle CssClass="table_header" />
+                <HeaderStyle CssClass="table_header_search" />
                 <AlternatingRowStyle CssClass="grid_alternating_row" />
                 <RowStyle CssClass="grid_row" />
             </asp:GridView>

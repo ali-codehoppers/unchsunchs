@@ -347,7 +347,7 @@
             <PagerStyle CssClass="grid_pager" />
             <FooterStyle CssClass="grid_footer" />
             <SelectedRowStyle CssClass="grid_selected_row" />
-            <HeaderStyle CssClass="table_header" />
+            <HeaderStyle CssClass="table_header_search" />
             <AlternatingRowStyle CssClass="grid_alternating_row" />
             <RowStyle CssClass="grid_row" />
             <PagerSettings PageButtonCount="100" />

@@ -11,10 +11,10 @@
     <div>
         <asp:CheckBox ID="cbDef" runat="server" Text="Default Values" /><br />
             Document: <asp:DropDownList ID="ddlDocs" runat="server" DataSourceID="odsDocs" DataTextField="doc_name"
-            DataValueField="doc_id" Width="300px">
+            DataValueField="doc_id"  CssClass="dropdown_txt">
         </asp:DropDownList><br />
         Section: <asp:DropDownList ID="ddlSections" runat="server" DataSourceID="odsSections" DataTextField="section_desc"
-            DataValueField="section_id" Width="300px">
+            DataValueField="section_id"  CssClass="dropdown_txt">
         </asp:DropDownList><br />
 
         <asp:TextBox ID="TextBox1" runat="server" Rows="10" TextMode="MultiLine" Width="800px"></asp:TextBox>

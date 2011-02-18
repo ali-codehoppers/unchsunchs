@@ -86,7 +86,7 @@
             </span>
         </div>
         <div class="text_field">
-            <asp:TextBox ID="tbTool" runat="server" Width="98%"></asp:TextBox>
+            <asp:TextBox ID="tbTool" runat="server" Rows="5" TextMode="MultiLine" Width="98%"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
                 ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
         </div>

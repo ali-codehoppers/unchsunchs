@@ -48,6 +48,8 @@
     <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
         <asp:LinkButton ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="txt_white"
             ValidationGroup="Top">Add</asp:LinkButton>
+        <asp:LinkButton ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update" Visible="False" CssClass="txt_white"
+        ValidationGroup="Top" ></asp:LinkButton>
     </div>
     <div style="float: left">
         <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
@@ -59,8 +61,7 @@
         <asp:LinkButton ID="btnCancel" runat="server" CssClass="txt_white" OnClick="btnCancel_Click">Cancel</asp:LinkButton>
     </div>
     <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-    <asp:Button ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update" Visible="False"
-        ValidationGroup="Top" />
+    
 </div>
 <hr />
 <input type="hidden" name="idOrdering" id="idOrdering" />
