@@ -13,13 +13,11 @@
         }
         .field span
         {
-        	font-weight: bold;
-
+            font-weight: bold;
         }
         .ddl_field span
         {
-        	font-weight: bold;
-
+            font-weight: bold;
         }
     </style>
     <script type="text/javascript">
@@ -54,14 +52,14 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="float: left;">
+    <div class="topLeft">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
     </div>
-    <div style="float: left; width: 96.05%;">
+    <div class="topMid">
         <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
             height="20" />
     </div>
-    <div>
+    <div class="topRight">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
     <div style="background-color: White; border-top: 1px solid white">
@@ -76,7 +74,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px;min-height:380px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 380px;">
         <div id="editDialog" style="display: none">
             <div class="hd">
                 Edit Related Documents:</div>
@@ -91,48 +89,50 @@
                 Transfer Documents:</div>
             <div class="bd">
                 <div class="ddl_field">
-                    <asp:Label ID="lblTransferCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList  CssClass="dropdown_txt"
-                        ID="ddlTransferCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
-                        DataValueField="co_id" AutoPostBack="true" OnSelectedIndexChanged="ddlTransferCompany_SelectedIndexChanged">
+                    <asp:Label ID="lblTransferCompany" runat="server" Text="Company:"></asp:Label><asp:DropDownList
+                        CssClass="dropdown_txt" ID="ddlTransferCompany" runat="server" DataSourceID="odsCompany"
+                        DataTextField="co_name_short" DataValueField="co_id" AutoPostBack="true" OnSelectedIndexChanged="ddlTransferCompany_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
-                <div class="ddl_field" >
-                    <span>Department:</span><asp:DropDownList ID="ddlTransferDeparment" runat="server" CssClass="dropdown_txt"
-                        DataSourceID="odsTransferDepartments" DataTextField="co_name_short" DataValueField="dept_id">
+                <div class="ddl_field">
+                    <span>Department:</span><asp:DropDownList ID="ddlTransferDeparment" runat="server"
+                        CssClass="dropdown_txt" DataSourceID="odsTransferDepartments" DataTextField="co_name_short"
+                        DataValueField="dept_id">
                     </asp:DropDownList>
                 </div>
             </div>
             <div class="ft">
                 <div style="float: left">
-                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
-            </div>
-            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnTransfer" runat="server" Text="Transfer" OnClick="btnTransfer_Click" CssClass="txt_white"></asp:LinkButton>
-            </div>
-
+                    <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                    <asp:LinkButton ID="btnTransfer" runat="server" Text="Transfer" OnClick="btnTransfer_Click"
+                        CssClass="txt_white"></asp:LinkButton>
+                </div>
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-
-                
             </div>
         </div>
-        <div class="ddl_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
-            <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
+        
+        <div class="ddl_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
+                <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
             </div>
-            <asp:DropDownList CssClass="dropdown_txt" ID="ddlCompany" runat="server" DataSourceID="odsCompany" DataTextField="co_name_short"
-                DataValueField="co_id" AutoPostBack="true">
+            <asp:DropDownList CssClass="dropdown_txt" ID="ddlCompany" runat="server" DataSourceID="odsCompany"
+                DataTextField="co_name_short" DataValueField="co_id" AutoPostBack="true">
             </asp:DropDownList>
         </div>
-        <div class="ddl_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div style="clear:both"></div>
+        <div class="ddl_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Department:</span>
             </div>
-            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment" CssClass="dropdown_txt"
-                DataTextField="co_name_short" DataValueField="dept_id" AutoPostBack="True" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment"
+                CssClass="dropdown_txt" DataTextField="co_name_short" DataValueField="dept_id"
+                AutoPostBack="True" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
-        <div class="ddl_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div class="ddl_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Document Type:</span>
             </div>
             <asp:DropDownList ID="ddlDocTypes" runat="server" DataSourceID="odsDocTypes" CssClass="dropdown_txt"
@@ -140,72 +140,66 @@
                 OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
-        <div class="ddl_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div class="ddl_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Category:</span>
             </div>
-            <asp:DropDownList ID="ddlCategories" runat="server" DataSourceID="odsCategories" CssClass="dropdown_txt"
-                DataTextField="category_name" DataValueField="category_id">
+            <asp:DropDownList ID="ddlCategories" runat="server" DataSourceID="odsCategories"
+                CssClass="dropdown_txt" DataTextField="category_name" DataValueField="category_id">
             </asp:DropDownList>
         </div>
-        <div class="text_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div class="text_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Document Name:</span>
             </div>
             <asp:TextBox ID="tbName" runat="server" CssClass="field_txt"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
                 ControlToValidate="tbName" ValidationGroup="Add"></asp:RequiredFieldValidator>
         </div>
-        <div class="text_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;"><span>Document Code:</span>
+        <div class="text_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
+                <span>Document Code:</span>
             </div>
             <asp:TextBox ID="tbCode" runat="server" CssClass="field_txt"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
                 ControlToValidate="tbCode" ValidationGroup="Add"></asp:RequiredFieldValidator>
         </div>
-        <div class="text_field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div class="text_field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Document Index:</span>
             </div>
             <ew:NumericBox ID="tbIndex" runat="server" CssClass="field_txt"></ew:NumericBox><asp:RequiredFieldValidator
                 ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="tbIndex"
                 ValidationGroup="Add"></asp:RequiredFieldValidator>
         </div>
-        <div class="field" style="padding-bottom:5px">
-            <div style="float:left; width:200px;">
+        <div class="field" style="padding-bottom: 5px">
+            <div style="float: left; width: 200px;">
                 <span>Default:</span>
             </div>
             <asp:CheckBox ID="cbDefault" runat="server" />
         </div>
         <div class="field">
-            <div style="float:left; width:200px;">
-            <asp:Label ID="lblContents" runat="server" Text="Contents:" Visible="false"></asp:Label>
+            <div style="float: left; width: 200px;">
+                <asp:Label ID="lblContents" runat="server" Text="Contents:" Visible="false"></asp:Label>
             </div>
-            <asp:FileUpload
-                ID="fileUpload" runat="server" Visible="false"  CssClass="field_txt"/>
+            <asp:FileUpload ID="fileUpload" runat="server" Visible="false" CssClass="field_txt" />
         </div>
         <div class="button_bar">
-            
             <div style="float: left">
                 <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnAdd" runat="server" OnClick="btnAdd_Click"
-                ValidationGroup="Add" CssClass="txt_white">Add Document</asp:LinkButton>
+                <asp:LinkButton ID="btnAdd" runat="server" OnClick="btnAdd_Click" ValidationGroup="Add"
+                    CssClass="txt_white">Add Document</asp:LinkButton>
             </div>
-            
-                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-            
-            <a href="" onclick="canShowTransferDialog(this);"
-                style="width: 250px; display: none" >Transfer Selected Document</a>
-            
-            
-            
+            <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            <a href="" onclick="canShowTransferDialog(this);" style="width: 250px; display: none">
+                Transfer Selected Document</a>
         </div>
         <div class="grid">
-            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result" style="width:100%; "
-                DataKeyNames="doc_id" DataSourceID="odsDocs" PageSize="50" AllowPaging="True"
-                AllowSorting="True" OnRowUpdating="gvDocs_RowUpdating" OnRowCommand="gvDocs_RowCommand">
+            <asp:GridView ID="gvDocs" runat="server" AutoGenerateColumns="False" CssClass="table_header_result"
+                Style="width: 100%;" DataKeyNames="doc_id" DataSourceID="odsDocs" PageSize="50"
+                AllowPaging="True" AllowSorting="True" OnRowUpdating="gvDocs_RowUpdating" OnRowCommand="gvDocs_RowCommand">
                 <Columns>
                     <asp:TemplateField HeaderText="Select" Visible="false">
                         <HeaderStyle Width="50px" />
@@ -223,7 +217,8 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:ImageButton ID="LinkButton12" runat="server" CausesValidation="False" CommandName="Update"
-                                ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Grid"></asp:ImageButton>
+                                ImageUrl="~/Images/icon_edit.png" AlternateText="Update" ValidationGroup="Grid">
+                            </asp:ImageButton>
                         </EditItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
@@ -242,21 +237,17 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Category" SortExpression="category_name">
                         <EditItemTemplate>
-                            
-                            <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="odsCategories" DataTextField="category_name" CssClass="dropdown_txt" style="width:165px;"
-                                DataValueField="category_id" SelectedValue='<%# Bind("category_id") %>'>
+                            <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="odsCategories" DataTextField="category_name"
+                                CssClass="dropdown_txt" Style="width: 165px;" DataValueField="category_id" SelectedValue='<%# Bind("category_id") %>'>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("category_name") %>'></asp:Label>
                         </ItemTemplate>
-                        
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Code" SortExpression="doc_code">
                         <EditItemTemplate>
-
-                            <asp:TextBox ID="tbgDocCode" runat="server" Text='<%# Bind("doc_code") %>' style="width:40px;"></asp:TextBox>
-
+                            <asp:TextBox ID="tbgDocCode" runat="server" Text='<%# Bind("doc_code") %>' Style="width: 40px;"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbgDocCode" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
@@ -264,19 +255,19 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("doc_code") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Document Name" SortExpression="doc_name" >
+                    <asp:TemplateField HeaderText="Document Name" SortExpression="doc_name">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbgDocName" runat="server" Text='<%# Bind("doc_name") %>' ></asp:TextBox>
+                            <asp:TextBox ID="tbgDocName" runat="server" Text='<%# Bind("doc_name") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbgDocName" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("doc_name") %>' ></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("doc_name") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Document Index" SortExpression="doc_index">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbIndex" runat="server" Text='<%# Bind("doc_index") %>'  style="width:105px;"></asp:TextBox>
+                            <asp:TextBox ID="tbIndex" runat="server" Text='<%# Bind("doc_index") %>' Style="width: 105px;"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator111" runat="server" ErrorMessage="*"
                                 CssClass="error" ControlToValidate="tbIndex" ValidationGroup="Grid"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
@@ -287,7 +278,7 @@
                     <asp:TemplateField HeaderText="Default" SortExpression="flg_default">
                         <EditItemTemplate>
                             <center>
-                                <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>'  />
+                                <asp:CheckBox ID="cbDefault" runat="server" Checked='<%# Bind("flg_default") %>' />
                             </center>
                         </EditItemTemplate>
                         <ItemTemplate>
@@ -299,11 +290,12 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Rel. Doc. Codes" SortExpression="related_doc_codes">
                         <ItemTemplate>
-                              <img style="float:left;" alt="Edit" onclick="showEditDialog('<%#"RelatedDocumentList.aspx?" + WebConstants.Request.DEPT_ID + "=" + Eval("dept_id") + "&" + WebConstants.Request.DOC_ID + "=" + Eval("doc_id") + "&" + WebConstants.Request.DOC_TYPE_ID + "=" + Eval("doc_type_id") %>');"
-                                        src="../Images/Btn_edit.gif"></img>
-                              <div style="float:left;">
-                                <asp:TextBox ID="Label33" runat="server" Text='<%# Eval("related_doc_codes") %>' ReadOnly="true" style="width:60px;" TextMode="MultiLine" ></asp:TextBox>
-                              </div>
+                            <img style="float: left;" alt="Edit" onclick="showEditDialog('<%#"RelatedDocumentList.aspx?" + WebConstants.Request.DEPT_ID + "=" + Eval("dept_id") + "&" + WebConstants.Request.DOC_ID + "=" + Eval("doc_id") + "&" + WebConstants.Request.DOC_TYPE_ID + "=" + Eval("doc_type_id") %>');"
+                                src="../Images/Btn_edit.gif"></img>
+                            <div style="float: left;">
+                                <asp:TextBox ID="Label33" runat="server" Text='<%# Eval("related_doc_codes") %>'
+                                    ReadOnly="true" Style="width: 60px;" TextMode="MultiLine"></asp:TextBox>
+                            </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Details">
@@ -607,7 +599,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

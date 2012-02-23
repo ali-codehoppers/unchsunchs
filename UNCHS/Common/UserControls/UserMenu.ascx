@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserMenu.ascx.cs" Inherits="Common_UserControls_UserMenu" %>
-<div class="left_nav_pnl" style="text-align: center">
+<div class="left_nav_pnl" style="text-align: center;">
     MAIN NAVIGATION
 </div>
 <div style="background-color: White; width: 252px;">
-    <ul id="red" class="treeview-red" style="width: 100%; min-height: 330px">
-        <li id="red-home" style="width: 100%"><span class="txt_black" style="width: 100%">
+    <ul id="red" class="treeview-red" style="width: 100%; min-height: 330px;">
+        <li id="red-home" ><span class="txt_black">
             <asp:Image runat="server" ID="HomeNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
             <asp:HyperLink runat="server" CssClass="txt_black" ID="HomeNode" NavigateUrl="~/UserHome.aspx">Home</asp:HyperLink>
         </span></li>
@@ -145,13 +145,13 @@
                 Target="_blank" CssClass="txt_black">User Guide</asp:HyperLink>
         </span></li>
     </ul>
+</div>
     <div style="float: left;">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 222px;">
+        <div style="background-color: White; float: left; height: 14px; width: 221px;">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
     </div>
-</div>

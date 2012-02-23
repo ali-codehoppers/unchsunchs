@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Simplicity.Data;
 
 public partial class Common_subMain : System.Web.UI.MasterPage
 {
@@ -23,7 +24,11 @@ public partial class Common_subMain : System.Web.UI.MasterPage
             SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
         BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
-        Logginuser.Text = Session["userName"].ToString();
+        //FormsIdentity id = (FormsIdentity)(HttpContext.Current.User.Identity);
+        //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(id.Ticket);
+        //Simplicity.Data.SimplicityEntities db = new SimplicityEntities();
+        //Simplicity.Data.Session session = from c in db.Sessions where c.SessionID == userId select c; 
+        Logginuser.Text = Session["userName"].ToString();  
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
@@ -86,7 +91,7 @@ public partial class Common_subMain : System.Web.UI.MasterPage
             {
                 if (company.Isflg_trialNull() == false && company.flg_trial)
                 {
-                    string url = ConfigurationManager.AppSettings["SCurl"] + "/ProductPrices.aspx?productId=2";
+                    string url = ConfigurationManager.AppSettings["SCurl"] + "/Products/HS/HSPrice.aspx?productId=2";
                     html = "<div class='trial_txt'>Your trial ends in " + company.trial_end_date.Subtract(DateTime.Now).Days + " days on " + company.trial_end_date.ToShortDateString() + "</div>";
                     html += "<div style='float:right'><a href='" + url + "'><img style='border:none' src='" + this.ResolveClientUrl("~/Images/Buy_Now.jpg") + "'\"/></a></div><div style='clear:both'></div>";
                 }

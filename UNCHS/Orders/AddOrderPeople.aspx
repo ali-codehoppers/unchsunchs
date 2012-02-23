@@ -3,28 +3,27 @@
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
-    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>">
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-         <div style="float:left; width:100%;">   
-        <div style="float: left;">
+    <div style="float: left; width: 100%;">
+        <div class="topLeft">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
         </div>
-        <div style="float: left; width: 96.1%;">
+        <div class="topMid">
             <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
                 height="20" />
         </div>
-        <div>
+        <div class="topRight">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
-
-     <div style="float:left; width:99.99%">
+    <div style="float: left; width: 99.99%">
         <div style="background-color: White; border-top: 1px solid white;">
-            <div style="margin: auto; width: 97.6%; ">
+            <div style="margin: auto; width: 97.6%;">
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -33,20 +32,22 @@
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
         </div>
-     </div>
-    
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:255px;float:left;width:97.65%">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
+        float: left; width: 97.65%">
         <div class="grid">
             <asp:GridView ID="gvPeople" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence" DataSourceID="odsDepartmentPeople"
-                PageSize="50" OnDataBound="gvPeople_DataBound" style="width:100%">
+                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence"
+                DataSourceID="odsDepartmentPeople" PageSize="50" OnDataBound="gvPeople_DataBound"
+                Style="width: 100%">
                 <Columns>
-                    <asp:BoundField DataField="name_desc" HeaderText="Person" SortExpression="name_desc"  HeaderStyle-CssClass="table_header"/>
+                    <asp:BoundField DataField="name_desc" HeaderText="Person" SortExpression="name_desc"
+                        HeaderStyle-CssClass="table_header" />
                     <asp:TemplateField HeaderText="Supervisor?" HeaderStyle-CssClass="table_header">
                         <ItemTemplate>
                             <center>
@@ -114,7 +115,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

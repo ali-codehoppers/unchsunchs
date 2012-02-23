@@ -4,14 +4,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="float: left;">
+    <div class="topLeft">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
     </div>
-    <div style="float: left; width: 96.05%;">
+    <div class="topMid">
         <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
             height="20" />
     </div>
-    <div>
+    <div class="topRight">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
     <div style="background-color: White; border-top: 1px solid white">
@@ -28,20 +28,19 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 290px">
         <div class="field">
-            <div style="float:left; width:200px;">
-            <asp:Label ID="lblDepartment" runat="server" CssClass="label" style="font-weight:bold"
-                Text="Department:">
+            <div style="float: left; width: 200px;">
+                <asp:Label ID="lblDepartment" runat="server" CssClass="label" Style="font-weight: bold"
+                    Text="Department:">
                
-                </asp:Label></div> 
-                <asp:DropDownList ID="ddlDepartments" runat="server"  CssClass="dropdown_txt"
-                    AppendDataBoundItems="True" DataSourceID="odsDepartments"
-                    DataTextField="co_name_short" DataValueField="dept_id" OnDataBound="ddlDepartments_DataBound">
-                </asp:DropDownList>
+                </asp:Label></div>
+            <asp:DropDownList ID="ddlDepartments" runat="server" CssClass="dropdown_txt" AppendDataBoundItems="True"
+                DataSourceID="odsDepartments" DataTextField="co_name_short" DataValueField="dept_id"
+                OnDataBound="ddlDepartments_DataBound">
+            </asp:DropDownList>
             &nbsp;
         </div>
-        <div class="field" style="padding-left:200px;padding-top:5px;">
-            
-            <asp:FileUpload ID="fileUpload" runat="server" CssClass="field_txt"/>
+        <div class="field" style="padding-left: 200px; padding-top: 5px;">
+            <asp:FileUpload ID="fileUpload" runat="server" CssClass="field_txt" />
         </div>
         <div class="button_bar">
             <div style="float: left; padding-left: 10px;">
@@ -87,7 +86,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

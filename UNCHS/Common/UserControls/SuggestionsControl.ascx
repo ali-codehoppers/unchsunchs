@@ -10,6 +10,7 @@
     </asp:DropDownList>
     <asp:HiddenField ID="hfSuggestionId" runat="server" />
 </div>
+<div style="clear:both"></div>
 <div class="ddl_field">
     <div style="width: 200px; float: left">
         <span style="font-weight: bold">Category:</span>
