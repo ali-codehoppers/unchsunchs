@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Login</title>
-    <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico"/>
+    <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico" />
     <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/newstylesheet.css" />
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/fonts/fonts-min.css" />
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/container/assets/skins/sam/container.css" />
@@ -76,18 +76,24 @@
                             <asp:TextBox ID="tbPassword" runat="server" TextMode="Password" class="login_field"></asp:TextBox>
                         </div>
                     </div>
-                    <div id="buttondiv">
-                        <div class="login_btn" style="padding-right: 10px;">
+                    <div class="row" style="height: 62px; padding-top: 29px;">
+                        <div class="login_btn">
                             <div class="linkdiv">
-                                <asp:LinkButton runat="server" ID="btnLogin" OnClick="btnLogin_Click" NavigateUrl="index.html" style="text-decoration: none; color: #ffffff;  padding:5px 20px 5px 20px">LOGIN</asp:LinkButton>
+                                <asp:LinkButton CssClass="btnText" runat="server" ID="btnLogin" OnClick="btnLogin_Click"
+                                    NavigateUrl="index.html">LOGIN</asp:LinkButton>
+
                             </div>
                         </div>
                     </div>
-                    <div style="clear: both; padding-top: 40px; padding-left: 150px;">
-                        <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/ProductPrices.aspx?productId=2"
-                            class="txt_blue" style="color:#333">SIGN UP HERE</a>
-                    </div>
                 </div>
+                <div style="clear: both;">
+                </div>
+                <div style="padding-left: 150px;">
+                    <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/Products/HS/HSPrice.aspx?productId=2"
+                        class="txt_blue" style="color: #333">SIGN UP HERE</a>
+                </div>
+            </div>
+            <div style="clear: both;">
             </div>
             <div class="footer_sub">
                 Copyright (c) Ultranova Coding Securities Ltd

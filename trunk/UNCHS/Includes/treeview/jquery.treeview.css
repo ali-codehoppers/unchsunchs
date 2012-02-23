@@ -18,8 +18,8 @@
 {
 
 	height: 16px;
-	width: 16px;
-	margin-left: -16px;
+	width: 10px;
+	padding-right:5px;
 	float: left;
 	cursor: pointer;
 }
@@ -31,10 +31,10 @@
 	float:none;
 }
 
-.treeview li  
+.treeview li
 {
-	margin: 0;
-	padding: 3px 3pt 3px 16px;
+    padding-top: 7px;
+    margin: 0px 0px 0px 10px;
 }
 
 .treeview a.selected 
@@ -54,30 +54,50 @@
 {
 			
 }
-.treeview li.collapsable
+.treeview .collapsable-hitarea
 {
-
-	list-style-image: url('../../Images/arrow_bottom.jpg');
+    background-position: left;
+    list-style-image: none;
+    background-image: url('../../Images/arrow_bottom.jpg');
+    background-repeat: no-repeat;
+}
+.treeview li.collapsable
+{    
+	/*list-style-image: url('../../Images/arrow_bottom.jpg');
 	list-style-position: inside;
+*/
 }
 .treeview li.expandable  
 {
-
+/*
 	list-style-image: url('../../Images/arrow_left.jpg');
 	list-style-position: inside;	
+*/
+list-style-image: none;
 }
 
-.treeview .expandable-hitarea {  }
+.treeview .expandable-hitarea
+{
+    background-position: left;
+    list-style-image: none;
+    background-image: url('../../Images/arrow_left.jpg');
+    background-repeat: no-repeat;
+}
 
 .treeview li.last {}
 .treeview li.lastCollapsable, .treeview li.lastExpandable {  }  
-.treeview li.lastCollapsable { 
-                               	list-style-image: url('../../Images/arrow_bottom.jpg');
+.treeview li.lastCollapsable  
+{
+    list-style-image: none;
+  /*                             	
+    list-style-image: url('../../Images/arrow_bottom.jpg');
 	list-style-position: inside;
-                               }
-.treeview li.lastExpandable { 
-                             	list-style-image: url('../../Images/arrow_left.jpg');
-	list-style-position: inside;	}
+                              */ }
+.treeview li.lastExpandable  
+{
+    list-style-image: none;
+                          /*   	list-style-image: url('../../Images/arrow_left.jpg');
+	list-style-position: inside;	*/}
 
 .treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea {  }
 
@@ -172,9 +192,10 @@ span.txt_black_collapse
 .selectNodeSelected
 {
 
+	padding-right:5px;
 }
 
 .selectNodeNotSelected
 {
-	padding-right:5px;	
+	padding-right:5px;
 }

@@ -5,17 +5,15 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server" >
-    <div style="float: left;">
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
+    <div class="termLeftCurve">
     </div>
-    <div style="float: left; width: 97.05%;">
-        <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
-            height="20" />
+    <div  class="termMidCurve">
     </div>
-    <div>
-        <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
+    <div class="termRightCurve">
     </div>
     <div style="background-color: White; border-bottom:1px solid white">
+    <div style="clear:both">
+    </div>
         <table width="1065px" border="0" cellspacing="0" cellpadding="0" style="margin-left:15px;">
                     <tr>
                       <td width="1%" align="right"><img src="images/bc_left.jpg" alt="" width="8" height="31" /></td>
@@ -50,10 +48,10 @@
                 those improvements, starting with the most important actions first.
                 
             </div>
-            
             <div style="width:100%;text-align:center">
                 <button class="rounded" id="btnAgree" runat="server" onserverclick="btnAgree_Click">
-	  <span>I accept that I have Read and Understood the above Disclaimer</span>	</button>
+	                <span>I accept that I have Read and Understood the above Disclaimer</span>	
+                </button>
             </div>
         </div>
 

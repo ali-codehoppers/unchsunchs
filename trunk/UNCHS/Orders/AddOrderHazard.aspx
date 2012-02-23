@@ -9,23 +9,21 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-
-         <div style="float:left; width:100%;">   
-        <div style="float: left;">
+    <div style="float: left; width: 100%;">
+        <div class="topLeft">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
         </div>
-        <div style="float: left; width: 96.1%;">
+        <div class="topMid">
             <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
                 height="20" />
         </div>
-        <div>
+        <div class="topRight">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
-
-     <div style="float:left; width:99.99%">
+    <div style="float: left; width: 99.99%">
         <div style="background-color: White; border-top: 1px solid white;">
-            <div style="margin: auto; width: 97.6%; ">
+            <div style="margin: auto; width: 97.6%;">
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -34,7 +32,7 @@
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
         </div>
-     </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Key Hazards" />
@@ -43,8 +41,9 @@
     <script type="text/javascript">
         var hazardDialog;
     </script>
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:240px;float:left;width:97.65%">
-        <div class="warning_text" style="padding-top:10px; padding-bottom:10px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px;
+        float: left; width: 97.65%">
+        <div class="warning_text" style="padding-top: 10px; padding-bottom: 10px;">
             <strong>Data may go to continuation sheet if it exceeds the number of records.</strong></div>
         <div id="hazardDialog" style="display: none">
             <div class="hd">
@@ -65,23 +64,21 @@
                 </div>
             </div>
             <div class="ft">
-            
-            <div style="float: left; padding-left:10px;">
-                <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
-            </div>
-            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnAddHazards" runat="server" OnClick="btnAddHazards_Click" CssClass="txt_white"
-                     >Add Hazard</asp:LinkButton>
-               
-            </div>
-            <div style="float: left">
-                <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-            </div>
-                <div style="clear:both"></div>
+                <div style="float: left; padding-left: 10px;">
+                    <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                    <asp:LinkButton ID="btnAddHazards" runat="server" OnClick="btnAddHazards_Click" CssClass="txt_white">Add Hazard</asp:LinkButton>
+                </div>
+                <div style="float: left">
+                    <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                </div>
+                <div style="clear: both">
+                </div>
             </div>
         </div>
         <div class="field">
-            <span class="heading" ><strong>Key Hazard:</strong></span>
+            <span class="heading"><strong>Key Hazard:</strong></span>
         </div>
         <div class="text_field">
             <asp:TextBox ID="tbHazard" runat="server" Rows="5" TextMode="MultiLine" Width="98%"></asp:TextBox>
@@ -92,7 +89,8 @@
         <div class="grid">
             <asp:GridView ID="gvHazard" runat="server" DataSourceID="odsOrderHazard" OnRowDeleting="gvHazard_RowDeleting"
                 OnRowUpdating="gvHazard_RowUpdating" DataKeyNames="sequence" AutoGenerateColumns="False"
-                AllowSorting="True" AllowPaging="True" PageSize="50" CssClass="table_header_result" Width="100%">
+                AllowSorting="True" AllowPaging="True" PageSize="50" CssClass="table_header_result"
+                Width="100%">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
@@ -125,7 +123,7 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:BoundField DataField="hazard_desc" HeaderText="Hazard" SortExpression="hazard_desc" >
+                    <asp:BoundField DataField="hazard_desc" HeaderText="Hazard" SortExpression="hazard_desc">
                     </asp:BoundField>
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
@@ -173,22 +171,19 @@
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                     <asp:LinkButton ID="btnAddHazard" runat="server" OnClick="btnAddHazard_Click" ValidationGroup="Hazard"
-                      Style="margin-right: 10px; margin-left: 5px" CssClass="txt_white" >Add Hazard</asp:LinkButton>
+                        Style="margin-right: 10px; margin-left: 5px" CssClass="txt_white">Add Hazard</asp:LinkButton>
                 </div>
                 <div style="float: left">
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
                 </div>
-                <div style="float: left; padding-left:15px;">
+                <div style="float: left; padding-left: 15px;">
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    
-                
-                      <a class="txt_white" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;"
-                    href="">Key Hazards List</a>
+                    <a class="txt_white" onclick="document.getElementById('hazardDialog').style.display='block';hazardDialog.show();return false;"
+                        href="">Key Hazards List</a>
                 </div>
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-                
             </div>
         </div>
         <div class="button_right" style="float: left; padding-left: 340px; padding-top: 20px">
@@ -202,7 +197,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

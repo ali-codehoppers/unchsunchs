@@ -66,23 +66,21 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-
-     <div style="float:left; width:100%;">   
-        <div style="float: left;">
+    <div style="float: left; width: 100%;">
+        <div class="topLeft">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
         </div>
-        <div style="float: left; width: 96.1%;">
+        <div class="topMid">
             <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
                 height="20" />
         </div>
-        <div>
+        <div class="topRight">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
-
-     <div style="float:left; width:99.99%">
+    <div style="float: left; width: 99.99%">
         <div style="background-color: White; border-top: 1px solid white;">
-            <div style="margin: auto; width: 97.6%; ">
+            <div style="margin: auto; width: 97.6%;">
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -91,8 +89,7 @@
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
         </div>
-     </div>
-
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"></uc1:TabControl>
@@ -110,13 +107,13 @@
                 <span>Address:</span><asp:TextBox ID="tbPopupAddress1" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
             <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress2" runat="server"  CssClass="field_txt"></asp:TextBox>
+                <asp:TextBox ID="tbPopupAddress2" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
             <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress3" runat="server"  CssClass="field_txt"></asp:TextBox>
+                <asp:TextBox ID="tbPopupAddress3" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
             <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
-                <asp:TextBox ID="tbPopupAddress4" runat="server"  CssClass="field_txt"></asp:TextBox></div>
+                <asp:TextBox ID="tbPopupAddress4" runat="server" CssClass="field_txt"></asp:TextBox></div>
             <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
                 <asp:TextBox ID="tbPopupAddress5" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
@@ -149,7 +146,7 @@
             </div>
         </div>
     </div>
-    <div style="float:left;width:97.65%;background-color: White; padding: 15px 10px 25px 10px;">
+    <div style="float: left; width: 97.65%; background-color: White; padding: 15px 10px 25px 10px;">
         <div class="text_field">
             <asp:HiddenField ID="hfSourceOrderId" runat="server" />
             <asp:Label ID="lblDepartment" runat="server" Text="Department:"></asp:Label><asp:DropDownList
@@ -165,12 +162,12 @@
         <div class="text_field">
             <span>SMS Ref:</span><asp:TextBox ID="tbOrderSMS" runat="server" CssClass="field_txt"
                 Enabled="false"></asp:TextBox></div>
-        <div class="text_field" >
-            <div style="float:left">
+        <div class="text_field">
+            <div style="float: left">
                 <span>Date Created:</span>
             </div>
             <div>
-                <asp:TextBox runat="server" ID="dtCreated" CssClass="field_txt"></asp:TextBox>    
+                <asp:TextBox runat="server" ID="dtCreated" CssClass="field_txt"></asp:TextBox>
             </div>
         </div>
         <div class="text_field">
@@ -188,12 +185,12 @@
             <span>Estimated number of Operatives on Site(at any one time):</span><ew:NumericBox
                 ID="tbEstNumOperatives" CssClass="field_txt" runat="server"></ew:NumericBox></div>
         <div class="field">
-            <div style="float:left">
-            <span>Review Date:</span>
+            <div style="float: left">
+                <span>Review Date:</span>
             </div>
-            <asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true"
-                OnCheckedChanged="cbReview_CheckedChanged" style="width:5%;float:left"/>
-            <asp:TextBox runat="server" ID="tbReviewDate" CssClass="field_txt" style="width:260px;"></asp:TextBox>    
+            <asp:CheckBox ID="cbReview" runat="server" AutoPostBack="true" OnCheckedChanged="cbReview_CheckedChanged"
+                Style="width: 5%; float: left" />
+            <asp:TextBox runat="server" ID="tbReviewDate" CssClass="field_txt" Style="width: 260px;"></asp:TextBox>
         </div>
         <div class="field" style="display: none;">
             <span>Document to Client:</span><asp:CheckBox ID="cbDocClient" runat="server" /></div>
@@ -315,11 +312,11 @@
             <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
         </div>
     </div>
-    <div style="float: left; width: 100%; ">
+    <div style="float: left; width: 100%;">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.35%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

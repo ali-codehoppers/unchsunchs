@@ -24,14 +24,14 @@
     </style>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="HeadingPlaceHolder" ID="ContenPlaceHolder2" runat="server">
-    <div style="float: left;">
+    <div class="topLeft">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
     </div>
-    <div style="float: left; width: 96.05%;">
+    <div class="topMid">
         <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
             height="20" />
     </div>
-    <div>
+    <div class="topRight">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
     <div style="background-color: White; border-top: 1px solid white">
@@ -46,33 +46,34 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:530px;">
-        <div class="ddl_field" style="padding-bottom:5px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 530px;">
+        <div class="ddl_field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <span>Department:</span>
             </div>
-            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment" CssClass="dropdown_txt"
-                DataTextField="co_name_short" DataValueField="dept_id" AutoPostBack="true">
+            <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="odsDepartment"
+                CssClass="dropdown_txt" DataTextField="co_name_short" DataValueField="dept_id"
+                AutoPostBack="true">
             </asp:DropDownList>
         </div>
-        <div class="text_field" style="padding-bottom:5px;">
+        <div class="text_field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <span>Person:</span>
             </div>
             <asp:TextBox ID="tbName" runat="server" CssClass="field_txt"></asp:TextBox><asp:RequiredFieldValidator
                 ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" CssClass="error"
                 ControlToValidate="tbName" ValidationGroup="Top"></asp:RequiredFieldValidator></div>
-        <div class="field" style="padding-bottom:5px;">
+        <div class="field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <asp:Label ID="lblSupervisor" runat="server" Text="Supervisor:"></asp:Label>
             </div>
             <asp:CheckBox ID="chkboxSupervisor" runat="server" /></div>
-        <div class="field" style="padding-bottom:5px;">
+        <div class="field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <asp:Label ID="lblFirstAider" runat="server" Text="First Aider:"></asp:Label>
             </div>
             <asp:CheckBox ID="chkboxFirstAider" runat="server" /></div>
-        <div class="field" style="padding-bottom:5px;">
+        <div class="field" style="padding-bottom: 5px;">
             <div style="float: left; width: 200px;">
                 <asp:Label ID="lblFireWarden" runat="server" Text="Fire Warden:"></asp:Label>
             </div>
@@ -82,33 +83,30 @@
                 <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnAdd" runat="server" CssClass="txt_white" OnClick="btnAdd_Click" ValidationGroup="Top" >Add Person</asp:LinkButton>
-                <asp:LinkButton ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Person" CssClass="txt_white"
-                Visible="False" ValidationGroup="Top" ></asp:LinkButton>
+                <asp:LinkButton ID="btnAdd" runat="server" CssClass="txt_white" OnClick="btnAdd_Click"
+                    ValidationGroup="Top">Add Person</asp:LinkButton>
+                <asp:LinkButton ID="btnUpate" runat="server" OnClick="btnUpate_Click" Text="Update Person"
+                    CssClass="txt_white" Visible="False" ValidationGroup="Top"></asp:LinkButton>
             </div>
             <div style="float: left">
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
-            <div style="float: left; padding-left:10px;">
+            <div style="float: left; padding-left: 10px;">
                 <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnCancel" runat="server" CssClass="txt_white" OnClick="btnCancel_Click" >Cancel</asp:LinkButton>
+                <asp:LinkButton ID="btnCancel" runat="server" CssClass="txt_white" OnClick="btnCancel_Click">Cancel</asp:LinkButton>
             </div>
-
-                <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-
-            
-            
-            
+            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             <asp:HiddenField ID="hfDeptPersonId" runat="server" />
         </div>
         <hr />
         <input type="hidden" name="idOrdering" id="idOrdering" />
         <div class="grid">
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" DataKeyNames="sequence" CssClass="table_header_result" DataSourceID="odsDepartmentPerson"
-                PageSize="50" OnDataBound="GridView1_DataBound" style="width:100%">
+                AutoGenerateColumns="False" DataKeyNames="sequence" CssClass="table_header_result"
+                DataSourceID="odsDepartmentPerson" PageSize="50" OnDataBound="GridView1_DataBound"
+                Style="width: 100%">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit" InsertVisible="False" SortExpression="dept_id">
                         <ItemTemplate>
@@ -272,7 +270,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

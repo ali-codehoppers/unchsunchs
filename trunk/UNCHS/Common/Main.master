@@ -55,7 +55,7 @@
 
         }
         YAHOO.util.Event.onDOMReady(renderHelpDialog);
-		
+
     </script>
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
@@ -98,7 +98,7 @@
                         <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
                             ImageUrl="~/Images/back_home.jpg" Height="27" />
                     </div>
-                    <div style="float:right;padding-top: 10px;">
+                    <div style="float:right;padding-top: 10px;width:280px;">
                         <div>
                             <div class="trialArea">
                                 <%=GetTrialHTML()%></div>
@@ -119,40 +119,45 @@
             </div>
             <div style="clear: both">
             </div>
-            <div class="floatLeft">
-                <img src="<%=this.ResolveClientUrl("~/images/top_left_curve.jpg")%>" alt="" width="10"
-                    height="6" />
-            </div>
-            <div style="padding-left: 1090px;">
-                <img src="<%=this.ResolveClientUrl("~/images/top_right_curve.jpg")%>" alt="" width="10"
-                    height="6" />
-            </div>
         </div>
+        <div class="topLeftCurve">
+        </div>
+        <div class="topRightCurve">
+        </div>
+        <div style="clear: both">
+        </div>  
         <div id="leftnav" style="padding-top: 20px;">
             <uc1:UserMenu ID="UserMenu" runat="server" Visible="false" />
             <uc2:AdminMenu ID="AdminMenu" runat="server" Visible="false" />
         </div>
-        <div style="padding-top: 17px; min-height: 330px;">
-            <div style="padding-left: 100px;">
+        <div style="width:849px;float:left;padding-top: 17px; min-height: 330px;">
+            <div id="tabContent">
                 <asp:ContentPlaceHolder ID="TabPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <div style="padding-left: 260px;">
-                <asp:ContentPlaceHolder ID="HeadingPlaceHolder" runat="server">
-                </asp:ContentPlaceHolder>
-                <asp:Panel runat="server" Visible="false" ID="errorPanel" style="padding:0px 0px 0px 0px">
-                    <div style="background-color:White; float:left;width:100%">
-                        <div class="error_msg">
-                            <asp:Label ID="lblError" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
-                            <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
-                        </div>
-                    </div>
-                </asp:Panel>
-
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server" >
+            <div style="padding-left: 10px;">
+                <div id="mainContent">
+                    <asp:ContentPlaceHolder ID="HeadingPlaceHolder" runat="server">
                     </asp:ContentPlaceHolder>
-
-                <div class="footer_sub_pages" style="padding-top: 20px; width: 250px; margin: auto">
+                    <asp:Panel runat="server" Visible="false" ID="errorPanel" style="padding:0px 0px 0px 0px">
+                        <div style="background-color:White; float:left;width:100%;">
+                            <div class="error_msg">
+                                <asp:Label ID="lblError" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                                <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <div style="clear: both">
+                    </div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server" >
+                        </asp:ContentPlaceHolder>
+                    <div style="clear:both;height: 0px;
+    overflow: hidden;">
+                    </div>
+                </div>
+                <div style="clear:both;">
+                </div>
+                <div class="footer_sub_pages" style="padding-top: 10px; width: 250px; margin: auto">
                     Copyright (c) Ultranova Coding Securities Ltd
                 </div>
                 <%if (helpHTML != null && helpHTML.Length > 0)
@@ -166,6 +171,8 @@
                 <%} %>
             </div>
         </div>
+        <div style="clear:both">
+        </div>
     </div>
     <script type="text/javascript">
 
@@ -173,375 +180,411 @@
                 animated: "fast",
                 collapsed: true,
                 unique: true,
-                persist: "cookie",
+                persist: "cookie"
             });
 
-
-
             var url = '<%=Request.Url.ToString()%>';
-            if ((url.indexOf("AddOrder.aspx") == -1)&&(url.indexOf("SearchOrder.aspx") == -1)&&(url.indexOf("UploadOrder.aspx") == -1)&&(url.indexOf("AddOrderPeople.aspx") == -1)&&(url.indexOf("AddOrderHazard.aspx") == -1)&&(url.indexOf("AddOrderSeqOfWoks.aspx") == -1)&&(url.indexOf("AddOrderTool.aspx") == -1)&&(url.indexOf("AddOrderPPE.aspx") == -1)&&(url.indexOf("AddOrderEmergencyExits.aspx") == -1)&&(url.indexOf("AddOrderRequirements.aspx") == -1)&&(url.indexOf("AddOrderKeyAspects.aspx") == -1)&&(url.indexOf("AddOrderRiskAssessments.aspx") == -1)&&(url.indexOf("AddOrderDocuments.aspx") == -1)&&(url.indexOf("OrderLog.aspx")==-1)) {
-                document.getElementById("red-folder").setAttribute("class","expandable");
-                document.getElementById("red-folder").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-            }
-            else{
-                document.getElementById("red-folder").setAttribute("class","collapsable");
-                document.getElementById("red-folder").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-            }
-            if ((url.indexOf("AddDepartment.aspx") == -1)&&(url.indexOf("DepartmentList.aspx") == -1)&&(url.indexOf("DepartmentPersonList.aspx") == -1)&&(url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)&&(url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)&&(url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx") == -1)&&(url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)&&(url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)&&(url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)&&(url.indexOf("DocumentCategoryList.aspx") == -1)&&(url.indexOf("SectionList.aspx") == -1)&&(url.indexOf("DocumentList.aspx") == -1)&&(url.indexOf("SectionDetailList.aspx") == -1)&&(url.indexOf("DocumentItemList.aspx") == -1)) {
-                document.getElementById("red-settings").setAttribute("class","expandable");
-                document.getElementById("red-settings").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                if ((url.indexOf("AddDepartment.aspx") == -1)&&(url.indexOf("DepartmentList.aspx") == -1)) {
-                    document.getElementById("red-departments").setAttribute("class","expandable");
-                    document.getElementById("red-departments").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                }
-                /*else{
-                    document.getElementById("red-departments").setAttribute("class","collapsable");
-                    document.getElementById("red-departments").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                }*/
-                if ((url.indexOf("DepartmentPersonList.aspx") == -1)&&(url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)&&(url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)&&(url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx") == -1)&&(url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)&&(url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)&&(url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                    document.getElementById("red-safety").setAttribute("class","expandable");
-                    document.getElementById("red-safety").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)) {
-                        document.getElementById("red-ppe").setAttribute("class","expandable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-ppe").setAttribute("class","collapsable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)) {
-                        document.getElementById("red-hazards").setAttribute("class","expandable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-hazards").setAttribute("class","collapsable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx")==-1)) {
-                        document.getElementById("red-tools").setAttribute("class","expandable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-tools").setAttribute("class","collapsable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)) {
-                        document.getElementById("red-work").setAttribute("class","expandable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-work").setAttribute("class","collapsable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
-                        document.getElementById("red-emergency").setAttribute("class","expandable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-emergency").setAttribute("class","collapsable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)) {
-                        document.getElementById("red-requirements").setAttribute("class","expandable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-requirements").setAttribute("class","collapsable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                    if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                        document.getElementById("red-aspects").setAttribute("class","expandable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    /*else{
-                        document.getElementById("red-aspects").setAttribute("class","collapsable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }*/
-                }
-                /*else{
-                    document.getElementById("red-safety").setAttribute("class","collapsable");
-                    document.getElementById("red-safety").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)) {
-                        document.getElementById("red-ppe").setAttribute("class","expandable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-ppe").setAttribute("class","collapsable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)) {
-                        document.getElementById("red-hazards").setAttribute("class","expandable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-hazards").setAttribute("class","collapsable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx")==-1)) {
-                        document.getElementById("red-tools").setAttribute("class","expandable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-tools").setAttribute("class","collapsable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)) {
-                        document.getElementById("red-work").setAttribute("class","expandable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-work").setAttribute("class","collapsable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
-                        document.getElementById("red-emergency").setAttribute("class","expandable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-emergency").setAttribute("class","collapsable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)) {
-                        document.getElementById("red-requirements").setAttribute("class","expandable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-requirements").setAttribute("class","collapsable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                        document.getElementById("red-aspects").setAttribute("class","expandable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-aspects").setAttribute("class","collapsable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                }*/
-                if ((url.indexOf("DocumentCategoryList.aspx") == -1)&&(url.indexOf("SectionList.aspx") == -1)&&(url.indexOf("DocumentList.aspx") == -1)&&(url.indexOf("SectionDetailList.aspx") == -1)&&(url.indexOf("DocumentItemList.aspx") == -1)) {
-                    document.getElementById("red-template").setAttribute("class","expandable");
-                    document.getElementById("red-template").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
+            if (url.indexOf("UserHome.aspx") != -1 || url.indexOf("GenerateSignage.aspx") != -1) {
+                //$("#red-folder").attr("class","expandable");
+                //$("#red-folder").children(":first").attr("class","hitarea expandable-hitarea");
+                //$("#red-folder").find("ul").attr("style", "display:none");
+            } 
 
+                if ((url.indexOf("AddOrder.aspx") == -1) && (url.indexOf("SearchOrder.aspx") == -1) && (url.indexOf("UploadOrder.aspx") == -1) && (url.indexOf("AddOrderPeople.aspx") == -1) && (url.indexOf("AddOrderHazard.aspx") == -1) && (url.indexOf("AddOrderSeqOfWoks.aspx") == -1) && (url.indexOf("AddOrderTool.aspx") == -1) && (url.indexOf("AddOrderPPE.aspx") == -1) && (url.indexOf("AddOrderEmergencyExits.aspx") == -1) && (url.indexOf("AddOrderRequirements.aspx") == -1) && (url.indexOf("AddOrderKeyAspects.aspx") == -1) && (url.indexOf("AddOrderRiskAssessments.aspx") == -1) && (url.indexOf("AddOrderDocuments.aspx") == -1) && (url.indexOf("OrderLog.aspx") == -1)) {
+                    //document.getElementById("red-folder").setAttribute("class", "expandable");
+                    //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                    //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                    $("#red-folder").attr("class", "expandable");
+                    $("#red-folder").children(":first").attr("class", "hitarea expandable-hitarea");
+                    $("#red-folder").find("ul").attr("style", "display:none");
                 }
-                /*else{
-                    document.getElementById("red-template").setAttribute("class","collapsable");
-                    document.getElementById("red-template").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                }*/
-            }
-            else{
-                document.getElementById("red-settings").setAttribute("class","collapsable");
-                document.getElementById("red-settings").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                
-                if ((url.indexOf("AddDepartment.aspx") == -1)&&(url.indexOf("DepartmentList.aspx") == -1)) {
-                    document.getElementById("red-departments").setAttribute("class","expandable");
-                    document.getElementById("red-departments").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
+                else {
+                    $("#red-folder").attr("class", "collapsable");
+                    $("#red-folder").children(":first").attr("class", "hitarea collapsable-hitarea");
+                    $("#red-folder").find("ul").attr("style", "display:block");
+                    //document.getElementById("red-folder").setAttribute("class", "collapsable");
+                    //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                    //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                 }
-                else{
-                    document.getElementById("red-departments").setAttribute("class","collapsable");
-                    document.getElementById("red-departments").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                }
-                if ((url.indexOf("DepartmentPersonList.aspx") == -1)&&(url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)&&(url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)&&(url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx") == -1)&&(url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)&&(url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)&&(url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                    document.getElementById("red-safety").setAttribute("class","expandable");
-                    document.getElementById("red-safety").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)) {
-                        document.getElementById("red-ppe").setAttribute("class","expandable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
+                if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1) && (url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1) && (url.indexOf("DocumentCategoryList.aspx") == -1) && (url.indexOf("SectionList.aspx") == -1) && (url.indexOf("DocumentList.aspx") == -1) && (url.indexOf("SectionDetailList.aspx") == -1) && (url.indexOf("DocumentItemList.aspx") == -1)) {
+                    //document.getElementById("red-settings").setAttribute("class", "expandable");
+                    //document.getElementById("red-settings").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                    //document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                    $("#red-settings").attr("class", "expandable");
+                    $("#red-settings").children(":first").attr("class", "hitarea expandable-hitarea");
+                    $("#red-settings").find("ul").attr("style", "display:none");
+                    if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1)) {
+                        $("#red-departments").attr("class", "expandable");
+                        $("#red-departments").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-departments").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-departments").setAttribute("class", "expandable");
+                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     }
-                    else{
-                        document.getElementById("red-ppe").setAttribute("class","collapsable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)) {
-                        document.getElementById("red-hazards").setAttribute("class","expandable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-hazards").setAttribute("class","collapsable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx")==-1)) {
-                        document.getElementById("red-tools").setAttribute("class","expandable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-tools").setAttribute("class","collapsable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)) {
-                        document.getElementById("red-work").setAttribute("class","expandable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-work").setAttribute("class","collapsable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
-                        document.getElementById("red-emergency").setAttribute("class","expandable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-emergency").setAttribute("class","collapsable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)) {
-                        document.getElementById("red-requirements").setAttribute("class","expandable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-requirements").setAttribute("class","collapsable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                        document.getElementById("red-aspects").setAttribute("class","expandable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-aspects").setAttribute("class","collapsable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                }
-                else{
-                    document.getElementById("red-safety").setAttribute("class","collapsable");
-                    document.getElementById("red-safety").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1)&&(url.indexOf("DepartmentPPEList.aspx") == -1)) {
-                        document.getElementById("red-ppe").setAttribute("class","expandable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-ppe").setAttribute("class","collapsable");
-                        document.getElementById("red-ppe").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1)&&(url.indexOf("DepartmentHazardList.aspx") == -1)) {
-                        document.getElementById("red-hazards").setAttribute("class","expandable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-hazards").setAttribute("class","collapsable");
-                        document.getElementById("red-hazards").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1)&&(url.indexOf("DepartmentToolList.aspx")==-1)) {
-                        document.getElementById("red-tools").setAttribute("class","expandable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-tools").setAttribute("class","collapsable");
-                        document.getElementById("red-tools").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1)&&(url.indexOf("DepartmentWorkList.aspx") == -1)) {
-                        document.getElementById("red-work").setAttribute("class","expandable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-work").setAttribute("class","collapsable");
-                        document.getElementById("red-work").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1)&&(url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
-                        document.getElementById("red-emergency").setAttribute("class","expandable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-emergency").setAttribute("class","collapsable");
-                        document.getElementById("red-emergency").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1)&&(url.indexOf("DepartmentRequirementList.aspx") == -1)) {
-                        document.getElementById("red-requirements").setAttribute("class","expandable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-requirements").setAttribute("class","collapsable");
-                        document.getElementById("red-requirements").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                    if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1)&&(url.indexOf("DepartmentAspectList.aspx") == -1)) {
-                        document.getElementById("red-aspects").setAttribute("class","expandable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
-                    }
-                    else{
-                        document.getElementById("red-aspects").setAttribute("class","collapsable");
-                        document.getElementById("red-aspects").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                        document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
-                    }
-                }
-                if ((url.indexOf("DocumentCategoryList.aspx") == -1)&&(url.indexOf("SectionList.aspx") == -1)&&(url.indexOf("DocumentList.aspx") == -1)&&(url.indexOf("SectionDetailList.aspx") == -1)&&(url.indexOf("DocumentItemList.aspx") == -1)) {
-                    document.getElementById("red-template").setAttribute("class","expandable");
-                    document.getElementById("red-template").firstChild.setAttribute("class","hitarea expandable-hitarea");
-                    document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:none";
+                    if ((url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
+                        $("#red-safety").attr("class", "expandable");
+                        $("#red-safety").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-safety").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-safety").setAttribute("class", "expandable");
+                        //document.getElementById("red-safety").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1)) {
+                            $("#red-ppe").attr("class", "expandable");
+                            $("#red-ppe").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-ppe").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-ppe").setAttribute("class", "expandable");
+                            //document.getElementById("red-ppe").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1)) {
+                            $("#red-hazards").attr("class", "expandable");
+                            $("#red-hazards").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-hazards").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-hazards").setAttribute("class", "expandable");
+                            //document.getElementById("red-hazards").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1)) {
+                            $("#red-tools").attr("class", "expandable");
+                            $("#red-tools").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-tools").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-tools").setAttribute("class", "expandable");
+                            //document.getElementById("red-tools").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1)) {
+                            $("#red-work").attr("class", "expandable");
+                            $("#red-work").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-work").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-work").setAttribute("class", "expandable");
+                            //document.getElementById("red-work").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
+                            $("#red-emergency").attr("class", "expandable");
+                            $("#red-emergency").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-emergency").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-emergency").setAttribute("class", "expandable");
+                            //document.getElementById("red-emergency").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1)) {
+                            $("#red-requirements").attr("class", "expandable");
+                            $("#red-requirements").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-requirements").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-requirements").setAttribute("class", "expandable");
+                            //document.getElementById("red-requirements").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
+                            $("#red-aspects").attr("class", "expandable");
+                            $("#red-aspects").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-aspects").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-aspects").setAttribute("class", "expandable");
+                            //document.getElementById("red-aspects").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
 
+                    }
+                    
+                    if ((url.indexOf("DocumentCategoryList.aspx") == -1) && (url.indexOf("SectionList.aspx") == -1) && (url.indexOf("DocumentList.aspx") == -1) && (url.indexOf("SectionDetailList.aspx") == -1) && (url.indexOf("DocumentItemList.aspx") == -1)) {
+                        $("#red-template").attr("class", "expandable");
+                        $("#red-template").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-template").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-template").setAttribute("class", "expandable");
+                        //document.getElementById("red-template").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+
+                    }
                 }
-                else{
-                    document.getElementById("red-template").setAttribute("class","collapsable");
-                    document.getElementById("red-template").firstChild.setAttribute("class","hitarea collapsable-hitarea");
-                    document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue="display:block";
+                else {
+                    $("#red-settings").attr("class", "collapsable");
+                    $("#red-settings").children(":first").attr("class", "hitarea collapsable-hitarea");
+                    $("#red-settings").find("ul").attr("style", "display:block");
+                    //document.getElementById("red-settings").setAttribute("class", "collapsable");
+                    //document.getElementById("red-settings").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                    //document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+
+                    if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1)) {
+                        $("#red-departments").attr("class", "expandable");
+                        $("#red-departments").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-departments").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-departments").setAttribute("class", "expandable");
+                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                    }
+                    else {
+                        $("#red-departments").attr("class", "collapsable");
+                        $("#red-departments").children(":first").attr("class", "hitarea collapsable-hitarea");
+                        $("#red-departments").find("ul").attr("style", "display:block");
+                        //document.getElementById("red-departments").setAttribute("class", "collapsable");
+                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                    }
+                    if ((url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
+                        $("#red-safety").attr("class", "expandable");
+                        $("#red-safety").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-safety").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-safety").setAttribute("class", "expandable");
+                        //document.getElementById("red-safety").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1)) {
+                            $("#red-ppe").attr("class", "expandable");
+                            $("#red-ppe").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-ppe").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-ppe").setAttribute("class", "expandable");
+                            //document.getElementById("red-ppe").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-ppe").attr("class", "collapsable");
+                            $("#red-ppe").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-ppe").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-ppe").setAttribute("class", "collapsable");
+                            //document.getElementById("red-ppe").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1)) {
+                            $("#red-hazards").attr("class", "expandable");
+                            $("#red-hazards").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-hazards").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-hazards").setAttribute("class", "expandable");
+                            //document.getElementById("red-hazards").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-hazards").attr("class", "collapsable");
+                            $("#red-hazards").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-hazards").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-hazards").setAttribute("class", "collapsable");
+                            //document.getElementById("red-hazards").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1)) {
+                            $("#red-tools").attr("class", "expandable");
+                            $("#red-tools").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-tools").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-tools").setAttribute("class", "expandable");
+                            //document.getElementById("red-tools").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-tools").attr("class", "collapsable");
+                            $("#red-tools").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-tools").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-tools").setAttribute("class", "collapsable");
+                            //document.getElementById("red-tools").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1)) {
+                            $("#red-work").attr("class", "expandable");
+                            $("#red-work").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-work").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-work").setAttribute("class", "expandable");
+                            //document.getElementById("red-work").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-work").attr("class", "collapsable");
+                            $("#red-work").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-work").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-work").setAttribute("class", "collapsable");
+                            //document.getElementById("red-work").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
+                            $("#red-emergency").attr("class", "expandable");
+                            $("#red-emergency").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-emergency").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-emergency").setAttribute("class", "expandable");
+                            //document.getElementById("red-emergency").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-emergency").attr("class", "collapsable");
+                            $("#red-emergency").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-emergency").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-emergency").setAttribute("class", "collapsable");
+                            //document.getElementById("red-emergency").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1)) {
+                            $("#red-requirements").attr("class", "expandable");
+                            $("#red-requirements").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-requirements").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-requirements").setAttribute("class", "expandable");
+                            //document.getElementById("red-requirements").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-requirements").attr("class", "collapsable");
+                            $("#red-requirements").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-requirements").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-requirements").setAttribute("class", "collapsable");
+                            //document.getElementById("red-requirements").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
+                            $("#red-aspects").attr("class", "expandable");
+                            $("#red-aspects").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-aspects").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-aspects").setAttribute("class", "expandable");
+                            //document.getElementById("red-aspects").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-aspects").attr("class", "collapsable");
+                            $("#red-aspects").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-aspects").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-aspects").setAttribute("class", "collapsable");
+                            //document.getElementById("red-aspects").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                    }
+                    else {
+                        $("#red-safety").attr("class", "collapsable");
+                        $("#red-safety").children(":first").attr("class", "hitarea collapsable-hitarea");
+                        $("#red-safety").find("ul").attr("style", "display:block");
+                        //document.getElementById("red-safety").setAttribute("class", "collapsable");
+                        //document.getElementById("red-safety").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                        //document.getElementById("red-safety").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        if ((url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1)) {
+                            $("#red-ppe").attr("class", "expandable");
+                            $("#red-ppe").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-ppe").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-ppe").setAttribute("class", "expandable");
+                            //document.getElementById("red-ppe").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-ppe").attr("class", "collapsable");
+                            $("#red-ppe").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-ppe").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-ppe").setAttribute("class", "collapsable");
+                            //document.getElementById("red-ppe").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-ppe").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1)) {
+                            $("#red-hazards").attr("class", "expandable");
+                            $("#red-hazards").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-hazards").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-hazards").setAttribute("class", "expandable");
+                            //document.getElementById("red-hazards").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-hazards").attr("class", "collapsable");
+                            $("#red-hazards").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-hazards").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-hazards").setAttribute("class", "collapsable");
+                            //document.getElementById("red-hazards").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-hazards").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1)) {
+                            $("#red-tools").attr("class", "expandable");
+                            $("#red-tools").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-tools").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-tools").setAttribute("class", "expandable");
+                            //document.getElementById("red-tools").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-tools").attr("class", "collapsable");
+                            $("#red-tools").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-tools").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-tools").setAttribute("class", "collapsable");
+                            //document.getElementById("red-tools").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-tools").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1)) {
+                            $("#red-work").attr("class", "expandable");
+                            $("#red-work").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-work").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-work").setAttribute("class", "expandable");
+                            //document.getElementById("red-work").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-work").attr("class", "collapsable");
+                            $("#red-work").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-work").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-work").setAttribute("class", "collapsable");
+                            //document.getElementById("red-work").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-work").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1)) {
+                            $("#red-emergency").attr("class", "expandable");
+                            $("#red-emergency").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-emergency").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-emergency").setAttribute("class", "expandable");
+                            //document.getElementById("red-emergency").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-emergency").attr("class", "collapsable");
+                            $("#red-emergency").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-emergency").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-emergency").setAttribute("class", "collapsable");
+                            //document.getElementById("red-emergency").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-emergency").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1)) {
+                            $("#red-requirements").attr("class", "expandable");
+                            $("#red-requirements").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-requirements").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-requirements").setAttribute("class", "expandable");
+                            //document.getElementById("red-requirements").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-requirements").attr("class", "collapsable");
+                            $("#red-requirements").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-requirements").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-requirements").setAttribute("class", "collapsable");
+                            //document.getElementById("red-requirements").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-requirements").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                        if ((url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
+                            $("#red-aspects").attr("class", "expandable");
+                            $("#red-aspects").children(":first").attr("class", "hitarea expandable-hitarea");
+                            $("#red-aspects").find("ul").attr("style", "display:none");
+                            //document.getElementById("red-aspects").setAttribute("class", "expandable");
+                            //document.getElementById("red-aspects").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                            //document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                        }
+                        else {
+                            $("#red-aspects").attr("class", "collapsable");
+                            $("#red-aspects").children(":first").attr("class", "hitarea collapsable-hitarea");
+                            $("#red-aspects").find("ul").attr("style", "display:block");
+                            //document.getElementById("red-aspects").setAttribute("class", "collapsable");
+                            //document.getElementById("red-aspects").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                            //document.getElementById("red-aspects").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                        }
+                    }
+                    if ((url.indexOf("DocumentCategoryList.aspx") == -1) && (url.indexOf("SectionList.aspx") == -1) && (url.indexOf("DocumentList.aspx") == -1) && (url.indexOf("SectionDetailList.aspx") == -1) && (url.indexOf("DocumentItemList.aspx") == -1)) {
+                        $("#red-template").attr("class", "expandable");
+                        $("#red-template").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-template").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-template").setAttribute("class", "expandable");
+                        //document.getElementById("red-template").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+
+                    }
+                    else {
+                        $("#red-template").attr("class", "collapsable");
+                        $("#red-template").children(":first").attr("class", "hitarea collapsable-hitarea");
+                        $("#red-template").find("ul").attr("style", "display:block");
+                        //document.getElementById("red-template").setAttribute("class", "collapsable");
+                        //document.getElementById("red-template").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
+                        //document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
+                    }
                 }
-            }
+                $("#mainContent").ready(function () {
+                    var heightDiv = document.getElementById("mainContent").offsetHeight + document.getElementById("tabContent").offsetHeight - (40 + 14 + 14+2);
+                    var mainHeight = "min-height:" + heightDiv + "px";
+                    $("#red").attr("style", mainHeight);
+                });
+ 
      </script>
             
     </form>

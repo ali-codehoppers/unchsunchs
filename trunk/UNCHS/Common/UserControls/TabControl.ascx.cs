@@ -34,7 +34,7 @@ public partial class Common_TabControl : System.Web.UI.UserControl
         //menuItems.Add("Assem Pts", "AddOrderAssemPts.aspx");        
         //menuItems.Add("Measures", "AddOrderCtrlMeasures.aspx");
         menuItems.Add("Docs", "AddOrderDocuments.aspx");
-        menuItems.Add("Log", "OrderLog.aspx");
+        //menuItems.Add("Log", "OrderLog.aspx");
 
         StringBuilder lis = new StringBuilder();
         lis.Append("<div style='width:100%'>");

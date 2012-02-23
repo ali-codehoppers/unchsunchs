@@ -1,12 +1,12 @@
 ﻿.shadetabs{
 /*border-bottom: 1px solid #292F8D;*/
-width: 900px; /*width of menu. Uncomment to change to a specific width */
+width: 95%; /*width of menu. Uncomment to change to a specific width */
 margin-bottom: 0em;
-margin-left:170px;
+margin-left:35px;
 }
 
 .shadetabs ul{
-padding: 3px 0;
+padding: 0 0;
 margin-left: 0;
 margin-top: 1px;
 margin-bottom: 0;

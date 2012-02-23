@@ -10,6 +10,8 @@
         OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
     </asp:DropDownList>
 </div>
+<div style="clear:both">
+</div>
 <div class="text_field" style="padding-bottom:5px;">
     <div style="float: left; width: 200px;">
         <span style="font-weight: bold">Category:</span>

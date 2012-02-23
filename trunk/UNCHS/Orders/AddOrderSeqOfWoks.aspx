@@ -11,22 +11,21 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-         <div style="float:left; width:100%;">   
-        <div style="float: left;">
+    <div style="float: left; width: 100%;">
+        <div class="topLeft">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
         </div>
-        <div style="float: left; width: 96.1%;">
+        <div class="topMid">
             <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
                 height="20" />
         </div>
-        <div>
+        <div class="topRight">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
-
-     <div style="float:left; width:99.99%">
+    <div style="float: left; width: 99.99%">
         <div style="background-color: White; border-top: 1px solid white;">
-            <div style="margin: auto; width: 97.6%; ">
+            <div style="margin: auto; width: 97.6%;">
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -35,14 +34,14 @@
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
         </div>
-     </div>
-    
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Work" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 180px;width:97.65%;float:left">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 180px;
+        width: 97.65%; float: left">
         <uc1:SuggestionsSelectControl ID="suggestionsSelectControl" runat="server" EntityName="Sequence of Work"
             SuggestionType="W" ImageName="Add_sequence_of_work" />
         <div class="warning_text" style="padding-top: 10px; padding-bottom: 10px;">
@@ -61,7 +60,8 @@
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    <asp:LinkButton ID="btnAddWork" runat="server" OnClick="btnAddWork_Click" ValidationGroup="Work" CssClass="txt_white">Add Sequence of Work</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddWork" runat="server" OnClick="btnAddWork_Click" ValidationGroup="Work"
+                        CssClass="txt_white">Add Sequence of Work</asp:LinkButton>
                 </div>
                 <div style="float: left">
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
@@ -71,15 +71,17 @@
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                     <a href="" onclick="document.getElementById('suggestionDialog').style.display='block';suggestionDialog.show();return false;"
-                        style="margin-right: 10px; margin-left: 5px" class="txt_white">Sequence of Works List</a>
+                        style="margin-right: 10px; margin-left: 5px" class="txt_white">Sequence of Works
+                        List</a>
                 </div>
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
         </div>
         <div class="grid">
             <asp:GridView Width="100%" ID="gvWork" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence" DataSourceID="odsWork"
-                OnRowDeleting="gvWork_RowDeleting" OnRowUpdating="gvWork_RowUpdating" PageSize="50">
+                AutoGenerateColumns="False" CssClass="table_header_result" DataKeyNames="sequence"
+                DataSourceID="odsWork" OnRowDeleting="gvWork_RowDeleting" OnRowUpdating="gvWork_RowUpdating"
+                PageSize="50">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
@@ -163,7 +165,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

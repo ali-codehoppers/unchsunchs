@@ -19,14 +19,14 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    <div style="float: left;">
+    <div class="topLeft">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
     </div>
-    <div style="float: left; width: 96.05%;">
+    <div class="topMid">
         <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
             height="20" />
     </div>
-    <div>
+    <div class="topRight">
         <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
     </div>
 </asp:Content>
@@ -58,7 +58,8 @@
             <div style="float: left; width: 200px;">
                 <span>Section:</span>
             </div>
-            <asp:TextBox ID="tbSec" runat="server" Rows="3" TextMode="MultiLine" Style="width: 300px;" CssClass="text_area"></asp:TextBox>
+            <asp:TextBox ID="tbSec" runat="server" Rows="3" TextMode="MultiLine" Style="width: 300px;"
+                CssClass="text_area"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
                 ControlToValidate="tbSec"></asp:RequiredFieldValidator>
         </div>
@@ -149,7 +150,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Section Type" SortExpression="section_type">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlGridType" style="width:110px" CssClass="dropdown_txt" runat="server" SelectedValue='<%# Bind("section_type") %>'>
+                            <asp:DropDownList ID="ddlGridType" Style="width: 110px" CssClass="dropdown_txt" runat="server"
+                                SelectedValue='<%# Bind("section_type") %>'>
                                 <asp:ListItem Value="FREE_TEXT">Free Text</asp:ListItem>
                                 <asp:ListItem Value="MULTIPLE_SELECT_LIST">Multiple Select List</asp:ListItem>
                             </asp:DropDownList>
@@ -231,7 +233,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />

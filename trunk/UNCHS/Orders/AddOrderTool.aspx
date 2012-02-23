@@ -9,22 +9,21 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-         <div style="float:left; width:100%;">   
-        <div style="float: left;">
+    <div style="float: left; width: 100%;">
+        <div class="topLeft">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_left.jpg")%>" alt="" height="20" />
         </div>
-        <div style="float: left; width: 96.1%;">
+        <div class="topMid">
             <img src="<%=this.ResolveClientUrl("~/Images/big_pnl_mid.jpg")%>" alt="" style="width: 100%"
                 height="20" />
         </div>
-        <div>
+        <div class="topRight">
             <img src="<%=this.ResolveClientUrl("~/images/big_pnl_right.jpg")%>" alt="" height="20" />
         </div>
     </div>
-
-     <div style="float:left; width:99.99%">
+    <div style="float: left; width: 99.99%">
         <div style="background-color: White; border-top: 1px solid white;">
-            <div style="margin: auto; width: 97.6%; ">
+            <div style="margin: auto; width: 97.6%;">
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
@@ -33,7 +32,7 @@
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
         </div>
-     </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Plants & Tools" />
@@ -42,7 +41,8 @@
     <script type="text/javascript">
         var toolDialog;
     </script>
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;float:left; width:97.65%">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
+        float: left; width: 97.65%">
         <div class="warning_text" style="padding-top: 10px; padding-bottom: 10px;">
             <strong>Data may go to continuation sheet if it exceeds the number of recods.</strong></div>
         <div id="toolDialog" style="display: none;">
@@ -66,31 +66,28 @@
             </div>
             <div class="ft">
                 <div class="button_bar_dialog">
-                    <div style="float: left; padding-left:10px;">
-                <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
-            </div>
-            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnAddTools" runat="server" OnClick="btnAddTools_Click" CssClass="txt_white"
-                        >Add Plant &amp; Tool</asp:LinkButton>
-            </div>
-            <div style="float: left">
-                <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-            </div>
-            <div style="clear:both"></div>
+                    <div style="float: left; padding-left: 10px;">
+                        <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                    </div>
+                    <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                        <asp:LinkButton ID="btnAddTools" runat="server" OnClick="btnAddTools_Click" CssClass="txt_white">Add Plant &amp; Tool</asp:LinkButton>
+                    </div>
+                    <div style="float: left">
+                        <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                    </div>
+                    <div style="clear: both">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="field">
-            <span class="heading">
-                <strong>Plant &amp; Tool Name:</strong>
-            </span>
+            <span class="heading"><strong>Plant &amp; Tool Name:</strong> </span>
         </div>
         <div class="text_field">
             <asp:TextBox ID="tbTool" runat="server" Rows="5" TextMode="MultiLine" Width="98%"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbTool"
                 ErrorMessage="*" ValidationGroup="Tool"></asp:RequiredFieldValidator>
         </div>
-        
         <div class="grid">
             <asp:GridView Width="100%" ID="gvTool" runat="server" AllowPaging="True" AllowSorting="True"
                 AutoGenerateColumns="False" DataKeyNames="sequence" DataSourceID="odsTool" OnRowDeleting="gvTool_RowDeleting"
@@ -171,24 +168,21 @@
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    
-            <asp:LinkButton ID="btnAddTool" runat="server" OnClick="btnAddTool_Click" ValidationGroup="Tool"
-                CssClass="txt_white">Add Plant &amp; Tool
-        </asp:LinkButton>
-        </div>
+                    <asp:LinkButton ID="btnAddTool" runat="server" OnClick="btnAddTool_Click" ValidationGroup="Tool"
+                        CssClass="txt_white">Add Plant &amp; Tool
+                    </asp:LinkButton>
+                </div>
                 <div style="float: left">
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
                 </div>
-                <div style="float: left; padding-left:15px;">
+                <div style="float: left; padding-left: 15px;">
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                
-            <a href="" class="txt_white" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;"
-                 style="margin-right: 10px; margin-left: 5px" >Plants &amp; Tools List</a>
-        </div>
+                    <a href="" class="txt_white" onclick="document.getElementById('toolDialog').style.display='block';toolDialog.show();return false;"
+                        style="margin-right: 10px; margin-left: 5px">Plants &amp; Tools List</a>
+                </div>
                 <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-                
             </div>
         </div>
         <div class="button_right" style="float: left; padding-left: 340px; padding-top: 20px">
@@ -202,7 +196,7 @@
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
                 Width="15" Height="14" /></div>
-        <div style="background-color: White; float: left; height: 14px; width: 96.2%;">
+        <div class="bottonMid">
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
