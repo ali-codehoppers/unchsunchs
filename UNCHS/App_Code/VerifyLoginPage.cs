@@ -71,13 +71,14 @@ public abstract class VerifyLoginPage : GenericPage
                         if (numOfLicenses > 0)//check for available licenses now
                         {
                             int numOfUsedLicenses = 0;
+                            DateTime dateToCompare = DateTime.Now.AddMinutes(-30);
                             var check = (from userTable in databaseContext.Users where userTable.CompanyID == session.User.Company.CompanyID select userTable).ToList() ;
-                            List<Session> userSessions = (from ses in databaseContext.Sessions where ses.ProductID == HSProductId && (from userTable in databaseContext.Users where userTable.CompanyID == session.User.Company.CompanyID select userTable.UserID).Contains(ses.UserID) && DateTime.Compare(DateTime.Now,ses.LastActivityTime)>30 && ses.SessionID != session.SessionID select ses).ToList<Session>();
+                            List<Session> userSessions = (from ses in databaseContext.Sessions where ses.ProductID == HSProductId && (from userTable in databaseContext.Users where userTable.CompanyID == session.User.Company.CompanyID select userTable.UserID).Contains(ses.UserID) && DateTime.Compare(dateToCompare, ses.LastActivityTime) < 0 && ses.SessionID != session.SessionID select ses).ToList<Session>();
                             foreach (Session ses in userSessions)
                             {
                                 numOfUsedLicenses = numOfUsedLicenses + 1;
                             }
-                            if (numOfLicenses - numOfUsedLicenses > 0)
+                            if (numOfLicenses - numOfUsedLicenses >= 0)
                             {
                                 GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current);
                             }
