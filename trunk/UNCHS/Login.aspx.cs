@@ -45,7 +45,15 @@ public partial class nLogin : GenericPage
                                      where u.Email == tbUserName.Text
                                      && u.Password == Collectpassword
                                      && u.Verified == true
+                                     && u.Enabled == true
                                      select u).FirstOrDefault();
+
+        //var usersSignedIn = from sess in DatabaseContext.Sessions where sess.User.CompanyID == user.CompanyID && sess.EndTime > DateTime.Now select sess;
+        //int loggedInUsersCount = usersSignedIn.Count();
+        //int productID = Configuration
+        //var companyProducts = from cp in DatabaseContext.CompanyProducts where cp.CompanyID == user.CompanyID && cp.ProductID == productID select cp;
+        //var totalLicensesAssigned = from licenceUsers in DatabaseContext.ProductDetails
+
         if (user != null)
         {
             Simplicity.Data.Session session = new Simplicity.Data.Session();
