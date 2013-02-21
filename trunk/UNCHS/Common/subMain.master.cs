@@ -28,7 +28,7 @@ public partial class Common_subMain : System.Web.UI.MasterPage
         //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(id.Ticket);
         //Simplicity.Data.SimplicityEntities db = new SimplicityEntities();
         //Simplicity.Data.Session session = from c in db.Sessions where c.SessionID == userId select c; 
-        Logginuser.Text = Session["userName"].ToString();  
+        Logginuser.Text = Session["userName"].ToString();
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);

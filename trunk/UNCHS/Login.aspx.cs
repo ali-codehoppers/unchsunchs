@@ -11,9 +11,13 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Specialized;
 using System.Linq;
+using log4net;
+using Simplicity.Data;
 
 public partial class nLogin : GenericPage
 {
+    private static readonly ILog log = LogManager.GetLogger(typeof(nLogin));
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if ((LoggedIsUser != null) || (User.Identity.IsAuthenticated))
@@ -48,40 +52,47 @@ public partial class nLogin : GenericPage
                                      && u.Enabled == true
                                      select u).FirstOrDefault();
 
-        //var usersSignedIn = from sess in DatabaseContext.Sessions where sess.User.CompanyID == user.CompanyID && sess.EndTime > DateTime.Now select sess;
-        //int loggedInUsersCount = usersSignedIn.Count();
-        //int productID = Configuration
-        //var companyProducts = from cp in DatabaseContext.CompanyProducts where cp.CompanyID == user.CompanyID && cp.ProductID == productID select cp;
-        //var totalLicensesAssigned = from licenceUsers in DatabaseContext.ProductDetails
-
         if (user != null)
         {
-            Simplicity.Data.Session session = new Simplicity.Data.Session();
-            session.SessionUID = System.Guid.NewGuid().ToString();
-            session.User = user;
-            session.StartTime = DateTime.Now;
-            session.LastActivityTime = DateTime.Now;
-            session.EndTime = DateTime.Now.AddMinutes(30);
-            session.IP = Request.UserHostAddress;
-            DatabaseContext.AddToSessions(session);
-            DatabaseContext.SaveChanges();
-            FormsAuthentication.SetAuthCookie(session.SessionUID, false);
-            Session[WebConstants.Session.USER_ID] = user.UserID;
-            Session["userName"] = user.Email;
-            Session["userFullName"]=user.FullName;
-            //Session["isTrial"] = user.UserProducts.FirstOrDefault().IsTrial;
-            Session["sessionID"] = session.SessionUID;
-            if (Session[WebConstants.Session.RETURN_URL] != null)
+            var userAuthorisedForThisProduct = user.UserProducts.Where(userProd => userProd.ProductID == int.Parse(AppSettings["HSProductIDInSimplicity"]));
+            if (userAuthorisedForThisProduct.Count() <= 0)
             {
-                Response.Redirect((string)Session[WebConstants.Session.RETURN_URL]);
+                errorPanel.Visible = true;
+                SetErrorMessage("You are not authorized to use Health And Safety.");
             }
-            else if (Request["GOTO_URL"] != null)
+
+            else if (userAuthorisedForThisProduct.Count() > 0)
             {
-                Response.Redirect((string)Request["GOTO_URL"]);
-            }
-            else
-            {
-                Response.Redirect("TermsConditions.aspx",false);
+                Simplicity.Data.Session session = new Simplicity.Data.Session();
+                session.SessionUID = System.Guid.NewGuid().ToString();
+                session.User = user;
+                session.StartTime = DateTime.Now;
+                session.LastActivityTime = DateTime.Now;
+                session.EndTime = DateTime.Now.AddMinutes(30);
+                session.IP = Request.UserHostAddress;
+                DatabaseContext.AddToSessions(session);
+                DatabaseContext.SaveChanges();
+                FormsAuthentication.SetAuthCookie(session.SessionUID, false);
+                Session[WebConstants.Session.USER_ID] = user.UserID;
+                Session["userName"] = user.Email;
+                Session["userFullName"] = user.FullName;
+                //Session["isTrial"] = user.UserProducts.FirstOrDefault().IsTrial;
+                Session["sessionID"] = session.SessionUID;
+
+                log.Info("User successfully logged in.");
+
+                if (Session[WebConstants.Session.RETURN_URL] != null)
+                {
+                    Response.Redirect((string)Session[WebConstants.Session.RETURN_URL]);
+                }
+                else if (Request["GOTO_URL"] != null)
+                {
+                    Response.Redirect((string)Request["GOTO_URL"]);
+                }
+                else
+                {
+                    Response.Redirect("TermsConditions.aspx", false);
+                }
             }
         }
         else

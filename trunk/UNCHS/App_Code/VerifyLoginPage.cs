@@ -45,6 +45,7 @@ public abstract class VerifyLoginPage : GenericPage
                 Session[WebConstants.Session.SIMPLICITY_USER_ID] = session.User.UserID;
                 Session[WebConstants.Session.USER_ID] = users.Current.user_id;
                 Session[WebConstants.Session.USER_ROLE] = WebConstants.Roles.User;
+                Session["userName"] = session.User.Email;
                 loggedInUserRole = WebConstants.Roles.User;
                 loggedInUserId = users.Current.user_id;
                 if (session.User.Company != null)
@@ -57,6 +58,12 @@ public abstract class VerifyLoginPage : GenericPage
                         Session[WebConstants.Session.USER_CO_ID] = companies.Current.co_id;
                         Session[WebConstants.Session.COMPANY_NAME] = companies.Current.co_name_long;
                         loggedInUserCoId = companies.Current.co_id;
+
+                        var userAuthorisedForThisProduct = session.User.UserProducts.Where(userProd => userProd.ProductID == HSProductId);
+                        if (userAuthorisedForThisProduct.Count() <= 0)
+                        {
+                            Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You are not authorized to access Health and Safety");
+                        }
 
                         //going to check for licenses                        
                         List<CompanyProduct> companyProducts = (from cp in databaseContext.CompanyProducts where cp.CompanyID == session.User.Company.CompanyID && cp.ProductID == HSProductId select cp).ToList<CompanyProduct>();
@@ -90,7 +97,7 @@ public abstract class VerifyLoginPage : GenericPage
                         else //check if trial version is available
                         {
                             bool isTrial = false;
-                            List<UserProduct> userProducts = (from up in databaseContext.UserProducts where up.UserID == session.User.UserID && up.ProductID == HSProductId select up).ToList<UserProduct>();
+                            List<UserProduct> userProducts = (from up in databaseContext.UserProducts where up.UserID == session.User.UserID && up.ProductID == HSProductId && up.IsTrial == true select up).ToList<UserProduct>();
                             foreach (UserProduct up in userProducts)
                             {
                                 if (up.EndDate.CompareTo(DateTime.Now) >= 0)
